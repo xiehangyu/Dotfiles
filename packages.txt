@@ -1002,6 +1002,7 @@ python-mistune
 python-msgpack
 python-networkx
 python-numpy
+python-opengl
 python-openpyxl
 python-ordered-set
 python-packaging

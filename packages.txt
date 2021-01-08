@@ -140,7 +140,7 @@ edk2-ovmf
 efibootmgr
 efivar
 electron
-electron-ssr-preview
+electron-ssr-0.3.0
 electron7
 electron9
 elfutils
@@ -604,6 +604,7 @@ libldap
 liblouis
 liblqr
 liblrdf
+liblscp
 libluv
 libmaa
 libmad
@@ -1216,6 +1217,7 @@ tslib
 ttf-wps-fonts
 tumbler
 twolame
+typora
 tzdata
 uchardet
 udisks2

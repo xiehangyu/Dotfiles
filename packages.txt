@@ -46,6 +46,7 @@ base
 bash
 bc
 bcprov
+bear
 beep
 bind
 binutils
@@ -178,6 +179,7 @@ flatpak
 flex
 fltk
 fluidsynth
+fmt
 folks
 fontconfig
 foxitreader
@@ -305,6 +307,7 @@ grep
 grilo
 grilo-plugins
 groff
+grpc
 grub
 gsettings-desktop-schemas
 gsfonts
@@ -1148,6 +1151,7 @@ sound-theme-freedesktop
 soundtouch
 source-highlight
 spandsp
+spdlog
 speech-dispatcher
 speex
 speexdsp

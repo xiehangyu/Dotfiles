@@ -1,0 +1,2 @@
+fcitx &
+/usr/bin/start-pulseaudio-x11

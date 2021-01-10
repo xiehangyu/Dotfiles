@@ -112,6 +112,7 @@ dbus
 dbus-glib
 dconf
 dconf-editor
+deepin-wine-qq
 desktop-file-utils
 device-mapper
 dhcpcd
@@ -458,6 +459,7 @@ lib32-a52dec
 lib32-aalib
 lib32-acl
 lib32-alsa-lib
+lib32-alsa-plugins
 lib32-aom
 lib32-at-spi2-atk
 lib32-at-spi2-core
@@ -978,7 +980,6 @@ linux-firmware
 linux-headers
 linux-lts
 linux-lts-headers
-linuxqq
 llvm-libs
 lm_sensors
 lmdb
@@ -1468,6 +1469,7 @@ wpa_supplicant
 wpebackend-fdo
 wps-office-cn
 wps-office-mui-zh-cn
+wqy-microhei
 wqy-zenhei
 wxgtk-common
 wxgtk2

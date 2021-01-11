@@ -95,6 +95,7 @@ coin-docs
 colord
 colord-gtk
 colord-sane
+com.qq.weixin.spark
 compiler-rt
 coreutils
 cracklib
@@ -112,7 +113,13 @@ dbus
 dbus-glib
 dconf
 dconf-editor
+deepin-udis86
+deepin-wine-helper
+deepin-wine-plugin
+deepin-wine-plugin-virtual
 deepin-wine-qq
+deepin-wine5
+deepin-wine5-i386
 desktop-file-utils
 device-mapper
 dhcpcd
@@ -528,6 +535,7 @@ lib32-libbluray
 lib32-libbs2b
 lib32-libcaca
 lib32-libcanberra
+lib32-libcanberra-pulse
 lib32-libcap
 lib32-libcdio
 lib32-libcups
@@ -557,6 +565,7 @@ lib32-libidn2
 lib32-libiec61883
 lib32-libinstpatch
 lib32-libjpeg-turbo
+lib32-libjpeg6-turbo
 lib32-libkate
 lib32-libldap
 lib32-liblrdf
@@ -591,6 +600,7 @@ lib32-libthai
 lib32-libtheora
 lib32-libtiff
 lib32-libtirpc
+lib32-libudev0-shim
 lib32-libunistring
 lib32-libunwind
 lib32-libusb
@@ -635,6 +645,7 @@ lib32-ncurses
 lib32-neon
 lib32-nettle
 lib32-numactl
+lib32-ocl-icd
 lib32-openal
 lib32-opencore-amr
 lib32-openexr
@@ -672,6 +683,7 @@ lib32-tdb
 lib32-twolame
 lib32-util-linux
 lib32-v4l-utils
+lib32-vkd3d
 lib32-vulkan-icd-loader
 lib32-wavpack
 lib32-wayland
@@ -903,6 +915,7 @@ libtiger
 libtirpc
 libtommath
 libtool
+libudev0-shim
 libunibreak
 libunique
 libunistring
@@ -1461,7 +1474,6 @@ wildmidi
 wine
 wine-gecko
 wine-mono
-wine-wechat
 winetricks
 wireless_tools
 woff2

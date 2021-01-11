@@ -117,9 +117,9 @@ deepin-udis86
 deepin-wine-helper
 deepin-wine-plugin
 deepin-wine-plugin-virtual
-deepin-wine-qq
 deepin-wine5
 deepin-wine5-i386
+deepin.com.qq.im.light
 desktop-file-utils
 device-mapper
 dhcpcd
@@ -1482,7 +1482,6 @@ wpa_supplicant
 wpebackend-fdo
 wps-office-cn
 wps-office-mui-zh-cn
-wqy-microhei
 wqy-zenhei
 wxgtk-common
 wxgtk2

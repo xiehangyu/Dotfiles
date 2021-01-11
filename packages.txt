@@ -164,6 +164,7 @@ exempi
 exiv2
 exo
 expat
+expect
 ext4magic
 faac
 faad2

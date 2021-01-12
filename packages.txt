@@ -95,7 +95,6 @@ coin-docs
 colord
 colord-gtk
 colord-sane
-com.qq.weixin.spark
 compiler-rt
 coreutils
 cracklib
@@ -114,9 +113,6 @@ dbus-glib
 dconf
 dconf-editor
 deepin-udis86
-deepin-wine-helper
-deepin-wine-plugin
-deepin-wine-plugin-virtual
 deepin-wine5
 deepin-wine5-i386
 deepin.com.qq.im.light
@@ -1475,6 +1471,7 @@ wildmidi
 wine
 wine-gecko
 wine-mono
+wine-wechat
 winetricks
 wireless_tools
 woff2

@@ -41,6 +41,7 @@ autoconf
 automake
 avahi
 babl
+baidunetdisk-bin
 baobab
 base
 bash
@@ -95,6 +96,7 @@ coin-docs
 colord
 colord-gtk
 colord-sane
+com.tencent.meeting.deepin
 compiler-rt
 coreutils
 cracklib
@@ -113,8 +115,12 @@ dbus-glib
 dconf
 dconf-editor
 deepin-udis86
+deepin-wine-helper
+deepin-wine-plugin
+deepin-wine-plugin-virtual
 deepin-wine5
 deepin-wine5-i386
+deepin-wine5-stable
 deepin.com.qq.im.light
 desktop-file-utils
 device-mapper

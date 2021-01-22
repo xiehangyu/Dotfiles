@@ -177,10 +177,6 @@ fcitx
 fcitx-cloudpinyin
 fcitx-configtool
 fcitx-googlepinyin
-fcitx-qt4
-fcitx-qt5
-fcitx-sogoupinyin
-fcitx-table-extra
 ffmpeg
 fftw
 file
@@ -469,6 +465,7 @@ lib32-a52dec
 lib32-aalib
 lib32-acl
 lib32-alsa-lib
+lib32-alsa-oss
 lib32-alsa-plugins
 lib32-aom
 lib32-at-spi2-atk
@@ -792,7 +789,6 @@ libical
 libice
 libid3tag
 libidn
-libidn11
 libidn2
 libiec61883
 libieee1284
@@ -826,7 +822,6 @@ libmicrodns
 libmicrohttpd
 libmm-glib
 libmms
-libmng
 libmnl
 libmodplug
 libmpc
@@ -999,7 +994,6 @@ linux-lts-headers
 llvm-libs
 lm_sensors
 lmdb
-lsb-release
 lsof
 lua
 lua52
@@ -1087,7 +1081,6 @@ onednn
 opam
 openal
 openblas
-opencc
 openconnect
 opencore-amr
 opencv
@@ -1292,7 +1285,6 @@ qhull
 qpdf
 qqwing
 qrencode
-qt4
 qt5-base
 qt5-declarative
 qt5-location
@@ -1307,7 +1299,6 @@ qt5-webchannel
 qt5-webengine
 qt5-webkit
 qt5-x11extras
-qtwebkit
 rapidjson
 raptor
 rav1e

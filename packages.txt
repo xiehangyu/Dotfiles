@@ -415,11 +415,13 @@ json-c
 json-glib
 jsoncpp
 jupyter
+jupyter-nbclient
 jupyter-nbconvert
 jupyter-nbformat
 jupyter-notebook
 jupyter-widgetsnbextension
 jupyter_console
+jupyterlab_pygments
 karchive
 kauth
 kbd
@@ -796,6 +798,7 @@ libimagequant
 libimobiledevice
 libindicator-gtk2
 libindicator-gtk3
+libinih
 libinput
 libinstpatch
 libiptcdata
@@ -1156,6 +1159,7 @@ python-appdirs
 python-argon2_cffi
 python-asn1crypto
 python-astroid
+python-async_generator
 python-atspi
 python-attrs
 python-backcall
@@ -1204,6 +1208,7 @@ python-matplotlib
 python-mccabe
 python-mistune
 python-msgpack
+python-nest_asyncio
 python-networkx
 python-numpy
 python-opengl

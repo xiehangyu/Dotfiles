@@ -401,9 +401,11 @@ jack2
 jansson
 jasper
 java-commons-lang
+java-environment-common
 java-runtime-common
 java11-openjfx
 jbig2dec
+jdk11-openjdk
 jemalloc
 jpegoptim
 jre11-openjdk

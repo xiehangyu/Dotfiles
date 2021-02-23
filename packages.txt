@@ -174,10 +174,12 @@ faad2
 fakeroot
 faudio
 fbreader
-fcitx
 fcitx-cloudpinyin
 fcitx-configtool
 fcitx-googlepinyin
+fcitx-lilydjwg-git
+fcitx-qt5
+fcitx-sogoupinyin
 ffmpeg
 fftw
 file
@@ -794,6 +796,7 @@ libical
 libice
 libid3tag
 libidn
+libidn11
 libidn2
 libiec61883
 libieee1284
@@ -1000,6 +1003,7 @@ linux-lts-headers
 llvm-libs
 lm_sensors
 lmdb
+lsb-release
 lsof
 lua
 lua52
@@ -1087,6 +1091,7 @@ onednn
 opam
 openal
 openblas
+opencc
 openconnect
 opencore-amr
 opencv

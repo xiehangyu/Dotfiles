@@ -419,6 +419,7 @@ js78
 json-c
 json-glib
 jsoncpp
+julia
 jupyter
 jupyter-nbclient
 jupyter-nbconvert
@@ -773,6 +774,7 @@ libgdm
 libgee
 libgepub
 libgexiv2
+libgit2
 libglade
 libglvnd
 libgme
@@ -933,6 +935,7 @@ liburing
 libusb
 libusbmuxd
 libutempter
+libutf8proc
 libuv
 libva
 libva-intel-driver
@@ -1001,6 +1004,7 @@ linux-headers
 linux-lts
 linux-lts-headers
 llvm-libs
+llvm10-libs
 lm_sensors
 lmdb
 lsb-release
@@ -1098,6 +1102,7 @@ opencv
 opencv-samples
 openexr
 openjpeg2
+openlibm
 openmp
 openmpi
 openresolv

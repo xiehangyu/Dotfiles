@@ -1439,6 +1439,7 @@ rhash
 ripgrep
 ristretto
 rpcbind
+rsync
 rtkit
 rtmpdump
 ruby
@@ -1739,6 +1740,7 @@ xorg-xwud
 xorgproto
 xterm
 xvidcore
+xxhash
 xz
 yajl
 yarn

@@ -87,6 +87,7 @@ cifs-utils
 cinnamon-desktop
 clang
 clash
+clashy-bin
 clutter
 clutter-gst
 clutter-gtk

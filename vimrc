@@ -1,13 +1,9 @@
-" File              : .vimrc
-" License           : GPL-3.0-or-later
-" Author            : Yimin Gu <github.com/ustcpetergu>
-" Date              : 2019.10.17
-" Last Modified Date: 2019.10.17
-"
 "curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 "    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-filetype on
+"set nocompatible              " be iMproved, required
+filetype on                  " required
 filetype detect
+set pyxversion=3
 call plug#begin('~/.vim/bundle')
 	Plug 'rhysd/vim-llvm'
 	"Plug 'shougo/vimproc.vim'
@@ -48,8 +44,8 @@ call plug#begin('~/.vim/bundle')
 	Plug 'pseewald/vim-anyfold'
 	Plug 'Shirk/vim-gas'
 	Plug 'harenome/vim-mipssyntax'
-	"if (&filetype=='cpp' || &filetype=='c')
-	if (&filetype=='c')
+	if (&filetype=='cpp' || &filetype=='c')
+	"if (&filetype=='c')
 		" Intellisense for vim
 		" Use release branch
 		Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -68,6 +64,11 @@ call plug#begin('~/.vim/bundle')
 		"echo "others"
 	endif
 call plug#end()
+"TO accelerate the vim, ban the option of python
+let g:python_host_skip_chech=1
+let g:python_host_prog='/usr/local/bin/python'
+let g:python3_host_skip_check=1
+let g:python3_host_prog='/usr/local/bin/python3'
 "------vim-plug end
  
 "------for deoplete
@@ -288,18 +289,60 @@ inoremap <c-s> <esc>:w<cr>i
 nnoremap <leader>vr :source ~/.vimrc<cr>
 
 "Emacs-like
-inoremap <c-n> <down>
-inoremap <c-p> <up>
-inoremap <c-b> <left>
-inoremap <c-f> <right>
-inoremap <c-a> <c-o>0
-inoremap <c-e> <c-o>$
+"inoremap <c-n> <down>
+"inoremap <c-p> <up>
+"inoremap <c-b> <left>
+"inoremap <c-f> <right>
+"inoremap <c-a> <c-o>0
+"inoremap <c-e> <c-o>$
 
 "swapping between windows, quite good
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+"nnoremap <C-J> <C-W><C-J>
+"nnoremap <C-K> <C-W><C-K>
+"nnoremap <C-L> <C-W><C-L>
+"nnoremap <C-H> <C-W><C-H>
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+"inoremap { {<CR>}<Esc>O
+inoremap { {}<Esc>i
+inoremap ' ''<Esc>i
+inoremap " ""<Esc>i
+inoremap <C-l> <Esc>la
+inoremap <C-k> <Esc>ka
+inoremap <C-H> <Esc>ha
+inoremap <C-j> <Esc>ja
+" ===== Set omnicppcomplete <C-X><C-O>, can get the option =====
+" enable plugins
+set nocompatible 
+set tags+=/usr/include/tags
+set tags+=~/.vim/systags
+set tags+=~/.vim/tags/cpp
+set tags+=~/.vim/tags/opencv
+set tags+=~/.vim/tags/python3
+set tags+=./tags
+set tags+=tags
+filetype plugin on
+" --c++-kinds=+p  : Adds prototypes in the database for C/C++ files.
+" --fields=+iaS   : Adds inheritance (i), access (a) and function signatures (S) information.
+" --extras=+f      : Adds context to the tag name. Note: Without this option, the script cannot get class members.
+" --languages=c++ : Builds only the tags for C++ files.
+"        ctags -R --c++-kinds=+p --fields=+iaS --extras=+f --languages=c++ .
+" add a map <C-F12>
+map <C-F12> :!ctags -R --c++-kinds=+plxd --fields=+iaS --extras=+q --languages=C,C++ .<CR>
+let OmniCpp_NamespaceSearch = 1
+let OmniCpp_GlobalScopeSearch = 1
+let OmniCpp_DisplayMode = 1
+let OmniCpp_ShowScopeInAbbr = 1
+let OmniCpp_ShowAccess = 1
+let OmniCpp_ShowPrototypeInAbbr = 1
+let OmniCpp_MayCompleteDot = 1
+let OmniCpp_MayCompleteArrow = 1
+let OmniCpp_MayCompleteScope = 1
+let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+let OmniCpp_SelectFirstItem = 1
+" automatically open and close the popup menu / preview window
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+set completeopt=menuone,menu,longest,preview
 
 ""autocmd FileType c,cpp source '~/.vim/cvim/plugin/c.vim'
 ""failed
@@ -469,3 +512,39 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 endif
+" ===== Set omnicppcomplete <C-X><C-O>, can get the option =====
+" enable plugins
+set nocompatible 
+set tags+=/usr/include/tags
+set tags+=~/.vim/systags
+set tags+=~/.vim/tags/cpp
+set tags+=~/.vim/tags/opencv
+set tags+=~/.vim/tags/python3
+set tags+=~/.vim/tags/eigen
+set tags+=~/.vim/tags/omp
+set tags+=./tags
+set tags+=tags
+filetype plugin on
+" --c++-kinds=+p  : Adds prototypes in the database for C/C++ files.
+" --fields=+iaS   : Adds inheritance (i), access (a) and function signatures (S) information.
+" --extras=+f      : Adds context to the tag name. Note: Without this option, the script cannot get class members.
+" --languages=c++ : Builds only the tags for C++ files.
+"        ctags -R --c++-kinds=+p --fields=+iaS --extras=+f --languages=c++ .
+" add a map <C-F12>
+map <C-F12> :!ctags -R --c++-kinds=+plxd --fields=+iaS --extras=+q --languages=C,C++ .<CR>
+let OmniCpp_NamespaceSearch = 1
+let OmniCpp_GlobalScopeSearch = 1
+let OmniCpp_DisplayMode = 1
+let OmniCpp_ShowScopeInAbbr = 1
+let OmniCpp_ShowAccess = 1
+let OmniCpp_ShowPrototypeInAbbr = 1
+let OmniCpp_MayCompleteDot = 1
+let OmniCpp_MayCompleteArrow = 1
+let OmniCpp_MayCompleteScope = 1
+let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+let OmniCpp_SelectFirstItem = 1
+" automatically open and close the popup menu / preview window
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+set completeopt=menuone,menu,longest,preview
+set tabstop=4
+set shiftwidth=4

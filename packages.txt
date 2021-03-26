@@ -18,6 +18,7 @@ anaconda
 aom
 apache
 apparmor
+appstream
 appstream-glib
 apr
 apr-util
@@ -718,6 +719,7 @@ libassuan
 libasyncns
 libatasmart
 libavc1394
+libavif
 libavtp
 libblockdev
 libbluray
@@ -794,6 +796,7 @@ libgweather
 libgxps
 libhandy
 libhandy0
+libheif
 libibus
 libical
 libice
@@ -994,6 +997,7 @@ libxvmc
 libxxf86vm
 libyaml
 libytnef
+libyuv
 libzapojit
 libzip
 licenses
@@ -1030,6 +1034,7 @@ make
 malcontent
 man-db
 mariadb-libs
+marisa
 markdownpart
 mathjax2
 mbedtls
@@ -1123,6 +1128,7 @@ pacman
 pacman-contrib
 pacman-mirrorlist
 pacutils
+pahole
 pam
 pambase
 pango
@@ -1258,6 +1264,7 @@ phonon-qt5
 phonon-qt5-gstreamer
 pinentry
 pipewire
+pipewire-media-session
 pixman
 pkgconf
 polkit
@@ -1306,6 +1313,7 @@ python-decorator
 python-defusedxml
 python-distlib
 python-distro
+python-dnspython
 python-docutils
 python-entrypoints
 python-et-xmlfile
@@ -1329,6 +1337,7 @@ python-jupyter_core
 python-kiwisolver
 python-lazy-object-proxy
 python-lxml
+python-markdown
 python-markupsafe
 python-matplotlib
 python-mccabe
@@ -1392,6 +1401,7 @@ python-toml
 python-tornado
 python-traitlets
 python-typed-ast
+python-typing_extensions
 python-urllib3
 python-wcwidth
 python-webencodings
@@ -1501,6 +1511,7 @@ suitesparse
 sunloginclient
 superlu
 sushi
+svt-av1
 svt-hevc
 sysfsutils
 systemd
@@ -1751,6 +1762,7 @@ yelp-xsl
 zbar
 zenity
 zeromq
+zimg
 zip
 zita-alsa-pcmi
 zita-resampler

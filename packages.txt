@@ -254,6 +254,7 @@ gmp
 gnome-autoar
 gnome-backgrounds
 gnome-bluetooth
+gnome-books
 gnome-boxes
 gnome-calculator
 gnome-calendar

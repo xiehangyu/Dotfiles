@@ -1397,6 +1397,7 @@ python-retrying
 python-scikit-image
 python-scikit-learn
 python-scipy
+python-seaborn
 python-send2trash
 python-setuptools
 python-simplejson

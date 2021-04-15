@@ -159,6 +159,7 @@ efivar
 eigen
 electron
 electron-ssr-0.3.0
+electron11
 electron7
 electron9
 elfutils
@@ -350,6 +351,7 @@ gtk-update-icon-cache
 gtk-vnc
 gtk2
 gtk3
+gtk4
 gtkmm3
 gtksourceview3
 gtksourceview4
@@ -1610,6 +1612,7 @@ volume_key
 vpnc
 vte-common
 vte3
+vulkan-headers
 vulkan-icd-loader
 wavpack
 wayland

@@ -1375,6 +1375,7 @@ python-prompt_toolkit
 python-psutil
 python-ptyprocess
 python-pyalsa
+python-pybluez
 python-pycodestyle
 python-pycparser
 python-pyflakes

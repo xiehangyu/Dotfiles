@@ -255,6 +255,7 @@ gmp
 gnome-autoar
 gnome-backgrounds
 gnome-bluetooth
+gnome-bluetooth-battery-indicator-git
 gnome-books
 gnome-boxes
 gnome-calculator
@@ -287,6 +288,8 @@ gnome-settings-daemon
 gnome-shell
 gnome-shell-extension-dash-to-dock
 gnome-shell-extension-dash-to-panel-git
+gnome-shell-extension-topicons-plus-git
+gnome-shell-extension-topicons-redux
 gnome-shell-extensions
 gnome-software
 gnome-sound-recorder

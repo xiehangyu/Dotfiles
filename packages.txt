@@ -287,7 +287,6 @@ gnome-settings-daemon
 gnome-shell
 gnome-shell-extension-dash-to-dock
 gnome-shell-extension-dash-to-panel-git
-gnome-shell-extension-topicons-plus-git
 gnome-shell-extensions
 gnome-software
 gnome-sound-recorder

@@ -235,6 +235,7 @@ geoip-database
 gettext
 gfbgraph
 gflags
+gftp
 ghostscript
 giflib
 git
@@ -477,6 +478,7 @@ ldns
 lensfun
 leptonica
 less
+lftp
 lib32-a52dec
 lib32-aalib
 lib32-acl

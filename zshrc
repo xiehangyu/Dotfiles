@@ -118,7 +118,7 @@ alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
 alias python=/bin/python
 alias pip3=/bin/pip3
 export HISTIGNORE='*sudo -S*'
-export LD_LIBRARY_PATH=~/pkg/tmp/usr/lib #and extract the icu-68 to ~/pkg/tmp file
+#export LD_LIBRARY_PATH=~/pkg/tmp/usr/lib #and extract the icu-68 to ~/pkg/tmp file
 
 
 #export http_proxy="http://127.0.0.1:12333"

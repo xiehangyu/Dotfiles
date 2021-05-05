@@ -228,6 +228,7 @@ gdk-pixbuf2
 gdm
 gedit
 gegl
+gendesk
 geoclue
 geocode-glib
 geoip
@@ -422,6 +423,7 @@ jbig2dec
 jdk11-openjdk
 jemalloc
 jpegoptim
+jq
 jre11-openjdk
 jre11-openjdk-headless
 js60
@@ -1095,6 +1097,7 @@ nm-connection-editor
 nmap
 node-gyp
 nodejs
+nodejs-nativefier
 notepadqq
 noto-fonts-emoji
 npm
@@ -1110,6 +1113,7 @@ obs-studio
 ocaml
 ocaml-compiler-libs
 onednn
+oniguruma
 opam
 openal
 openblas
@@ -1623,6 +1627,7 @@ vulkan-icd-loader
 wavpack
 wayland
 wayland-protocols
+webex-teams
 webkit2gtk
 webrtc-audio-processing
 wget

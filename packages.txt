@@ -227,6 +227,7 @@ gdb
 gdb-common
 gdbm
 gdk-pixbuf2
+gdl
 gdm
 gedit
 gegl
@@ -326,6 +327,7 @@ gpgme
 gpm
 gptfdisk
 graphene
+graphicsmagick
 graphite
 grep
 grilo
@@ -335,6 +337,7 @@ grpc
 grub
 gsettings-desktop-schemas
 gsfonts
+gsl
 gsm
 gsound
 gspell
@@ -361,6 +364,7 @@ gtk4
 gtkmm3
 gtksourceview3
 gtksourceview4
+gtkspell3
 guile
 guile2.0
 gupnp
@@ -400,6 +404,7 @@ imagemagick
 imath
 imlib2
 inetutils
+inkscape
 intel-gmmlib
 intel-media-driver
 intel-media-sdk
@@ -542,6 +547,7 @@ lib32-gupnp
 lib32-gupnp-igd
 lib32-harfbuzz
 lib32-icu
+lib32-imath
 lib32-imlib2
 lib32-jack2
 lib32-json-glib
@@ -1313,6 +1319,7 @@ pipewire
 pipewire-media-session
 pixman
 pkgconf
+plotutils
 polkit
 polkit-gnome
 polkit-qt5
@@ -1327,6 +1334,7 @@ procps-ng
 progress
 protobuf
 psmisc
+pstoedit
 pth
 pulseaudio
 pulseaudio-alsa
@@ -1386,6 +1394,7 @@ python-lxml
 python-markdown
 python-markupsafe
 python-matplotlib
+python-matplotlib-inline
 python-mccabe
 python-mistune
 python-mkl-fft-bin

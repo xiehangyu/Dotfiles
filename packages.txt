@@ -861,6 +861,7 @@ liblscp
 libluv
 libmaa
 libmad
+libmagick6
 libmanette
 libmatroska
 libmaxminddb

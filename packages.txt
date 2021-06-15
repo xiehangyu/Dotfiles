@@ -150,6 +150,7 @@ dockbarx-git
 dosfstools
 dotconf
 double-conversion
+downgrader-git
 doxygen
 drawio-desktop-bin
 dstat

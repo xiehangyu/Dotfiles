@@ -1,5 +1,6 @@
 a52dec
 aalib
+abseil-cpp
 accerciser
 accountsservice
 acl
@@ -119,6 +120,7 @@ dav1d
 db
 dbus
 dbus-glib
+dbus-python
 dconf
 dconf-editor
 deepin-udis86
@@ -356,6 +358,7 @@ gst-plugins-ugly
 gstreamer
 gstreamer0.10
 gstreamer0.10-base
+gtest
 gtk-sharp-2
 gtk-update-icon-cache
 gtk-vnc
@@ -393,7 +396,7 @@ hspell
 htop
 http-parser
 hunspell
-hunspell-en_US
+hunspell-en_us
 hwids
 hwloc
 hyphen
@@ -491,6 +494,7 @@ lensfun
 leptonica
 less
 lftp
+lib2geom
 lib32-a52dec
 lib32-aalib
 lib32-acl
@@ -566,7 +570,6 @@ lib32-libbluray
 lib32-libbs2b
 lib32-libcaca
 lib32-libcanberra
-lib32-libcanberra-pulse
 lib32-libcap
 lib32-libcdio
 lib32-libcups
@@ -753,7 +756,6 @@ libbytesize
 libcaca
 libcacard
 libcanberra
-libcanberra-pulse
 libcap
 libcap-ng
 libcddb
@@ -764,6 +766,7 @@ libcerf
 libchamplain
 libcloudproviders
 libcmis
+libcolord
 libcroco
 libcryptui
 libcue
@@ -1136,6 +1139,7 @@ nmap
 node-gyp
 nodejs
 nodejs-nativefier
+nodejs-nopt
 notepadqq
 noto-fonts-emoji
 npm
@@ -1363,8 +1367,6 @@ python-contextlib2
 python-cryptography
 python-cycler
 python-dateutil
-python-dbus
-python-dbus-common
 python-decorator
 python-defusedxml
 python-distlib
@@ -1402,6 +1404,7 @@ python-mistune
 python-mkl-fft-bin
 python-mkl-random-bin
 python-mkl-service-bin
+python-more-itertools
 python-msgpack
 python-nest_asyncio
 python-networkx
@@ -1475,7 +1478,6 @@ python-yaml
 python-zipp
 python2
 python2-appdirs
-python2-dbus
 python2-gobject
 python2-gobject2
 python2-ordered-set
@@ -1502,6 +1504,7 @@ qt5-webchannel
 qt5-webengine
 qt5-webkit
 qt5-x11extras
+ragel
 rapidjson
 raptor
 rasqal
@@ -1712,6 +1715,7 @@ xdg-utils
 xf86-input-evdev
 xf86-input-libinput
 xf86-video-amdgpu
+xf86-video-dummy
 xf86-video-intel
 xf86-video-vesa
 xfburn

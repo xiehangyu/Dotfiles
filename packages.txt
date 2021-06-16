@@ -281,6 +281,8 @@ gnome-documents
 gnome-epub-thumbnailer
 gnome-font-viewer
 gnome-getting-started-docs
+gnome-icon-theme
+gnome-icon-theme-symbolic
 gnome-keyring
 gnome-logs
 gnome-maps
@@ -297,6 +299,7 @@ gnome-shell
 gnome-shell-extension-appindicator
 gnome-shell-extension-dash-to-dock
 gnome-shell-extension-dash-to-panel-git
+gnome-shell-extension-desktop-icons
 gnome-shell-extension-topicons-plus-git
 gnome-shell-extensions
 gnome-software

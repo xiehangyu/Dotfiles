@@ -1685,10 +1685,9 @@ webrtc-audio-processing
 wget
 which
 wildmidi
-wine
+wine-for-wechat
 wine-gecko
 wine-mono
-wine-wechat
 winetricks
 wireless_tools
 woff2

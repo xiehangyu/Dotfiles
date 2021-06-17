@@ -1365,11 +1365,13 @@ python-bleach
 python-cachecontrol
 python-cairo
 python-cairocffi
+python-cairosvg
 python-cffi
 python-chardet
 python-colorama
 python-contextlib2
 python-cryptography
+python-cssselect2
 python-cycler
 python-dateutil
 python-decorator
@@ -1439,6 +1441,7 @@ python-pybluez
 python-pycodestyle
 python-pycparser
 python-pyflakes
+python-pygal
 python-pygments
 python-pylint
 python-pynvim
@@ -1463,10 +1466,13 @@ python-send2trash
 python-setuptools
 python-simplejson
 python-six
+python-svg.path
+python-svgwrite
 python-terminado
 python-testpath
 python-threadpoolctl
 python-tifffile
+python-tinycss2
 python-toml
 python-tornado
 python-traitlets

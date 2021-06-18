@@ -1178,6 +1178,7 @@ openresolv
 openssh
 openssl
 openssl-1.0
+openvpn
 opus
 orage
 orc
@@ -1329,6 +1330,7 @@ pinentry
 pipewire
 pipewire-media-session
 pixman
+pkcs11-helper
 pkgconf
 plotutils
 polkit

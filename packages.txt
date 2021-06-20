@@ -74,7 +74,6 @@ c-ares
 ca-certificates
 ca-certificates-mozilla
 ca-certificates-utils
-cabextract
 cairo
 cairomm
 cantarell-fonts
@@ -127,6 +126,7 @@ deepin-udis86
 deepin-wine-helper
 deepin-wine-plugin
 deepin-wine-plugin-virtual
+deepin-wine-wechat
 deepin-wine5
 deepin-wine5-i386
 deepin-wine5-stable
@@ -1696,13 +1696,13 @@ wildmidi
 wine-for-wechat
 wine-gecko
 wine-mono
-winetricks
 wireless_tools
 woff2
 wpa_supplicant
 wpebackend-fdo
 wps-office-cn
 wps-office-mui-zh-cn
+wqy-microhei
 wqy-zenhei
 wxgtk-common
 wxgtk2
@@ -1819,7 +1819,6 @@ xorg-xkbutils
 xorg-xkill
 xorg-xlsatoms
 xorg-xlsclients
-xorg-xmessage
 xorg-xmodmap
 xorg-xpr
 xorg-xprop

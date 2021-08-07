@@ -74,6 +74,7 @@ c-ares
 ca-certificates
 ca-certificates-mozilla
 ca-certificates-utils
+cabextract
 cairo
 cairomm
 cantarell-fonts
@@ -165,6 +166,7 @@ eigen
 electron
 electron-ssr-0.3.0
 electron11
+electron12
 electron7
 electron9
 elfutils
@@ -737,6 +739,7 @@ lib32-zlib
 lib32-zstd
 lib32-zvbi
 libabw
+libadwaita
 libaec
 libaio
 libao
@@ -807,6 +810,7 @@ libfbclient
 libfdk-aac
 libffi
 libfontenc
+libfreeaptx
 libfreehand
 libgcrypt
 libgdata
@@ -1476,6 +1480,7 @@ python-threadpoolctl
 python-tifffile
 python-tinycss2
 python-toml
+python-tomli
 python-tornado
 python-traitlets
 python-typed-ast
@@ -1642,7 +1647,9 @@ tracker
 tracker-miners
 tracker3
 tracker3-miners
+tree-sitter
 tslib
+ttf-liberation
 ttf-mathtype
 ttf-wps-fonts
 tumbler
@@ -1696,6 +1703,7 @@ wildmidi
 wine-for-wechat
 wine-gecko
 wine-mono
+winetricks
 wireless_tools
 woff2
 wpa_supplicant
@@ -1819,6 +1827,7 @@ xorg-xkbutils
 xorg-xkill
 xorg-xlsatoms
 xorg-xlsclients
+xorg-xmessage
 xorg-xmodmap
 xorg-xpr
 xorg-xprop

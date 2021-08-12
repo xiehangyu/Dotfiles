@@ -410,6 +410,7 @@ hyphen
 iana-etc
 ibus
 icu
+ifuse
 ijs
 imagemagick
 imath

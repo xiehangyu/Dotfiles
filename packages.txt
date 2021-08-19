@@ -1159,7 +1159,7 @@ nss
 ntfs-3g
 numactl
 nuspell
-nutstore
+nutstore-experimental
 oath-toolkit
 obs-studio
 ocaml

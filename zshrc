@@ -107,7 +107,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias js='cd /home/xiehangyu/yxh/study/USTC/junior_spring'
 PATH=/home/xiehangyu/software/mpich/bin:$PATH
 PATH=/home/xiehangyu/bin:$PATH
 OpenCV_DIR=/home/xiehangyu/software/opencv/lib/cmake/opencv4/

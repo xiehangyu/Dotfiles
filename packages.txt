@@ -758,6 +758,7 @@ libavif
 libavtp
 libblockdev
 libbluray
+libbpf
 libbs2b
 libbsd
 libburn
@@ -878,6 +879,7 @@ libmagick6
 libmanette
 libmatroska
 libmaxminddb
+libmd
 libmediaart
 libmfx
 libmicrodns
@@ -1381,6 +1383,7 @@ python-cryptography
 python-cssselect2
 python-cycler
 python-dateutil
+python-debugpy
 python-decorator
 python-defusedxml
 python-distlib
@@ -1436,6 +1439,7 @@ python-pickleshare
 python-pilkit
 python-pillow
 python-pip
+python-platformdirs
 python-ply
 python-polib
 python-progress

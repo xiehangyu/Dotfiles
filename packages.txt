@@ -104,7 +104,6 @@ coin-docs
 colord
 colord-gtk
 colord-sane
-com.tencent.meeting.deepin
 compiler-rt
 coreutils
 cracklib
@@ -124,13 +123,9 @@ dbus-python
 dconf
 dconf-editor
 deepin-udis86
-deepin-wine-helper
-deepin-wine-plugin
-deepin-wine-plugin-virtual
 deepin-wine-wechat
 deepin-wine5
 deepin-wine5-i386
-deepin-wine5-stable
 deepin.com.qq.im.light
 desktop-file-utils
 device-mapper
@@ -1702,6 +1697,7 @@ wayland-protocols
 webex-teams
 webkit2gtk
 webrtc-audio-processing
+wemeet-bin
 wget
 which
 wildmidi

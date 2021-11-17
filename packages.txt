@@ -41,6 +41,7 @@ attr
 audit
 augeas
 autoconf
+autokey-git
 automake
 avahi
 babl
@@ -467,6 +468,7 @@ kcoreaddons
 kcrash
 kdbusaddons
 kded
+kdialog
 keyutils
 kglobalaccel
 kguiaddons
@@ -1449,10 +1451,14 @@ python-pycparser
 python-pyflakes
 python-pygal
 python-pygments
+python-pyhamcrest
+python-pyinotify
 python-pylint
 python-pynvim
 python-pyopenssl
 python-pyparsing
+python-pyqt5
+python-pyqt5-sip
 python-pyrsistent
 python-pytoml
 python-pytorch
@@ -1460,6 +1466,7 @@ python-pytz
 python-pywavelets
 python-pyxdg
 python-pyzmq
+python-qscintilla-qt5
 python-qutip
 python-requests
 python-resolvelib
@@ -1508,6 +1515,7 @@ qhull
 qpdf
 qqwing
 qrencode
+qscintilla-qt5
 qt5-base
 qt5-declarative
 qt5-location
@@ -1522,6 +1530,7 @@ qt5-webchannel
 qt5-webengine
 qt5-webkit
 qt5-x11extras
+qt5ct
 ragel
 rapidjson
 raptor
@@ -1706,6 +1715,7 @@ wine-gecko
 wine-mono
 winetricks
 wireless_tools
+wmctrl
 woff2
 wpa_supplicant
 wpebackend-fdo

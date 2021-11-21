@@ -29,6 +29,7 @@ archlinuxcn-keyring
 archlinuxcn-mirrorlist-git
 argon2
 aribb24
+armadillo
 arpack
 ascii
 aspell

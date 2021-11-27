@@ -1681,6 +1681,7 @@ util-linux-libs
 v4l-utils
 valgrind
 vde2
+vi
 vid.stab
 vim
 vim-runtime

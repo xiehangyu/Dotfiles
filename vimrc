@@ -364,7 +364,7 @@ set foldlevel=99
 set ignorecase
 set incsearch
 set autoindent
-set cindent
+set cindent shiftwidth=4
 set number
 "set mouse=n
 set scrolloff=5
@@ -548,3 +548,4 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 set tabstop=4
 set shiftwidth=4
+set cindent shiftwidth=4

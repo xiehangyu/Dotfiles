@@ -1710,6 +1710,7 @@ webkit2gtk
 webrtc-audio-processing
 wemeet-bin
 wget
+whatsapp-for-linux
 which
 wildmidi
 wine-for-wechat

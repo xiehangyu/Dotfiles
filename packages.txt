@@ -164,6 +164,7 @@ electron
 electron-ssr-0.3.0
 electron11
 electron12
+electron13
 electron7
 electron9
 elfutils
@@ -329,6 +330,7 @@ google-chrome
 google-chrome-beta
 google-glog
 gperf
+gperftools
 gpgme
 gpm
 gptfdisk
@@ -412,6 +414,7 @@ imagemagick
 imath
 imlib2
 inetutils
+iniparser
 inkscape
 intel-gmmlib
 intel-media-driver
@@ -683,6 +686,8 @@ lib32-mpg123
 lib32-ncurses
 lib32-neon
 lib32-nettle
+lib32-nspr
+lib32-nss
 lib32-numactl
 lib32-ocl-icd
 lib32-openal
@@ -753,6 +758,7 @@ libatomic_ops
 libavc1394
 libavif
 libavtp
+libblastrampoline
 libblockdev
 libbluray
 libbpf
@@ -771,6 +777,7 @@ libcdio-paranoia
 libcdr
 libcerf
 libchamplain
+libcheese
 libcloudproviders
 libcmis
 libcolord
@@ -934,6 +941,8 @@ libplacebo
 libplist
 libpng
 libportal
+libportal-gtk3
+libportal-gtk4
 libproxy
 libpsl
 libpst
@@ -964,6 +973,7 @@ libsm
 libsndfile
 libsodium
 libsoup
+libsoup3
 libsoxr
 libspectre
 libspeechd
@@ -1026,6 +1036,7 @@ libxcb
 libxcomposite
 libxcrypt
 libxcursor
+libxcvt
 libxdamage
 libxdmcp
 libxext
@@ -1143,6 +1154,7 @@ netctl
 nettle
 network-manager-applet
 networkmanager
+nlohmann-json
 nm-connection-editor
 nmap
 node-gyp
@@ -1347,6 +1359,7 @@ popt
 portaudio
 postgresql-libs
 potrace
+power-profiles-daemon
 procps-ng
 progress
 protobuf
@@ -1389,6 +1402,7 @@ python-dnspython
 python-docutils
 python-entrypoints
 python-et-xmlfile
+python-fonttools
 python-future
 python-gobject
 python-greenlet
@@ -1414,13 +1428,13 @@ python-markupsafe
 python-matplotlib
 python-matplotlib-inline
 python-mccabe
-python-mistune
+python-mistune1
 python-mkl-fft-bin
 python-mkl-random-bin
 python-mkl-service-bin
 python-more-itertools
 python-msgpack
-python-nest_asyncio
+python-nest-asyncio
 python-networkx
 python-numpy
 python-opengl
@@ -1525,6 +1539,7 @@ qt5-sensors
 qt5-speech
 qt5-svg
 qt5-tools
+qt5-translations
 qt5-wayland
 qt5-webchannel
 qt5-webengine
@@ -1566,6 +1581,7 @@ sane
 sbc
 sdl
 sdl2
+sdl2_image
 seabios
 sed
 semver
@@ -1706,6 +1722,7 @@ wayland
 wayland-protocols
 webex-teams
 webkit2gtk
+webkit2gtk-4.1
 webrtc-audio-processing
 wemeet-bin
 wget
@@ -1741,6 +1758,7 @@ xcb-util-wm
 xclip
 xdg-dbus-proxy
 xdg-desktop-portal
+xdg-desktop-portal-gnome
 xdg-desktop-portal-gtk
 xdg-user-dirs
 xdg-user-dirs-gtk

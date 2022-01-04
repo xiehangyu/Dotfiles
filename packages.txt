@@ -190,6 +190,7 @@ fcitx-configtool
 fcitx-googlepinyin
 fcitx-lilydjwg-git
 fcitx-qt5
+fcitx-sogoupinyin
 ffmpeg
 fftw
 file

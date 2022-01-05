@@ -4,6 +4,7 @@ abseil-cpp
 accerciser
 accountsservice
 acl
+acpi
 adobe-source-code-pro-fonts
 adwaita-icon-theme
 alpscore-openmpi

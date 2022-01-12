@@ -433,7 +433,7 @@ htop
 http-parser
 hunspell
 hunspell-en_us
-hwids
+hwdata
 hwloc
 hyphen
 iagno
@@ -1019,6 +1019,7 @@ libssh2
 libstaroffice
 libstemmer
 libsynctex
+libsysprof-capture
 libtar
 libtasn1
 libteam

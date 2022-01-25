@@ -344,6 +344,7 @@ gnome-user-share
 gnome-video-effects
 gnome-weather
 gnu-free-fonts
+gnuchess
 gnupg
 gnuplot
 gnustep-base

@@ -664,6 +664,7 @@ lib32-libpsl
 lib32-libpulse
 lib32-libraw1394
 lib32-librsvg
+lib32-libsamplerate
 lib32-libshout
 lib32-libsidplay
 lib32-libsm
@@ -1116,6 +1117,7 @@ lilv
 linux
 linux-api-headers
 linux-firmware
+linux-firmware-whence
 linux-headers
 linux-lts
 linux-lts-headers
@@ -1401,7 +1403,6 @@ popt
 portaudio
 postgresql-libs
 potrace
-power-profiles-daemon
 procps-ng
 progress
 protobuf
@@ -1480,6 +1481,7 @@ python-mkl-service-bin
 python-more-itertools
 python-msgpack
 python-nest-asyncio
+python-nest_asyncio
 python-networkx
 python-numpy
 python-opengl
@@ -1623,12 +1625,14 @@ ruby-dbus
 ruby-ffi
 ruby-irb
 ruby-maruku
+ruby-psych
 ruby-rb-fsevent
 ruby-rb-inotify
 ruby-rdoc
 ruby-reline
 ruby-sass
 ruby-sass-listen
+ruby-stringio
 ruby-yard
 rubygems
 run-parts
@@ -1701,6 +1705,8 @@ telepathy-mission-control
 template-glib
 tepl
 tesseract
+tesseract-data-afr
+tesseract-data-osd
 tevent
 texinfo
 texlive-bibtexextra

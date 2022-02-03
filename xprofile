@@ -1,0 +1,5 @@
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+export LC_ALL="en_US.UTF-8"
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/xiehangyu/lib

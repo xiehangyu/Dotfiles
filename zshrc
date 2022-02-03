@@ -120,7 +120,7 @@ alias pythons=/bin/python
 alias pip3s=/bin/pip3
 export HISTIGNORE='*sudo -S*'
 #export LD_LIBRARY_PATH=~/pkg/tmp/usr/lib #and extract the icu-68 to ~/pkg/tmp file
-export LD_LIBRARY_PATH=/home/xiehangyu/lib
+#export LD_LIBRARY_PATH=/home/xiehangyu/lib # now write it to .xprofile
 
 
 #export http_proxy="http://127.0.0.1:12333"

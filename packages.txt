@@ -1741,6 +1741,7 @@ tracker
 tracker-miners
 tracker3
 tracker3-miners
+translate-shell
 tree-sitter
 tslib
 ttf-liberation

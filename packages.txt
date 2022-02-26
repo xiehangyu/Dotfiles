@@ -48,7 +48,7 @@ autokey-git
 automake
 avahi
 babl
-baidunetdisk-bin
+baidunetdisk-electron
 baobab
 base
 bash

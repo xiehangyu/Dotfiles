@@ -127,11 +127,7 @@ dbus-glib
 dbus-python
 dconf
 dconf-editor
-deepin-udis86
 deepin-wine-wechat
-deepin-wine5
-deepin-wine5-i386
-deepin.com.qq.im.light
 desktop-file-utils
 devhelp
 device-mapper
@@ -641,7 +637,6 @@ lib32-libidn2
 lib32-libiec61883
 lib32-libinstpatch
 lib32-libjpeg-turbo
-lib32-libjpeg6-turbo
 lib32-libkate
 lib32-libldap
 lib32-liblrdf
@@ -677,7 +672,6 @@ lib32-libthai
 lib32-libtheora
 lib32-libtiff
 lib32-libtirpc
-lib32-libudev0-shim
 lib32-libunistring
 lib32-libunwind
 lib32-libusb
@@ -724,7 +718,6 @@ lib32-nettle
 lib32-nspr
 lib32-nss
 lib32-numactl
-lib32-ocl-icd
 lib32-openal
 lib32-opencore-amr
 lib32-openexr
@@ -762,7 +755,6 @@ lib32-tdb
 lib32-twolame
 lib32-util-linux
 lib32-v4l-utils
-lib32-vkd3d
 lib32-vulkan-icd-loader
 lib32-wavpack
 lib32-wayland
@@ -1033,7 +1025,6 @@ libtiger
 libtirpc
 libtommath
 libtool
-libudev0-shim
 libunibreak
 libunique
 libunistring
@@ -1121,6 +1112,7 @@ linux-firmware-whence
 linux-headers
 linux-lts
 linux-lts-headers
+linuxqq
 llvm-libs
 llvm10-libs
 lm_sensors
@@ -1742,6 +1734,7 @@ tracker-miners
 tracker3
 tracker3-miners
 translate-shell
+tree
 tree-sitter
 tslib
 ttf-liberation

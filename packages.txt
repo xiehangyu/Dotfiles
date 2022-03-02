@@ -108,6 +108,7 @@ cogl
 coin-docs
 colord
 colord-gtk
+colord-gtk-common
 colord-sane
 compiler-rt
 coreutils
@@ -194,6 +195,7 @@ fcitx-lilydjwg-git
 fcitx-qt5
 fcitx-sogoupinyin
 ffmpeg
+ffmpeg4.4
 fftw
 file
 file-roller
@@ -645,9 +647,11 @@ lib32-libmms
 lib32-libmodplug
 lib32-libmpcdec
 lib32-libmpeg2
+lib32-libnghttp2
 lib32-libnice
 lib32-libnl
 lib32-libnsl
+lib32-libnuma
 lib32-libofa
 lib32-libogg
 lib32-libomxil-bellagio
@@ -665,6 +669,7 @@ lib32-libsidplay
 lib32-libsm
 lib32-libsndfile
 lib32-libsoup
+lib32-libsoup3
 lib32-libsrtp
 lib32-libssh2
 lib32-libtasn1
@@ -717,7 +722,6 @@ lib32-neon
 lib32-nettle
 lib32-nspr
 lib32-nss
-lib32-numactl
 lib32-openal
 lib32-opencore-amr
 lib32-openexr
@@ -905,6 +909,7 @@ liblouis
 liblqr
 liblrdf
 liblscp
+libltc
 libluv
 libmaa
 libmad
@@ -952,6 +957,7 @@ libofa
 libogg
 libomxil-bellagio
 libopenaptx
+libopenmpt
 liborcus
 libosinfo
 libp11-kit
@@ -1608,6 +1614,7 @@ retro-gtk
 rhash
 ripgrep
 ristretto
+rnnoise
 rpcbind
 rsync
 rtkit
@@ -1728,6 +1735,7 @@ tllocalmgr-git
 tlp
 totem
 totem-pl-parser
+tpm2-tss
 traceroute
 tracker
 tracker-miners

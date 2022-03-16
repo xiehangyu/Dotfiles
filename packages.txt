@@ -60,7 +60,6 @@ biber
 bind
 binutils
 bison
-blueman
 bluez
 bluez-libs
 bluez-utils
@@ -896,6 +895,7 @@ libinput
 libinstpatch
 libiptcdata
 libiscsi
+libisl
 libisofs
 libixion
 libjpeg-turbo
@@ -1758,6 +1758,7 @@ unarchiver
 unibilium
 unixodbc
 unzip
+update-grub
 upower
 usbmuxd
 usbredir

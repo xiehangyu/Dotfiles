@@ -1687,6 +1687,7 @@ svt-hevc
 swell-foop
 sysfsutils
 sysprof
+sysstat
 systemd
 systemd-libs
 systemd-sysvcompat

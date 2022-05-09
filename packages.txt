@@ -1653,6 +1653,7 @@ shared-color-targets
 shared-mime-info
 simple-scan
 skypeforlinux-stable-bin
+slack-desktop
 slang
 smbclient
 snappy

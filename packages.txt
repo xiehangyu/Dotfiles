@@ -1191,6 +1191,7 @@ net-snmp
 net-tools
 netcf
 netctl
+nethogs
 netpbm
 nettle
 network-manager-applet

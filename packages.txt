@@ -788,7 +788,6 @@ libatomic_ops
 libavc1394
 libavif
 libavtp
-libb2
 libblastrampoline
 libblockdev
 libbluray
@@ -825,7 +824,6 @@ libdbusmenu-qt5
 libdc1394
 libdca
 libde265
-libdispatch
 libdmapsharing
 libdrm
 libdv
@@ -925,7 +923,6 @@ libmicrodns
 libmicrohttpd
 libmm-glib
 libmms
-libmng
 libmnl
 libmodplug
 libmpc
@@ -1605,13 +1602,6 @@ qt5-webengine
 qt5-webkit
 qt5-x11extras
 qt5ct
-qt6-5compat
-qt6-base
-qt6-declarative
-qt6-imageformats
-qt6-svg
-qt6-translations
-qt6-wayland
 quadrapassel
 ragel
 rapidjson
@@ -1711,7 +1701,6 @@ tbb
 tcl
 tdb
 teamviewer
-telegram-desktop
 telepathy-glib
 telepathy-idle
 telepathy-logger
@@ -1763,7 +1752,6 @@ tree-sitter
 tslib
 ttf-liberation
 ttf-mathtype
-ttf-opensans
 ttf-wps-fonts
 tumbler
 twolame
@@ -1805,7 +1793,6 @@ volume_key
 vpnc
 vte-common
 vte3
-vulkan-headers
 vulkan-icd-loader
 wavpack
 wayland
@@ -1842,7 +1829,6 @@ xapp
 xbitmaps
 xcb-proto
 xcb-util
-xcb-util-cursor
 xcb-util-image
 xcb-util-keysyms
 xcb-util-renderutil

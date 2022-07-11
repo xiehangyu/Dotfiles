@@ -1129,7 +1129,6 @@ lua52-expat
 lua52-lpeg
 lua52-luajson
 lua52-socket
-lua53
 luajit
 luit
 lv2
@@ -1195,7 +1194,6 @@ networkmanager
 ninja
 nlohmann-json
 nm-connection-editor
-nmap
 node-gyp
 nodejs
 nodejs-nativefier

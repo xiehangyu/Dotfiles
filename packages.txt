@@ -93,6 +93,7 @@ chromaprint
 chrome-gnome-shell
 cifs-utils
 cinnamon-desktop
+clang
 clash
 clashy-git
 clucene
@@ -108,6 +109,7 @@ colord
 colord-gtk
 colord-gtk-common
 colord-sane
+compiler-rt
 coreutils
 cracklib
 create_ap-git
@@ -1150,7 +1152,6 @@ mbedtls
 md4c
 mdadm
 media-player-info
-mendeleydesktop-bundled
 mesa
 mesa-demos
 meson

@@ -127,6 +127,7 @@ dbus-glib
 dbus-python
 dconf
 dconf-editor
+debtap
 deepin-wine-wechat
 desktop-file-utils
 devhelp
@@ -1386,6 +1387,7 @@ pipewire-media-session
 pixman
 pkcs11-helper
 pkgconf
+pkgfile
 plotutils
 polari
 polkit

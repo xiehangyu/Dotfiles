@@ -102,7 +102,6 @@ clutter-gst
 clutter-gtk
 cmake
 cmark
-code
 cogl
 coin-docs
 colord
@@ -1781,6 +1780,7 @@ virglrenderer
 virtualbox
 virtualbox-ext-oracle
 virtualbox-host-dkms
+visual-studio-code-bin
 vlc
 vmaf
 vmware-keymaps

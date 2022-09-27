@@ -57,6 +57,7 @@ bcprov
 bear
 beep
 biber
+bibtool-git
 bind
 binutils
 bison

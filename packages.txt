@@ -1117,7 +1117,6 @@ linux-firmware-whence
 linux-headers
 linux-lts
 linux-lts-headers
-linuxqq
 llvm-libs
 llvm10-libs
 lm_sensors

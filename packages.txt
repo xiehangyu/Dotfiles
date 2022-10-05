@@ -1784,8 +1784,6 @@ virtualbox-host-dkms
 visual-studio-code-bin
 vlc
 vmaf
-vmware-keymaps
-vmware-workstation
 vokoscreen
 volume_key
 vpnc

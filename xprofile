@@ -4,3 +4,4 @@ export XMODIFIERS="@im=fcitx"
 export LC_ALL="en_US.UTF-8"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/xiehangyu/lib
 export PYTHONPATH=$PYTHONPATH:/home/xiehangyu/.local/lib/python3.9
+alias aps-length=/home/xiehangyu/software/aps-length/aps-length

@@ -1413,6 +1413,7 @@ pybind11
 pycharm-community-edition
 python
 python-anytree
+python-apipkg
 python-appdirs
 python-argon2_cffi
 python-asn1crypto
@@ -1447,6 +1448,7 @@ python-entrypoints
 python-et-xmlfile
 python-fonttools
 python-future
+python-ghostscript
 python-gobject
 python-greenlet
 python-html5lib
@@ -1454,6 +1456,7 @@ python-idna
 python-imageio
 python-imagesize
 python-importlib-metadata
+python-iniconfig
 python-ipykernel
 python-ipywidgets
 python-isort
@@ -1496,6 +1499,7 @@ python-pilkit
 python-pillow
 python-pip
 python-platformdirs
+python-pluggy
 python-ply
 python-polib
 python-progress
@@ -1503,6 +1507,7 @@ python-prometheus_client
 python-prompt_toolkit
 python-psutil
 python-ptyprocess
+python-py
 python-pyalsa
 python-pybluez
 python-pycodestyle
@@ -1519,6 +1524,7 @@ python-pyparsing
 python-pyqt5
 python-pyqt5-sip
 python-pyrsistent
+python-pytest
 python-pytoml
 python-pytorch
 python-pytz

@@ -115,6 +115,7 @@ export C_INCLUDE_PATH=/home/xiehangyu/lib/:$C_INCLUDE_PATH
 export CPLUS_INCLUDE_PATH=/home/xiehangyu/.local/include/:$CPLUS_INCLUDE_PATH
 export CPLUS_INCLUDE_PATH=/home/xiehangyu/lib/:$CPLUS_INCLUDE_PATH
 alias sf='cd /home/xiehangyu/yxh/study/USTC/senior_fall'
+alias aps-length=/home/xiehangyu/software/aps-length/aps-length
 alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
 alias pythons=/bin/python
 alias pip3s=/bin/pip3

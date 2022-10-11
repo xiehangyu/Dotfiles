@@ -1241,6 +1241,7 @@ orca
 os-prober
 osinfo-db
 ostree
+otf-fira-sans
 otf-stix
 p11-kit
 p7zip

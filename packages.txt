@@ -403,6 +403,7 @@ gtksourceview4
 gtkspell3
 gts
 guile
+guile1.8
 guile2.0
 gupnp
 gupnp-av
@@ -1732,6 +1733,7 @@ texlive-pictures
 texlive-pstricks
 texlive-publishers
 texlive-science
+texmacs
 the_silver_searcher
 thin-provisioning-tools
 thunar

@@ -52,7 +52,6 @@ baidunetdisk-electron
 baobab
 base
 bash
-bc
 bcprov
 bear
 beep
@@ -115,8 +114,6 @@ cracklib
 create_ap-git
 cryptsetup
 ctags
-cups
-cups-filters
 cups-pk-helper
 curl
 cython
@@ -210,7 +207,6 @@ fluidsynth
 fmt
 folks
 fontconfig
-foomatic-db-gutenprint-ppds
 four-in-a-row
 foxitreader
 freeglut
@@ -411,7 +407,6 @@ gupnp
 gupnp-av
 gupnp-dlna
 gupnp-igd
-gutenprint
 gvfs
 gvfs-afc
 gvfs-goa
@@ -1592,7 +1587,6 @@ python2-setuptools
 python2-six
 qemu
 qhull
-qpdf
 qqwing
 qrencode
 qscintilla-qt5

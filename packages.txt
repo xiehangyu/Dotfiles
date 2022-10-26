@@ -129,6 +129,7 @@ dconf
 dconf-editor
 debtap
 deepin-wine-wechat
+dejagnu
 desktop-file-utils
 devhelp
 device-mapper
@@ -209,6 +210,7 @@ fluidsynth
 fmt
 folks
 fontconfig
+foomatic-db-gutenprint-ppds
 four-in-a-row
 foxitreader
 freeglut
@@ -409,6 +411,7 @@ gupnp
 gupnp-av
 gupnp-dlna
 gupnp-igd
+gutenprint
 gvfs
 gvfs-afc
 gvfs-goa

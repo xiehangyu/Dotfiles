@@ -255,7 +255,6 @@ gnome-books
 gnome-boxes
 gnome-builder
 gnome-calculator
-gnome-calendar
 gnome-characters
 gnome-chess
 gnome-clocks

@@ -736,6 +736,7 @@ libatomic_ops
 libavc1394
 libavif
 libavtp
+libb2
 libblastrampoline
 libblockdev
 libbluray
@@ -1483,6 +1484,10 @@ qt5-webengine
 qt5-webkit
 qt5-x11extras
 qt5ct
+qt6-base
+qt6-shadertools
+qt6-tools
+qt6-translations
 quadrapassel
 ragel
 raptor
@@ -1668,6 +1673,7 @@ volume_key
 vpnc
 vte-common
 vte3
+vulkan-headers
 vulkan-icd-loader
 wavpack
 wayland
@@ -1703,6 +1709,7 @@ xapp
 xbitmaps
 xcb-proto
 xcb-util
+xcb-util-cursor
 xcb-util-image
 xcb-util-keysyms
 xcb-util-renderutil

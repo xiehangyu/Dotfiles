@@ -1314,6 +1314,7 @@ popt
 portaudio
 postgresql-libs
 potrace
+prince-bin
 procps-ng
 progress
 protobuf
@@ -1483,6 +1484,7 @@ qt5-webchannel
 qt5-webengine
 qt5-webkit
 qt5-x11extras
+qt5-xmlpatterns
 qt5ct
 qt6-base
 qt6-shadertools
@@ -1693,6 +1695,7 @@ wine-gecko
 wine-mono
 winetricks
 wireless_tools
+wkhtmltopdf
 wmctrl
 woff2
 wpa_supplicant

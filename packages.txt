@@ -1279,6 +1279,7 @@ openssl-1.0
 openvpn
 optipng
 opus
+opusfile
 orage
 orc
 orca
@@ -1444,6 +1445,7 @@ poppler-data
 poppler-glib
 popt
 portaudio
+portmidi
 postgresql-libs
 potrace
 prince-bin
@@ -1542,6 +1544,7 @@ python-pycodestyle
 python-pycparser
 python-pyflakes
 python-pygal
+python-pygame
 python-pygments
 python-pyhamcrest
 python-pyinotify
@@ -1658,9 +1661,12 @@ run-parts
 rygel
 sane
 sbc
+scons
 sdl
 sdl2
 sdl2_image
+sdl2_mixer
+sdl2_ttf
 seabios
 sed
 semver

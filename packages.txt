@@ -41,6 +41,7 @@ autoconf-archive
 autokey-git
 automake
 avahi
+ayatana-ido
 babl
 baidunetdisk-electron
 baobab
@@ -865,6 +866,8 @@ libatomic_ops
 libavc1394
 libavif
 libavtp
+libayatana-appindicator
+libayatana-indicator
 libb2
 libblastrampoline
 libblockdev
@@ -1634,6 +1637,7 @@ rav1e
 re2
 readline
 redland
+remmina
 rest
 retro-gtk
 rhash

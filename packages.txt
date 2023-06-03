@@ -1804,8 +1804,6 @@ vim-runtime
 vinagre
 vino
 virglrenderer
-virtualbox
-virtualbox-ext-oracle
 virtualbox-host-dkms
 visual-studio-code-bin
 vlc

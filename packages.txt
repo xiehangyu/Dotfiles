@@ -16,7 +16,6 @@ alsa-plugins
 alsa-topology-conf
 alsa-ucm-conf
 alsa-utils
-anaconda
 aom
 apache
 apparmor
@@ -146,7 +145,6 @@ dotconf
 double-conversion
 downgrader-git
 doxygen
-drawio-desktop-bin
 dstat
 dtc
 e2fsprogs
@@ -1678,7 +1676,6 @@ shadow
 shared-color-targets
 shared-mime-info
 simple-scan
-skypeforlinux-stable-bin
 slack-desktop
 slang
 smbclient

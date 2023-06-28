@@ -150,6 +150,7 @@ drawio-desktop-bin
 dstat
 dtc
 e2fsprogs
+easyroam-desktop
 edk2-ovmf
 efibootmgr
 efivar
@@ -192,6 +193,7 @@ flac
 flex
 fltk
 fluidsynth
+flutter
 fmt
 folks
 fontconfig

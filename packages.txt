@@ -1485,6 +1485,7 @@ python-distlib
 python-distro
 python-dnspython
 python-docutils
+python-elementpath
 python-et-xmlfile
 python-future
 python-ghostscript

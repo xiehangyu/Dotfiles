@@ -1745,6 +1745,7 @@ texlive-humanities
 texlive-langchinese
 texlive-latexextra
 texlive-local-luatexja
+texlive-local-revtex
 texlive-music
 texlive-pictures
 texlive-pstricks

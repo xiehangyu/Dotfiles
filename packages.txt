@@ -539,6 +539,7 @@ ibus
 icu
 ifuse
 ijs
+imagej
 imagemagick
 imath
 imlib2

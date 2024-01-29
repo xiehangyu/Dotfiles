@@ -1223,7 +1223,6 @@ mtools
 mutter
 nano
 nautilus
-nautilus-nutstore
 nccl
 ncdu
 ncurses
@@ -1253,7 +1252,6 @@ nspr
 nss
 ntfs-3g
 numactl
-nutstore-experimental
 obs-studio
 ocaml
 ocaml-compiler-libs

@@ -1583,6 +1583,7 @@ python-xcffib
 python-xlib
 python-yaml
 python-zipp
+python2
 qemu
 qhull
 qpdf

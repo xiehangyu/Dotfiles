@@ -1,0 +1,486 @@
+\documentclass[aps,prl,twocolumn,superscriptaddress]{revtex4-1}
+\usepackage{times}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{feynmf}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{xfrac}
+\usepackage[colorlinks,citecolor=blue]{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{longtable,booktabs}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{subfigure}
+\usepackage{dsfont}
+\usepackage{booktabs}
+\usepackage{amsbsy}
+\usepackage{dcolumn}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{esint}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsbsy}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{extarrows}
+\usepackage{datetime}
+\usepackage[super]{nth}
+\hypersetup{
+	colorlinks=magenta,
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=magenta,
+}
+\def\Z{\mathbb{Z}}
+\newcommand{\red}[1]{{\textcolor{red}{#1}}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{statement}{Statement}
+\newcommand{\mb}{\mathbb}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\wt}{\widetilde}
+\newcommand{\mc}{\mathcal}
+\newcommand{\bra}{\langle}
+\newcommand{\ket}{\rangle}
+\newcommand{\ep}{\epsilon}
+\newcommand{\tf}{\textbf}
+
+\begin{document}
+\title{Yang-Lee Zeros, Semicircle Theorem, and Nonunitary Criticality in Bardeen-Cooper Superconductivity}
+\author{Hongchao Li}
+\thanks{These two authors contributed equally to this work.}
+\affiliation{Department of Physics, University of Tokyo, 7-3-1 Hongo, Tokyo 113-0033,
+Japan}
+\email{lhc@cat.phys.s.u-tokyo.ac.jp}
+
+\author{Xie-Hang Yu}
+\thanks{These two authors contributed equally to this work.}
+\affiliation{Max-Planck-Institut für Quantenoptik, Hans-Kopfermann-Straße 1, D-85748
+Garching, Germany}
+\affiliation{Munich Center for Quantum Science and Technology, Schellingstraße
+4, 80799 München, Germany}
+\email{xiehang.yu@mpq.mpg.de}
+
+\author{Masaya Nakagawa}
+\affiliation{Department of Physics, University of Tokyo, 7-3-1 Hongo, Tokyo 113-0033,
+Japan}
+\email{nakagawa@cat.phys.s.u-tokyo.ac.jp}
+
+\author{Masahito Ueda}
+\affiliation{Department of Physics, University of Tokyo, 7-3-1 Hongo, Tokyo 113-0033,
+Japan}
+\affiliation{RIKEN Center for Emergent Matter Science (CEMS), Wako, Saitama 351-0198,
+Japan}
+\affiliation{Institute for Physics of Intelligence, University of Tokyo, 7-3-1
+Hongo, Tokyo 113-0033, Japan}
+\email{ueda@cat.phys.s.u-tokyo.ac.jp}
+
+\date{\today}
+\begin{abstract}
+Yang and Lee investigated phase transitions in terms of zeros of partition functions, namely, Yang-Lee zeros~[\href{https://journals.aps.org/pr/abstract/10.1103/PhysRev.87.404}{Phys. Rev. \textbf{87}, 404 (1952)}; \href{https://journals.aps.org/pr/abstract/10.1103/PhysRev.87.410}{ Phys. Rev. \textbf{87}, 410 (1952)}]. We show that  the essential singularity in the superconducting gap is directly related to the number of roots of the partition function of a BCS superconductor. Those zeros are found to be %Yang-Lee zeros of a BCS superconductor are
+distributed on a semicircle in the complex plane of the interaction strength due to the Fermi-surface instability. A renormalization-group analysis shows that the semicircle theorem holds for a generic quantum many-body system with a marginal coupling, in sharp contrast
+with the Lee-Yang circle theorem for the Ising spin system. This indicates that the geometry of Yang-Lee zeros is directly connected to the Fermi-surface instability. Furthermore, we unveil the nonunitary criticality in BCS superconductivity that emerges at each individual Yang-Lee zero due to exceptional points and presents a universality class distinct from that of the conventional Yang-Lee edge singularity. %Our results show a universal structure of Yang-Lee zeros in systems subject to Fermi-surface instabilities.
+\end{abstract}
+\maketitle
+\emph{Introduction}.---
+%The singularity at phase transitions is a central theme in statistical physics.
+Yang and Lee developed a general approach to understanding phase transitions in terms of zeros, known as Yang-Lee zeros, of the partition function \cite{PhysRev.87.404,PhysRev.87.410}. 
+%Yang-Lee zeros \cite{PhysRev.87.404,PhysRev.87.410} are the zero
+%points of the partition function and allow one to study singular behaviors of physical quantities near phase transitions \cite{Fisher1965,Fisher:1978vn,PhysRevLett.84.4794,PhysRevLett.84.814,PhysRevLett.89.080601,PhysRevLett.110.248101}.
+They investigated the distribution of zeros of the partition function of a classical Ising model for
+an imaginary magnetic field to understand the mathematical origin of nonanalyticity of the ferromagnetic phase transition. %They showed Lee-Yang circle theorem \cite{PhysRev.87.404,PhysRev.87.410} that zeros
+%of the partition function of the classical ferromagnetic Ising model
+%are distributed on a unit circle in the complex plane of the fugacity \cite{Simon:1973tr,Newman:1974wi,Lieb:1981vb,Kortman:1971tw}.
+The thermal phase transition between the paramagnetic and ferromagnetic phases occurs when the distribution of zeros %in the thermodynamic limit
+touches the real axis in the thermodynamic limit. Yang-Lee zeros are also closely related to singularities in thermodynamic quantities accompanied by anomalous scaling \cite{Fisher:1978vn,Kurtze:1979wb,10.1143/PTP.69.14,Cardy:1985ub,Cardy:1989uo,Zamolodchikov:1991tl}.
+This type of singularities in critical phenomena is collectively referred to as the Yang-Lee singularity \cite{BENA2005}.
+\begin{comment}
+which, together with Yang-Lee zeros, has also been applied to quantum phase transitions \cite{Gehlen_1991,Sumaryada:2007uu,PhysRevB.53.7704,Matsumoto2020,PhysRevResearch.3.033206,PhysRevB.106.054402,PhysRevE.96.032116,PhysRevX.11.041018,PhysRevE.96.032116}. Therefore, Yang-Lee zeros can be applied to characterize the analytic property of thermodynamic quantities and origin of singularities at phase transitions of both classical and quantum many-body systems.
+
+Despite its growing importance on understanding phase transition, it is still highly nontrivial to understand the origin of non-analycity in superconducting phase transition in terms of Yang-Lee zeros. We unveil that Yang-Lee zeros are the key to investigate the mechanism behind the essential singularity and non-perturbative property of Bardeen-Cooper-Schrieffer (BCS) model of superconductivity \cite{Bardeen:1957tx}. In addition, generally it is very difficult to determine the distribution of Yang-Lee zeros for a given model of interests. Here we discover semicircle theorem that Yang-Lee zeros are distributed on a semicricle on the complex plane of interaction strength in marginal fermionic many-body system. The BCS model is one of the examples.
+\end{comment}
+
+%The BCS superconductivity has played a pivotal role in many-body fermionic systems. At absolute zero, there is a quantum phase transition between the superconducting and normal phases, and an essential singularity arises which leads to non-analyticity in thermodynamic quantities, such as the superconducting gap \cite{altland_simons_2010,Coleman:2015vz}. %\cite{Bardeen:1957tx}: $\Delta_0\propto\text{exp}(-\frac{1}{\rho_0 U})$,
+%where $\rho_0$ is the density of states and $U$ is the strength of
+%attractive interaction. While the nonperturbative nature of BCS superconductivity is well established, it is highly nontrivial to understand the non-analycity in superconducting phase transition in terms of analytic property of partition function. The purpose of this Letter is to point out that Yang-Lee zeros \cite{PhysRev.87.404,PhysRev.87.410} are the key to investigate the origin of the essential singularity and non-perturbative property of thermodynamic quantities in superconductivity and its semicircular distribution of Yang-Lee zeros. 
+
+The distribution of Yang-Lee zeros governs the critical phenomena in phase transitions \cite{Fisher1965,Fisher:1978vn} and is of fundamental importance in statistical physics. The universality of the distribution is encapsulated by the Lee-Yang circle theorem \cite{PhysRev.87.404,PhysRev.87.410}, which states that the Yang-Lee zeros of the ferromagnetic Ising model are distributed on a unit circle in the complex plane of the fugacity \cite{Simon:1973tr,Newman:1974wi,Lieb:1981vb,Kortman:1971tw}. While the Yang-Lee theory has been applied to a wide range of phase transitions in classical \cite{PhysRevLett.84.4794,PhysRevLett.84.814,PhysRevLett.89.080601,PhysRevLett.110.248101} and quantum \cite{Gehlen_1991,Sumaryada:2007uu,PhysRevB.53.7704,Matsumoto2020,PhysRevResearch.3.033206,PhysRevB.106.054402,PhysRevE.96.032116,PhysRevX.11.041018,PhysRevE.96.032116,Fredrik2023,PhysRevLett.131.080403} systems, its application to itinerant electronic systems is limited \cite{Sumaryada:2007uu,PhysRevB.53.7704}. Itinerant electrons show various types of order arising from Fermi-surface instabilities, including the Bardeen-Cooper-Schrieffer (BCS) superconductivity \cite{Bardeen:1957tx} as a prime example. Thus, the study of Yang-Lee zeros in the BCS theory is expected to unveil hitherto unnoticed universality in superconductivity.
+
+
+In this Letter, we develop the Yang-Lee theory of BCS superconductivity to elucidate the nonperturbative nature of the superconducting phase transition in terms of the distribution of zeros of the partition function. We show that the number of roots of the partition function is directly related to the superconducting gap induced by the Fermi-surface instability. In particular, we demonstrate that the Yang-Lee zeros of the partition function are distributed on a semicircle in the complex plane of the interaction strength, where the superconducting phase transition occurs at the edge of the distribution.
+A previous study \cite{Sumaryada:2007uu} on Fisher zeros in pairing fields focuses on a finite-temperature phase transition by making the temperature complex. In contrast, we focus on the zero-temperature quantum phase transition by making the interaction strength complex.  %In contrast to a previous study \cite{Sumaryada:2007uu} on Fisher zeros in pairing fields at complex temperature in a finite-temperature phase transition, we complexity the partition function by analytically extend the interacting strength to a complex plane at absolute zero with a focus on the quantum phase transition.
+\begin{comment}
+In this Letter, we develop a theory of Yang-Lee zeros in BCS superconductivity and show that Yang-Lee zeros are distributed on a semicircle on the complex plane of interaction strength due to the Fermi-surface pairing instability.
+We demonstrate that the superconducting phase transition occurs at
+the edge of the distribution of Yang-Lee zeros and the nonperturbative
+behavior of the phase transition is encoded in the number of roots of the partition function in the energy space. In contrast to a previous study \cite{Sumaryada:2007uu} on Fisher zeros in pairing fields at complex temperature in a finite-temperature phase transition, we extend the interaction strength to a complex regime at absolute zero with a focus on the quantum phase transition.
+\end{comment}
+
+
+Furthermore, we employ a renormalization group (RG) to investigate the 
+universality of the distribution of Yang-Lee zeros
+for a generic quantum many-body system with a marginal coupling. In particular, we show the semicircle theorem: Yang-Lee zeros in a quantum many-body system with a marginally relevant coupling are distributed on a semicircle
+in the complex interaction plane, in contrast to a full circle of the original Lee-Yang circle
+theorem \cite{PhysRev.87.404,PhysRev.87.410}. This general theorem demonstrates that the geometric shape of the distribution of Yang-Lee zeros is directly connected to the existence of the Fermi-surface instability.%This universal semicircle structure relates the nonperturbative nature of the Fermi-surface instability to the geometric structure of the distribution of Yang-Lee zeros. %Our RG theory also confirms the validity of mean-field results.
+
+Last, we investigate the nonunitary criticality in BCS superconductivity which originates from the Yang-Lee singularity. By determining the critical exponents, we show that the nonunitary singularity belongs to a universality
+class distinct from that of the Hermitian superconducting phase transition. The unconventional quantum critical phenomena are caused by exceptional points where a nonanalytic excitation spectrum emerges near the Fermi surface \cite{Yamamoto2019}.
+
+\emph{Yang-Lee singularity in superconductivity}.---We consider a three-dimensional
+BCS model \cite{Yamamoto2019}\footnote{Note that in our definition, $U_{R}>0\:(<0)$ represents attractive
+(repulsive) interaction.} 
+\begin{equation}
+H=\sum_{\boldsymbol{k}\sigma}\xi_{\boldsymbol{k}}c_{\boldsymbol{k}\sigma}^{\dagger}c_{\boldsymbol{k}\sigma}-\frac{U}{N}\sum_{\bm{k},\bm{k}'}{}^{'}c_{\bm{k}\uparrow}^{\dagger}c_{\bm{-k}\downarrow}^{\dagger}c_{\bm{-k}'\downarrow}c_{\bm{k}'\uparrow},\label{eq:non-Hermitian}
+\end{equation}
+where $\xi_{\boldsymbol{k}}=\epsilon_{\bm{k}}-\mu$ is the single-particle
+energy measured from the chemical potential $\mu$, $\sigma=\uparrow,\downarrow$
+is the spin index, and $U=U_{R}+iU_{I}$ is the complex-valued
+interaction strength. %which is used to investigate Yang-Lee zeros
+%since we focus on the superconducting quantum phase transitionat absolute zero. %instead of finite-temperature thermal phase transition.
+The creation and annihilation operators of an electron with momentum $\bm{k}$ and spin $\sigma$ are denoted as $c_{\bm{k}\sigma}^{\dagger}$
+and $c_{\bm{k}\sigma}$, respectively. The prime in $\sum_{\bm{k}}^{'}$
+indicates that the sum over $\bm{k}$ is restricted to $|\xi_{\boldsymbol{k}}|<\omega_{D}$,
+where $\omega_{D}$ is the energy cutoff and $N$ is the number of momenta within this cutoff. Note that the non-Hermitian Hamiltonian (\ref{eq:non-Hermitian}) is used to investigate Yang-Lee zeros of closed systems as opposed to open systems in Ref. \cite{Yamamoto2019}. 
+
+A non-Hermitian generalization of the BCS theory is made in Ref. \cite{Yamamoto2019}, where the mean-field BCS Hamiltonian
+is given by $H_{\mathrm{MF}}=\sum_{\boldsymbol{k}\sigma}\xi_{\boldsymbol{k}}c_{\boldsymbol{k}\sigma}^{\dagger}c_{\boldsymbol{k}\sigma}+\sum_{\bm{k}}^{'}[\bar{\Delta}_0c_{-\bm{k}\downarrow}c_{\bm{k}\uparrow}+\Delta_0 c_{\bm{k}\uparrow}^{\dagger}c_{-\bm{k}\downarrow}^{\dagger}]+\frac{N}{U}\bar{\Delta}_0\Delta_0$,
+with the superconducting gaps $\Delta_0=-\frac{U}{N}\sum_{\boldsymbol{k}L}^{'}\langle c_{-\boldsymbol{k}\downarrow}c_{\boldsymbol{k}\uparrow}\rangle_{R}$
+and $\bar{\Delta}_0=-\frac{U}{N}\sum_{\boldsymbol{k}L}^{'}\langle c_{\boldsymbol{k}\uparrow}^{\dagger}c_{-\boldsymbol{k}\downarrow}^{\dagger}\rangle_{R}$.
+Here $_{L}\langle A\rangle_{R}:={}_{L}\langle\text{BCS}|A|\text{BCS}\rangle_{R}$,
+and $|\text{BCS}\rangle_{R}$ and $|\text{BCS}\rangle_{L}$ are the
+right and left ground states of the Hamiltonian $H_{\mathrm{MF}}$ given by \cite{Yamamoto2019} 
+\begin{align}
+|\text{BCS}\rangle_{R} & =\prod_{\bm{k}}(u_{\bm{k}}+v_{\bm{k}}c_{\boldsymbol{k}\uparrow}^{\dagger}c_{-\boldsymbol{k}\downarrow}^{\dagger})|0\rangle,\\
+|\text{BCS}\rangle_{L} & =\prod_{\bm{k}}(u_{\bm{k}}^{*}+\bar{v}_{\bm{k}}^{*}c_{\boldsymbol{k}\uparrow}^{\dagger}c_{-\boldsymbol{k}\downarrow}^{\dagger})|0\rangle,
+\end{align}
+where $|0\rangle$ is the vacuum state for electrons, and $u_{\bm{k}},v_{\bm{k}}$,
+and $\bar{v}_{\bm{k}}$ are complex coefficients subject to the normalization
+condition $u_{\bm{k}}^{2}+v_{\bm{k}}\bar{v}_{\bm{k}}=1$. These coefficients
+can be determined in a standard manner and given in Supplemental Material
+\cite{SupplementaryMaterial}. Since the right and left ground states
+are not the same, $\Delta_0\neq\bar{\Delta}_0^{*}$ and $\bar{v}_{\bm{k}}\neq v_{\bm{k}}^{*}$
+in general. Here we take a gauge such that $\bar{\Delta}_0=\Delta_0$. The Bogoliubov energy spectrum $E_{\bm{k}}$ is given by
+\cite{Yamamoto2019} 
+$E_{\bm{k}}=\sqrt{\xi_{\bm{k}}^{2}+\Delta_{\bm{k}}^{2}}$,
+where $\Delta_{\bm{k}}=\Delta_0\theta(\omega_{D}-|\xi_{\bm{k}}|)$
+with $\theta(x)$ being the Heaviside unit-step function. It is worthwhile
+to note that $\Delta_0$ is complex in general, so is the energy
+$E_{\bm{k}}$. In the following, we assume that the density of states
+$\rho_{0}$ in the energy shell is a constant. The gap $\Delta_0$
+is then given by 
+\begin{equation}
+\Delta_0=\frac{\omega_{D}}{\text{sinh}\left(\frac{1}{\rho_{0}U}\right)},\label{eq:gap}
+\end{equation}
+which exhibits an essential singularity at $U=0$.
+
+The partition function is given by
+\begin{equation}
+Z=\prod_{\bm{k},\sigma}Z_{\bm{k}}=\prod_{\bm{k},\sigma}(1+e^{-\beta E_{\bm{k}}}),\label{eq:analytical_expression_partition}
+\end{equation}
+whose absolute value is shown in Fig. \ref{Phase_transition_line}. Here $\beta$ is the inverse temperature. 
+The Yang-Lee zeros of our system are defined by zeros of the
+partition function in Eq. (\ref{eq:analytical_expression_partition})
+where $\mathrm{Re}(E_{\bm{k}})=0$ and $\mathrm{Im}(\beta E_{\bm{k}})=(2n+1)\pi,n\in\mathbb{Z}$.
+This condition is satisfied in the thermodynamic limit if $\mathrm{Re}\Delta_0=0$,
+which agrees with the condition of phase transitions. It follows from this condition that the positions of Yang-Lee zeros satisify
+
+\begin{equation}
+(\rho_{0}\pi U_{R})^{2}+(\rho_{0}\pi U_{I}-1)^{2}=1,\;U_{R}>0.\label{eq:phase_transition}
+\end{equation}
+Note that these points coincide with the exceptional points where $H_{\mathrm{MF}}$
+is not diagonalizable \cite{Yamamoto2019}. The Yang-Lee
+zeros are distributed on a semicircle in the complex plane of the interaction strength $U$
+depicted as the boundary of the gray region in Fig. \ref{Phase_transition_line}. In the yellow region in Fig. \ref{Phase_transition_line}, the energy spectrum $E_{\mathbf{k}}$ is gapped and $|Z|\to 1$ in the zero-temperature limit since $e^{-\beta E_{\bm{k}}}\to 0$ for all momenta $\bm{k}$. Note that the distribution of the Yang-Lee zeros touches the real axis at the origin, which is consistent with the fact that the superconducting phase transition occurs at the origin.
+
+The essential singularity at the superconducting phase transition is directly linked to the number of roots $\chi$ of the partition function. According to Eq. (\ref{eq:analytical_expression_partition}), each factor in the partition function contributes to one root if and only if $\mathrm{Re}(E_{\bm{k}})=0$ and $\mathrm{Im}(\beta E_{\bm{k}})=(2n+1)\pi$ for some $n\in\mathbb{Z}$. Therefore, the number of roots of the partition function in the complex energy space is given by the number of integer $n$ satisfying $\mathrm{Im}(\beta E_{\bm{k}})=(2n+1)\pi$ for $ \mathrm{Im}(\beta E_{\bm{k}})\in [0, \beta \text{Im}(\Delta_0)]$ (see Eqs. (12)--(15) in Supplemental Material). From Eq. (\ref{eq:gap}), we have
+%To understand the essential singularity of superconductivity in terms of Yang-Lee zeros,
+%we define a new quantity: $\chi$ of Yang-Lee zeros to represent the number
+%of $n\in\mathbb{Z}$ through the relation $\mathrm{Im}(\beta E_{\bm{k}})=(2n+1)\pi$
+%in the zero-temperature limit $\beta\to\infty$: 
+\begin{equation}
+\chi\simeq\frac{\beta\,\text{Im}(\Delta_0)}{\pi}=\frac{\beta\omega_{D}}{\pi\,\text{cosh}(\frac{U_{R}}{\rho_{0}|U|^{2}})}\label{eq:order}
+\end{equation}
+%Indeed, this is the number of roots of $Z_{\bm{k}}$ in Eq. (\ref{eq:analytical_expression_partition}).
+in the zero-temperature limit, where the spin-degeneracy factor of two is included. %Here we have already assumed that the energy level distributes uniformally and densely in the region $ \mathrm{Im}(\beta E_{\bm{k}})\in [0, \beta \text{Im}(\Delta_0)]$. 
+Near $U=0$, the gap takes the form of $\Delta_0=2\omega_{D}\exp(-\frac{1}{\rho_{0}U})$.
+Since the phase boundary is tangent to the real axis where $U_{I}\ll U_{R}$,
+we may put $U_{I}=0$ in Eq. (\ref{eq:order}) near the origin, obtaining%. Then $\chi$ is related to $\Delta_0$ as 
+\begin{equation}
+\chi\simeq\frac{\beta}{\pi}\Delta_0|_{U_I=0}.\label{eq:chivalue}
+\end{equation}
+Equation (\ref{eq:chivalue}) relates the number of roots $\chi$ of
+the partition function %on the complex plane 
+to the superconducting gap $\Delta_0$ on the real axis. The %nonperturbative property in thermodynamic
+%quantities near the phase transition point can be read off from the number of roots of the partition function. For instance, the 
+condensation energy $\Delta E=F(\Delta_0)-F(0)$ \cite{Coleman:2015vz}, %on the real axis
+where $F$ is the free energy, can be obtained from the number of roots $\chi$ %on the complex plane 
+as \cite{SupplementaryMaterial}
+\begin{equation}
+	\Delta E\simeq-\frac{\pi^2N\rho_0}{2}\left(\frac{\chi}{\beta}\right)^2\propto\chi^2.
+\end{equation}
+For a general phase transition with spontaneous symmetry breaking and order parameter $\Delta_0$ with the dimension of energy, we have $\Delta E\propto\chi^2$ \footnote{In general we can write the Ginzberg-Landau free energy in terms of order parameter $\Delta_0$ as $F=a\Delta_0^2+b\Delta_0^4$. Near the origin we have $\Delta_0\to0$ and hence $F\propto\Delta_0^2\propto\chi^2$ holds.}. The condensation energy is thus directly related to the number of roots $\chi$. 
+
+\begin{figure}
+\includegraphics[width=1\columnwidth]{fig_1_b}
+
+\caption{Absolute value of the partition function $Z$ of the three-dimensional
+BCS model as a function of the real and imaginary parts of the interaction
+strength $U=U_{R}+iU_{I}$ in the zero-temperature limit. The boundary
+along which the partition function vanishes is given by Eq. (\ref{eq:phase_transition}). In the gray region inside
+the phase boundary, the value of the partition function is not shown
+due to the breakdown of the mean-field approximation \cite{Yamamoto2019}.}
+
+\label{Phase_transition_line}
+\end{figure}
+
+\emph{Semicircle theorem}.---Here, we show that the semicircular
+distribution (\ref{eq:phase_transition}) of the Yang-Lee zeros is generic and universal in quantum many-body systems.
+We consider a general canonical RG equation for a marginal
+complex interaction: 
+\begin{equation}
+\frac{dV}{dt}=aV^{2}+bV^{3},\label{eq:RG_Flow_equation}
+\end{equation}
+where $V=V_{R}+iV_{I}\in\mathbb{C}$ is a dimensionless coupling strength
+which can be taken as $V=\rho_{0}U$ in the present case, and $dt=-\frac{d\Xi}{\Xi}$
+is the relative width of the high-energy shell which is to be integrated out in the Wilsonian RG with $\Xi$ being the energy cutoff. There are two finite fixed points in Eq. (\ref{eq:RG_Flow_equation}). One is $V=0$, which is trivial, and the other is $V=-\frac{a}{b}$, which is nontrivial. According to the stability of the nontrivial
+fixed point, we can classify the RG-flow diagrams into two types depending on the sign of $b$.
+The case with $b>0$ corresponds to an unstable nontrivial fixed point
+in the Hermitian case and does not exhibit critical phenomena. The
+other case with $b<0$ corresponds to a stable nontrivial fixed point
+in the Hermitian case and is the only one that includes the critical line. The BCS model belongs to this case.
+The RG-flow diagrams for these cases are shown in Supplemental
+Material \cite{SupplementaryMaterial}. By applying the Wilsonian RG analysis
+of the fermionic field theory \cite{Shankar1994}, the RG equation of
+the BCS model up to the two-loop order including the self-energy correction
+is written as \cite{SupplementaryMaterial} 
+\begin{equation}
+\frac{dV}{dt}=V^{2}-\frac{1}{2}V^{3}.\label{eq:rg_equation}
+\end{equation}
+From Eq. (\ref{eq:rg_equation}), we find $a=1$ and $b=-1/2$ in
+the canonical RG equation (\ref{eq:RG_Flow_equation}). A similar RG
+equation has been obtained for the non-Hermitian Kondo model \cite{Nakagawa2018}.
+Note that the sign of the parameter $a$ does not influence the physics
+of RG flows since we can reverse its sign by the replacement $V\to-V$.
+For a system with $b<0$, there exists a critical line which separates
+the trivial and nontrivial fixed points. Every point on the critical
+line flows toward an infinite fixed point $(V_{R},V_{I})=(-a/(3b),\infty)$.
+After integrating Eq. (\ref{eq:RG_Flow_equation}) and taking the
+imaginary part, we obtain the critical line as
+\begin{equation}
+\frac{b\pi}{|a|}+\frac{V_{I}}{V_{R}^{2}+V_{I}^{2}}=\frac{b}{a}\arctan{\frac{V_{I}}{V_{R}}}+\frac{b}{a}\arctan{\left(-\frac{bV_{I}}{a+bV_{R}}\right)}.\label{critical_line_exact}
+\end{equation}
+Near the origin, Eq. (\ref{critical_line_exact}) can be expanded
+as 
+\begin{equation}
+\frac{V_{I}}{V_{R}^{2}+V_{I}^{2}}+\frac{b\pi}{|a|}=0.\label{critical_line}
+\end{equation}
+The critical line specified by Eqs. (\ref{critical_line_exact}) and (\ref{critical_line})
+is located in the right-half complex plane $V_{R}>0$ for $a>0$ and in the left-half complex plane $V_{R}<0$ for $a<0$. Note that the critical line (\ref{critical_line})
+forms a semicircle for all $a\neq0$ and $b<0$. For the BCS model,
+Eq. (\ref{critical_line}) reduces to $-U_{I}/[\rho_{0}(U_{R}^{2}+U_{I}^{2})]+\pi/2=0$,
+which agrees with the mean-field phase boundary in Eq. (\ref{eq:phase_transition})
+along which the Yang-Lee zeros are distributed. This RG result confirms the validity
+of the mean-field results. 
+
+The above analysis of general marginally interacting systems with $a\neq0$
+and $b<0$ implies that the criticality associated with the Yang-Lee
+zeros, if exists, can only take place on the semicircle (\ref{critical_line})
+within the perturbative RG framework. This semicircle distribution
+of Yang-Lee zeros is to be compared with the Lee-Yang circle theorem \cite{PhysRev.87.410}
+where the zeros are distributed on a unit circle. The semicircle structure
+arises from the marginal nature of the coupling strength that induces different
+RG-flow behaviors between the left-half plane $V_{R}<0$ and the right-half plane $V_{R}>0$. In fact, such a feature lies at the heart of the Fermi-surface instability in superconductivity. %Because the semicircle distribution is unique to marginal interaction, %we can expand Eq. (\ref{eq:phase_transition}) as $\rho_{0}U_I=\frac{\pi}{2}(\rho_0U_R)^2$ around the origin. Since this quadratic expansion is exotic to marginal systems,
+%the semicircle theorem indicates a link between the geometric shape of the distribution of Yang-Lee zeros and the nonperturbative properties of the systems under consideration.
+%As shown in Eq. (\ref{eq:RG_Flow_equation}), we predict
+%that for general marginal interactions, the order of Yang-Lee zeros at the
+%edge of these semicircles will be related to non-perturbative behaviors
+%of those systems.
+
+%In the general interacting system, the semicircle distribution is unique to marginal interaction, which is always accompanied with the non-perturbative behaviors. 
+This semicircle theorem indicates that the nonperturbative properties in the Fermi-surface instability is generally linked to the geometric shape of the distribution of Yang-Lee zeros. This semicircular distribution of Yang-Lee zeros should appear in diverse systems subject to Fermi-surface instabilities, such as the charge-density wave (CDW) and anisotropic Cooper pairing,
+since they are described by similar RG equations with
+marginal couplings \cite{Shankar1994}. In fact, systems with the
+CDW instability can be described by a mean-field analysis similar
+to the BCS theory \cite{Gersch2005,PhysRevB.103.045142,PhysRevB.72.195106}. 
+
+\emph{Nonunitary critical phenomena in superconductivity.} ---The
+Yang-Lee zeros in the complex plane are accompanied by
+nonunitary critical phenomena in BCS superconductivity
+with a complex-valued interaction.  
+Remarkably, the criticality in the BCS model arises at every point on the phase boundary rather than at the edges alone as in the Ising model.
+
+We now examine the critical exponents and the universality class of the Yang-Lee singularity. The correlation function
+
+\begin{align}
+C(\bm{x}) & =_{L}\langle c_{\sigma}^{\dagger}(\bm{x})c_{\sigma}(0)\rangle_{R}\nonumber \\
+ & :=_{L}\langle\text{BCS}|c_{\sigma}^{\dagger}(\bm{x})c_{\sigma}(0)|\text{BCS}\rangle_{R}
+\end{align}
+can be calculated from the Fourier transformation
+%which can be written as 
+\begin{equation}
+C(\bm{x})\simeq-\frac{1}{N}\sum_{\bm{k}}^ {}{'}\frac{\xi_{\bm{k}}}{2E_{\bm{k}}}e^{i\bm{k}\cdot\bm{x}}.\label{eq:correlation_Fourier}
+\end{equation}
+Here we restrict the sum over $\bm{k}$ to the energy shell since
+we are concerned with the long-range behavior of the correlation function.
+We expand $\xi_{\bm{k}}$ near the Fermi surface as $\xi_{{\bm{k}}}=v_{F}(k-k_{F})$,
+where $v_{F}$ is the Fermi velocity, $k_{F}$ is the Fermi momentum
+and $k=|\bm{k}|$. On the phase boundary (\ref{eq:phase_transition}),
+the correlation function (\ref{eq:correlation_Fourier}) shows a
+power-law decay as 
+\begin{equation}
+\lim_{x\rightarrow\infty}C(\bm{x})\simeq\frac{A(l)}{l^{3/2}}+i\frac{B(l)}{l^{3/2}}\propto x^{-3/2},\label{correlation}
+\end{equation}
+where $x=|\bm{x}|$, $l:=\frac{\text{Im}\Delta_0}{v_{F}}x$ is a
+dimensionless length scale, and $A(l)$ and $B(l)$ are real functions
+that oscillate with $l$ without decay (see Supplemental Material
+\cite{SupplementaryMaterial} for details). The anomalous power of
+$\frac{3}{2}$ arises from the exceptional points of the system, and should be compared with the power of 2 for the normal-metal
+phase \cite{Sachdev:2011uj}. When the gap closes at the exceptional points, the
+dispersion relation near the Fermi surface is given by
+
+\begin{equation}
+E_{\bm{k}}\simeq\sqrt{v_{F}^{2}k^{2}-(\text{Im}\Delta_0)^{2}}.
+\end{equation}
+Near the exceptional points $k_{E}:=\frac{\text{Im}\Delta_0}{v_{F}}$,
+the dispersion relation reduces to $E_{\bm{k}}\sim\sqrt{k-k_{E}}$,
+in sharp contrast with the Hermitian counterpart which exhibits 
+a linear dispersion relation near a gapless point. It is this square-root
+excitation spectrum that induces the anomalous decay of the correlation
+function near the phase boundary. From the correlation function (\ref{correlation}),
+we find the anomalous dimension $\eta=1/2$ from $C(\bm{x})\propto x^{-D+2-\eta}$
+on the phase boundary, where $D$ is the dimension of the system \cite{Sachdev:2011uj}.
+
+The correlation function decays exponentially near the phase boundary.
+If we shift $U$ by an infinitesimal amount $\delta U$ along the
+real axis from the phase boundary, the correlation function can also
+be calculated from Eq. (\ref{eq:correlation_Fourier}), giving
+
+\begin{equation}
+\lim_{x\rightarrow\infty}C(\bm{x})\propto[A(l)+iB(l)]\frac{\text{exp}\left(-\frac{l}{\xi}\right)}{l^{3/2}},\label{eq:exponential_decay}
+\end{equation}
+where the correlation length $\xi\propto(\rho_{0}\delta U)^{-1}$
+diverges on the phase boundary, and hence we obtain the critical exponent
+$\nu=1$ from $\xi\propto(\delta U)^{-\nu}$ \cite{Sachdev:2011uj}
+(see Supplemental Material \cite{SupplementaryMaterial} for the
+derivation). Near the phase boundary, the dynamical critical exponent
+$z$ is defined as 
+\begin{equation}
+\text{Re}\Delta_0\propto\xi^{-z}.
+\end{equation}
+From the expression of $\Delta_0$ in Eq. (\ref{eq:gap}), we find
+that $\text{Re}\Delta_0\propto\xi^{-1}\propto\delta U$. Hence 
+we have $z=1$.
+
+The correlation length in the Hermitian case takes the
+form of
+
+\begin{equation}
+\xi\propto\text{exp}\left(\frac{1}{\rho_{0}\delta U}\right).\label{eq:xi}
+\end{equation}
+This behavior is distinct from that of the quantum phase transition
+in the non-Hermitian case since $\xi^{-1}$ in Eq. (\ref{eq:xi})
+cannot be expanded as a power series of $\rho_{0}\delta U$, indicating that the exceptional points lead to a distinct 
+universality class in the non-Hermitian system.
+
+We next consider the pair correlation function 
+\begin{align}
+ & \rho_{2}(\bm{r}_{1}\sigma_{1},\bm{r}_{2}\sigma_{2};\bm{r'_{1}}\sigma'_{1},\bm{r'}_{2}\sigma'_{2})\nonumber \\
+ & =_{L}\langle c_{\sigma_{1}}^{\dagger}(\bm{r}_{1})c_{\sigma_{2}}^{\dagger}(\bm{r}_{2})c_{\sigma'_{2}}(\bm{r'}_{2})c_{\sigma'_{1}}(\bm{r'}_{1})\rangle_{R},
+\end{align}
+where $(\bm{r}_{1}\sigma_{1},\bm{r}_{2}\sigma_{2})$ and $(\bm{r'_{1}}\sigma'_{1},\bm{r'}_{2}\sigma'_{2})$
+are the positions and spins of electrons that form Cooper pairs.
+Setting $\bm{r}_{1}=\bm{r}_{2}=\bm{R}$ and $\bm{r'_{1}}=\bm{r'_2}=0$
+and taking the limit $|\bm{R}|\rightarrow\infty$, we find that $\rho_{2}$ converges to a nonzero value
+on the phase boundary as
+
+\begin{equation}
+\lim_{R\rightarrow\infty}\rho_{2}(\bm{R}\uparrow,\bm{R}\downarrow;0\downarrow,0\uparrow)=-\frac{(\text{Im}\Delta_0)^{2}}{U^{2}}\neq0.\label{eq:pairing}
+\end{equation}
+This nonvanishing pair correlation function is characteristic of
+nonunitary critical phenomena, where the correlation function of the
+order parameter may diverge at long distance \cite{Fisher:1978vn}.
+We can also use Eq. (\ref{eq:pairing}) to define the critical
+exponent $\delta$ as 
+\begin{equation}
+\lim_{R\rightarrow\infty}\rho_{2}(\bm{R}\uparrow,\bm{R}\downarrow;0\downarrow,0\uparrow)\propto|\bm{R}|^{-\delta}.
+\end{equation}
+We have $\delta=0$ here, which is also unique to the nonunitary critical
+phenomena.
+
+The compressibility also shows critical behavior associated with the Yang-Lee singularity.
+By analyzing the compressibility $\kappa=\frac{\partial^{2}F}{\partial\mu^{2}}$
+near the phase boundary where $F=-(1/\beta)\log Z$ is the free energy
+of Bogoliubov quasiparticles, we have 
+\begin{equation}
+\kappa=-N\int_{-\omega_{D}}^{\omega_{D}}\rho_{0}d\xi_{\bm{k}}\frac{\Delta_0^{2}}{(\xi_{\bm{k}}^{2}+\Delta_0^{2})^{3/2}}.
+\end{equation}
+On the phase boundary (\ref{eq:phase_transition}), the compressibility
+$\kappa$ diverges. Therefore, we define another critical exponent
+$\zeta$ near the phase boundary as 
+\begin{equation}
+\kappa\propto(\delta U)^{-\zeta}\,,
+\end{equation}
+with $\zeta=1/2$ in this system. This critical behavior also arises
+from the nonanalytic square-root dispersion relation near the exceptional
+points. In fact, the critical exponents $\eta$ and $\zeta$ are equal to each other 
+for a general fractional-power dispersion relation $(k-k_{E})^{1/n}$,
+which includes the case of higher-order exceptional points \cite{SupplementaryMaterial}. 
+
+These power-law behaviors in the nonunitary
+critical phenomena constitute a new Yang-Lee universality class distinct from that of the Yang-Lee edge singularity \cite{Fisher:1978vn}.
+From the RG analysis, each point on the phase
+boundary (\ref{critical_line_exact}) except for the origin flows
+to $(\rho_0U_R,\rho_0U_I)=(\frac{2}{3},\infty)$, while the origin remains invariant in
+the RG flow. Hence, the points on the phase boundary except for the
+origin represent a universality class different from that at the
+origin.
+
+\emph{Conclusion}.---We have investigated the Yang-Lee
+zeros in BCS superconductivity and found that the Yang-Lee zeros are distributed
+on the semicircular phase boundary in the complex plane of the interaction
+strength. We find that the nonperturbative nature of the order parameter and thermodynamic quantities are directly connected to the number of roots of the partition function, which allows us to understand superconducting quantum phase transitions from the analytic property of the partition function. We have performed the RG analysis
+of generic many-body fermionic systems with marginal interactions and shown that the semicircle distribution of Yang-Lee zeros is a universal phenomenon in Fermi systems. %In addition, we prove that geometric structure of distribution can indicate the existence of non-perturbative properties.
+We have also explored the Yang-Lee critical behavior and obtained critical exponents of the nonunitary criticality.
+
+The Yang-Lee zeros and the corresponding singularity studied in this
+Letter are not only an interesting mathematical property but can also be tested experimentally. In fact, the non-Hermitian BCS model can be realized in
+open quantum systems \cite{Yamamoto2019,PhysRevA.103.013724}. The
+complex-valued interaction strength describes the effect of two-body
+loss in ultracold atoms. For example, inelastic two-body losses can
+be induced by utilizing Feshbach resonances \cite{PhysRevLett.115.265301,PhysRevLett.115.265302,Zhang2015}
+or photoassociation \cite{doi:10.1126/sciadv.1701513,Honda2023}.
+Since the dissipation in these cases only involves atomic loss, the eigenvalue spectrum and the exceptional points of the Lindblad equation including the jump terms are the same as those of the corresponding non-Hermitian Hamiltonian regardless of the jump terms \cite{PhysRevLett.126.110404}. Hence, we believe the nonunitary critical phenomena introduced in this Letter should also be observed in open quantum systems. %Thus, we believe our prediction of the critical behavior can be observed in open quantum systems in short-term dynamics.} 
+
+
+While we have focused on the quantum phase transition, it is worthwhile
+to investigate how the Yang-Lee singularity is connected to a superconducting
+phase transition at finite temperature. We also expect that Yang-Lee
+zeros can emerge in other non-Hermitian many-body systems such as
+a non-Hermitian Bose-Hubbard model \cite{PhysRevA.94.053615}.
+
+We are grateful to Yuto Ashida, Kazuaki Takasan, Norifumi Matsumoto,
+Kohei Kawabata, Xin Chen and Xuanzhao Gao for fruitful discussion.
+H. L. is supported by Forefront Physics and Mathematics Program to
+Drive Transformation (FoPM), a World-leading Innovative Graduate Study
+(WINGS) Program, the University of Tokyo. X. Y. is supported by the
+Munich Quantum Valley, which is supported by the Bavarian state government
+with funds from the Hightech Agenda Bayern Plus. M.N. is supported
+by JSPS KAKENHI Grant No. JP20K14383. M.U. is supported by JSPS KAKENHI
+Grant No. JP22H01152 and the CREST program ``Quantum Frontiers" of JST (Grand No. JPMJCR23I1).
+\bibliographystyle{apsrev4-2}
+\bibliography{MyCollection}
+\addcontentsline{toc}{section}{\refname}
+
+\end{document}

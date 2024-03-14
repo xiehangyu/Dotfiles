@@ -1,0 +1,248 @@
+\documentclass[english]{ctexart}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=0cm,bmargin=2cm,lmargin=2cm,rmargin=2cm}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+\usepackage{graphicx}
+\usepackage[authoryear]{natbib}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{braket}
+\usepackage{tikz}
+%\usepackage{braket}
+%\usepackage{braket}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{diagbox}
+\lstset{
+numbers=left,
+framexleftmargin=10mm,
+frame=none,
+keywordstyle=\bf\color{blue},
+identifierstyle=\bf,
+numberstyle=\color[RGB]{0,192,192},
+commentstyle=\it\color[RGB]{0,96,96},
+stringstyle=\rmfamily\slshape\color[RGB]{128,0,0}
+}
+
+%\usetheme{Darmstadt}
+%\usetheme{Frankfurt}
+% or ...
+
+%\setbeamercovered{transparent}
+\lstdefinelanguage
+   [x64]{Assembler}     % add a "x64" dialect of Assembler
+   [x86masm]{Assembler} % based on the "x86masm" dialect
+   % with these extra keywords:
+   {morekeywords={CDQE,CQO,CMPSQ,CMPXCHG16B,JRCXZ,LODSQ,MOVSXD, %
+                  POPFQ,PUSHFQ,SCASQ,STOSQ,IRETQ,RDTSCP,SWAPGS, %
+                  rax,rdx,rcx,rbx,rsi,rdi,rsp,rbp, %
+                  r8,r8d,r8w,r8b,r9,r9d,r9w,r9b, %
+                  r10,r10d,r10w,r10b,r11,r11d,r11w,r11b, %
+                  r12,r12d,r12w,r12b,r13,r13d,r13w,r13b, %
+                  r14,r14d,r14w,r14b,r15,r15d,r15w,r15b,retq,callq,cmpl}} % etc.
+
+\lstset{language=[x64]Assembler}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\title{计算方法第六次编程作业}
+\author{戴梦佳\ \ PB20511879}
+\maketitle
+
+\section{题目}
+
+通过快速傅里叶变换与快速傅里叶逆变换实现对给定函数的 Fourier 分析, 函数 $f$ 以及划分数 $n$ 如下: 
+
+1. $f_{1}(t)=0.7\sin(2\pi\times2t)+\sin(2\pi\times5t),n=2^{4},2^{7}$.
+
+2. $f_{2}(t)=0.7\sin(2\pi\times2t)+\sin(2\pi\times5t)+0.3\times\mathrm{random(t)}$,
+其中 $\mathrm{random}(\mathrm{t})$ 为 $[0,1)$ 区间内的随机数, $\mathrm{n}=2^{7}$.
+其中 $t\in[0,1)$, 将 $[0,1)$ 区间均匀划分为 $n$ 份, $f_{1,k}=f_{1}(k/n),k=0,1,\ldots,n-1,f_{2,k}$
+为 $f_{1,k}$ 加上一个 随机扰动项, $f_{2,k}=f_{1,k}+0.3r_{k},r_{k}\in[0,1)$
+为随机数。
+
+\section{原理}
+
+由于给定的$n$都是2的幂次，所以可以用逐次分半算法进行计算。复杂度为$O(n\log n)$。所有中间生成的数据结构都以.csv的格式保存在/src/data下的文件夹里。最后分析数据时通过python来作图。
+
+\section{实验结果}
+
+\subsection{频域分量的考察}
+
+考察快速傅里叶变化后的频域时，每三个频率为一行，输出傅里叶变化后的实数部和虚数部。
+
+对于函数$f_{1}$, $n=16$时，结果如下所示
+
+\begin{tabular}{lllllllllllll}
+Frequency & Real & Imaginary &  &  &  &  &  &  &  &  &  & \tabularnewline
+0 & -1.53e-16 & 0 &  &  & 1 & 4.49e-17 & 1.06e-17 &  &  & 2 & 1.36e-16 & -0.35\tabularnewline
+3 & 2.03e-17 & 1.67e-16 &  &  & 4 & -2.01e-19 & 1.11e-16 &  &  & 5 & -2.97e-16 & -0.5\tabularnewline
+6 & -1.08e-16 & -8.33e-17 &  &  & 7 & 1.48e-16 & -1.97e-16 &  &  & 8 & 3.19e-16 & 0\tabularnewline
+9 & 1.1e-16 & 2.39e-16 &  &  & 10 & -3.07e-17 & 1.11e-16 &  &  & 11 & -3.68e-16 & 0.5\tabularnewline
+12 & -2.01e-19 & -1.11e-16 &  &  & 13 & 6.34e-17 & -1.67e-16 &  &  & 14 & 5.81e-17 & 0.35\tabularnewline
+15 & 5.89e-17 & -5.33e-17 &  &  &  &  &  &  &  &  &  & \tabularnewline
+\end{tabular}
+
+对于函数$f_{1}$, $n=128$时，结果如下所示
+
+\begin{tabular}{lllllllllllll}
+Frequency & Real & Imaginary &  &  &  &  &  &  &  &  &  & \tabularnewline
+0 & 9.95e-18 & 0 &  &  & 1 & 4.6e-18 & 2.34e-17 &  &  & 2 & -3.84e-18 & -0.35\tabularnewline
+3 & 2.35e-17 & 6.37e-17 &  &  & 4 & 1.12e-17 & 4.68e-17 &  &  & 5 & -3.29e-16 & -0.5\tabularnewline
+6 & 5.19e-18 & -7.23e-17 &  &  & 7 & 3.11e-17 & -6.45e-17 &  &  & 8 & 1.67e-17 & -7.12e-17\tabularnewline
+9 & 1e-17 & -2.06e-17 &  &  & 10 & 3.35e-17 & -5.73e-17 &  &  & 11 & 6.63e-17 & 3.16e-17\tabularnewline
+12 & 5.15e-17 & -5.47e-17 &  &  & 13 & 5.34e-18 & 3.71e-17 &  &  & 14 & 2.01e-17 & 3.38e-18\tabularnewline
+15 & -3.48e-17 & -4.66e-18 &  &  & 16 & -1.45e-17 & -6.08e-18 &  &  & 17 & 8.59e-18 & -1.26e-17\tabularnewline
+18 & 1.23e-17 & -4.28e-17 &  &  & 19 & 1.87e-17 & 6.85e-18 &  &  & 20 & 4.03e-17 & -3.68e-17\tabularnewline
+21 & -3.92e-18 & 7.07e-17 &  &  & 22 & -1.31e-17 & 2.59e-17 &  &  & 23 & -1.01e-17 & 5.3e-18\tabularnewline
+24 & -3.86e-17 & -4.21e-17 &  &  & 25 & 3.25e-17 & 1.58e-17 &  &  & 26 & -4.1e-17 & 1.15e-17\tabularnewline
+27 & -1.76e-16 & -1.08e-16 &  &  & 28 & -9.7e-17 & -1.9e-17 &  &  & 29 & 1.76e-17 & -1.4e-16\tabularnewline
+30 & -1.18e-17 & -1.03e-16 &  &  & 31 & -1.14e-18 & 3.66e-17 &  &  & 32 & -3.39e-17 & -1.86e-17\tabularnewline
+33 & 1.51e-17 & 8.34e-18 &  &  & 34 & -2.3e-17 & -2.92e-17 &  &  & 35 & -5.97e-18 & 3.27e-18\tabularnewline
+36 & -5.47e-17 & -1.77e-17 &  &  & 37 & 8.68e-18 & 1.34e-17 &  &  & 38 & -9.63e-17 & -2.02e-17\tabularnewline
+39 & 1.82e-17 & -1.43e-16 &  &  & 40 & 9.99e-17 & -3.27e-17 &  &  & 41 & 2.06e-17 & 1.48e-17\tabularnewline
+42 & 2.66e-17 & -3.43e-17 &  &  & 43 & 6.81e-18 & 4.03e-17 &  &  & 44 & -8.76e-18 & -1.29e-17\tabularnewline
+45 & -2.98e-18 & -1.46e-17 &  &  & 46 & -1.88e-17 & 1.54e-17 &  &  & 47 & 2.97e-17 & -5.07e-17\tabularnewline
+48 & 1.8e-17 & -4.35e-18 &  &  & 49 & -1.57e-17 & 2.57e-18 &  &  & 50 & 2.27e-17 & -2.83e-17\tabularnewline
+51 & 1.9e-17 & 1.25e-17 &  &  & 52 & 5.22e-18 & 1.49e-17 &  &  & 53 & 1.86e-17 & -1.58e-17\tabularnewline
+54 & -5.81e-17 & -3.89e-17 &  &  & 55 & 4.91e-17 & -5.55e-17 &  &  & 56 & 8.14e-17 & -3.4e-17\tabularnewline
+57 & -1.72e-17 & -6.72e-18 &  &  & 58 & 7.02e-17 & -8.64e-18 &  &  & 59 & 2.68e-17 & -1.67e-16\tabularnewline
+60 & 5.21e-17 & -1.72e-17 &  &  & 61 & -1.24e-17 & 2.77e-18 &  &  & 62 & 8.71e-17 & -1.11e-16\tabularnewline
+63 & 4.01e-17 & 2.47e-17 &  &  & 64 & -1.02e-16 & 0 &  &  & 65 & 3.08e-17 & -2.86e-17\tabularnewline
+66 & 1e-16 & -5.55e-17 &  &  & 67 & -1.64e-17 & 3.8e-18 &  &  & 68 & 5.21e-17 & 1.72e-17\tabularnewline
+69 & 4.45e-18 & 0 &  &  & 70 & 6.03e-17 & 1.85e-18 &  &  & 71 & -7.74e-18 & 1.34e-17\tabularnewline
+72 & 8.14e-17 & 3.4e-17 &  &  & 73 & 4.1e-17 & 5.52e-17 &  &  & 74 & -4.75e-17 & 3.96e-17\tabularnewline
+75 & -1.29e-18 & 4.07e-17 &  &  & 76 & 5.22e-18 & -1.49e-17 &  &  & 77 & 3.41e-17 & -8.06e-18\tabularnewline
+78 & 2.62e-17 & 5.03e-17 &  &  & 79 & -1.17e-17 & 8.84e-18 &  &  & 80 & 1.8e-17 & 4.35e-18\tabularnewline
+81 & 2.7e-17 & 5.46e-17 &  &  & 82 & -4.45e-17 & 1.12e-17 &  &  & 83 & -1e-17 & 1.46e-17\tabularnewline
+84 & -8.76e-18 & 1.29e-17 &  &  & 85 & 2.02e-17 & -2.05e-17 &  &  & 86 & 9.75e-18 & 2.4e-17\tabularnewline
+87 & 1.68e-17 & -1.27e-17 &  &  & 88 & 9.99e-17 & 3.27e-17 &  &  & 89 & 9.13e-18 & 1.4e-16\tabularnewline
+90 & -9.09e-17 & 2.82e-17 &  &  & 91 & 1.47e-16 & -1.42e-16 &  &  & 92 & -5.47e-17 & 1.77e-17\tabularnewline
+93 & 3.61e-18 & -1.15e-17 &  &  & 94 & 6.8e-17 & -6.36e-17 &  &  & 95 & 1.07e-17 & -6.67e-18\tabularnewline
+96 & -3.39e-17 & 1.86e-17 &  &  & 97 & -8.6e-18 & -3.47e-17 &  &  & 98 & 9.16e-17 & 1.4e-18\tabularnewline
+99 & 9.2e-18 & 1.13e-16 &  &  & 100 & -9.7e-17 & 1.9e-17 &  &  & 101 & -5.53e-17 & -1.34e-17\tabularnewline
+102 & -5.08e-17 & -2.99e-17 &  &  & 103 & 3.93e-17 & -1.09e-17 &  &  & 104 & -3.86e-17 & 4.21e-17\tabularnewline
+105 & -1.53e-17 & -1.66e-17 &  &  & 106 & -3.66e-18 & -1.52e-17 &  &  & 107 & -2.01e-17 & -5.71e-17\tabularnewline
+108 & 4.03e-17 & 3.68e-17 &  &  & 109 & 1.44e-17 & -1.5e-18 &  &  & 110 & -2.61e-17 & 6.97e-17\tabularnewline
+111 & 1.44e-17 & 1.32e-17 &  &  & 112 & -1.45e-17 & 6.08e-18 &  &  & 113 & -1.68e-17 & -2.35e-18\tabularnewline
+114 & -1.97e-17 & 3.21e-17 &  &  & 115 & -1.76e-17 & -5.08e-17 &  &  & 116 & 5.15e-17 & 5.47e-17\tabularnewline
+117 & 3.84e-17 & -3.45e-17 &  &  & 118 & 3.46e-17 & 2.63e-17 &  &  & 119 & 1.16e-17 & 7.15e-17\tabularnewline
+120 & 1.67e-17 & 7.12e-17 &  &  & 121 & 2.87e-17 & 5.69e-17 &  &  & 122 & 2.2e-17 & 1.47e-16\tabularnewline
+123 & -4.17e-16 & 0.5 &  &  & 124 & 1.12e-17 & -4.68e-17 &  &  & 125 & 3.8e-18 & -3.09e-17\tabularnewline
+126 & -8.64e-17 & 0.35 &  &  & 127 & 1.16e-17 & -7.46e-17 &  &  &  &  & \tabularnewline
+\end{tabular}
+
+对于函数$f_{2}$, $n=128$时，结果如下所示
+
+\begin{tabular}{lllllllllllll}
+Frequency & Real & Imaginary &  &  &  &  &  &  &  &  &  & \tabularnewline
+0 & 0.139 & 0 &  &  & 1 & 0.0037 & 0.00434 &  &  & 2 & -0.00394 & -0.356\tabularnewline
+3 & -0.0023 & 0.00231 &  &  & 4 & -0.00766 & 0.00058 &  &  & 5 & 0.00225 & -0.496\tabularnewline
+6 & 0.00377 & 0.0069 &  &  & 7 & -0.00301 & 0.000887 &  &  & 8 & 0.0107 & -0.00149\tabularnewline
+9 & -0.00663 & -0.00737 &  &  & 10 & -0.00555 & 0.00384 &  &  & 11 & 0.00322 & 0.0121\tabularnewline
+12 & -0.00545 & -0.00344 &  &  & 13 & 0.00963 & -0.00119 &  &  & 14 & 0.00241 & 0.00518\tabularnewline
+15 & -0.00197 & -0.0112 &  &  & 16 & -0.00215 & 0.00655 &  &  & 17 & -0.0022 & 0.00913\tabularnewline
+18 & -0.00641 & -0.00767 &  &  & 19 & 0.00344 & -0.00604 &  &  & 20 & 0.0112 & -0.00553\tabularnewline
+21 & 0.00359 & 0.00989 &  &  & 22 & -0.000897 & 0.0033 &  &  & 23 & 0.00851 & 0.00997\tabularnewline
+24 & 0.000887 & -0.00468 &  &  & 25 & -0.00441 & 0.00731 &  &  & 26 & -0.00106 & 0.00841\tabularnewline
+27 & 0.00387 & -0.00491 &  &  & 28 & 0.00134 & 0.00307 &  &  & 29 & -0.00703 & -0.00357\tabularnewline
+30 & -0.00405 & -0.00537 &  &  & 31 & 0.00778 & -0.00263 &  &  & 32 & -0.00469 & 0.000897\tabularnewline
+33 & -5.72e-05 & 0.000611 &  &  & 34 & -0.00356 & -0.00254 &  &  & 35 & 0.00254 & -0.00257\tabularnewline
+36 & -0.00184 & -0.00291 &  &  & 37 & -0.00249 & 0.00629 &  &  & 38 & 0.0058 & -0.00123\tabularnewline
+39 & -0.000974 & 0.00119 &  &  & 40 & 0.00692 & -0.00127 &  &  & 41 & 0.00225 & -0.0117\tabularnewline
+42 & -0.000821 & -0.00256 &  &  & 43 & 0.0127 & 0.005 &  &  & 44 & 0.00108 & 0.00449\tabularnewline
+45 & -0.00452 & 0.00033 &  &  & 46 & 0.00476 & 0.00787 &  &  & 47 & 0.00982 & 0.00326\tabularnewline
+48 & 0.011 & 0.00394 &  &  & 49 & 0.0021 & 0.00259 &  &  & 50 & 0.00341 & -0.00455\tabularnewline
+51 & 0.00567 & -0.00399 &  &  & 52 & 0.00482 & -0.00685 &  &  & 53 & -0.012 & 0.00118\tabularnewline
+54 & -0.00474 & 0.00287 &  &  & 55 & 0.00251 & -0.000833 &  &  & 56 & -0.00309 & 0.00601\tabularnewline
+57 & -0.00251 & 0.000417 &  &  & 58 & -0.00161 & -0.0115 &  &  & 59 & -0.00185 & -0.00241\tabularnewline
+60 & 0.00608 & 0.00468 &  &  & 61 & -0.00531 & 0.00916 &  &  & 62 & 0.00653 & 0.00643\tabularnewline
+63 & -0.00983 & 0.00319 &  &  & 64 & 0.00502 & 0 &  &  & 65 & -0.00983 & -0.00319\tabularnewline
+66 & 0.00653 & -0.00643 &  &  & 67 & -0.00531 & -0.00916 &  &  & 68 & 0.00608 & -0.00468\tabularnewline
+69 & -0.00185 & 0.00241 &  &  & 70 & -0.00161 & 0.0115 &  &  & 71 & -0.00251 & -0.000417\tabularnewline
+72 & -0.00309 & -0.00601 &  &  & 73 & 0.00251 & 0.000833 &  &  & 74 & -0.00474 & -0.00287\tabularnewline
+75 & -0.012 & -0.00118 &  &  & 76 & 0.00482 & 0.00685 &  &  & 77 & 0.00567 & 0.00399\tabularnewline
+78 & 0.00341 & 0.00455 &  &  & 79 & 0.0021 & -0.00259 &  &  & 80 & 0.011 & -0.00394\tabularnewline
+81 & 0.00982 & -0.00326 &  &  & 82 & 0.00476 & -0.00787 &  &  & 83 & -0.00452 & -0.00033\tabularnewline
+84 & 0.00108 & -0.00449 &  &  & 85 & 0.0127 & -0.005 &  &  & 86 & -0.000821 & 0.00256\tabularnewline
+87 & 0.00225 & 0.0117 &  &  & 88 & 0.00692 & 0.00127 &  &  & 89 & -0.000974 & -0.00119\tabularnewline
+90 & 0.0058 & 0.00123 &  &  & 91 & -0.00249 & -0.00629 &  &  & 92 & -0.00184 & 0.00291\tabularnewline
+93 & 0.00254 & 0.00257 &  &  & 94 & -0.00356 & 0.00254 &  &  & 95 & -5.72e-05 & -0.000611\tabularnewline
+96 & -0.00469 & -0.000897 &  &  & 97 & 0.00778 & 0.00263 &  &  & 98 & -0.00405 & 0.00537\tabularnewline
+99 & -0.00703 & 0.00357 &  &  & 100 & 0.00134 & -0.00307 &  &  & 101 & 0.00387 & 0.00491\tabularnewline
+102 & -0.00106 & -0.00841 &  &  & 103 & -0.00441 & -0.00731 &  &  & 104 & 0.000887 & 0.00468\tabularnewline
+105 & 0.00851 & -0.00997 &  &  & 106 & -0.000897 & -0.0033 &  &  & 107 & 0.00359 & -0.00989\tabularnewline
+108 & 0.0112 & 0.00553 &  &  & 109 & 0.00344 & 0.00604 &  &  & 110 & -0.00641 & 0.00767\tabularnewline
+111 & -0.0022 & -0.00913 &  &  & 112 & -0.00215 & -0.00655 &  &  & 113 & -0.00197 & 0.0112\tabularnewline
+114 & 0.00241 & -0.00518 &  &  & 115 & 0.00963 & 0.00119 &  &  & 116 & -0.00545 & 0.00344\tabularnewline
+117 & 0.00322 & -0.0121 &  &  & 118 & -0.00555 & -0.00384 &  &  & 119 & -0.00663 & 0.00737\tabularnewline
+120 & 0.0107 & 0.00149 &  &  & 121 & -0.00301 & -0.000887 &  &  & 122 & 0.00377 & -0.0069\tabularnewline
+123 & 0.00225 & 0.496 &  &  & 124 & -0.00766 & -0.00058 &  &  & 125 & -0.0023 & -0.00231\tabularnewline
+126 & -0.00394 & 0.356 &  &  & 127 & 0.0037 & -0.00434 &  &  &  &  & \tabularnewline
+\end{tabular}
+
+关于这一结果的分析，见报告的最后一节分析与讨论内容。
+
+\subsection{$|g_{i}|$的模长情况}
+
+对于函数$f_{1}$, $n=16$时，$|g_{1}|$的模长折线图见下
+
+\includegraphics[width=0.6\textwidth]{src/figs/f1_16FFT}
+
+对于函数$f_{1},$$n=128$时，$|g_{1}|$的模长折线图见下
+
+\includegraphics[width=0.6\textwidth]{src/figs/f1_128FFT}
+
+对于函数$f_{2}$, $n=128$时，$|g_{2}|$的模长折线图见下
+
+\includegraphics[width=0.6\textwidth]{src/figs/f2_128FFT}
+
+\subsection{$f_{1}$的快速傅里叶逆变化}
+
+对于$n=16$, $f_{1}$的采样点和快速傅里叶变化的逆变化见下所示（图中显示的都是实部）
+
+\includegraphics[width=0.6\textwidth]{src/figs/f1_16IFFT}
+
+对于$n=128$, 采样点和快速傅里叶变化的逆变化见下所示（图中显示的都是实部）
+
+\includegraphics[width=0.6\textwidth]{src/figs/f1_128IFFT}
+
+关于这些结果的讨论，见报告最后一节分析与讨论的内容。
+
+\subsection{$f_{2}$的快速傅里叶逆变化}
+
+对于$f_{2}$, 快速傅里叶变化的逆变化结果见下图所示。图中所标注的“Truncated”线，即代表快速傅里叶变换后取频率域前25\%的系数进行快速傅里叶逆变换所得最终结果图像（图中显示的都是实部）
+
+\includegraphics[width=0.6\textwidth]{src/figs/f2_128IFFT}
+
+\section{分析与讨论}
+\begin{enumerate}
+\item 采样数目$n$关系到原函数采样的逼真性。$n$越大，采样点越能反应原函数的细节信息，从而采样函数以及傅里叶逆变化后得到的最终结果都会更接近原函数。
+\item 无论$n$取多大，快速傅里叶逆变化后的结果都精确等于采样函数（这里采样函数指的就是采样点处的原函数值）。
+\item $n$的大小并不会明显影响傅里叶变化后频率分量$|g|$的峰值与形状分布，只会使得图像展宽。
+\item 去掉高频系数后，显著影响了$f_{2}$的重建结果，使重建后的函数值下降了大约一半。这是可以预期的，因为这里舍系数的方式太粗糙了，没有考虑周期对称性。见下面的分析。
+\item 由于函数$f$都是实函数，根据傅里叶变化公式$g_{l}=\frac{1}{n}\sum_{k}f_{k}e^{-i\frac{2\pi lk}{n}}$，我们得到
+\begin{equation}
+g_{l}^{*}=\frac{1}{n}\sum_{k}f_{k}e^{i\frac{2\pi lk}{n}}=\frac{1}{n}\sum_{k}f_{k}e^{-i\frac{2\pi(n-l)k}{n}}=g_{n-l}
+\end{equation}
+即在频域中，分量$g_{l}$和$g_{n-l}$互为共轭。这一点也在前面的数据和图表中得到了验证。
+\item 从而，对于$f_{2}$重建时，只取频域前$25\%$的分量，必然造成严重误差。因为根据上面的分析，频域前$25\%$和频域后$25\%$的分量绝对值大小一样，对函数的重建贡献也一样。如果只取前$25\%$的数据，必然造成函数值下降一半左右。所以，对于频率滤波，我们应该取频域前$12.5\%$和频域后$12.\%$,
+或者按照$g_{l}$的模长取模长最大的前$25\%$的数据，这样可以显著改善重建后的函数精度。
+\item 注意到$\sin x=\frac{e^{ix}-e^{-ix}}{2i}$，所以对于函数$f_{1}$和$f_{2}$, 其应该在$2\mathrm{Hz}$,
+$5\mathrm{Hz}$以及它们关于$\frac{n}{2}$的对称点上有峰值。这也在实验中被证实。另外，对于$f_{1}$,除了上述四个点外其余频域分量都为零，这是因为$f_{1}$是严格的正弦函数的叠加。而$f_{2}$由于有random
+number，所以频域中其它分量也有不为零的值。
+\item 由于$\{e^{i\omega jx},j=0,1,2,\cdots,n-1\}$是一组正交函数系，所以傅里叶逆变化可以重建原采样函数，这点也在实验中得到了验证。
+\end{enumerate}
+
+\end{document}

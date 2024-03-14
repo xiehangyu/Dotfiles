@@ -1,0 +1,206 @@
+\documentclass[english]{ctexart}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{verbose,lmargin=1cm}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+\usepackage{amsmath}
+\usepackage[authoryear]{natbib}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{braket}
+\usepackage{tikz}
+%\usepackage{braket}
+%\usepackage{braket}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{diagbox}
+\lstset{
+numbers=left,
+framexleftmargin=10mm,
+frame=none,
+keywordstyle=\bf\color{blue},
+identifierstyle=\bf,
+numberstyle=\color[RGB]{0,192,192},
+commentstyle=\it\color[RGB]{0,96,96},
+stringstyle=\rmfamily\slshape\color[RGB]{128,0,0}
+}
+
+%\usetheme{Darmstadt}
+%\usetheme{Frankfurt}
+% or ...
+
+%\setbeamercovered{transparent}
+\lstdefinelanguage
+   [x64]{Assembler}     % add a "x64" dialect of Assembler
+   [x86masm]{Assembler} % based on the "x86masm" dialect
+   % with these extra keywords:
+   {morekeywords={CDQE,CQO,CMPSQ,CMPXCHG16B,JRCXZ,LODSQ,MOVSXD, %
+                  POPFQ,PUSHFQ,SCASQ,STOSQ,IRETQ,RDTSCP,SWAPGS, %
+                  rax,rdx,rcx,rbx,rsi,rdi,rsp,rbp, %
+                  r8,r8d,r8w,r8b,r9,r9d,r9w,r9b, %
+                  r10,r10d,r10w,r10b,r11,r11d,r11w,r11b, %
+                  r12,r12d,r12w,r12b,r13,r13d,r13w,r13b, %
+                  r14,r14d,r14w,r14b,r15,r15d,r15w,r15b,retq,callq,cmpl}} % etc.
+
+\lstset{language=[x64]Assembler}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\title{第三次上机作业实验报告}
+\author{戴梦佳\ \ PB20511879}
+\maketitle
+
+\section{题目}
+
+给定两个矩阵
+\[
+A_{1}=\begin{pmatrix}\frac{1}{9} & \frac{1}{8} & \frac{1}{7} & \frac{1}{6} & \frac{1}{5}\\
+\frac{1}{8} & \frac{1}{7} & \frac{1}{6} & \frac{1}{5} & \frac{1}{4}\\
+\frac{1}{7} & \frac{1}{6} & \frac{1}{5} & \frac{1}{4} & \frac{1}{3}\\
+\frac{1}{6} & \frac{1}{5} & \frac{1}{4} & \frac{1}{3} & \frac{1}{2}\\
+\frac{1}{5} & \frac{1}{4} & \frac{1}{3} & \frac{1}{2} & 1
+\end{pmatrix}
+\]
+
+\[
+A_{2}=\begin{pmatrix}4 & -1 & 1 & 3\\
+16 & -2 & -2 & 5\\
+16 & -3 & -1 & 7\\
+6 & -4 & 2 & 9
+\end{pmatrix}
+\]
+
+用带规范的反幂法求得上述两个矩阵的按模最小特征值和特征向量。
+
+按照课本上的方法，使用$LU$分解解迭代方程$X^{k+1}=A^{-1}Y^{k}$,初始向量取全$1$，在两次迭代的特征值的差的绝对值小于$10^{-5}$时停止。
+
+\section{算法}
+
+假设$A_{1},A_{2}$按模最小的特征值非简并，使用直接Doolite分解方法计算矩阵$A_{1}$,$A_{2}$的$LU$分解，每一步迭代时，有
+\begin{equation}
+\begin{cases}
+AX^{k+1} & =Y^{k}\\
+Y^{k+1} & =\frac{X^{k+1}}{u^{k+1}}
+\end{cases}
+\end{equation}
+其中$u^{k+1}$是向量$X^{k+1}$中绝对值最大的元素的值，即$u^{k+1}=\pm||X^{k+1}||_{\infty}$。此处引入正负号的目的是为了判断特征值的正负。此处的归一化保证了$||Y^{k+1}||_{\infty}=1$以及$Y^{k+1}$中按绝对值最大的元素的值始终是$+1$，避免了$u^{k+1}$的震荡。设矩阵$A$按模最小的特征值是$\lambda$,
+则当$k\to\infty$时，$u^{k+1}\to\frac{1}{\lambda}$。迭代收敛的条件是
+\begin{equation}
+|u^{k+1}-u^{k}|\leq10^{-5}
+\end{equation}
+
+
+\section{实验结果}
+
+对$A_{1}$矩阵计算的中间迭代过程如下表所示
+
+\noindent %
+\begin{tabular}{llllllllllll}
+k & u & x1 & x2 & x3 & x4 & x5 & y1 & y2 & y3 & y4 & y5\tabularnewline
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\tabularnewline
+1 & -1120 & 630 & -1120 & 630 & -120 & 5 & -0.5625 & 1 & -0.5625 & 0.107143 & -0.00446429\tabularnewline
+2 & 297849 & -146253 & 297849 & -196175 & 45114.4 & -2377.25 & -0.49103 & 1 & -0.658639 & 0.151467 & -0.00798141\tabularnewline
+3 & 304047 & -149113 & 304047 & -200595 & 46244.7 & -2446.56 & -0.490426 & 1 & -0.65975 & 0.152097 & -0.00804664\tabularnewline
+4 & 304142 & -149157 & 304142 & -200661 & 46261.1 & -2447.54 & -0.49042 & 1 & -0.659762 & 0.152104 & -0.00804735\tabularnewline
+5 & 304143 & -149158 & 304143 & -200662 & 46261.3 & -2447.55 & -0.49042 & 1 & -0.659762 & 0.152104 & -0.00804736\tabularnewline
+6 & 304143 & -149158 & 304143 & -200662 & 46261.3 & -2447.55 & -0.49042 & 1 & -0.659762 & 0.152104 & -0.00804736\tabularnewline
+7 & 304143 & -149158 & 304143 & -200662 & 46261.3 & -2447.55 & -0.49042 & 1 & -0.659762 & 0.152104 & -0.00804736\tabularnewline
+8 & 304143 & -149158 & 304143 & -200662 & 46261.3 & -2447.55 & -0.49042 & 1 & -0.659762 & 0.152104 & -0.00804736\tabularnewline
+\end{tabular}
+
+使用反幂法计算时，迭代八次收敛。按模最小的特征值为
+\begin{equation}
+\lambda=\frac{1}{u}=3.28793\times10^{-6}
+\end{equation}
+
+对应的特征向量为$(-0.49042,1,-0.659762,0.152104,-0.00804736)^{T}$。
+
+与Mathematica的计算结果相同。
+
+对$A_{2}$矩阵计算的中间迭代过程如下表所示
+
+\begin{tabular}{llllllllll}
+k & u & x1 & x2 & x3 & x4 & y1 & y2 & y3 & y4\tabularnewline
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\tabularnewline
+1 & 2 & 0 & 2 & -0 & 1 & 0 & 1 & -0 & 0.5\tabularnewline
+2 & 5.625 & -0.625 & 5.625 & -2.375 & 3.5 & -0.111111 & 1 & -0.422222 & 0.622222\tabularnewline
+3 & 8.07778 & -0.933333 & 8.07778 & -3.43333 & 5.04444 & -0.115543 & 1 & -0.425034 & 0.624484\tabularnewline
+4 & 8.08992 & -0.93621 & 8.08992 & -3.44378 & 5.05433 & -0.115725 & 1 & -0.425687 & 0.624769\tabularnewline
+5 & 8.09382 & -0.936712 & 8.09382 & -3.44549 & 5.05681 & -0.115732 & 1 & -0.425694 & 0.624774\tabularnewline
+6 & 8.09386 & -0.936719 & 8.09386 & -3.44551 & 5.05684 & -0.115732 & 1 & -0.425695 & 0.624775\tabularnewline
+7 & 8.09386 & -0.93672 & 8.09386 & -3.44552 & 5.05684 & -0.115732 & 1 & -0.425695 & 0.624775\tabularnewline
+\end{tabular}
+
+使用反幂法计算时，迭代七次收敛。按模最小的特征值为
+\begin{equation}
+\lambda=0.12355
+\end{equation}
+
+对应的特征向量为$(-0.115732,1,-0.425695,0.624775)^{T}$。
+
+与Mathematica的计算结果相同。
+
+\section{结果分析}
+
+\textbf{a)收敛速度}
+
+这取决于我们对终止条件（收敛度量）的选择方式。在本次作业中，我们选择的终止条件是衡量$u$的绝对误差，$|u^{k+1}-u^{k}|\leq10^{-5}$，此时，$A_{1}$的最小特征值更接近于$0$,却迭代了八次，但$A_{2}$只迭代了七次。所以，并没有“A
+的按模最小特征值越接近于 0，收敛越快”的结论。这是可以理解的。因为$\lambda$越小，其倒数$u=\frac{1}{\lambda}$就越大，从而$u$计算过程中的绝对误差就会越大，也就越难收敛。但如果我们选择终止条件为衡量$u$的相对误差，例如
+\begin{equation}
+\frac{|u^{k+1}-u^{k}|}{|u^{k}|}<10^{-7},
+\end{equation}
+那么此时，经过计算得出$A_{1}$需要迭代七次收敛，但$A_{2}$需要迭代九次收敛。所以，如果将度量方式换成相对误差，那么有“A
+的按模最小特征值越接近于 0，收敛越快”的结论。
+
+\textbf{b)数值精度}
+
+在本次问题的求解中，并没有碰到数值问题，因为在程序中使用的是“double”精度。但如果我们使用“float”精度，以$A_{1}$为例，其迭代过程如下表所示
+
+\begin{tabular}{llllllllllll}
+k & lambda & x1 & x2 & x3 & x4 & x5 & y1 & y2 & y3 & y4 & y5\tabularnewline
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\tabularnewline
+1 & -1117 & 628.534 & -1117 & 628.004 & -119.535 & 4.97485 & -0.5627 & 1 & -0.562226 & 0.107014 & -0.00445378\tabularnewline
+2 & 296990 & -145834 & 296990 & -195603 & 44980.9 & -2370.02 & -0.49104 & 1 & -0.658619 & 0.151456 & -0.00798014\tabularnewline
+3 & 303187 & -148693 & 303187 & -200023 & 46111.4 & -2439.35 & -0.490433 & 1 & -0.659737 & 0.152089 & -0.00804572\tabularnewline
+4 & 303281 & -148737 & 303281 & -200089 & 46127.9 & -2440.33 & -0.490426 & 1 & -0.659749 & 0.152096 & -0.00804644\tabularnewline
+5 & 303282 & -148738 & 303282 & -200090 & 46128 & -2440.35 & -0.490426 & 1 & -0.659749 & 0.152096 & -0.00804645\tabularnewline
+6 & 303282 & -148738 & 303282 & -200090 & 46128 & -2440.34 & -0.490426 & 1 & -0.659749 & 0.152096 & -0.00804645\tabularnewline
+7 & 303282 & -148738 & 303282 & -200090 & 46128 & -2440.34 & -0.490426 & 1 & -0.659749 & 0.152096 & -0.00804645\tabularnewline
+\end{tabular}
+
+其收敛结果为$\lambda=\frac{1}{u}=3.297\times10^{-6}$,偏离正确结果$3.288\times10^{-6}$。同时我们注意到，在$A_{1}$的$LU$分解中，部分上三角矩阵的主元$u_{kk}$值非常小（$<10^{-3}$），这意味着会引入较大的数值偏差（我们的计算过程包括除以$u_{kk}$的操作）。解决这一问题的方法和$Gauss$消元法类似，我们采用部分选主元的Doolite分解算法。即在计算$U$的第$k$行和$L$的第$k$列前，先计算
+\begin{equation}
+s_{j}=A_{jk}-\sum_{t=1}^{k-1}L_{jt}U_{tk},j\geq k
+\end{equation}
+找到$\mathrm{Argmax}\{s_{j}\}=p$, 交换第$p$行和第$k$行后，再进行Doolite分解。这被称为部分选主元的Doolite分解法，其数值稳定性和算法的详细说明可以参考徐树方的《数值线性代数》有关内容（该算法实际上等价于列主元Gauss消去法）。经过如上选主元过程后，我们实际得到
+\begin{equation}
+QA=LU
+\end{equation}
+其中$Q$为一置换矩阵，求解$Ax=y$实际上可被转化为$LUx=Qy$。反幂法的过程与直接Doolite分解法相同。采用该部分选主元方法后，再计算$A_{1}$按模最小的特征值，其迭代中间过程如下表所示（依旧采取“float”精度）
+
+\begin{tabular}{llllllllllll}
+k & lambda & x1 & x2 & x3 & x4 & x5 & y1 & y2 & y3 & y4 & y5\tabularnewline
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\tabularnewline
+1 & -1119.23 & 629.617 & -1119.23 & 629.497 & -119.887 & 4.99428 & -0.562546 & 1 & -0.562439 & 0.107116 & -0.00446226\tabularnewline
+2 & 297642 & -146150 & 297642 & -196040 & 45084.1 & -2375.72 & -0.491027 & 1 & -0.658645 & 0.151471 & -0.00798183\tabularnewline
+3 & 303840 & -149010 & 303840 & -200461 & 46214.6 & -2445.05 & -0.490422 & 1 & -0.659758 & 0.152102 & -0.00804714\tabularnewline
+4 & 303935 & -149054 & 303935 & -200527 & 46231.1 & -2446.02 & -0.490416 & 1 & -0.65977 & 0.152108 & -0.00804786\tabularnewline
+5 & 303936 & -149055 & 303936 & -200528 & 46231.2 & -2446.03 & -0.490415 & 1 & -0.65977 & 0.152109 & -0.00804787\tabularnewline
+6 & 303936 & -149055 & 303936 & -200528 & 46231.2 & -2446.03 & -0.490415 & 1 & -0.65977 & 0.152109 & -0.00804787\tabularnewline
+\end{tabular}
+
+其计算结果为$\lambda=\frac{1}{u}=3.290\times10^{-6}$。可见，采用部分选主元的Doolite分解后，其数值精度有了较大提升，与真实误值的差仅为不选主元方法的$22\%$。
+
+另外需要注意，如果采用部分选主元的Doolite分解后，得到某一个$u_{kk}=0$, 那么就说明矩阵$A$不可逆（不满秩）。其按模最小特征值必为$0$。由于此时对应的$u=\infty$,
+故反幂法失效。所以使用反幂法前，应先判断矩阵$A$是否可逆（即做完部分选主元的Doolite分解后，是否有$u_{kk}=0$）。
+\end{document}

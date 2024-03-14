@@ -1,0 +1,643 @@
+\documentclass[twocolumn,english,prl,aps,superscriptaddress,amsmath,amssymb,floatfix]{revtex4-2}
+\usepackage[T1]{fontenc}
+\usepackage{verbatim}
+%\usepackage[letterpaper]{geometry}
+%\geometry{verbose}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+%\documentclass [prl,aps,letterpaper,preprint,amsmath,amssymb,floatfix] {revtex4}
+%\documentclass [prl,aps,letterpaper,preprint,superscriptaddress,amsmath,amssymb,floatfix] {revtex4}
+\usepackage{times}
+\usepackage{textcomp}
+\usepackage{epstopdf}
+\usepackage{braket}
+\usepackage{tikz}
+\usepackage[colorlinks,linkcolor=blue,citecolor=blue]{hyperref}
+\usepackage{tikz-network}
+\usepackage{amsfonts}
+\newtheorem{theorem}{Theorem}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\pdfpageheight\paperheight
+\pdfpagewidth\paperwidth
+
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+
+\@ifundefined{textcolor}{}{%
+ \definecolor{BLACK}{gray}{0}
+ \definecolor{WHITE}{gray}{1}
+ \definecolor{RED}{rgb}{1,0,0}
+ \definecolor{GREEN}{rgb}{0,1,0}
+ \definecolor{BLUE}{rgb}{0,0,1}
+ \definecolor{CYAN}{cmyk}{1,0,0,0}
+ \definecolor{MAGENTA}{cmyk}{0,1,0,0}
+ \definecolor{YELLOW}{cmyk}{0,0,1,0}
+}
+
+\usepackage{xcolor}\usepackage{soul}
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=Latex.dll}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=BibTeX}
+%TCIDATA{LastRevised=Wednesday, July 06, 2016 07:06:51}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{Language=American English}
+
+\newcommand{\dg}{$^\circ$ }
+\newcommand{\dgc}{$^\circ\mathrm{C}$}
+\def \Tr {\mathrm{Tr}}
+\definecolor{blue}{rgb}{0,0,1}
+\definecolor{red}{rgb}{1,0,0}
+\definecolor{green}{rgb}{0,1,0}
+\newcommand{\red}[1]{\textcolor{red}{ #1}}
+\newcommand{\blue}[1]{\textcolor{blue}{ #1}}
+\newcommand{\green}[1]{\textcolor{green}{ #1}}
+
+%\@ifundefined{showcaptionsetup}{}{%
+% \PassOptionsToPackage{caption=false}{subfig}}
+%\usepackage{subfig}
+%\makeatother
+
+\usepackage{babel}
+\begin{document}
+\title{Free-fermion %Gaussian 
+Page Curve: Canonical Typicality and Dynamical Emergence}
+\author{Xie-Hang Yu}
+\affiliation{Max-Planck-Institut f\"ur Quantenoptik, Hans-Kopfermann-Stra{\ss}e 1, D-85748 Garching, Germany}
+\affiliation{Munich Center for Quantum Science and Technology, Schellingstra{\ss}e 4, 80799 M\"unchen, Germany}
+\author{Zongping Gong}
+\affiliation{Max-Planck-Institut f\"ur Quantenoptik, Hans-Kopfermann-Stra{\ss}e 1, D-85748 Garching, Germany}
+\affiliation{Munich Center for Quantum Science and Technology, Schellingstra{\ss}e 4, 80799 M\"unchen, Germany}
+\author{J. Ignacio Cirac}
+\affiliation{Max-Planck-Institut f\"ur Quantenoptik, Hans-Kopfermann-Stra{\ss}e 1, D-85748 Garching, Germany}
+\affiliation{Munich Center for Quantum Science and Technology, Schellingstra{\ss}e 4, 80799 M\"unchen, Germany}
+\begin{abstract}
+% ZG: F->f, no need to use Capital $T$
+%the celebrated Page curve proposed almost three decades ago describes the averaged bipartite entanglement for general interacting random quantum states. Surprisingly, the noninteracting (free-fermion) counterpart has only been established very recently. %and exhibits remarkable difference from the former. 
+%Here
+We provide further analytical insights into the newly established noninteracting (free-fermion) Page curve, focusing on both the kinematic and dynamical aspects. First, we unveil the underlying canonical typicality and atypicality for random free-fermion states%, which
+. The former appears for a small subsystem and is exponentially weaker than the well-known result in the interacting case. The latter explains why the free-fermion Page curve differs remarkably from the interacting one when the subsystem is macroscopically large, i.e., comparable with the entire system. Second, we find that the free-fermion Page curve emerges with unexpectedly high accuracy in some simple tight binding %local free-fermion 
+models in long-time quench dynamics. This contributes a rare analytical result concerning quantum thermalization on a macroscopic scale, where conventional paradigms such as the generalized Gibbs ensemble and quasi-particle picture are not applicable. %This highlights the relevance to real physical systems
+\begin{comment}
+The random fermionic Gaussian(RFG) ensemble is %a 
+\textcolor{red}{widely used} %wide-used platform
+to illustrate many physical concepts, such as thermalization and entanglement
+entropy. Our work first studies the ergodicity of these ensemble and
+prove the canonical typicality. We found that the thermalization rate
+of the free Fermonic systems is only polynomial in environment size,
+rather than exponential. This slower convergence rate can predict
+very different local behavior of EE for RFG ensemble.
+Later, we turn to some global behavior such as Page curve of the RFG ensemble.
+Our work suggests that the Page curve can dynamically emerge with
+a class of time independent, translationally symmetric Hamiltonians.
+We analytically give a full description of this class of Hamiltonians.
+We also pointed out the original method of calculating free-fermionic
+dynamical entropy in quasi-particle picture can only give a lower
+bound, because this picture ignores correlations among multiple pairs
+generated simultaneously. 
+\end{comment}
+\end{abstract}
+\maketitle
+
+
+\emph{Introduction.--}As
+a central concept in quantum information science \citep{nielsen00},
+entanglement has been recognized to play vital roles in describing
+and understanding quantum many-body systems in and out of equilibrium
+\citep{Luigi2008,relation_entropy_Phase,Eisert2015,Abanin2019}. %,relation_entropy_thermal,relation_entropy_thermal2,relation_entropy_thermal3,relation_entropy_Phase}. 
+For example, entanglement area laws for ground states
+of gapped local Hamiltonians enable their efficient descriptions based
+on tensor networks \citep{RevModPhys.93.045003}, %and
+while their violations may signature %entanglement also characterizes 
+quantum phase transitions \citep{Vidal2003,Calabrese2004}.%PhysRevB.94.195121,Shapourian2021,PhysRevA.85.030302,PhysRevA.85.062331}.}
+The emergence of thermal ensemble from unitary evolution, a process
+known as quantum thermalization \cite{Srednicki1994}, is ultimately attributed to the entanglement
+generated between a subsystem and the complement \citep{Nandkishore2015}. %Popescu2006,Srednicki1994,QuantumChaosETH}.
+%Entanglement is important: QI, CM, StatMech, HE}
+
+Almost thirty years ago, Page considered the fundamental
+problem of bipartite entanglement in a fully random many-body system
+and found a maximal entanglement entropy (EE) up to finite-size corrections \cite{Page1993}.
+This seminal work was originally motivated by the black-hole information
+problem \cite{Page1993blackhole}. %,Page2013}. 
+Remarkably, it
+has been attracted increasing and much broader interest in the past
+decade, %even outside the high-energy physics community. 
+due not only %especially 
+to the new theoretical insights from quantum thermalization \citep{PhysRevLett.115.267206,PhysRevLett.119.220603,Nakagawa2018,PageCurve_Thermal,Lu2019,PageCurve_Thermal2,PhysRevLett.125.021601,Kaneko2020} and %PageCurve_Thermal3},
+quantum chaos \citep{Sekino_2008,%Chaos_scramb2,%Chaos_scramb3,Chaos_scramb4,
+Chaos_Scrambl,Nahum2018},
+%and mathematical physics \citep{%Akemann2015,Collins2006,Matsumoto2013,Edelman2005,PhysRevE.105.014109,PhysRevLett.115.267206,Wigner1955,PhysRevLett.119.220603,Matsumoto2013},
+but also to the practical relevance in light of the rapid experimental development in quantum simulations %Recently, the long-range control of quantum simulators provides further experimental access to this physical quantity 
+\citep{entropy_measure1,entropy_measure2,entropy_measure3,long_range_accessible,long_range_accessible2,Semeghini2021,%Dai2016,
+Yang2020,
+Liu2022}. %Experimental Realization}\textcolor{red}{%in generic interacting many-body systems. 
+In particular, the saturation of maximal entropy has been found to
+be a consequence of canonical typicality \citep{Popescu2006,Goldstein2006,Reimann2007},
+which means most random states behave locally like the canonical ensemble. %Also, 
+This typicality %\textcolor{blue}{kinematic} 
+behavior
+has been argued to emerge in generic interacting many-body
+systems satisfying the eigenstate thermalization hypothesis \citep{Srednicki1994,QuantumChaosETH,Abanin2019,
+Rigol2008,Nandkishore2015,Moessner2017} %QuantumChaos,Collura2014,Ishii2019,Sotiriadis_2014},  
+%implying the ultimate connection to quantum thermalization. This relation 
+and can even be rigorously established or ruled out in specific situations \cite{%PhysRevLett.124.200604,
+ETH_CT_proof3,Hamazaki2018}. %,PhysRevLett.116.030401}. %\textcolor{blue}{The relation between canonical typicality and ETH has been proved both numerically and analytically in many quantum models \citep{ETH_CT_proof1,ETH_CT_proof2,ETH_CT_proof3,ETH_CT_proof4,ETH_CT_proof5}.}%many-body system, say \$N\$ qubits. For a subsystem with \$N\_A<N/2\$ qubits, the averaged EE was found to saturate the maximal value up to finite-size corrections. 
+
+%Page curve: recent Gaussian, why important? }
+
+In this Letter, we provide analogous insights into
+the noninteracting counterpart of Page's problem.  %\textcolor{blue}{due to the importance of Gaussian resources in quantum information \citep{matchgates,Circuit_complexity_free_fermion,fermionicTomograph1}, quantum computations \citep{Matos2022} and quantum chaos \citep{Ishii2019,Analytical_example_fermionic_gaussian,Cassidy2011}.}%Why Gaussian
+%Precisely speaking, we focus on the random fermionic Gaussian (RFG) ensemble, 
+That is, we focus on free fermions or (fermionic) Gaussian states, which are of their own interest in quantum many-body physics, quantum information and computation \citep{matchgates,PhysRevA.65.032325,Bravyi2005,Wolf2006,Banuls2007,Fidkowski2010,PhysRevLett.116.030401,Shi2018,PhysRevLett.120.190501,PhysRevLett.121.200501,Circuit_complexity_free_fermion,fermionicTomograph1,Oszmaniec2022,Matos2022}. Somehow surprisingly, in the seemingly simpler noninteracting
+case, the subsystem-size dependence of averaged EE,
+which is described by the Page curve pictorially, was not solved until
+very recently \citep{Bianchi2021,Bianchi2021a}. It turns out to be similar to the interacting case for a small subsystem, but differ significantly otherwise. See Fig.~\ref{Setup_of_CCRFG_ensemble}(b) for an illustration. With the measure concentration results on compact-group manifolds,  we establish the corresponding %a qualitatively weaker 
+canonical typicality (atypicality) in microscopic (macroscopic) regions for the free-fermion ensemble. Thus we explicitly explain the similarity and difference from the kinematic aspect. In addition, we show that the free-fermion Page curve can be relevant to extremely simple tight-binding models via long-time quench dynamics. By classifying the systems according to their conserved (eigen) mode occupation numbers, we construct two classes of Hamiltonians which can/cannot give rise to a highly similar Page curve. Our finding concerning macroscopic properties which cannot be captured by the generalized Gibbs ensemble or quasi-particle picture and thus goes beyond the conventional paradigm of local thermalization. 
+
+
+\begin{comment}\textbf{\emph{Introduction-}} Ergodicity is the foundation of %classical
+statistial physics. It becomes a great conceptual puzzle when we consider
+quantum mechanics, where the universe is a pure state and evolves %d
+unitarily. How to re-establish the foundation in quantum statistical
+mechanics has been studied for decades. Up to now, there are two definitions
+of thermalization in quantum statistics. One is dynamical and the
+other is kinematic. The dynamical thermalization focuses on eigenstate
+thermalization hypothesis (ETH) \citep{Srednicki1994,QuantumChaosETH,Abanin2019}.
+This hypothesis argues that the eigenstates of \textcolor{red}{typical} %most 
+Hamiltonians will
+locally reduce to the canonical ensemble. %and the off diagonal correlation can be smeared out in long time average. 
+On the other hand, the kinematic
+thermalization studied the behavior of each pure state in universe
+rather than time average. If the environmental size is large enough,
+each pure state in the ensemble will behave locally like the average
+of the ensemble\textcolor{red}{, %. This 
+a property known} %refers to 
+as canonical typicality \citep{Popescu2006,Goldstein2006,Reimann2007}.
+%In our work, 
+\textcolor{red}{Here,} we are interested in the fermionic gaussian state because
+it plays important roles in quantum information in terms of matchgates
+\citep{matchgates}, quantum computations \citep{Matos2022} and quantum
+chaos \citep{Ishii2019,Analytical_example_fermionic_gaussian,Cassidy2011}.
+We use kinematical thermalization to characterize its statistical
+behavior.
+
+%When talking about thermalization, 
+\textcolor{red}{EE is} an important macroscopic quantity
+%is entropy, 
+which has been shown deeply connected to thermalization
+\citep{relation_entropy_thermal,relation_entropy_thermal2,relation_entropy_thermal3}.
+Some experiments also measure the entropy \citep{entropy_measure1,entropy_measure2,entropy_measure3}
+to indicate thermalization. %The EE also relates to phase transition in condensed matter physics \citep{relation_entropy_Phase}.
+Nowadays, with the development of experimental technics, we can access
+large scale systems and non local operations \citep{long_range_accessible,long_range_accessible2,Semeghini2021,Dai2016,Yang2020}.
+The study of non local EE becomes possible, which
+is described by Page curve\citep{Page1993}.
+
+Originally, Page studies the average of entanglement for general pure
+state ensembles in order to address the black hole information paradox
+\citep{Page1993blackhole,Page2013}. Later, the Page curve for other
+ensembles have also been studied and shown to related to random matrix
+theory \citep{Bianchi2021}. Besides the original purpose, the Page
+curve can be used to describe quantum chaos and scrambling \citep{Chaos_scramb2,Chaos_scramb3,Chaos_scramb4,Chaos_Scrambl,QuantumChaos}.
+It also appears in the study of thermalization \citep{PageCurve_Thermal,PageCurve_Thermal2,PageCurve_Thermal3}. 
+
+The Page curve for RFG ensemble was first obtained in \citep{Bianchi2021a}
+and later generalized to charge conserved symmetric case in \citep{Bianchi2021}.
+It still has volume law but with a different factor and variance from
+\textcolor{red}{the interacting} %interaction 
+one. Besides, this random quantum resource has many applications
+in quantum information process \citep{Circuit_complexity_free_fermion,fermionicTomograph1}
+and may also have advantage in quantum metrology when generalizing
+\citep{Bosonic_metrology} to fermionic system \citep{fermionic_Gauss_metrology}.
+Therefore, for those practical reasons we need to consider how the
+Page curve can appear in real physical system rather than the manifold
+of random matrices\citep{Kaneko2020,Nakata2017,Ho2022,Lucas2022}.
+
+In this letter, we first derive the canonical typicality of RFG ensemble. We will use our typicality result to illustrate the difference of Page
+curve between free and \textcolor{red}{interacting} %interaction 
+fermionic system. Then, we propose
+a simple class of time-independent Hamiltonian with translational
+symmetry, which can dynamically emerge the Page curve for RFG ensemble
+to a very high accuracy. Some of those previous works \citep{Kaneko2020,Nakata2017,Ho2022,Lucas2022}
+consider non-integrable systems or floquet systems which are hard
+to keep track of analytically and only have numerical results. Others
+require local physical systems plus infinite degrees of ancilla. Our
+proposal is much simpler than those. It has no reference to ancilla
+and is a pure global property.    
+
+%\textcolor{red}{(ZG: Try to explain why Winter's proof cannot apply to Gaussian states)}
+\end{comment}
+\emph{Canonical typicality and atypicality.--}%In our work, 
+We start by generalizing %generalize
+the main result in \citep{Popescu2006} to the random fermionic Gaussian (RFG) ensemble. While \citep{Popescu2006} already considers possible restrictions, we stress that Gaussianity is inadequate since Gaussian states do not constitute a Hilbert subspace. 
+%which will show great difference from the \textcolor{red}{interacting} %interaction one. 
+For simplicity, we %will only 
+consider number-conserving systems with totally $N$ modes occupied by $N/2$ fermions, i.e., the half-filling case. Compared to the fully random case without number conservation, this setting appears to be more physically comprehensible and experimentally relevant, while displaying exactly the same Page curve %half filling case, because it has been shown this case dominates the contribution of Page curve for RFG ensemble. The volume-law coefficient of half-filling case also converges to the latter one
+\citep{Bianchi2021a,Bianchi2021}. %Of course, there is no difficulty to consider other filling numbers \cite{SM}.} 
+%The discussion on 
+More general ensembles are discussed %can be found 
+in Supplemental Material \cite{SM}. 
+
+\begin{figure}
+\includegraphics[width=1\columnwidth]{figs/new_set_up_fig}\caption{(a) The entire %total 
+free-fermion system has $N$ sites with half filling. The %physical 
+subsystem of interest %we are interested in 
+has $N_{A}$ ($N_{A}\le%<
+N$) sites. %shows the states are in the 
+The RFG ensemble is generated by Haar-random Gaussian unitaries with number conservation. %induced by Haar measure over $\mathbb{\textcolor{red}{U}}(N)$.
+(b) %shows the state is evolved with some hopping terms.}
+The Page curves of the RFG %-ensemble 
+and interacting ensemble in the thermodynamic limit $N\to\infty$. %From the figure, 
+It is obvious that these two Page curves agree with each other in the microscopic region but show a $\mathcal{O}(1)$ deviation in the macroscopic region. The interacting Page curve in the thermodynamic limit is always saturated. (c) The table summarizes the typicality/atypicality property for the RFG and interacting ensembles. Here ``Poly." and ``Exp." indicates polynomial and exponential scalings, respectively.}
+\label{Setup_of_CCRFG_ensemble}
+\end{figure}
+
+A pictorial illustration of our setup is shown %can be seen 
+in Fig.~\ref{Setup_of_CCRFG_ensemble}(a). 
+Due to Wick's theorem \citep{Hackl2021}, a fermionic Gaussian %RFG-
+state $\rho$ is %can be 
+fully captured %described 
+by its covariance matrix $C_{j,j'}=\mathrm{Tr}(\rho a_{j}^{\dagger}a_{j'})$.
+Here $a_{j}$ is the annihilation operator for mode $j$, which may label, e.g., a lattice site. %at the site $l$. 
+%The vanishing of $\Tr(\rho a^{\dagger}a^{\dagger})$ is because we are considering half filling case. The more general form of covariance matrix includes a unitary transformation into Majorana basis. 
+As the covariance matrix for any RFG-pure state can be related to each
+other by a unitary transformation, %on the space of creation operators,
+the uniform distribution over this ensemble can be generated at the
+level of the covariance matrix $\{C=UC_{0}U^{\dagger}\}$. Here %where
+$U$ is taken Haar-randomly over the unitary group $\mathbb{U}(N)$ %$\mathbb{SU}(N)$ 
+\citep{Bianchi2021,Bianchi2021a} and
+$C_{0}$ is an arbitrary reference %is a specific 
+covariance matrix in the ensemble satisfying $C_0^2=C_0$ and $\Tr C_0=N/2$. %, which can be taken as $\begin{pmatrix}I_{\textcolor{red}{N/2}} & 0\\ 0 & 0 \end{pmatrix}$. 
+%for simplicity. Using 
+
+An important property of Gaussian states is that their subsystems remain %will also be 
+Gaussian. %and thus fully characterized by the covariance matrix. 
+We denote $C_{A}$ as %denotes 
+the $N_A\times N_A$ covariance matrix restricted
+to %the physical 
+subsystem $A$ with $N_A$ modes. The EE $S_A=-\Tr(\rho_A\log_2\rho_A)$ of the reduced state $\rho_A=\Tr_{\bar A}\rho$ ($\bar A$: complement of $A$) then reads:
+\begin{equation}
+\begin{split}
+    S_{A}=&-\Tr(C_A\log_2 C_A)\\
+    &-\Tr((I_A-C_A)\log_2 (I_A-C_A)), %\mathrm{Tr}\begin{bmatrix}C_{A}\\ & I_{A}-C_{A} \end{bmatrix}\log_{2}\begin{bmatrix}C_{A}\\& I_{A}-C_{A}\end{bmatrix}
+    \end{split}
+    \label{eq:SA}
+\end{equation}%, the distance between two covariance matrix is calculated with Hilbert-Schmidt distance $d_{\mathrm{H-S}}(C_{1},C_{2})=\sqrt{(C_{2}-C_{1})^{\dagger}(C_{2}-C_{1})}.
+where $I_A$ is the identity matrix with dimension $N_A$.
+
+Our first result is the measure concentration property of the covariance
+matrix for RFG ensemble:
+
+\begin{theorem}
+%\textbf{Theorem 1}: 
+For arbitrary $\epsilon>0$ and subsystem $A$, the probability that the reduced covariance matrix of a state in the RFG ensemble deviates from the ensemble average satisfies %for each arbitrary state in RFG ensemble with half filling, its covariance matrix restricted in subsystem $A$ is almost identity with high probability $\mathbb{P}$ as long as the environment system size is large enough
+\begin{equation}
+\mathbb{P}(d_{\rm HS}(C_{A},%\frac{1}{2}
+I_{A}/2)\geq\eta+2\epsilon)\leq2e^{-\frac{\epsilon^{2}}{\eta'}}
+\label{eq:Canonicality_result_in_CCRFG}
+\end{equation}
+and
+\begin{equation}
+\mathbb{P}(d_{\rm HS}^2(C_{A},%\frac{1}{2}
+I_{A}/2)\leq\eta_{\rm a}-2\epsilon)\le 2e^{-\frac{\epsilon^2}{\eta'_{\rm a}}}    
+\label{eq:atypicality}
+\end{equation}
+with $\eta=\sqrt{\frac{N_{A}^{2}}{2(N-1)}}$, %and 
+$\eta'=\frac{12}{N}$, $\eta_{\rm a}=\frac{N_A^2}{4(N+1)}$, $\eta'_{\rm a}=\frac{12N_A}{N}$ and $d_{\rm HS}(C,C')=\sqrt{\Tr(C-C')^2}$ being the Hilbert-Schmidt distance. 
+\end{theorem}
+%One of the skills we used in the proof is
+The proof largely relies on the generalized Levy's lemma
+%in 
+for Riemann manifolds with positive curvature \citep{measure_concentration1,measure_concentration2,Meckes2019},
+which allows us to turn the upper bound on %of
+the distance average $\langle d_{\mathrm{HS}}(C_{A},I_{A}/2)\rangle\leq\sqrt{\frac{N_A^2}{2(N-1)}}$ or the lower bound $\langle d^2_{\mathrm{HS}}(C_{A},I_{A}/2)\rangle\geq\frac{N_A^2}{4(N+1)}$
+into a probability inequality \citep{SM}. %\textcolor{red}{See} %The details of the proof can be seen in 
+%Supplemental Material \textcolor{red}{for detail}. 
+%Although we are using the Hilbert-Schmidt distance here, one can easily obtain the result for other distance measures, since all measures of distance in finite space is equivalent. 
+From Eq. (\ref{eq:Canonicality_result_in_CCRFG}) we can easily see for
+infinite environments $N\to\infty$, the local microscopic system will have maximal entropy
+$S_{A}\to N_{A}$.
+
+%It is also worthy noting 
+We emphasize that in Eq. (\ref{eq:Canonicality_result_in_CCRFG}),
+$\eta$ and $\eta'$ only scales polynomially with the (sub)system size. %sites.
+%It is a big contradictory to 
+This contrasts starkly with the exponential scaling canonical typicality %result 
+for random interacting %interaction 
+ensemble \citep{Popescu2006}. %in which they scales exponentially.
+Intuitively, this is because in the interacting %interaction 
+case, the %dimension of the 
+Hilbert-space dimension scales exponentially with the (sub)system size, %sites, while 
+which, however, simply equals to the size %degrees of} freedom 
+of the covariance matrix in the free-fermion case. %only scales polynomially with the system sites. 
+Physically, the Gaussian constraint %constriction 
+makes the ensemble
+%can 
+only explore a very limited sub-manifold in the entire %total 
+Hilbert space.
+%\textcolor{red}{(ZG: Try to explain in further detail: for a macroscopically large subsystem, $\eta/N_A$ can be exponentially small in the interacting case, but is $\mathcal{O}(1)$)}
+This polynomial scaling means that, for a fixed subsystem size $N_A$, the reduced state still exhibits canonical typicality, while the atypicality is only polynomially suppressed by the environment size. Accordingly, the averaged EE should achieve the maximal value but with a polynomial finite-size correction. In fact, such an exponentially weaker canonical typicality (\ref{eq:Canonicality_result_in_CCRFG}) can also be exploited to explain the qualitatively larger variance of the EE for the RFG ensemble, which is $\mathcal{O}(N^{-2})$ %$\frac{1}{N^{2}}$ 
+in comparison to  
+%for RFG ensemble while 
+$e^{-\mathcal{O}(N)}$ in the interacting case %for interacting %interaction one
+\citep{Bianchi2021a,Bianchi2021,SM}.  
+
+On the other hand, %Moreover, 
+if the subsystem is macroscopically large, meaning that $f=N_A/N$ is $\mathcal{O}(1)$, the concentration inequality (\ref{eq:Canonicality_result_in_CCRFG}) becomes meaningless since $\eta$ is $\mathcal{O}(\sqrt{N})$, the same order as the Hilbert-Schmidt norm of $C_A$. Instead, we may take $\epsilon=\mathcal{O}(N^\alpha)$ with $\alpha\in(0,1)$ in Eq.~(\ref{eq:atypicality}), finding that the majority of the reduced covariance matrix differs significantly from the ensemble average. In other words, the RFG ensemble exhibits canonical atypicality in this case. In particular, this result implies an $\mathcal{O}(1)$ deviation in the EE density from the maximal value. We recall that, in stark contrast, the canonical typicality for interacting states is exponentially stronger and persists even on any macroscopic scale with $f<1/2$. %\textcolor{blue}{except when $N_{A}\geq\frac{N}{2}$.
+
+
+%\textcolor{blue}{More specifically, for RFG ensemble with macroscopical subsystem,
+%the atypicality is lower bounded by 
+%\begin{equation*}
+%\begin{split}
+%\mathbb{P}\{d_{\mathrm{HS}}^{2}(C_{A},I_{A}/2) & \leq\frac{N_{A}^{2}}{4(N+1)}-2\sqrt{N_{A}}/N^{\frac{1}{3}}\}\\
+% & \leq2e^{-\frac{N^{\frac{1}{3}}}{4}}
+%\end{split}
+%\end{equation*}
+%This means that when $f\sim \mathcal{O}(1)$, the Gaussian state is anti-concentrated
+%by an $\mathcal{O}(N)$ factor with probability very close to $1$.} 
+%although the free fermions can still be kinematically thermalized, its thermalization rate is much slower than the \textcolor{red}{interacting} %interaction one. 
+
+The above discussions can be made more straightforward %in \citep{SM}, where we 
+by considering the measure concentration property of %the subsystem entropy 
+$S_{A}$. By bounding $S_A$ using $d_{\rm HS}(C_A,I_A/2)$ from both sides, we obtain \cite{SM} %obtaining}
+\begin{equation}
+\mathbb{P}(S_{A}\leq N_{A}-\epsilon)\le2e^{-\frac{(\sqrt{\epsilon}-\xi)^{2}}{\xi'}},\;\;\;\;\forall\epsilon>\xi^2
+%\begin{split} & \mathbb{P}(S_{A}\leq N_{A}-\epsilon)\\
+ %& \leq\begin{cases}
+%2e^{-\frac{(\sqrt{\epsilon}-\xi)^{2}}{\xi'}}, & \epsilon>\xi^{2};\\
+%1, & \epsilon\leq\xi^{2}
+%\end{cases}
+%\end{split}
+\label{eq:main_text_typicality_for_entropy}
+\end{equation}
+in the microscopic region and
+\begin{equation}
+\mathbb{P}(S_{A}\geq N_{A}-\xi_{a}+\epsilon) \leq2e^{-\frac{\epsilon^{2}}{\xi'_{a}}},\;\;\;\;
+\forall\epsilon>0
+\label{eq:main_text_atypicality_for_entropy}
+\end{equation}
+in the macroscopic region. Here $\xi=\sqrt{\frac{2N_{A}^{2}}{N-1}}$, $\xi'=\frac{192}{N}$, $\xi_{a}=\frac{N_{A}^{2}}{2\ln2(N+1)}$ and $\xi'_{a}=\frac{192N_{A}}{\ln^22N}$. 
+%It is worthy emphasizing 
+Note that Eq.~(\ref{eq:main_text_typicality_for_entropy}) also becomes meaningless in the macroscopic region since $\xi^2$ will be comparable with $N_A$.
+%slower convergence rate can 
+Choosing $\epsilon=(\xi+\mathcal{O}(N^{-\alpha/2}))^2$ for Eq.~(\ref{eq:main_text_typicality_for_entropy}) and $\epsilon=\mathcal{O}(N^\alpha)$ in Eq.~(\ref{eq:main_text_atypicality_for_entropy}) with $\alpha\in(0,1)$, we fully explain the microscopic similarity and macroscopic difference %, which occur on the microscopic and macroscopic scales, respectively, 
+between % obvious deviation of 
+the Page curves for the %Gaussian states 
+RFG and interacting ensembles. %with 
+%the one for interacting %interaction 
+%states, 
+See Fig.~\ref{Setup_of_CCRFG_ensemble}(b) and (c).
+%This rate will also lead to very different scaling behavior of mutual information. In \citep{Shapourian2021}, the mutual information will almost vanish if $N_{A}<\frac{N}{2}$. However, for free fermions, the mutual information never vanishes even if $N_{A}<\frac{N}{2}$, see Supplemental Material.
+
+
+
+\begin{figure*}
+\includegraphics[width=0.9\textwidth]{figs/dynamical_page_curve_total}
+\caption{(a) and (b) show the tight binding Hamiltonians $H_0+H_1$ with period 2. %in our dynamical model. 
+$H_1$ in (a) only includes the odd-range hopping, while (b) includes even-range hopping. (c) Dynamical Page curve for the minimal model (\ref{eq:NNH_Hamiltonian}) %nearest neighbor hoping Hamiltonian
+(blue) as a representative of (a) %line) 
+and its comparison with the Page curve for the RFG ensemble
+(red) %line) 
+as well as our theoretic result Eq. (\ref{eq:the_Page_curve_for_NNH})
+(green). %line). 
+Here $N=200$. %We can see 
+These three lines are very close to each other, with a difference $\sim%\mathcal{O}()
+10^{-3}$ which agrees with our analysis. A relatively larger deviation of our theoretical result from the other two curves at $f=\frac{1}{2}$ is due to the truncation. This figure can also represent the general dynamical Page curve for Hamiltonians in (a). %argument. 
+(d) Dynamical Page curve for Hamiltonian
+$H=(\sum_{j=1}^{N}a_{j}^{\dagger}a_{j+1}+0.3\sum_{j:\mathrm{even}}a_{j}^{\dagger}a_{j+2}-0.3\sum_{j:\mathrm{odd}}a_{j}^{\dagger}a_{j+2})+{\rm H.c.}$ as a representative of (b). Here also $N=200$. The dynamical Page curve is obviously different
+from the Page curve for the RFG ensemble. The considerable %big
+deviation between the
+theoretical result and the dynamical Page curve near $f=\frac{1}{2}$, where higher-order terms become least negligible, is because we only calculate up to the third term in Eq. (\ref{eq:Taylor_expansion_for_entropy}) \cite{SM}. %\textcolor{blue}{This figure also illustrates the property of dynamical Page curve for general Hamiltonians in (b).} 
+%\textcolor{red}{[ZG: make the subfigure labels ``(a)" and ``(b)" smaller and lower.]}
+%, see Supplemental Material. 
+%The range where $f=\frac{1}{2}$ will receive large corrections from higher order terms. 
+}
+\label{dynamical_page_curve_total}
+\end{figure*}
+
+
+\emph{Dynamically emergent Page curve.--}%On top of the above kinematic results, 
+We recall that a particularly intriguing point of the (interacting) Page curve is its emergence in physical many-body systems with local interactions \cite{PhysRevLett.115.267206,PhysRevLett.119.220603,Nakagawa2018,PageCurve_Thermal,Lu2019,PageCurve_Thermal2}, which are typically chaotic but yet far from fully random. Indeed, a popular phenomenological theory for describing generic entanglement dynamics on the macroscopic level, the so-called entanglement membrane theory \cite{Nahum2018}, explicitly assumes that the entanglement profile of the thermalized system follows the Page curve. The intuition is that a long-time evolution can generate highly non-local correlations in a state and roughly exhaust the whole Hilbert (sub)space, provided the dynamics is ergodic. It is thus natural to ask whether the free-fermion Page curve could be relevant to thermalization in physical systems without interactions. Note that this question is complementary to the aforementioned (a)typicality results, which are kinematic, i.e., irrelevant to dynamics, as in the interacting case \cite{Popescu2006}. %Here, 
+
+
+We try to address the above question by %will 
+analytically investigating the long-time averaged EE in the quench dynamics governed by %that the free-fermion Page curve \textcolor{red}{does emerge, although not perfectly,} in the long-time dynamics of
+some simple local quadratic Hamiltonians with number conservation. Hereafter, we use the term ``dynamical Page curve" to refer to this long-time averaged entanglement profile. 
+%can dynamically emerge the Page curve to a very high accuracy with long time average. 
+%For simplicity, the periodic boundary condition is assumed.
+To simplify the analytic calculations, we assume the Hamiltonian $H$ to be translation-invariant (under the periodic boundary condition) and specify our initial state $|\Psi_0\rangle$ to be %is 
+a period-2 density wave with half filling. See Fig.~\ref{dynamical_page_curve_total}(a-b) for a schematic illustration. The dynamical Page curve is thus formally given by $\overline{S(\rho_A(t))}$, where $\rho_A=\Tr_{\bar A}[e^{-iHt}|\Psi_0\rangle\langle\Psi_0|e^{iHt}]$ and $\overline{f(t)}=\lim_{T\to\infty}T^{-1}\int^T_0 dt f(t)$ denotes the long-time average. It is worth mentioning that the dynamical Page curve is ensured to be concave by translation invariance, as a result of the strong subadditivity of quantum entropy \cite{Wolf2008}.
+%The Hamiltonian is a \textcolor{red}{noninteracting} %non-interaction
+%spinless one which conserves the total charge number $\frac{N}{2}$, see Fig.~\ref{Setup_of_CCRFG_ensemble}(b). First, let us consider 
+
+We primarily focus on the minimal %a rather simple 
+model, i.e., a one-dimensional lattice with nearest-neighbor hopping:
+\begin{equation}
+H_{0}=\sum_{j}a_{j}^{\dagger}a_{j+1}+{\rm H.c.},
+\label{eq:NNH_Hamiltonian}
+\end{equation}
+whose %Assuming the periodic boundary condition, one immediately obtains the 
+band dispersion reads $E_k=2\cos k$. We believe that the exact results for the large (spatiotemporal) scale dynamical behaviors of this fundamental model are interesting on their own.  Moreover, our method and results actually apply to much broader situations, as will soon become clear below. %Later we will use $\overline{O}$ to denote the long time average of the quantity $O$.
+
+
+Surprisingly, despite the additional translation-invariant and energy-conserving constraints compared to the RFG ensemble, this minimal model (\ref{eq:NNH_Hamiltonian}) turns out to give rise to %simple nearest neighbor hopping Hamiltonian can dynamically emerge 
+a dynamical Page curve extremely close to that for the %the Page curve of 
+RFG ensemble %in the long time average 
+%to a very high accuracy, 
+(see blue and red curves in Fig.~\ref{dynamical_page_curve_total}(c)). 
+%We %will 
+%use the term dynamical Page curve to refer to this long-time average behavior. 
+%Our calculation strategy is by 
+To gain some analytic insights, we perturbatively expand %ing
+the entropy expression (\ref{eq:SA}) %, which can be calculated as $S_{A}=-\mathrm{Tr}\begin{pmatrix}C_{A}\\ & I_{A}-C_{A}
+%\end{pmatrix}\log_{2}\begin{pmatrix}C_{A}\\ & I_{A}-C_{A}\end{pmatrix}$. 
+%Expanding it 
+around $C_{A}=\frac{I_{A}}{2}$, obtaining %we will get 
+\begin{equation}
+S_{A}(t)=N_{A}-%\frac{1}{\ln2}
+\sum_{n=1}^{\infty}\frac{\mathrm{Tr}(2C_{A}(t)-I_{A}){}^{2n}}{2n(2n-1)\ln2}.
+\label{eq:Taylor_expansion_for_entropy}
+\end{equation}
+Thanks to the translational invariance, $C_{A}(t)$ can be related to the block-diagonal momentum-space covariance matrix $\tilde C(t)=\bigoplus_k\tilde C_k(t)$ via %in Fourier space 
+$C_{A}(t)=\Pi_{A}U_{\rm F}\tilde{C}(t)U^{\dagger}_{\rm F}\Pi_{A}^{\dagger}$. Here
+$U_{\rm F}$ and $\Pi_{A}$ are the Fourier transformation matrix and projector %projection operator 
+to subsystem $A$, respectively. %$\tilde{C}$ is the covariance matrix in momentum space with block-diagonal structure. 
+The off-diagonal
+elements of a $2\times2$ block $\tilde{C}_k(t)$ involve %will have 
+a time-dependent %dynamical 
+phase
+$e^{i\theta_{k}(t)}$ with %which relates to eigenenergies 
+$\theta_{k}(t)=t(E_{k}-E_{k+\pi})$.
+When calculating $\overline{\mathrm{Tr}(2C_{A}(t)-I_{A})^{2n}}$, 
+we will encounter %meet the 
+terms like $\overline{e^{i\theta_{k}(t)}e^{i\theta_{k'}(t)}}$,
+which equals to $\delta_{k,k'+\pi}$ in the thermodynamic limit.
+This contraction allows us to establish a set of Feynman rules for %with which we can 
+systematically calculating Eq.~(\ref{eq:Taylor_expansion_for_entropy})
+order by order \cite{SM}. %Details can be found in Supplemental Material. 
+
+%Denoting $f=\frac{N_{A}}{N}$. 
+Since the bipartite EE is identical for either of the subsystems, the Page curve is reflection-symmetric with respect to $f=\frac{1}{2}$ and thus %Due to the symmetry of bipartition entropy
+ it suffices to %we can only 
+focus on $f=N_A/N\leq\frac{1}{2}$. In the thermodynamic limit, the dynamical Page curve turns out to be \cite{SM} 
+%is:
+\begin{equation}
+\frac{\overline{S_{A}}}{N}=f-\frac{1}{\ln{2}}\left(\frac{1}{2}f^{2}+\frac{1}{6}f^{3}+\frac{1}{10}f^{4}\right)+\mathcal{O}(f^{5}).\label{eq:the_Page_curve_for_NNH}
+\end{equation}
+ On the other hand, the %volume-law coefficient in 
+ Page curve for RFG ensemble
+is \citep{Bianchi2021}
+\begin{equation}
+\frac{\langle S_{A}\rangle}{N}=f-\frac{1}{\ln{2}}\left(\frac{1}{2}f^{2}+\frac{1}{6}f^{3}+\frac{1}{12}f^{4}\right)+\mathcal{O}(f^{5}).\label{eq:the_Page_curve_result_for_CCRFG}
+\end{equation}
+%the difference between 
+The above two equations differ %are 
+only by $\frac{1}{60\ln{2}}f^{4}+\mathcal{O}(f^5)$, %\leq\frac{1}{480}$, 
+which is as small as about $%\mathcal{O}()
+10^{-3}$ even for $f$ near $1/2$.
+%indicating the dynamical process of nearest neighbor hopping Hamiltonian can emerge the Page curve for RFG ensemble to a very high accuracy!
+
+
+%Even 
+Interestingly, if we add a perturbation $H_{1}$ to Eq.~(\ref{eq:NNH_Hamiltonian}),
+as long as $H_{1}$ is period-2 %fulfills the symmetry of the initial state (namely it is symmetric when translating 2 sites) 
+and %it 
+only includes %the 
+odd-range hopping, as represented by Fig.~\ref{dynamical_page_curve_total}(a),  %term with odd range, 
+the dynamical Page curve can be analytically demonstrated %proved 
+to be the same as Eq. (\ref{eq:the_Page_curve_for_NNH}) in the thermodynamic %thermal dynamical 
+limit, as the same Feynman rules apply \cite{SM}. %see the discussion below Theorem 3 and the Supplemental Material. 
+One example %of $H_{1}$ 
+is $H_{1}=J(\sum_{j:\mathrm{even}}a_{j}^{\dagger}a_{j+2m+1}-\sum_{j:\mathrm{odd}}a_{j}^{\dagger}a_{j+2m+1})+{\rm H.c.}$
+for arbitrary $J$ and integer $m$. Thus, we have defined another ensemble
+of fermionic Gaussian states by dynamical evolution, which covers a
+wide class of Hamiltonians and this ensemble has remarkably similar
+Page curve as the RFG ensemble. 
+
+However, if $H_{1}$ includes even-range %the 
+hopping, as represented by Fig.~\ref{dynamical_page_curve_total}(b) %term with even range, 
+the dynamical Page curve will be very different, %from the one for RFG ensemble, 
+as shown in Fig.~\ref{dynamical_page_curve_total}(d).
+This can be easily explained with the canonical typicality property
+proved above: for this class of Hamiltonians, their conserved (eigen) mode
+occupation number $n_{k}$ deviates from the average value of RFG ensemble,
+which is %will be 
+$\frac{1}{2}$. %This deviation is a strong evidence that this ensemble for the dynamical process corresponding to this class of Hamiltonians must be very different from RFG ensemble. 
+Thus, %its Page curve 
+the dynamical ensemble is naturally %reasonable to be 
+``atypical" even for microscopic scale because the local conserved observable is constructed from mode occupation numbers \citep{Ishii2019}. This result implies the reduced state on a small subsystem deviates considerably from being maximally mixed so that the tangent slope of the dynamical Page curve at $f=0$ is well below that for the RFG ensemble.
+%\textcolor{red}{Accordingly, the Feynman rules for perturbatively calculating the Page curve become more complicated.} 
+In contrast, one can show that all the conserved mode occupation number for the class of Hamiltonians mentioned in the last paragraph are $\frac{1}{2}$. 
+
+%Now we can introduce our 
+All the observations above constitute our second main result: %third 
+%theorem: 
+\begin{theorem}
+%\textbf{Theorem 2}: 
+The RFG ensemble-like dynamical Page curve (\ref{eq:the_Page_curve_for_NNH}) emerges for a period-2 short-range free-fermion Hamiltonian if and only if the conserved mode occupation numbers are $1/2$. %In order for a Non-interaction charge-conserved fermionic system with periodic-2 symmetry in space to dynamically emerge the Page curve for RFG ensemble, a necessary condition is that all the conserved mode occupation number must be $\frac{1}{2}$. 
+\end{theorem}
+
+%The necessary part of the theorem can be argued similarly as above. For sufficient part, in Supplemental Material, we will show that those Hamiltonians satisfying the conditions above will have the same Feynman rule as for the nearest neighbor hopping Hamiltonian, thus the same dynamical Page curve.
+
+%Our techniques in calculating Eq. (\ref{eq:Taylor_expansion_for_entropy}) can also be generalized to the class of Hamiltonians in Fig. (\ref{The_figure_of_dynamical_page_curve_for_range2}) with a different and much more complicated Feynman rules.
+
+
+\emph{Discussions.--}%Sometimes 
+It is well-known that the generalized Gibbs ensemble (GGE) %is also used to 
+characterizes %argue
+the local thermalization of integrable systems including free fermions \citep{PhysRevLett.98.050405, Cassidy2011,doi:10.1126/science.1257026, Essler2016,Ishii2019}. %non-interaction states. 
+However, in principle,
+GGE only predicts the expectation values of observables, which do not include the entropy. Note that the former (latter) is linear (nonlinear) in $\rho_A$ and thus commmutes (does not commute) with time average. 
+Moreover, %In addition, 
+we also study the macroscopic scale, which can not be captured by GGE as well as its recently proposed refined version \cite{Lucas2022} concerning the purified subsystem by measuring the complement %following the interacting counterpart
+\cite{Ho2022}. In this sense, our study goes well beyond the conventional paradigm of quantum thermalization in integrable systems, pointing out especially the highly nontrivial behaviors on the macroscopic level, where typicality may completely break down. %compared to GGE.
+%The canonical (a)typicality also upper bounds the thermalization rate for finite systems. This can be used to predict the $\mathcal{O}(\frac{1}{N})$ finite size effect in Page curve as well as the correct variance scaling \cite{SM}. %The details are shown in Supplemental Material. 
+
+Finally, let us mention the relation between our %calculation 
+strategy
+and the quasi-particle picture, which is widely %can also be 
+used to calculate %dynamical 
+EE %entropy 
+growth \citep{PhysRevLett.127.060404,Jurcevic2014,Castro2016_,Essler2016,Calabrese2005,Fagotti2008,Bertini2018,BertiniB2018_2}. %Alba2018,}.
+%However, 
+It turns out this picture fails to %can not 
+reproduce the %give the exact result for 
+dynamical Page curve. Under the %When considering 
+periodical boundary condition, the quasi-particle
+picture predicts %the subsystem entropy is 
+$\overline{S_{A}}=N-\frac{N_{A}^{2}}{N}$
+for the Hamiltonian satisfying the conditions in Theorem 2 \cite{SM}. This result is obtained by counting the steady number of entangled pairs shared by $A$ and $\bar A$. %and the discussions there. 
+On the other hand, noting that $(2C_{A}-I_{A})^{2n}\leq(2C_{A}-I_{A})^{2}$,
+if we replace all the higher-order terms of $(2C_{A}-I_{A})$ in Eq. (\ref{eq:Taylor_expansion_for_entropy})
+with $(2C_{A}-I_{A})^{2}$, we will get a lower entropy 
+bound, %of the entropy,
+which coincides with the prediction %is just the result predicted 
+by the quasi-particle picture: $S_{A}\geq N_{A}-\frac{\mathrm{Tr}(2C_{A}-I_{A})^{2}}{\ln2}\sum_{n}\frac{1}{2n(2n-1)}=N_{A}-\frac{N_{A}^{2}}{N}$.
+It is thus plausible %reasonable 
+to argue that the quasi-particle picture ignores
+possible higher-order correlations beyond %among multiple 
+quasi-particle pairs. %which are generated simultaneously. 
+%Therefore, the quasi-particle picture can only give a lower bound of the dynamical Page curve.
+
+
+\emph{Conclusion and outlook.--}%In this letter, 
+We have derived the canonical
+(a)typicality for the RFG ensemble %This canonical typicality makes the concept of ergodicity and thermalization clearer in free-fermions system.
+%What's more, we also 
+and pointed out the quatitative %\textcolor{red}{the qualitative} %that there is obvious 
+scaling difference in atypicality suppression %of the thermalization rate 
+from %the interaction 
+interacting systems. This %slower thermalization rate which is due to the property of Gaussian ensemble can 
+explains the very different behaviors of the Page curves. %, even for some local quantities such as variance, as discovered in \citep{Bianchi2021a}.
+We have also explored the relevance to long-time quench dynamics of %also focus on the dynamical Page curve of 
+free-fermion systems. %, which is a global property and can not be fully characterized by the canonical typicality. 
+To our surprise, some simple time-independent
+Hamiltonians are enough to 
+%\textcolor{red}{already accommodate a dynamical Page curve that highly resemble the one for the RFG ensemble.} 
+make %dynamically emerge 
+the free-fermion Page curve %of RFG ensemble 
+emerge to a very high accuracy. 
+We %study this problem further and 
+analytically prove a necessary and sufficient condition about this behavior. The breakdown %correctness 
+of the quasi-particle picture was also discussed.
+
+Strictly speaking, we define a new %\textcolor{red}{RFG} 
+ensemble arising from %covering 
+a wide class of free-fermion Hamiltonians, whose dynamical Page curve resembles a lot but yet differs from %to yet different from 
+the fully random one. %for RFG ensemble. 
+%However, there is a tiny difference from any page curve we know so far, such as the fully random Page curve and the Page curve of averaging all eigenstates \citep{Bianchi2021,Bianchi2021a,Vidmar2017}.
+The properties of this new ensemble and its corresponding Page curve %It is a new kind of Page curve whose connection to others 
+merit further study. Another interesting question is how the %there will be more kinds of 
+dynamical Page curves will be enriched upon imposing %regarding 
+additional symmetries (such as the Altland-Zirnbauer symmetries \cite{Altland1997}). %to the Hamiltonians.
+Our work proposes a methodology to study this question. Besides, whether
+or not the fully random Page curve can emerge exactly for a time-independent free Hamiltonian %can exactly dynamically emerge  
+also remains open.
+
+Z.G. is supported by the Max-Planck-Harvard Research Center for Quantum Optics (MPHQ). J.I.C. acknowledges support by the EU Horizon 2020 program through the ERC Advanced Grant QENOCOBA No. 742102.
+
+\emph{Note added.---}While finalizing this manuscript, a related
+work by Isoue \emph{et al}. appeared in Ref.~\cite{Iosue2022}, which reported the %Page curve and 
+typicality for random bosonic Gaussian states.
+
+\bibliographystyle{utphys}
+
+\bibliographystyle{apsrev4-2}
+\addcontentsline{toc}{section}{\refname}%\nocite{*}
+\bibliography{MyCollection}
+\input{SupplementalMaterial.tex}
+\end{document}

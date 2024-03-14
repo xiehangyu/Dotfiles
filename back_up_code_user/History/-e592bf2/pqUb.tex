@@ -1,0 +1,110 @@
+\documentclass[english]{ctexart}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{verbose}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[authoryear]{natbib}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{braket}
+\usepackage{tikz}
+%\usepackage{braket}
+%\usepackage{braket}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{diagbox}
+\lstset{
+numbers=left,
+framexleftmargin=10mm,
+frame=none,
+keywordstyle=\bf\color{blue},
+identifierstyle=\bf,
+numberstyle=\color[RGB]{0,192,192},
+commentstyle=\it\color[RGB]{0,96,96},
+stringstyle=\rmfamily\slshape\color[RGB]{128,0,0}
+}
+
+%\usetheme{Darmstadt}
+%\usetheme{Frankfurt}
+% or ...
+
+%\setbeamercovered{transparent}
+\lstdefinelanguage
+   [x64]{Assembler}     % add a "x64" dialect of Assembler
+   [x86masm]{Assembler} % based on the "x86masm" dialect
+   % with these extra keywords:
+   {morekeywords={CDQE,CQO,CMPSQ,CMPXCHG16B,JRCXZ,LODSQ,MOVSXD, %
+                  POPFQ,PUSHFQ,SCASQ,STOSQ,IRETQ,RDTSCP,SWAPGS, %
+                  rax,rdx,rcx,rbx,rsi,rdi,rsp,rbp, %
+                  r8,r8d,r8w,r8b,r9,r9d,r9w,r9b, %
+                  r10,r10d,r10w,r10b,r11,r11d,r11w,r11b, %
+                  r12,r12d,r12w,r12b,r13,r13d,r13w,r13b, %
+                  r14,r14d,r14w,r14b,r15,r15d,r15w,r15b,retq,callq,cmpl}} % etc.
+
+\lstset{language=[x64]Assembler}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\title{计算方法第七次上机作业}
+\author{戴梦佳\ \ PB20511879}
+\maketitle
+
+\section{题目}
+
+已知x方向和y方向的加速度分别为
+\begin{equation}
+\begin{cases}
+a_{x}(t) & =\frac{\sin(t)}{\sqrt{t}+1}\\
+a_{y}(t) & =\frac{\log(t+1)}{t+1}
+\end{cases}
+\end{equation}
+x方向的速度为
+\begin{equation}
+v_{x}(t)=\int_{0}^{t}a_{x}(s)ds
+\end{equation}
+位移为
+\begin{equation}
+x(t)=\int_{0}^{t}\int_{0}^{s}a_{x}(r)drds
+\end{equation}
+使用Romberg积分, 计算出质点在$t\in\{0.1,0.2,0.3,\cdots,10\}$的位移$(x(t),y(t))$。最大迭代次数为$M$，收敛精度取为$\mathrm{eps=10^{-6}}$。
+
+\section{算法描述}
+
+Romberg算法的核心在于用低阶求积分公式构造出高阶积分公式，从而提升精确度。递推公式为
+\begin{equation}
+\ensuremath{R_{k,j}=R_{k,j-1}+\frac{R_{k,j-1}-R_{k-1,j-1}}{4^{j-1}-1},\quad k=2,3,\ldots}
+\end{equation}
+
+按行递推的初始值可用梯形积分公式求得
+\begin{equation}
+\ensuremath{R_{k,1}=\frac{R_{k-1,1}}{2}+h_{k}\sum_{i=1}^{2^{k-2}}f\left(a+(2i-1)h_{k}\right)}
+\end{equation}
+
+\begin{itemize}
+\item 当$|R_{k,k}-R_{k-1,k-1}|<10^{-6}$时，停止迭代。或者当$k>M$时，停止迭代。在具体编程时，需要注意C语言的数组坐标是从$0$开始的。所以需要做相应指标转换。
+\item 在程序中，$R_{k,j}$按照$M\times M$矩阵形式存储（实际上，由于每次迭代只设涉及相邻两行$k,k-1$, 同时每次计算也只涉及相邻两列$j,j-1$。所以原则上存在更高效的存储形式。例如按照$1\times M$的向量形式外加一个临时变量存储。但由于存储效率不是程序的瓶颈，所以这里就不做优化了）。注意到$2^{M}$或$4^{M}$在$M$很大时会超出int型数的范围。所以程序中计算梯形积分的循环指标和其它相关整型变量得换成浮点double数的形式存储。
+\item 实际计算位移时是一个二重积分。先积分出速度，再用各个时间的速度值积分出位置。在实际编程时，我们也是将这个二重积分拆开处理。首先积分加速度得到速度，再由速度积分得到位置。
+\item Romberg算法在调用时，接受积分上下界和一个函数指针。这可以方便我们调整被积函数以及实现函数递归调用（计算位置需要对速度积分，计算速度需要对加速度积分，所以这实际上是一个对Romberg算法的递归调用。原则上，这一步可以通过定义一个静态map得到优化）。
+\item 使用全局变量统计一共调用了多少次Romberg算法以及其中的成功次数。从而得到Romberg积分达到要求精度的比例。
+\end{itemize}
+
+\section{实验结果}
+
+当$M=8$时，粒子在二维平面中的轨迹如下图所示
+
+\includegraphics[width=0.6\textwidth]{figs/M=8}
+
+在取不同$M$时，Romberg积分达到要求精度的比例如下所示
+
+\includegraphics[width=0.7\textwidth]{figs/pasted1}
+
+\section{结果分析}
+
+由上面图中的数据可以知道，$M$越大，得到的解的精度越高。这是可以预期的。但另一方面，迭代的次数也会随着$M$增大而显著提高，最明显的时间消耗在计算梯形积分以建立初始迭代条件上。这一步的复杂度会随着$R_{k,j}$的下标$k$（从而原则上也可能随着$M$）的增大指数上升。所以，提升解的精确度的代价是指数上升的时间复杂度。另一方面，存储$R_{k,j}$时，矩阵的存储大小开销也是$M^{2}$量级的（虽然这并不是程序的主要瓶颈所在）。所以，在实际计算时，还是需要尽可能地选择合适的精度条件$\mathrm{eps}$以及与之相适应的$M$。在本题中，分析实验数据可得，当$\mathrm{eps}=10^{-6}$时，$M\leq12$已经可以让所有涉及到的Romberg算法都迭代收敛了。所以，对于本题而言，选择$M=12$是一个较理想的选择。$M$太大会造成浪费，太小又达不到相应精度要求。
+\end{document}

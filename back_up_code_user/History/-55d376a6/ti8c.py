@@ -1,0 +1,40 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+fig,ax=plt.subplots()
+t=np.linspace(0,np.pi,100)
+x=np.cos(t)
+y=np.sin(t)*2/np.pi
+ax.plot(x,y)
+plt.xlabel(r'$w-v$')
+plt.ylabel(r'$k_BT$')
+plt.ylim(0,1)
+ax.set_xticks([-1,0,1])
+ax.set_xticklabels([r'$-u$','PT-broken',r'$u$'])
+ax.spines['bottom'].set_position('zero')
+ax.spines['left'].set_position('zero')
+ax.set_yticks([])
+
+ax.spines['right'].set_color('none')
+ax.spines['top'].set_color('none')
+ax.spines['bottom'].set_position(('outward', 10))
+ax.spines['bottom'].set_linewidth(1)
+ax.spines['bottom'].set_color('black')
+ax.spines['bottom'].set_bounds(-2, 5)
+ax.spines['bottom'].set_clip_on(False)
+ax.spines['bottom'].set_linestyle('dotted')
+ax.spines['bottom'].set_capstyle('projecting')
+ax.spines['bottom'].set_connectionstyle("angle3,angleA=0,angleB=-90")
+ax.spines['bottom'].set_arrowstyle("<|-|>")
+
+# Add an arrow to the y-axis
+ax.spines['left'].set_position(('outward', 10))
+ax.spines['left'].set_linewidth(1)
+ax.spines['left'].set_color('black')
+ax.spines['left'].set_bounds(-2, 5)
+ax.spines['left'].set_clip_on(False)
+ax.spines['left'].set_linestyle('dotted')
+ax.spines['left'].set_capstyle('projecting')
+ax.spines['left'].set_connectionstyle("angle3,angleA=-90,angleB=0")
+ax.spines['left'].set_arrowstyle("<|-|>")
+plt.show()

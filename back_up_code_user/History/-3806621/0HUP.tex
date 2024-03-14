@@ -1,0 +1,170 @@
+\subsection{Zero field measurement}
+
+\subsubsection{Determination of $I_{c}$ and $I_{R}$}
+The two parameters $I_{c}$ and $I_{R}$ can be determined directly from the current-voltage plot.
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{./fig/curve.png}
+\caption{Determination of $I_{c}$ and $I_{R}$}
+\label{UIcurvePicture}
+\end{figure}
+
+
+As shown in Fig. \ref{UIcurvePicture}, we plot the current-voltage-curve in the certain region to have a clear view of the switching of voltage,
+thus from the plot $I_{c}=4.715mA$. For $I_{R}$ which is determined as a turning point of the curve, can be obtained approximately from the current-voltage-curve as $I_R=0.288mA$.
+\subsubsection{Determination of $R_{n}$}
+To determine $R_{n}$, we used Mathematica to get a fit of the current-voltage-curve. The fit is shown in Fig. \ref{determinationRNfigure}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{./fig/fit}
+\caption{Determination of $R_{n}$}
+\label{determinationRNfigure}
+\end{figure}
+
+
+From the fit, we can get the approximation value of $R_{n}$ as $R_{n}=0.253\Omega$. Note that this is a $I-U$ curve, so that $R_{n}$ is determined by the reciprocal of the slope of the fit line.
+
+\subsubsection{Calculation of McCumber parameter $\beta_{c}$}
+The value of $\beta_{c}$ can be obtained from
+\begin{align*}
+\frac{I_{R}}{I_{c}}=\frac{4}{\pi\sqrt{\beta_{c}}}.
+\end{align*}
+Thus we can get $\beta_{c}$ by taking $I_{R}$ and $I_{c}$ in to the above:
+\begin{align*}
+\beta_c & =\frac{I_{c}^2}{I_{R}^2}\frac{16}{\pi^2}\\
+    & =\frac{4.715^2}{0.288^2}\times\frac{16}{\pi^2}\\
+    & =434.5.
+\end{align*}
+The value of $\beta_c$ is larger than 1 ($\beta_{c}>1$), which means that the junction is in the underdamped regime.
+
+\subsubsection{Calculation of the capacitance of the junction}
+From the equation of McCumber-parameter, we can get the capacitance of the junction as:
+\begin{align*}
+    \beta_c=\frac{2\pi{C}{R_{n}^2}I_{c}}{\phi_{0}},\\
+    C=\frac{\beta_c\phi_{0}}{2\pi{R_{n}^2}I_{c}}.
+\end{align*}
+Thus, by taking the value of $\beta_{c}$, $\phi_{0}$, $R_{n}$ and $I_{c}$ into the equation we can get the capacitance of the junction as:
+\begin{align*}
+    C=\frac{434.5\times2.0678\times10^{-15}}{2\pi\times0.253^2\times4.715\times10^{-3}}F,\\
+    C=4.738\times10^{-10}F.
+\end{align*}
+In comparison, the capacitance of the capacitor with area of $L^2$, distance of $d$ and $AlO_{x}$ as dieletric is:
+\begin{align*}
+    C & =\frac{\epsilon\epsilon_{0}S}{d}\\
+    & =\frac{9.34\times8.854\times10^{-12}\times{19.5\times10^{-6}}^2}{17.83\times10^{-9}}\\
+    & =1.764\times10^{-12}F.
+\end{align*}
+The capacitance of the junction is much larger (about) than that of the plate capacitor, which means that the junction is more sensitive to the external electric field.
+\subsection{Field dependent measurements}
+\subsubsection{Plotting of $I_{c}$}
+
+Since in our experiment, we can read out the voltage which controls
+the magnitude of the flux inside the junction, our first task is to
+determine the relation between the voltage and the flux $\Phi$:
+\begin{align*}
+\Phi & =t_{B}LB\\
+ & =177.83\times19.5\times\frac{7.95}{200}\times0.1V\\
+ & =13.78V
+\end{align*}
+where the unit of $V$ is volt and the unit of $\Phi$ is $10^{-15}\mathrm{Wb}$.
+$I_{c}$ can be determined similar as in previous subsection. Therefore,
+the behavior of $I_{c}$ with varying flux inside the junction can
+be obtained in Fig. (\ref{Icwithvaryingflux})
+
+\begin{figure}
+\includegraphics[width=0.8\textwidth]{fig/Icwithvaryingflux}
+
+\caption{The behavior of $I_{c}$ with varying flux inside the junction}
+
+\label{Icwithvaryingflux}
+\end{figure}
+From the figure, we can clearly see that $I_{c}$ is oscillating with
+$\Phi$ with a fixed period. Besides, there is a total decaying envelope
+which suppress the amplitude of oscillation when increasing $\Phi$.
+
+\subsubsection{Determine $\Phi_{0}$}
+
+From the figure, we can extract that the periodicity of $I_{c}$ with
+flux $\Phi$ is $\Delta\Phi=1.59\times10^{-15}\mathrm{Wb}$. According
+to the formula in Sec. 2.2.6 in of the manual, this periodicity is
+just the quantized flux unit $\Phi_{0}$. Therefore, we can conclude
+from our experiment that the measured
+\[
+\Phi_{0}=1.59\times10^{-15}\mathrm{Wb}
+\]
+
+
+\subsubsection{Fitting of $I_{c}$}
+
+The fitting result is shown in Fig. (\ref{Fitting_of_IC_varying_flux}).
+The fitting parameter can be seen in Table. (\ref{fitting_parameter_table})
+
+\begin{figure}
+\includegraphics[width=0.8\textwidth]{fig/Fitting_varyingflux}
+
+\caption{Fitting of $I_{c}$ with varying flux inside the junction}
+
+\label{Fitting_of_IC_varying_flux}
+\end{figure}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline 
+\multicolumn{2}{|c|}{Fitting Function: $f(x)=a\times|\frac{\sin\frac{\pi x}{b}}{\frac{\pi x}{b}}|$}\tabularnewline
+\hline 
+\hline 
+Fitting Parameters & Value\tabularnewline
+\hline 
+$a$ & $47.68(46.87,48.49)$\tabularnewline
+\hline 
+$b$ & $1.59(1.57,1.61)$\tabularnewline
+\hline 
+$R^{2}$ & $0.9952$\tabularnewline
+\hline 
+\end{tabular}
+\end{center}
+
+\caption{Fitting parameters of $I_{c}$ with varying flux inside the junction}
+
+\label{fitting_parameter_table}
+\end{table}
+
+
+\subsubsection{Some discussions}
+
+The literature of $\Phi_{0}=2.07\times10^{-15}\mathrm{Wb}$, larger
+than our result. We propose the difference may come from the following
+ways:
+\begin{itemize}
+\item In our experiment, instead one jump of voltage, we noticed several jumps
+of the volt (at most three jumps of the volt). This is a different
+behavior from expected. This behavior may be due to some defects in
+the junction. In other words, when the sample was grown, it may have
+some defects which separate the sample into disjoint sections. Each
+section become a superconductivity separately. Therefore, among different
+sections, there will be normal currents besides the superfluid currents
+and multiple jumps have been observed. This phenomenon will lead to some
+errors when we try to determine the critical currents $I_{c}$ of
+the sample. Other non-uniform property of the sample will also cause
+to this phenomenon.
+\item We noticed that after the second minimum, the critical currents are
+much higher than expected. This may be caused by a similar reason
+as the previous point: In those cases, there will be multiple jumps,
+but most of them are too small to read out. Therefore, we just discover
+one jump and omit others. However, it is possible that the true critical
+currents should just be determined by the jumps we omit. As a result,
+after the second minimum, the value of critical currents may be determined
+incorrectly.
+\item We also noticed that in our experiment, the voltage of the coil is
+unstable, which leads to an unstable $\Phi$ during the measurement.
+Indeed, when we measure the $U-I$ curve, the voltage of coil will
+increase. This leads to an underestimate of $\Phi_{0}$, corresponding
+to our result. This increase may be caused by some mutual inductance.
+\item The sample may be heated in the measurement, which will cause some
+errors to the measured $U-I$ curve and lead to the errors when determining
+$I_{c}$.
+\end{itemize}

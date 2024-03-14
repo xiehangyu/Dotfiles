@@ -1,0 +1,187 @@
+\documentclass[english]{ctexart}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{verbose,lmargin=1cm,rmargin=1cm}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[authoryear]{natbib}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\newenvironment{lyxcode}
+	{\par\begin{list}{}{
+		\setlength{\rightmargin}{\leftmargin}
+		\setlength{\listparindent}{0pt}% needed for AMS classes
+		\raggedright
+		\setlength{\itemsep}{0pt}
+		\setlength{\parsep}{0pt}
+		\normalfont\ttfamily}%
+	 \item[]}
+	{\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{braket}
+\usepackage{tikz}
+%\usepackage{braket}
+%\usepackage{braket}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{diagbox}
+\lstset{
+numbers=left,
+framexleftmargin=10mm,
+frame=none,
+keywordstyle=\bf\color{blue},
+identifierstyle=\bf,
+numberstyle=\color[RGB]{0,192,192},
+commentstyle=\it\color[RGB]{0,96,96},
+stringstyle=\rmfamily\slshape\color[RGB]{128,0,0}
+}
+
+%\usetheme{Darmstadt}
+%\usetheme{Frankfurt}
+% or ...
+
+%\setbeamercovered{transparent}
+\lstdefinelanguage
+   [x64]{Assembler}     % add a "x64" dialect of Assembler
+   [x86masm]{Assembler} % based on the "x86masm" dialect
+   % with these extra keywords:
+   {morekeywords={CDQE,CQO,CMPSQ,CMPXCHG16B,JRCXZ,LODSQ,MOVSXD, %
+                  POPFQ,PUSHFQ,SCASQ,STOSQ,IRETQ,RDTSCP,SWAPGS, %
+                  rax,rdx,rcx,rbx,rsi,rdi,rsp,rbp, %
+                  r8,r8d,r8w,r8b,r9,r9d,r9w,r9b, %
+                  r10,r10d,r10w,r10b,r11,r11d,r11w,r11b, %
+                  r12,r12d,r12w,r12b,r13,r13d,r13w,r13b, %
+                  r14,r14d,r14w,r14b,r15,r15d,r15w,r15b,retq,callq,cmpl}} % etc.
+
+\lstset{language=[x64]Assembler}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\title{计算机体系结构上机实验第四次报告}
+\author{戴梦佳\ \ PB20511879}
+\maketitle
+
+\section{循环展开和验证}
+
+\subsection{循环展开过程}
+
+在循环展开时，我们的展开步长取为$4$。这是考虑到，现代计算机大多支持在一个指令中同时计算4个浮点操作数的向量操作。
+
+另一方面，我们使用乘法分配率重写了表达式
+\begin{equation}
+\begin{aligned}\alpha X[i]*X[i]+\beta X[i]+X[i]Y[i] & =X[i](\alpha X[i]+\beta+Y[i])\\
+\alpha Y[i-1]+Y[i]+\alpha Y[i+1] & =Y[i]+\alpha(Y[i-1]+Y[i+1])
+\end{aligned}
+\end{equation}
+这样的好处是可以减少浮点计算次数。在第一个算式中，我们将原先的四步乘法两部加法简化为两步乘法两步加法；而在第二个算式中，我们将两步乘法两步加法简化为两步加法一步乘法。
+
+\subsection{验证}
+
+我们通过比较原函数和循环展开后的函数分别计算的向量$Y_{1},Y_{2}$的欧几里得距离来验证循环展开的正确性。具体说，我们计算
+\begin{lyxcode}
+Y1<-原函数
+
+Y2<-循环展开后的函数
+
+sum=0
+
+for~i=0:N-1:
+\begin{lyxcode}
+sum~+=~(Y1(i)-Y2(i)){*}(Y1(i)-Y2(i))
+\end{lyxcode}
+return~sum
+\end{lyxcode}
+计算得到的结果见下图
+
+\includegraphics[width=0.6\textwidth]{report/figs/fig1}
+
+其中的variance就是欧几里得距离。该距离为零，就说明循环展开是正确的。
+
+\section{实验结果}
+\begin{itemize}
+\item 完成循环展开后，只使用优化选项$-O1$，不额外增加Simd元件，得到的仿真结果如下所示：
+\end{itemize}
+\begin{tabular}{lllllll}
+ & daxpy & unrolled daxpy & daxsbxpxy & unrolled daxsbxpxy & stencil & unrolled stencil\tabularnewline
+CPI & 1.781713 & 2.009455 & 2.094353 & 2.420291 & 1.962189 & 2.142371\tabularnewline
+执行时长（CPU周期数） & 35640500 & 35175000 & 62839500 & 54469250 & 49053250 & 45530750\tabularnewline
+指令条数 & 80014 & 70019 & 120017 & 90021 & 99997 & 85010\tabularnewline
+\end{tabular}
+
+从中我们可以看出，针对不同的函数，循环展开都能起到较好的优化效果，指令时常分别缩小了$1.3\%,13\%$和$7.2\%$。
+\begin{itemize}
+\item 进一步，我们额外增加三个SIMD浮点处理单元，得到的仿真结果如下所示：
+\end{itemize}
+\begin{tabular}{lllllll}
+ & daxpy & unrolled daxpy & daxsbxpxy & unrolled daxsbxpxy & stencil & unrolled stencil\tabularnewline
+CPI & 1.781713 & 2.009455 & 2.011032 & 2.420291 & 1.962169 & 2.152088\tabularnewline
+执行时长（CPU周期数） & 35640500 & 35175000 & 60339500 & 54469250 & 49052750 & 45737250\tabularnewline
+指令条数 & 80014 & 70019 & 120017 & 90021 & 99997 & 85010\tabularnewline
+\end{tabular}
+
+从中我们可以看出，增加三个浮点处理单元后，对于原先未循环展开的函数，性能略有提升（执行时长略微下降），但不明显。对于已经循环展开后的函数，则几乎没有变化。关于这方面的原因见之后的分析讨论。
+\begin{itemize}
+\item 加入优化选项$-O3$, 不增加浮点处理单元的仿真结果见下所示：
+\end{itemize}
+\begin{tabular}{lllllll}
+ & daxpy & unrolled daxpy & daxsbxpxy & unrolled daxsbxpxy & stencil & unrolled stencil\tabularnewline
+CPI & 1.822573 & 2.002564 & 2.061756 & 1.398738 & 2.239271 & 3.177234\tabularnewline
+执行时长（CPU周期数） & 18235750 & 15035750 & 28361000 & 16622250 & 33588500 & 33787500\tabularnewline
+指令条数 & 40022 & 30033 & 55023 & 47535 & 59999 & 42537\tabularnewline
+\end{tabular}
+
+我们发现，加入$-O3$的优化选项后，性能有了明显提升。同时，循环展开后，对于第一、第二个函数，性能可以得到进一步提升，指令时长分别减小了$17.5\%,41.3\%$。但对于第三个函数，循环展开反而会降低性能。
+\begin{itemize}
+\item 最后，我们加入$-O3$优化选项，并且，额外增加三个SIMD单元后，得到的仿真结果如下所示：
+\end{itemize}
+\begin{tabular}{lllllll}
+ & daxpy & unrolled daxpy & daxsbxpxy & unrolled daxsbxpxy & stencil & unrolled stencil\tabularnewline
+CPI & 1.822573 & 2.002564 & 2.061756 & 1.326454 & 2.208320 & 3.031972\tabularnewline
+执行时长（CPU周期数） & 18235750 & 15035750 & 28361000 & 15763250 & 33124250 & 32242750\tabularnewline
+指令条数 & 40022 & 30033 & 55023 & 47535 & 59999 & 42537\tabularnewline
+\end{tabular}
+
+同样的，相比于没有额外添加浮点单元的结果，执行时长略有下降，但并不十分明显。对于第一个函数没有任何变化，对于后两个函数的循环展开版本，时长分别减小了$5\%$和$3\%$。而对于未循环展开的版本，几乎没有变化。
+
+\section{分析讨论}
+\begin{enumerate}
+\item 通过计算欧几里得距离，验证循环展开的结果是否正确。
+\item 对于每一个函数，除了$-O3$优化下的第三个函数，循环展开都提升了性能（减小了执行时长）。执行时常的减小幅度不仅依赖于函数本身的性质，还依赖于优化选项。在我们的粒子中，第二个函数循环展开后性能提升最明显，这是因为，这个函数具有一定的复杂性，同时又是很规整的向量运算，从而循环展开可以很好地调度并利用浮点计算单元处理。但对于第三个函数，它每一次循环都还需要调用上一步循环中的Y{[}i-1{]},从而具有非常严重的数据相关冲突，即使循环展开，也很难调度。在$-O3$优化的选项下，循环展开的效果反而会下降
+
+循环展开理论上可以减少名相关和控制相关。
+\item 在本例子中，我们将循环展开到4次，除了首尾循环节外，中间的循环节都一样。
+\begin{enumerate}
+\item 如果没有展开足够多的循环的话，编译器无法找到足够的指令调度，同时在每一个循环节中，浮点计算单元Simd可能也无法完全发挥它的功用。
+\item 相反，如果展开太多循环的话，指令代码量极度增大。这对数据cache和指令cache都是很沉重的负担，大大增大了cache miss的可能，反而会影响性能。
+\end{enumerate}
+\item 增加硬件的影响既依赖于函数本身的性质，又依赖于所选取的优化选项：
+\begin{itemize}
+\item 对于第一个函数，增加硬件始终不会产生影响，因为它特别简单，不会产生ALU堵塞，原本设置中自带的一个浮点计算单元已经足够用了。
+\item 在$-O1$优化选项下，增加硬件对第二个函数的原函数可以减小运行时间，对第三个函数循环展开后的结果反而会延长时间。这是因为，在程序中，第二个函数的原函数在每一步循环中包括了四步乘法和两步加法，运算次数非常多，从而增加硬件可以避免ALU堵塞，提升性能。但对第三个函数，函数本身存在高度数据相关，难以实现指令间并行,
+流水线效率低，也就不存在ALU堵塞了。所以，增加硬件反而可能会增加了线路判断的复杂性，造成运行速率的下降。
+\item 在$-O3$优化选项下，对第二个函数的循环展开版本，第三个函数的原函数和循环展开版本，都可以一定程度上减少运行时间。这可能是因为，$-O3$优化选项进一步改变了代码的结构，发现了更多可以并行执行的指令,
+增大了流水线的吞吐率，相应的ALU堵塞的可能增加。从而增加硬件可以避免ALU堵塞。
+\end{itemize}
+添加运算、访存硬件主要减少的是结构相关冲突。但如果，我们可以添加更多物理寄存器（或者保留站，ROB之类）的话，我们就有了更多寄存器用来完成寄存器重命名的工作。所以，添加这类硬件可以减少名相关。
+\item 在本实验中，执行时长作为合适的指标比较性能表现较合适。这是因为，不同指令的效果和指令本身的执行时长（CPI）都不同。例如，SIMD指令一下可以处理多个浮点数，但它的CPI较普通指令较高。所以使用SIMD指令会增加仿真的CPI，降低指令条数，总体来看依然是降低总执行时长。另一方面，指令条数也会收到循环控制指令等的影响。所以，使用总的执行时长作为衡量标准，相对而言较客观，且涵盖了各种因素。它本身也是对计算机性能最直接的度量。
+\item 至于手动循环展开优化有无意义，得分具体情况讨论。
+\begin{enumerate}
+\item 如果程序代码具有高度的向量性，循环节之间没有数据相关（例如本实验的第一、第二个函数），那么手动循环展开是有意义的。这也在上文的实验结果中可以反映出来。这是因为，手动循环展开后，可以更加方便硬件进行动态调度，避免堵塞以及使用SIMD指令。
+\item 但如果程序较复杂，各个循环节之间存在强数据相关（例如本实验的第三个函数），那么手动循环展开的意义不大。对于这类情况，编译器开启最高优化（$-O3$）后，已经能发现大部分可并行执行的指令了，再做循环展开甚至有可能降低效率。
+\end{enumerate}
+\item 在本次实验中，针对第三个函数强数据相关的情况，我们自己尝试使用软流水，试图尽可能隔开相关的指令。我们发现，使用软流水后，相较于原函数，性能确实有提升。但依然不如循环展开或者是编译器开启最高优化（$-O3$）后的效果。这可能是因为，如果用C这种高级语言写软流水的话，我们不得不引入中间变量。数据在中间变量的传递过程中，会引入额外延迟。而循环展开和编译器优化，已经足够帮助硬件确定可以并行的指令，合理调度了。
+\end{enumerate}
+
+\end{document}

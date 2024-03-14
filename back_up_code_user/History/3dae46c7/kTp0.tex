@@ -1,0 +1,201 @@
+%% LyX 2.3.6.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{revtex4-2}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{verbose}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{braket}
+\usepackage{tikz}
+%\usepackage{braket}
+%\usepackage{braket}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{diagbox}
+\lstset{
+numbers=left,
+framexleftmargin=10mm,
+frame=none,
+keywordstyle=\bf\color{blue},
+identifierstyle=\bf,
+numberstyle=\color[RGB]{0,192,192},
+commentstyle=\it\color[RGB]{0,96,96},
+stringstyle=\rmfamily\slshape\color[RGB]{128,0,0}
+}
+
+%\usetheme{Darmstadt}
+%\usetheme{Frankfurt}
+% or ...
+
+%\setbeamercovered{transparent}
+\lstdefinelanguage
+   [x64]{Assembler}     % add a "x64" dialect of Assembler
+   [x86masm]{Assembler} % based on the "x86masm" dialect
+   % with these extra keywords:
+   {morekeywords={CDQE,CQO,CMPSQ,CMPXCHG16B,JRCXZ,LODSQ,MOVSXD, %
+                  POPFQ,PUSHFQ,SCASQ,STOSQ,IRETQ,RDTSCP,SWAPGS, %
+                  rax,rdx,rcx,rbx,rsi,rdi,rsp,rbp, %
+                  r8,r8d,r8w,r8b,r9,r9d,r9w,r9b, %
+                  r10,r10d,r10w,r10b,r11,r11d,r11w,r11b, %
+                  r12,r12d,r12w,r12b,r13,r13d,r13w,r13b, %
+                  r14,r14d,r14w,r14b,r15,r15d,r15w,r15b,retq,callq,cmpl}} % etc.
+
+\lstset{language=[x64]Assembler}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\section{Hierarchy of solvability for two-point function}
+
+The illustration of hierarchy of solvability can be seen in Fig. (\ref{Figure_1_illustration_hierarchy}).
+
+\begin{figure}
+\includegraphics[width=1\textwidth]{Figs/dual_unitary_hierarchy}
+
+\caption{Illustration of hierarchy structure for solvability.}
+
+\label{Figure_1_illustration_hierarchy}
+\end{figure}
+
+\textbf{\emph{1st:}}
+
+Dual-unitary gates
+
+\textbf{\emph{2nd:}}
+
+CNOT gates, with single site operator satisfying $Re\{U_{11}^{*}U_{10}\}=0$.
+
+\textbf{\emph{3rd:}}
+
+CZ gates. 
+
+\section{SFF and transformation matrix}
+
+\textbf{\emph{with randomness:}}
+
+\emph{Dual-unitary gates:} chaotic.
+
+\emph{CNOT:}
+\begin{enumerate}
+\item It self along do not have this property.
+\item With single site randomness, it is chaotic.
+\item One CNOT with one dual-unitary and single site randomness is still
+chaotic.
+\end{enumerate}
+\emph{CZ:}
+\begin{enumerate}
+\item With single site randomness, it is integrable.
+\item One CZ with one dual-unitary and single site randomness is still integrable.
+\end{enumerate}
+\textbf{\emph{without randomness:}}
+
+A gate whose Schmidt decomposition is $U=\sum_{i}O_{i}\otimes P_{j}$
+and satisfying 
+\[
+[O_{i},P_{j}]=0\ \text{for}\ \text{all}\ i,j.
+\]
+
+Here we prove that the CNOT with one dual-unitary and single site
+randomness is chaotic. To prove that, we will show that the operator
+\begin{equation}
+Q_{k}=\frac{1}{t}\sum_{\tau=0}^{t-1}e^{i\frac{2\pi k\tau}{t}}\Pi_{2t}^{2\tau}
+\end{equation}
+is still nearly the eigenvector of $\widetilde{CNOT}\otimes\widetilde{CNOT}^{\dagger}$.
+Actually, since $Q_{k}$ is made up with $2$-site translation operator,
+we have
+\begin{equation}
+\widetilde{CNOT}^{\otimes t}Q_{k}(\widetilde{CNOT}^{\dagger})^{\otimes t}=Q_{k}\widetilde{CNOT}^{\otimes t}(\widetilde{CNOT}^{\dagger})^{\otimes t}=Q_{k}(I_{4}+\eta)^{\otimes t},
+\end{equation}
+where 
+\begin{equation}
+\eta=\begin{pmatrix} &  &  & 1\\
+ &  & 1\\
+ & 1\\
+1
+\end{pmatrix}.
+\end{equation}
+
+For the operator $Q_{k}(I_{4}+\eta)^{\otimes t}$, the components
+outside the space $\mathrm{span}\{Q_{0},Q_{1}\cdots Q_{t-1}\}$ will
+be projected out. Next we will calculate the components inside the
+eigenspace. Since $Q_{k'}Q_{k}=\delta_{k,k'}Q_{k}$, we have 
+\begin{equation}
+\mathrm{Tr}\{Q_{k'}Q_{k}(I_{4}+\eta)^{\otimes t}\}=0\ \mathrm{for\ }k\neq k'.
+\end{equation}
+The non-vanishing overlap is only with $Q_{k}$. Introduce the normalization
+factor, we have $|Q_{k}\rangle\leftrightarrow\frac{Q_{k}}{\sqrt{\mathrm{Tr}Q_{k}}}$
+and
+\begin{equation}
+\langle Q_{k}|(\widetilde{CNOT}\otimes\widetilde{CNOT}^{\dagger})^{\otimes t}|Q_{k}\rangle=\frac{\mathrm{Tr}\{Q_{k}^{2}(I_{4}+\eta)^{\otimes t}\}}{\mathrm{Tr}Q_{k}}=\frac{\mathrm{Tr}\{Q_{k}(I_{4}+\eta)^{\otimes t}\}}{\mathrm{Tr}Q_{k}}.
+\end{equation}
+
+We fuse two sites into a big site with dimension $4$ and write $\Pi_{2t}^{2\tau}\rightarrow\Pi_{t}^{\tau}$,
+where $\Pi_{t}$ is the translation operator for the big site.
+
+Let estimate the trace of $\Pi_{t}^{\tau}$. Suppose $\theta_{\tau}$
+is the minimum number that satisfies
+\begin{equation}
+\tau\theta_{\tau}=0\ \mathrm{mod}\ t
+\end{equation}
+or
+\begin{equation}
+\tau\theta_{\tau}=kt\ \mathrm{for}\ k\in\mathbb{N}^{+}
+\end{equation}
+and $\phi_{\tau}=\frac{t}{\theta_{\tau}}=\frac{\tau}{k}\leq\begin{cases}
+\tau & \mathrm{if}\ \tau\leq\frac{t}{2}\\
+\frac{\tau}{2} & \mathrm{if}\ \tau>\frac{t}{2}
+\end{cases}\leq\frac{t}{2}$. With this notation, the following inequality holds
+\begin{equation}
+\mathrm{Tr}\Pi_{t}^{\tau}=4^{\phi_{\tau}}\leq2^{t}.
+\end{equation}
+The trace of $Q_{k}$ can be lower bounded
+\begin{equation}
+\mathrm{Tr}Q_{k}\geq\frac{\mathrm{Tr}\Pi_{t}^{0}}{t}-\frac{\sum_{\tau=1}^{t-1}\mathrm{Tr}\Pi_{t}^{\tau}}{t}\geq\frac{4^{t}-(t-1)2^{t}}{t}.
+\end{equation}
+In other direction, 
+\begin{equation}
+\mathrm{Tr}Q_{k}\leq\frac{\mathrm{Tr}\Pi_{t}^{0}}{t}+\frac{\sum_{\tau=1}^{t-1}\mathrm{Tr}\Pi_{t}^{\tau}}{t}\leq\frac{4^{t}+(t-1)2^{t}}{t}.
+\end{equation}
+The $\mathrm{|Tr}\{Q_{k}(I_{4}+\eta)^{\otimes n}-Q_{k}I_{4}\}|$ can
+also be bounded 
+\begin{align}
+ & |\mathrm{Tr}\{Q_{k}(I_{4}+\eta)^{\otimes n}-Q_{k}I_{4}\}|\nonumber \\
+\leq & \mathrm{\sum_{\tau=1}^{t-1}\mathrm{Tr}\{\Pi_{t}^{\tau}}[(I_{4}+\eta)^{\otimes n}-I_{4}]\}\nonumber \\
+= & \sum_{\tau=1}^{t-1}4^{\phi_{\tau}}(\begin{pmatrix}\theta_{\tau}\\
+2
+\end{pmatrix}+\begin{pmatrix}\theta_{\tau}\\
+4
+\end{pmatrix}+\cdots+\begin{pmatrix}\theta_{\tau}\\
+2\lceil\frac{\theta_{\tau}-1}{2}\rceil
+\end{pmatrix})^{\phi_{\tau}}\nonumber \\
+\leq & \sum_{\tau=1}^{t-1}4^{\phi_{\tau}}(2^{\theta_{\tau}-1})^{\phi_{\tau}}\nonumber \\
+= & \sum_{\tau=1}^{t-1}4^{\phi_{\tau}}2^{\theta_{\tau}\phi_{\tau}-\phi_{\tau}}\nonumber \\
+= & 2^{t}\sum_{\tau=1}^{t-1}2^{\phi_{\tau}}\nonumber \\
+\leq & t(2\sqrt{2})^{t}.
+\end{align}
+The first equality can be seen in Fig. (\ref{illustration_eta}).
+
+\begin{figure}
+\includegraphics[width=0.6\textwidth]{Figs/illustration_of_eta}
+
+\caption{Illustration of the effect of $\eta$ and $\Pi_{t}^{\tau}$.}
+
+\label{illustration_eta}
+\end{figure}
+
+Therefore, we finally get 
+\begin{equation}
+\frac{4^{t}-t(2\sqrt{2})^{t}}{\frac{4^{t}+(t-1)2^{t}}{t}}\leq\langle Q_{k}|(\widetilde{CNOT}\otimes\widetilde{CNOT}^{\dagger})^{\otimes t}|Q_{k}\rangle\leq\frac{4^{t}+t(2\sqrt{2})^{t}}{\frac{4^{t}-(t-1)2^{t}}{t}}
+\end{equation}
+which approaches $1$ when $t\to\infty$. 
+\end{document}

@@ -1,0 +1,789 @@
+\documentclass[aps,onecolumn,nofootinbib,superscriptaddress,notitlepage,longbibliography]{revtex4-1}
+\usepackage{times}
+\usepackage{tikz-feynman}
+\usepackage{graphicx}
+\usepackage{feynmf}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{xfrac}
+\usepackage[colorlinks,citecolor=blue]{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{longtable,booktabs}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{subfigure}
+\usepackage{dsfont}
+\usepackage{booktabs}
+\usepackage{amsbsy}
+\usepackage{dcolumn}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{esint}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsbsy}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{extarrows}
+\usepackage{datetime}
+\usepackage{comment}
+\usepackage[super]{nth}
+\hypersetup{
+	colorlinks=magenta,
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=magenta,
+}
+\def\Z{\mathbb{Z}}
+\newcommand{\red}[1]{{\textcolor{red}{#1}}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{statement}{Statement}
+\newcommand{\mb}{\mathbb}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\wt}{\widetilde}
+\newcommand{\mc}{\mathcal}
+\newcommand{\bra}{\langle}
+\newcommand{\ket}{\rangle}
+\newcommand{\ep}{\epsilon}
+\newcommand{\tf}{\textbf}
+
+\begin{document}
+\title{Supplementary Material for "Yang-Lee Singularity in BCS Superconductivity"}
+\author{Hongchao Li}
+\thanks{These two authors contributed equally to this work.}
+\affiliation{Department of Physics, University of Tokyo, 7-3-1 Hongo, Tokyo 113-0033,
+Japan}
+\email{lhc@cat.phys.s.u-tokyo.ac.jp}
+
+\author{Xie-Hang Yu}
+\thanks{These two authors contributed equally to this work.}
+\affiliation{Max-Planck-Institut f�\textonequarter r Quantenoptik, Hans-Kopfermann-Straße
+1, D-85748 Garching, Germany}
+\affiliation{Munich Center for Quantum Science and Technology, Schellingstraße
+4, 80799 M�\textonequarter nchen, Germany}
+\email{xiehang.yu@mpq.mpg.de}
+
+\author{Masaya Nakagawa}
+\affiliation{Department of Physics, University of Tokyo, 7-3-1 Hongo, Tokyo 113-0033,
+Japan}
+\email{nakagawa@cat.phys.s.u-tokyo.ac.jp}
+
+\author{Masahito Ueda}
+\affiliation{Department of Physics, University of Tokyo, 7-3-1 Hongo, Tokyo 113-0033,
+Japan}
+\affiliation{RIKEN Center for Emergent Matter Science (CEMS), Wako, Saitama 351-0198,
+Japan}
+\affiliation{Institute for Physics of Intelligence, University of Tokyo, 7-3-1
+Hongo, Tokyo 113-0033, Japan}
+\email{ueda@cat.phys.s.u-tokyo.ac.jp}
+
+\date{\today}
+
+\maketitle
+ 
+
+\tableofcontents{}
+
+\section{Yang-Lee Zeros on the Boundary}
+
+The gap equation with constant density of states $\rho_{0}$ and $\beta\rightarrow\infty$
+reads: 
+\begin{equation}
+\frac{\sqrt{\omega_{D}^{2}+\Delta_{0}^{2}}+\omega_{D}}{\Delta_{0}}=e^{\frac{1}{\rho_{0}U}}\,.
+\end{equation}
+The solution to the gap equation is given by $\Delta_{0}=\frac{\omega_{D}}{\text{sinh}\left(\frac{1}{\rho_{0}U}\right)}$.
+To be specific: 
+\begin{eqnarray}
+\Delta_{0} & = & \frac{2\omega_{D}}{\text{exp}\left[\frac{1}{\rho_{0}|U|^{2}}\left(U_{R}-iU_{I}\right)\right]-\text{exp}\left[-\frac{1}{\rho_{0}|U|^{2}}\left(U_{R}-iU_{I}\right)\right]}\,.\nonumber \\
+ & = & \frac{\omega_{D}}{\text{sinh}\left(\frac{U_{R}}{\rho_{0}|U|^{2}}\right)\cos\left(\frac{U_{I}}{\rho_{0}|U|^{2}}\right)-i\text{cosh}\left(\frac{U_{R}}{\rho_{0}|U|^{2}}\right)\sin\left(\frac{U_{I}}{\rho_{0}|U|^{2}}\right)}
+\end{eqnarray}
+with the real part of it given by 
+\begin{equation}
+\text{Re}[\Delta_{0}]=\omega_{D}\frac{\text{sinh}\left(\frac{U_{R}}{\rho_{0}|U|^{2}}\right)\cos\left(\frac{U_{I}}{\rho_{0}|U|^{2}}\right)}{\left(\text{sinh}\left(\frac{U_{R}}{\rho_{0}|U|^{2}}\right)\cos\left(\frac{U_{I}}{\rho_{0}|U|^{2}}\right)\right)^{2}+\left(\text{cosh}\left(\frac{U_{R}}{\rho_{0}|U|^{2}}\right)\sin\left(\frac{U_{I}}{\rho_{0}|U|^{2}}\right)\right)^{2}}\,.\label{RDelta_0}
+\end{equation}
+When phase transition occurs, the real part of the gap vanishes, which
+gives the result $\cos\left(\frac{U_{I}}{\rho_{0}|U|^{2}}\right)=0$.
+Or equivalently, $\frac{U_{I}}{\rho_{0}|U|^{2}}=\frac{\pi}{2}$. This
+determines the expression of phase boundary: 
+\begin{equation}
+(\rho_{0}\pi U_{R})^{2}+(\rho_{0}\pi U_{I}-1)^{2}=1\,,\label{phase_transition}
+\end{equation}
+which restricts the imaginary part of the gap $\Delta_{0}$ as: 
+\begin{eqnarray}
+\text{Im}[\Delta_{0}] & = & \omega_{D}\frac{\text{cosh}\left(\frac{U_{R}}{\rho_{0}|U|^{2}}\right)\sin\left(\frac{U_{I}}{\rho_{0}|U|^{2}}\right)}{\left(\text{sinh}\left(\frac{U_{R}}{\rho_{0}|U|^{2}}\right)\cos\left(\frac{U_{I}}{\rho_{0}|U|^{2}}\right)\right)^{2}+\left(\text{cosh}\left(\frac{U_{R}}{\rho_{0}|U|^{2}}\right)\sin\left(\frac{U_{I}}{\rho_{0}|U|^{2}}\right)\right)^{2}}\nonumber \\
+ & = & \frac{\omega_{D}}{\text{cosh}\left(\frac{U_{R}}{\rho_{0}|U|^{2}}\right)}\,.\label{IDelta_0}
+\end{eqnarray}
+
+On the boundary, we can also connect the phase transition with the
+existence of Yang-Lee zeros. Here we see for each momentum of quasi-particles,
+the number of quasi-particle can only be 0 or 1. Hence, the partition
+function for a quasi particle with momentum $\bm{k}$ is given by:
+\begin{equation}
+Z_{\bm{k}}\equiv{}_{L}\langle u_{\bm{k}}|e^{-\beta H}|u_{\bm{k}}\rangle_{R}=1+e^{-\beta E_{\bm{k}}}\,.
+\end{equation}
+Hence, the partition function of all Bogoliubov quasi-particles is
+\begin{equation}
+Z=\prod_{\bm{k}}Z_{\bm{k}}=\prod_{\bm{k}}(1+e^{-\beta E_{\bm{k}}})\,.
+\end{equation}
+For the points not on the phase transition critical line, we have
+$\text{Re}[E_{\bm{k}}]>0$, which indicates that there shouldn't be
+any zeros of partition function. However, on the critical line, the
+system becomes a gapless one and Yang-Lee zeros can take place. To
+prove this, let's see the partition function on the boundary: 
+\begin{equation}
+Z=\prod_{\bm{k}}\left(1+e^{-i\beta\sqrt{\left(\text{Im}\Delta_{0}\right)^{2}-\xi_{\bm{k}}^{2}}}\right)\,.
+\end{equation}
+If we require $Z=0$, we only need to find a $\bm{k}$ to satisfy
+$e^{-i\beta\sqrt{\left(\text{Im}\Delta_{0}\right)^{2}-\xi_{\bm{k}}^{2}}}=-1$,
+which is eqivalent to 
+\begin{equation}
+\beta\sqrt{\left(\text{Im}\Delta_{0}\right)^{2}-\xi_{\bm{k}}^{2}}=(2n+1)\pi\Rightarrow|\xi_{\bm{k}}|=\sqrt{\left(\text{Im}\Delta_{0}\right)^{2}-\left(\frac{2n+1}{\beta}\pi\right)^{2}}\cong\text{Im}\Delta_{0}\,.
+\end{equation}
+As we know, $\xi_{\bm{k}}\in[-\omega_{D},\omega_{D}]$. From the formula
+(\ref{IDelta_0}) we can see $\text{Im}\Delta_{0}<\omega_{D}$ makes
+sense for all the points on the phase boundary. Therefore, $Z=0$
+is satisfied on the boundary (\ref{phase_transition}) indicating
+that Yang-Lee zeros distribute on the phase boundary
+
+\section{Correlation Functions on The Phase Transition Boundary}
+
+In this section, we study the model with correlation function. Here
+we firstly consider the equal-time correlation functions in momentum
+space. The correlaton function is given by: 
+\begin{equation}
+\langle c_{\bm{k}\sigma}c_{\bm{k}\sigma}^{\dagger}\rangle={}_{L}\left\langle \text{BCS}\right|c_{\bm{k}\sigma}c_{\bm{k}\sigma}^{\dagger}\left|\text{BCS}\right\rangle _{R}={}_{L}\left\langle \text{BCS}\right|(1-c_{\bm{k}\sigma}^{\dagger}c_{\bm{k}\sigma})\left|\text{BCS}\right\rangle _{R}\,.
+\end{equation}
+In this way, the correlator takes the form of: 
+\begin{equation}
+\langle c_{\bm{k}\uparrow}c_{\bm{k}\uparrow}^{\dagger}\rangle=\langle c_{\bm{k}\downarrow}c_{\bm{k}\downarrow}^{\dagger}\rangle=1-v_{k}^{2}=\frac{1}{2}+\frac{\xi_{k}}{2E_{k}}=\frac{1}{2}+\frac{\xi_{k}}{2\sqrt{\xi_{k}^{2}+\Delta_{0}^{2}}}\,.
+\end{equation}
+Similarly, the correlators between electrons with different spins
+vanish: 
+\begin{equation}
+\langle c_{\bm{k}\uparrow}c_{\bm{k}\downarrow}^{\dagger}\rangle=\langle c_{\bm{k}\downarrow}c_{\bm{k}\uparrow}^{\dagger}\rangle=0\,.
+\end{equation}
+Then we perform the Fourier transformation to the real space with
+the result: 
+\begin{equation}
+\langle c_{\sigma}(\bm{x})c_{\sigma}^{\dagger}(\bm{x}')\rangle:=C(|\bm{x}-\bm{x}'|)=\int\frac{d^{3}k}{(2\pi)^{3}}\left(\frac{1}{2}+\frac{\xi_{k}}{2\sqrt{\xi_{k}^{2}+\Delta_{0}^{2}}}\right)e^{i\bm{k}\cdot(\bm{x}-\bm{x}')}\,.
+\end{equation}
+In the following text I will directly replace $\bm{x}-\bm{x}'$ with
+$\bm{x}$ for convenience. Then on the boundary, the correlation function
+is given by: 
+\begin{equation}
+C(\bm{x})=\int\frac{d^{3}k}{(2\pi)^{3}}\frac{\xi_{k}}{2\sqrt{\xi_{k}^{2}+\Delta_{0}^{2}}}e^{i\bm{k}\cdot\bm{x}}\,.
+\end{equation}
+Here we drop the first term since it gives a result propotional to
+delta function. We only concern about long-range behaviour of the
+correlation function. This will be quite difficult to calculate for
+the ambiguity of kinetic energy $\xi_{k}$ in the formula. Here we
+perform a simple approximation. Since we consider the kinetic energy
+around the Fermi surface, we can expand the energy spectrum as a linear
+one around the Fermi surface with Fermi velocity $v_{F}$. To be specific,
+we have $\xi_{k}\cong v_{F}(k-k_{F})$. Then the integration can be
+simplified as: 
+\begin{equation}
+\int\frac{\rho_{0}}{2}d\xi_{k}\sin\theta d\theta\frac{\xi_{k}}{2\sqrt{\xi_{k}^{2}+\Delta_{0}^{2}}}e^{i\frac{\xi_{k}}{v_{F}}x\cos\theta}e^{ik_{F}x\cos\theta}\,.
+\end{equation}
+Here $\rho_{0}$ is still the density of state for simplicity. With
+the integration of variable $\theta$, we have: 
+\begin{equation}
+\frac{1}{2}\int_{-\omega_{D}}^{\omega_{D}}\rho_{0}d\xi_{k}\frac{\xi_{k}\sin\left(\left(\frac{\xi_{k}}{v_{F}}+k_{F}\right)x\right)}{\left(\frac{\xi_{k}}{v_{F}}+k_{F}\right)x\sqrt{\xi_{k}^{2}+\Delta_{0}^{2}}}\,.
+\end{equation}
+But on the boundary, $\Delta_{0}$ is an imaginary number. So we seperate
+the integration region into two parts:$\left[-\text{Im}\Delta_{0},\text{Im}\Delta_{0}\right]$
+and $\left[-\omega_{D},-\text{Im}\Delta_{0}\right]\cup\left[\text{Im}\Delta_{0},\omega_{D}\right]$.
+In the first part, the correlation function is a completely imaginary
+number. This will be the same for real-part properties. We here discuss
+the second region for reference. 
+\begin{eqnarray}
+ &  & \frac{1}{2}\left(\int_{\text{Im}\Delta_{0}}^{\omega_{D}}+\int_{-\omega_{D}}^{-\text{Im}\Delta_{0}}\right)\rho_{0}d\xi_{k}\frac{\xi_{k}\sin\left(\left(\frac{\xi_{k}}{v_{F}}+k_{F}\right)x\right)}{\left(\frac{\xi_{k}}{v_{F}}+k_{F}\right)x\sqrt{\xi_{k}^{2}-\left(\text{Im}\Delta_{0}\right)^{2}}}\nonumber \\
+ & = & \frac{\rho_{0}}{2}\int_{\text{Im}\Delta_{0}}^{\omega_{D}}d\xi_{k}\left[\frac{\xi_{k}\sin\left(\left(\frac{\xi_{k}}{v_{F}}+k_{F}\right)x\right)}{\left(\frac{\xi_{k}}{v_{F}}+k_{F}\right)x\sqrt{\xi_{k}^{2}-\left(\text{Im}\Delta_{0}\right)^{2}}}-\frac{\xi_{k}\sin\left(\left(-\frac{\xi_{k}}{v_{F}}+k_{F}\right)x\right)}{\left(-\frac{\xi_{k}}{v_{F}}+k_{F}\right)x\sqrt{\xi_{k}^{2}-\left(\text{Im}\Delta_{0}\right)^{2}}}\right]\nonumber \\
+ & = & \frac{\rho_{0}}{2}\int_{\text{Im}\Delta_{0}}^{\omega_{D}}d\xi_{k}\frac{\xi_{k}}{x\sqrt{\xi_{k}^{2}-\left(\text{Im}\Delta_{0}\right)^{2}}}\frac{\left(-\frac{\xi_{k}}{v_{F}}+k_{F}\right)\sin\left(\left(\frac{\xi_{k}}{v_{F}}+k_{F}\right)x\right)-\left(\frac{\xi_{k}}{v_{F}}+k_{F}\right)\sin\left(\left(-\frac{\xi_{k}}{v_{F}}+k_{F}\right)x\right)}{k_{F}^{2}-\left(\frac{\xi_{k}}{v_{F}}\right)^{2}}\nonumber \\
+ & = & \rho_{0}v_{F}\int_{\text{Im}\Delta_{0}}^{\omega_{D}}d\xi_{k}\frac{\xi_{k}}{x\sqrt{\xi_{k}^{2}-\left(\text{Im}\Delta_{0}\right)^{2}}}\left[(-\xi_{k})\frac{\sin(k_{F}x)\cos\left(\frac{\xi_{k}}{v_{F}}x\right)}{(v_{F}k_{F})^{2}-\xi_{k}^{2}}+v_{F}k_{F}\frac{\cos(k_{F}x)\sin\left(\frac{\xi_{k}}{v_{F}}x\right)}{(v_{F}k_{F})^{2}-\xi_{k}^{2}}\right]\,,
+\end{eqnarray}
+where we assume that $v_{F}k_{F}\gg\omega_{D}$ so we ignore the first
+term in the bracket. However, the second term is still difficult to
+calculate. We make an additional assumption that $\omega_{D}\rightarrow\infty$.
+Since $\text{Im}\Delta_{0}\sim\omega_{D}$, all $\xi_{k}$ in the
+factor $\frac{\xi_{k}}{(v_{F}k_{F})^{2}-\xi_{k}^{2}}$ approximately
+takes the value: $\omega_{D}$ and the integration is approximately
+given by: 
+\begin{equation}
+\rho_{0}\frac{\omega_{D}v_{F}k_{F}}{(v_{F}k_{F})^{2}-\omega_{D}^{2}}\cos(k_{F}x)\int_{\text{Im}\Delta_{0}}^{\omega_{D}}d\xi_{k}\frac{\sin\left(\xi_{k}\frac{x}{v_{F}}\right)}{(x/v_{F})\sqrt{\xi_{k}^{2}-\left(\text{Im}\Delta_{0}\right)^{2}}}\,.\label{Reintegration}
+\end{equation}
+Now we focus on the integration: $\lim_{\omega_{D}\rightarrow\infty}\int_{\text{Im}\Delta_{0}}^{\omega_{D}}d\xi_{k}\frac{\sin\left(\xi_{k}\frac{x}{v_{F}}\right)}{(x/v_{F})\sqrt{\xi_{k}^{2}-\left(\text{Im}\Delta_{0}\right)^{2}}}$,
+which gives an exact result: 
+\begin{equation}
+\int_{\text{Im}\Delta_{0}}^{\infty}d\xi_{k}\frac{\sin\left(\xi_{k}\frac{x}{v_{F}}\right)}{(x/v_{F})\sqrt{\xi_{k}^{2}-\left(\text{Im}\Delta_{0}\right)^{2}}}=\frac{\pi}{2}\frac{J_{0}\left(\text{Im}\Delta_{0}\frac{x}{v_{F}}\right)}{(x/v_{F})}\,.\label{Reapprox}
+\end{equation}
+Here $J_{0}(x)$ is the zero-th order Bessel function. Therefore,
+on the boundary, the correlation function decreases as $\frac{J_{0}(ax)}{x}$.
+When the variable $x$ is taken to infinity, the integral (\ref{Reapprox})
+can be rewritten into: 
+\begin{equation}
+\frac{J_{0}(ax)}{x}\sim\sqrt{\frac{2}{\pi ax}}\frac{\cos\left(ax-\frac{\pi}{4}\right)}{x}\sim\frac{1}{x^{3/2}}\,.
+\end{equation}
+As a conclusion, we find that on the boundary, the anomalous dimension
+$\eta=\frac{1}{2}$ which is induced by exceptional points. Here anomalous
+dimension is defined by $C(\bm{x})\propto x^{-D+2-\eta}$. From the
+expression, we can see the correlatioin length diverges on the phase
+boundary.
+
+Besides, we can still have the imaginary part with similar calculation.
+\begin{equation}
+\int_{0}^{\text{Im}\Delta_{0}}d\xi_{k}\frac{\sin\left(\xi_{k}\frac{x}{v_{F}}\right)}{(x/v_{F})\sqrt{\left(\text{Im}\Delta_{0}\right)^{2}-\xi_{k}^{2}}}=\frac{\pi}{2}\frac{H_{0}\left(\text{Im}\Delta_{0}\frac{x}{v_{F}}\right)}{(x/v_{F})}\,.
+\end{equation}
+Here $H_{0}(x)$ is the zero-th order Struve function. When $x\rightarrow\infty$,
+we have: 
+\begin{equation}
+\int_{0}^{\text{Im}\Delta_{0}}d\xi_{k}\frac{\sin\left(\xi_{k}\frac{x}{v_{F}}\right)}{(x/v_{F})\sqrt{\left(\text{Im}\Delta_{0}\right)^{2}-\xi_{k}^{2}}}\sim\frac{\sin(\frac{\text{Im}\Delta_{0}x}{v_{F}})}{x^{3/2}}\,.\label{Imapprox}
+\end{equation}
+We can reconsider the formula (\ref{Reintegration}) again without
+further approximation. 
+\begin{equation}
+\rho_{0}\frac{v_{F}k_{F}}{(v_{F}k_{F})^{2}-\omega_{D}^{2}}\frac{\cos(k_{F}x)}{x/v_{F}}\int_{\text{Im}\Delta_{0}}^{\omega_{D}}d\xi_{k}\frac{\xi_{k}}{\sqrt{\xi_{k}^{2}-(\text{Im}\Delta_{0})^{2}}}\sin\left(\frac{\xi_{k}}{v_{F}}x\right)\,,
+\end{equation}
+where we define: 
+\begin{equation}
+F_{1}(x)\equiv\int_{\text{Im}\Delta_{0}}^{\omega_{D}}d\xi_{k}\frac{\xi_{k}}{\sqrt{\xi_{k}^{2}-(\text{Im}\Delta_{0})^{2}}}\sin\left(\frac{\xi_{k}}{v_{F}}x\right),G_{1}(x)\equiv\int_{\text{Im}\Delta_{0}}^{\omega_{D}}d\xi_{k}\frac{1}{\sqrt{\xi_{k}^{2}-(\text{Im}\Delta_{0})^{2}}}\cos\left(\frac{\xi_{k}}{v_{F}}x\right)\,.
+\end{equation}
+The relationship between these two functions can be shown as: 
+\begin{equation}
+F_{1}(x)=-v_{F}G_{1}'(x)\,.
+\end{equation}
+In addition, under the limit of $\omega_{D}\rightarrow\infty$, we
+have: 
+\begin{equation}
+\int_{\text{Im}\Delta_{0}}^{\omega_{D}}d\xi_{k}\frac{1}{\sqrt{\xi_{k}^{2}-(\text{Im}\Delta_{0})^{2}}}\cos\left(\frac{\xi_{k}}{v_{F}}x\right)=-\frac{\pi}{2}N_{0}\left(\frac{\text{Im}\Delta_{0}}{v_{F}}x\right)\,.
+\end{equation}
+Therefore, the original integral is given by: 
+\begin{equation}
+\frac{\pi}{2}\rho_{0}\frac{\text{Im}\Delta_{0}v_{F}k_{F}}{(v_{F}k_{F})^{2}-\omega_{D}^{2}}\frac{\cos(k_{F}x)}{x/v_{F}}N_{0}'\left(\frac{\text{Im}\Delta_{0}}{v_{F}}x\right)\,.
+\end{equation}
+When we take the limit $x\rightarrow\infty$ again, we have: 
+\begin{equation}
+\lim_{x\rightarrow\infty}N_{0}'(x)=\sqrt{\frac{2}{\pi}}\cos\left(x-\frac{\pi}{4}\right)\frac{1}{x^{1/2}}-\sqrt{\frac{2}{\pi}}\frac{1}{2}\sin\left(x-\frac{\pi}{4}\right)\frac{1}{x^{3/2}}\cong\sqrt{\frac{2}{\pi}}\cos\left(x-\frac{\pi}{4}\right)\frac{1}{x^{1/2}}\,.\label{Realexact}
+\end{equation}
+We can see its long-range behaviour is exactly the same with the expression
+(\ref{Reapprox}) on which we made approximations. Similar procedure
+can be applied to the imaginary part. The exact form of the expression
+(\ref{Imapprox}) is: 
+\begin{equation}
+\rho_{0}\frac{v_{F}k_{F}}{(v_{F}k_{F})^{2}-\omega_{D}^{2}}\frac{\cos(k_{F}x)}{x/v_{F}}\int_{0}^{\text{Im}\Delta_{0}}d\xi_{k}\frac{\xi_{k}}{\sqrt{(\text{Im}\Delta_{0})^{2}-\xi_{k}^{2}}}\sin\left(\frac{\xi_{k}}{v_{F}}x\right)\,.
+\end{equation}
+We can also define: 
+\begin{equation}
+F_{2}(x)\equiv\int_{0}^{\text{Im}\Delta_{0}}d\xi_{k}\frac{\xi_{k}}{\sqrt{(\text{Im}\Delta_{0})^{2}-\xi_{k}^{2}}}\sin\left(\frac{\xi_{k}}{v_{F}}x\right),G_{2}(x)\equiv\int_{0}^{\text{Im}\Delta_{0}}d\xi_{k}\frac{1}{\sqrt{(\text{Im}\Delta_{0})^{2}-\xi_{k}^{2}}}\cos\left(\frac{\xi_{k}}{v_{F}}x\right)\,.
+\end{equation}
+The relationship between these two functions is also given by: 
+\begin{equation}
+F_{2}(x)=-v_{F}G_{2}'(x),G_{2}(x)=\frac{\pi}{2}J_{0}\left(\frac{\text{Im}\Delta_{0}}{v_{F}}x\right)\,.
+\end{equation}
+Then the imaginary part is also equivalent to: 
+\begin{equation}
+-\frac{\pi}{2}\rho_{0}\frac{\text{Im}\Delta_{0}v_{F}k_{F}}{(v_{F}k_{F})^{2}-\omega_{D}^{2}}\frac{\cos(k_{F}x)}{x/v_{F}}J_{0}'\left(\frac{\text{Im}\Delta_{0}}{v_{F}}x\right)\,.
+\end{equation}
+So we have the similar long-range behaviour for imaginary part: 
+\begin{equation}
+\lim_{x\rightarrow\infty}\left[-\frac{\pi}{2}\rho_{0}\frac{\text{Im}\Delta_{0}v_{F}k_{F}}{(v_{F}k_{F})^{2}-\omega_{D}^{2}}\frac{\cos(k_{F}x)}{x/v_{F}}J_{0}'\left(\frac{\text{Im}\Delta_{0}}{v_{F}}x\right)\right]\sim\frac{\sin\left(\frac{\text{Im}\Delta_{0}}{v_{F}}x-\frac{\pi}{4}\right)}{x^{3/2}}\,,\label{Imexact}
+\end{equation}
+which is exactly the same with the \ref{Imapprox}). To be summarized,
+the correlation function takes the form of: 
+\begin{align}
+\lim_{\bm{x}\rightarrow\infty}{}_{L}\left\langle \text{BCS}\right|C_{\sigma}(\bm{x})C_{\sigma}^{\dagger}(\bm{x})\left|\text{BCS}\right\rangle _{R} & =-\lim_{\bm{x}\rightarrow\infty}\frac{\pi}{2}\rho_{0}\frac{\text{Im}\Delta_{0}v_{F}k_{F}}{(v_{F}k_{F})^{2}-\omega_{D}^{2}}\frac{\cos(k_{F}x)}{x/v_{F}}(N_{0}'(\frac{\text{Im}\Delta_{0}}{v_{F}}x)+iJ_{0}'(\frac{\text{Im}\Delta_{0}}{v_{F}}x))\nonumber \\
+ & :=(A(l)+iB(l))x^{-3/2}\,,
+\end{align}
+where: 
+\begin{align}
+A(l) & =-\sqrt{\frac{\pi}{2}}\rho_{0}\frac{\text{Im}\Delta_{0}v_{F}k_{F}}{(v_{F}k_{F})^{2}-\omega_{D}^{2}}\frac{\cos(k_{F}x)}{x/v_{F}}\cos(\frac{\text{Im}\Delta_{0}}{v_{F}}x-\frac{\pi}{4})\,,\nonumber \\
+B(l) & =-\sqrt{\frac{\pi}{2}}\rho_{0}\frac{\text{Im}\Delta_{0}v_{F}k_{F}}{(v_{F}k_{F})^{2}-\omega_{D}^{2}}\frac{\cos(k_{F}x)}{x/v_{F}}\sin(\frac{\text{Im}\Delta_{0}}{v_{F}}x-\frac{\pi}{4})\,.
+\end{align}
+They are obtained by taking the limitations (\ref{Realexact}) and
+(\ref{Imexact}). In the following section, for simplicity, we directly
+take this approximation to calculate the integral since derivative
+of $x$ will also not influence the exponential decay of the correlation
+function. In the following section we can see the numerical results
+of correlation functions coincides with the oscillation of (\ref{Realexact})
+and (\ref{Imexact}).
+
+Then we move to the region near the phase boundary.
+
+\section{Correlation Function Near The Phase Transition}
+
+In the superfluid phase, we consider the points deviating a little
+from the phase boundary: $U_{R}\rightarrow U_{R}+\delta U_{R}$, where
+$\delta U_{R}\rightarrow0$. The real part of gap $\Delta_{0}$ is
+given by: 
+\begin{equation}
+\text{Re}[\Delta_{0}]=\omega_{D}\frac{\text{sinh}\left(\frac{U_{R}}{\rho_{0}|U|^{2}}\right)\cos\left(\frac{U_{I}}{\rho_{0}|U|^{2}}\right)}{\left(\text{sinh}\left(\frac{U_{R}}{\rho_{0}|U|^{2}}\right)\cos\left(\frac{U_{I}}{\rho_{0}|U|^{2}}\right)\right)^{2}+\left(\text{cosh}\left(\frac{U_{R}}{\rho_{0}|U|^{2}}\right)\sin\left(\frac{U_{I}}{\rho_{0}|U|^{2}}\right)\right)^{2}}\,.
+\end{equation}
+For convenience we here choose the $\delta U=\delta U_{R}$ along
+the real axis. It can be replaced with arbitrary $\delta U$ along
+any direction. At these points, we have: $\cos\left(\frac{U_{I}}{\rho_{0}|U|^{2}}\right)=\cos\left(\frac{\pi}{2}-\frac{\pi U_{R}\delta U_{R}}{|U|^{2}}\right)=\sin\left(\frac{\pi U_{R}\delta U_{R}}{|U|^{2}}\right)\cong\frac{\pi U_{R}\delta U_{R}}{|U|^{2}}$.
+Then the real part can be considered as: 
+\begin{equation}
+\text{Re}\Delta_{0}\cong\frac{\pi\omega_{D}U_{R}}{|U|^{2}}\frac{\text{sinh}\left(\frac{U_{R}}{\rho_{0}|U|^{2}}\right)}{\text{cosh}^{2}\left(\frac{U_{R}}{\rho_{0}|U|^{2}}\right)}\delta U_{R}\propto\delta U_{R}\,.
+\end{equation}
+The imaginary part remains the same as (\ref{IDelta_0}): $\text{Im}\Delta_{0}=\frac{\omega_{D}}{\text{cosh(\ensuremath{\frac{U_{R}}{\rho_{0}|U|^{2}}})}}$.
+Then we turn to the correlation function near the boundary: 
+\begin{eqnarray}
+C(\bm{x}) & = & \int\frac{d^{3}k}{(2\pi)^{3}}\frac{\xi_{k}}{2\sqrt{\xi_{k}^{2}+\Delta_{0}^{2}}}e^{i\bm{k}\cdot\bm{x}}\nonumber \\
+ & = & \int\frac{d^{3}k}{(2\pi)^{3}}\frac{\xi_{k}}{2\sqrt{\xi_{k}^{2}+\left(\text{Re}\Delta_{0}\right)^{2}-\left(\text{Im}\Delta_{0}\right)^{2}+2i\text{Re}\Delta_{0}\text{Im}\Delta_{0}}}e^{i\bm{k}\cdot\bm{x}}\,.
+\end{eqnarray}
+With the similar analysis, we still have: 
+\begin{align}
+C(\bm{x}) & =\int\frac{d^{3}k}{(2\pi)^{3}}\frac{\xi_{k}}{2\sqrt{\xi_{k}^{2}+\Delta_{0}^{2}}}e^{i\bm{k}\cdot\bm{x}}\nonumber \\
+ & =\rho_{0}v_{F}\int_{0}^{\omega_{D}}d\xi_{k}\frac{\xi_{k}}{x\sqrt{\xi_{k}^{2}+\Delta_{0}^{2}}}\left[(-\xi_{k})\frac{\sin(k_{F}x)\cos\left(\frac{\xi_{k}}{v_{F}}x\right)}{(v_{F}k_{F})^{2}-\xi_{k}^{2}}+v_{F}k_{F}\frac{\cos(k_{F}x)\sin\left(\frac{\xi_{k}}{v_{F}}x\right)}{(v_{F}k_{F})^{2}-\xi_{k}^{2}}\right]\nonumber \\
+ & \cong\rho_{0}v_{F}\int_{0}^{\omega_{D}}d\xi_{k}\frac{\xi_{k}}{x\sqrt{\xi_{k}^{2}+\Delta_{0}^{2}}}v_{F}k_{F}\frac{\cos(k_{F}x)\sin\left(\frac{\xi_{k}}{v_{F}}x\right)}{(v_{F}k_{F})^{2}-\xi_{k}^{2}}\nonumber \\
+ & =\rho_{0}\frac{\omega_{D}v_{F}k_{F}}{(v_{F}k_{F})^{2}-\omega_{D}^{2}}\frac{\cos(k_{F}x)}{x/v_{F}}\int_{0}^{\omega_{D}}d\xi_{k}\frac{\sin\left(\frac{\xi_{k}}{v_{F}}x\right)}{\sqrt{\xi_{k}^{2}+(\text{Re}\Delta_{0})^{2}-(\text{Im}\Delta_{0})^{2}+2i\text{Re}\Delta_{0}\text{Im}\Delta_{0}}}\,.\label{correlation}
+\end{align}
+By defining: 
+\begin{equation}
+k=\frac{\omega_{D}}{\text{Im}\Delta_{0}^{2}}=\frac{1}{\text{cosh}(\frac{U_{R}}{\rho_{0}|U|^{2}})},\frac{\text{Re}\Delta_{0}}{\text{Im}\Delta_{0}}=\frac{\pi U_{R}}{|U|^{2}}\text{tanh}(\frac{U_{R}}{\rho_{0}|U|^{2}})\delta U_{R}\equiv a\,,
+\end{equation}
+we rewrite the integral as: 
+\begin{equation}
+C(\bm{x})=\rho_{0}\frac{\omega_{D}v_{F}k_{F}}{(v_{F}k_{F})^{2}-\omega_{D}^{2}}\frac{\cos(k_{F}x)}{x/v_{F}}\int_{0}^{k}dt\frac{\sin(\frac{\text{Im}\Delta_{0}x}{v_{F}}t)}{\sqrt{t^{2}+a^{2}-1+2ia}}\,,\label{integral_expresion}
+\end{equation}
+where we substitude the variable with $\xi_{k}=\text{Im}\Delta_{0}t$.
+
+Our next focus is to investigate the properties of the integral. Here
+we take the coordinate $(\rho_{0}U_{R},\rho_{0}U_{I})=(\frac{1}{\pi},\frac{1}{\pi})$
+as an example, here the correlation function behaves like an oscillating
+exponential function when we turn to the points near the boundary.
+We here give the plot of $\rho_{0}\delta U_{R}=3\times10^{-6}<<1$
+in the FIG. \ref{fig1}. The fittings of these points tell us the
+correlation function decay exponentially with the distance $x$. The
+real part of correlation function is given by the blue curve in (a):
+$\text{Re}C(x)\propto\sin(x+\frac{\pi}{4})e^{-x/\xi_{r}}$, where
+$\xi_{r}=453.6$. The imaginary part gives a similar resul as the
+blue curve in (b): $\text{Im}C(x)\propto\sin(x+\frac{3\pi}{4})e^{-x/\xi_{i}}$
+with $\xi_{i}=451.6$. We can see the behaviours of the real and the
+imaginary parts of the correlation function are very close to each
+other. The only difference is in the coefficients.
+
+Likewise, when we consider the problem on the boundary, the decay
+will be much slower than the results above. We present the correlation
+function on the boundary in the FIG. \ref{fig2}. The fitting results
+of these points indicate that the real part of the correlation function
+is propotional to $\sin(x+\frac{\pi}{4})x^{-0.5}$ and the imaginary
+part of it is porpotional to $\sin(x+\frac{3\pi}{4})x^{-0.5}$. Those
+fittings tell us the conclusion in the last section is correct and
+the correlation length will diverge on the boundary.
+
+Further, we sum the correlation lengths with different deviations
+$\rho_{0}\delta2U_{I}$ from the boundary. The real part and imaginary
+part are given seperately in the FIG. \ref{fig3}. We can see the
+two diagrams are similar. Note that we will give the exact solution
+to this integral and behaviour of correlation function in the next
+section.
+
+\begin{figure}[t]
+\centering \includegraphics[width=0.8\columnwidth,bb = 0 0 200 100, draft, type=eps]{Re2467-3}\phantom{AAA}\\
+ \includegraphics[width=0.8\columnwidth,bb = 0 0 200 100, draft, type=eps]{Im2467-3}\phantom{AAA}\\
+ \caption{Real part(upper one) and imaginary part(down one) of the correlation
+function near the boundary with $\rho_{0}\delta U_{R}=3\times10^{-6}<<1$.}
+\label{fig1} 
+\end{figure}
+
+\begin{figure}
+\centering \includegraphics[width=0.8\columnwidth,bb = 0 0 200 100, draft, type=eps]{Re2467+0}\phantom{AAA}\\
+ \includegraphics[width=0.8\columnwidth,bb = 0 0 200 100, draft, type=eps]{Im_2467+0}\phantom{AAA}\\
+ \caption{Real part(upper one) and imaginary part(down one) of the correlation
+function on the boundary.}
+\label{fig2} 
+\end{figure}
+
+\begin{figure}
+\centering \includegraphics[width=0.8\columnwidth,bb = 0 0 200 100, draft, type=eps]{fitting_correlation_length_real.png}\\
+ \includegraphics[width=0.8\columnwidth,bb = 0 0 200 100, draft, type=eps]{fitting_correlation_length_IM.png}\\
+ \caption{Relationship between correlation length of real part(upper one) and
+imaginary part(down one) of correlation function and $\rho_{0}\delta U_{R}<<1$.}
+\label{fig3} 
+\end{figure}
+
+Above we give an analysis on the numerical simulation result of correlation
+function near the boundary. Here we show the analytic derivation of
+correlation and prove that $\xi^{-1}\propto a$. This can be obtained
+from generalizing the integration result in $\int_{0}^{\infty}\frac{\sin(tx)}{\sqrt{t^{2}+m^{2}}}$
+from $m\in\mathbb{R}$ to $m\in\mathbb{C}$. It can be estimated that
+the modification of upper boundary will not change its exponential
+decay when $x\to\infty$. According to previous research: 
+\begin{equation}
+\int_{0}^{\infty}\frac{\sin(tx)}{\sqrt{t^{2}+m^{2}}}\propto\frac{1}{2}\pi[I_{0}(mx)-L_{0}(mx)]\,,
+\end{equation}
+where $I_{\nu}$ is the $\nu-$order first-class corrected Bessel
+function and $L_{\nu}$ is the $\nu-$order first-class corrected
+Struve function. As $x\to\infty$, by substituding the expression
+for these two special functions, we have 
+\begin{equation}
+\int_{0}^{\infty}dt\frac{\sin(xt)}{\sqrt{t^{2}+m^{2}}}\propto\frac{e^{-mx}}{\sqrt{mx}}=\frac{\text{exp}[-\text{Re}(m)x-i\text{Im}(m)x]}{\sqrt{mx}}\,.
+\end{equation}
+From the definition of the orrelation length: $C(\bm{x})\propto e^{-x/\xi}$,
+we obtain the form of it as 
+\begin{equation}
+\xi^{-1}\sim\text{Re}(m)\,.
+\end{equation}
+In the (\ref{integral_expresion}), the parameter $m=a+i$. Hence,
+the relationship between $\xi$ and $a$ is given by: 
+\begin{equation}
+\xi\propto a^{-1}\,,
+\end{equation}
+which indicates the critical exponent $\nu=1$.
+
+Then we move to prove that $a$ is an infinitesimal number when we
+deviate a little from the boundary. From the real part and imaginary
+part of gap, we find the expression of $a$: 
+\begin{equation}
+a=\frac{\text{Re}\Delta_{0}}{\text{Im}\Delta_{0}}=\frac{\tanh(\frac{U_{R}}{\rho_{0}|U|^{2}})}{\tan(\frac{U_{I}}{\rho_{0}|U|^{2}})}\,.
+\end{equation}
+When we consider the points near the boundary, we have: 
+\begin{equation}
+\frac{U_{I}}{\rho_{0}|U|^{2}}\to\frac{U_{I}}{\rho_{0}|U|^{2}}-\frac{2U_{I}U_{R}\delta U_{R}}{\rho_{0}|U|^{4}}=\frac{\pi}{2}--\frac{2U_{I}U_{R}\delta U_{R}}{\rho_{0}|U|^{4}}\,,
+\end{equation}
+where $\delta U_{R}\to0$. In this case, the parameter $a$ can be
+shown as: 
+\begin{equation}
+a=\frac{\tanh(\frac{U_{R}}{\rho_{0}|U|^{2}})}{\tan(\frac{\pi}{2}-\frac{2U_{I}U_{R}\delta U_{R}}{\rho_{0}|U|^{4}})}\approx\tanh(\frac{U_{R}}{\rho_{0}|U|^{2}})\frac{2U_{I}U_{R}\delta U_{R}}{\rho_{0}|U|^{4}}\propto\delta U_{R}\,.
+\end{equation}
+Hence the correlation length will be $\xi^{-1}\propto\delta U_{R}$.
+When $\delta U_{R}$ goes to 0, the correlation length will diverge
+on the boundary, which coincides with our previous conclusion. However,
+on the real axis this analysis fail because $\text{Im}\Delta_{0}=0$
+on the whole real axis. Therefore, we can only access the correlation
+length from the definition of correlation function again. From (\ref{correlation}),
+we know that on the real axis where $U_{I}=0$, the correlation function
+is equivalent to: 
+\begin{equation}
+C(\bm{x})\propto\int_{0}^{\infty}\frac{\sin(xt)}{\sqrt{t^{2}+s^{2}}}\,,
+\end{equation}
+where we redefine $t=\frac{\xi_{\bm{k}}}{v_{F}}$ and $s=\text{Re}\Delta_{0}$.
+On the real axis, the real part of the gap is given by: 
+\begin{equation}
+s=\text{Re}\Delta_{0}=\frac{1}{\sinh(\frac{1}{\rho_{0}U_{R}})}\,.
+\end{equation}
+When $U_{R}\to0$, we have: $s=\text{exp}(-\frac{1}{\rho_{0}U_{R}})\to0$
+with the correlation length here shown by: 
+\begin{equation}
+\xi^{-1}\propto\text{exp}(-\frac{1}{\rho_{0}U_{R}})\,.
+\end{equation}
+We can see here correlation function can not be represented by the
+polynomial form of $\delta U_{R}$, which indicates that real axis
+is really different from the whole upper plane with $U_{I}\neq0$.
+This can be also figured out from the RG diagram.
+
+\section{Thermodynamic quantities on The Boundary}
+
+In this part, we introduce the free energy and compressibility on
+the boundary. The free energy of the dissipative Hubbard model is
+given by: 
+\begin{equation}
+E=-\frac{N}{U_{R}+iU_{I}}\left(\text{Im}\Delta_{0}\right)^{2}-N\int_{-\omega_{D}}^{\omega_{D}}d\xi_{k}\rho_{0}\left(\sqrt{\xi_{k}^{2}+\Delta_{0}^{2}}-|\xi_{k}|\right)\,.
+\end{equation}
+Note that here $E$ is free energy between the superfluid phase and
+the free-electronic phase. The integration is seperated into two parts.
+The second term is easy to figure out. 
+\begin{equation}
+2\rho_{0}\int_{0}^{\omega_{D}}d\xi_{k}\xi_{k}=\rho_{0}\omega_{D}^{2}\,.
+\end{equation}
+The first term is given on the boundary. 
+\[
+-2\int_{0}^{\omega_{D}}d\xi_{k}\rho_{0}\sqrt{\xi_{k}^{2}+\Delta_{0}^{2}}=-2\int_{0}^{\omega_{D}}d\xi_{k}\rho_{0}\sqrt{\xi_{k}^{2}-\left(\text{Im}\Delta_{0}\right)^{2}}
+\]
+\,. Since we care about the real part of the energy, we have: 
+\begin{eqnarray}
+\text{Re}\left[-2\int_{0}^{\omega_{D}}d\xi_{k}\rho_{0}\sqrt{\xi_{k}^{2}-\left(\text{Im}\Delta_{0}\right)^{2}}\right] & = & -2\int_{\text{Im}\Delta_{0}}^{\omega_{D}}d\xi_{k}\rho_{0}\sqrt{\xi_{k}^{2}-\left(\text{Im}\Delta_{0}\right)^{2}}\nonumber \\
+ & = & (-2\rho_{0})\left(\text{Im}\Delta_{0}\right)^{2}\left[\frac{1}{4}\text{sinh}\left(\frac{2U_{R}}{\rho_{0}|U|^{2}}\right)-\frac{1}{2}\frac{U_{R}}{\rho_{0}|U|^{2}}\right]\,.
+\end{eqnarray}
+Then the real part of free energy is: 
+\begin{eqnarray}
+\text{Re}[E] & = & -N\frac{U_{R}}{|U|^{2}}\left(\text{Im}\Delta_{0}\right)^{2}-2N\rho_{0}\left(\text{Im}\Delta_{0}\right)^{2}\left[\frac{1}{4}\text{sinh}\left(\frac{2U_{R}}{\rho_{0}|U|^{2}}\right)-\frac{1}{2}\frac{U_{R}}{\rho_{0}|U|^{2}}\right]+N\rho_{0}\omega_{D}^{2}\nonumber \\
+ & = & N\rho_{0}\left[\omega_{D}^{2}-\frac{1}{2}\left(\text{Im}\Delta_{0}\right)^{2}\text{sinh}\left(\frac{2U_{R}}{\rho_{0}|U|^{2}}\right)\right]\nonumber \\
+ & = & N\rho_{0}\omega_{D}^{2}\left[1-\frac{1}{2}\frac{\text{sinh}\left(\frac{2U_{R}}{\rho_{0}|U|^{2}}\right)}{\text{cosh}^{2}\left(\frac{U_{R}}{\rho_{0}|U|^{2}}\right)}\right]\,.\label{free}
+\end{eqnarray}
+Hence, we have the form of real part of free energy on the boundary.
+Note that this is not the difference of free energy between the normal
+phase and the superfluid phase since the mean-field approximation
+breaks down in the normal phase. We cannot figure out the analytic
+form of free energy and partition function in the normal phase. In
+the following we prove that the normal phase behaves differently from
+the free-electronic phase. In the following part and main text, we
+will use $\Delta F$ to express $\text{Re}[E]$.
+
+In a similar way, we calculate the imaginary part of the free energy.
+\begin{eqnarray}
+\text{Im}[E] & = & -\frac{N}{|U|^{2}}\left(-U_{I}\right)\left(\text{Im}\Delta_{0}\right)^{2}-2N\rho_{0}\int_{0}^{\text{Im}\Delta_{0}}d\xi_{k}\sqrt{\xi_{k}^{2}-\text{Im}\Delta_{0}}\nonumber \\
+ & = & \frac{2U_{I}N}{2|U|^{2}}\left(\text{Im}\Delta_{0}\right)^{2}-2N\rho_{0}\left(\text{Im}\Delta_{0}\right)^{2}\times\frac{\pi}{4}\nonumber \\
+ & = & \frac{N}{2}\rho_{0}\left(\text{Im}\Delta_{0}\right)^{2}\left[\frac{2U_{I}}{\rho_{0}|U|^{2}}-\pi\right]\nonumber \\
+ & = & 0\,.
+\end{eqnarray}
+We can see on the boundary the condensate does not have imaginary
+part. Furthermore, we consider how to express the order of Yang-Lee
+zeros with this free energy. According to the definition of Yang-Lee
+zeros in the main context, we have: 
+\begin{equation}
+\kappa=\frac{\beta\omega_{D}}{2\pi\text{cosh}(\frac{U_{R}}{\rho_{0}|U|^{2}})}\,.
+\end{equation}
+With (\ref{free}), we find that: 
+\begin{equation}
+\Delta F=4N\rho_{0}\omega_{D}^{2}(1-\sqrt{1-4(\frac{2\pi\kappa}{\beta\omega_{D}})^{2}})\,.
+\end{equation}
+
+Near the origin, we can see $\frac{U_{R}}{\rho_{0}|U|^{2}}\rightarrow\infty$.
+The expressions for free energy and density of Yang-Lee zeros can
+be simplified as: 
+\begin{equation}
+\Delta F=N\rho_{0}\omega_{D}^{2}e^{-2\frac{U_{R}}{\rho_{0}|U|^{2}}},\kappa=\frac{\beta\omega_{D}}{2\pi}e^{-\frac{U_{R}}{\rho_{0}|U|^{2}}}\,.
+\end{equation}
+Their relation is also simplified as: 
+\begin{equation}
+\Delta F=\frac{4\pi^{2}N\rho_{0}}{\beta^{2}}\kappa^{2}\propto\kappa^{2}\,,
+\end{equation}
+which means we can read the free energy change on the axis from the
+order of Yang-Lee zeros on the upper complex plane. There is a power
+relationship between them, which can be used to define the critical
+exponent $\phi$ in the main context.
+
+Then we move to consider the compressibility. Here we focus on the
+compressibility defined by $\chi=\frac{\partial^{2}E}{\partial\mu^{2}}$.
+This will be given by: 
+\begin{equation}
+\chi=-\sum_{\bm{k}}\frac{\Delta_{0}^{2}}{(\xi_{\bm{k}}^{2}+\Delta_{0}^{2})^{3/2}}=-\int_{-\omega_{D}}^{\omega_{D}}\rho_{0}d\xi_{\bm{k}}\frac{\Delta_{0}^{2}}{(\xi_{\bm{k}}^{2}+\Delta_{0}^{2})^{3/2}}\,.\label{compressibility}
+\end{equation}
+Firstly, we focus on the points near the boundary. By substituding
+the gap (\ref{RDelta_0},\ref{IDelta_0}) into the compressibility
+(\ref{compressibility}), we can rewrite the $\chi$ as: 
+\begin{equation}
+\chi=\int_{-\omega_{D}}^{\omega_{D}}\rho_{0}d\xi_{\bm{k}}\frac{(\text{Im}\Delta_{0})^{2}}{(\xi_{\bm{k}}^{2}-(\text{Im}\Delta_{0})^{2})^{3/2}}\rightarrow\infty\,.
+\end{equation}
+It diverges since $\text{Im}\Delta_{0}<\omega_{D}$ for all the points
+on the boundary. Hence, we find that compressibility has singularity
+on the boundary for each point. This cannot be discovered in Hermitian
+physics since for Eq. (\ref{compressibility}), a real gap $\Delta_{0}$
+can always lead to a finite result instead of divergence. Near the
+boundary with a deviation $\delta U_{1}\rightarrow0$, we find the
+gap has another form: 
+\begin{equation}
+\text{Re}\Delta_{0}\approx\frac{\pi U_{1}\omega_{D}}{|U|^{2}}\frac{\sinh\left(\frac{U_{1}}{\rho_{0}|U|^{2}}\right)}{\cosh^{2}\left(\frac{U_{1}}{\rho_{0}|U|^{2}}\right)}\delta U_{1}\rightarrow0,\text{Im}\Delta_{0}\approx\frac{\omega_{D}}{\cosh\left(\frac{U_{1}}{\rho_{0}|U|^{2}}\right)}\,.
+\end{equation}
+Therefore, we can rewrite the compressibility as: 
+\begin{equation}
+\chi\approx\int_{-\omega_{D}}^{\omega_{D}}\rho_{0}d\xi_{\bm{k}}\frac{(\text{Im}\Delta_{0})^{2}}{(\xi_{\bm{k}}^{2}-(\text{Im}\Delta_{0})^{2}+2i\text{Re}\Delta_{0}\text{Im}\Delta_{0})^{3/2}}=\int_{-A}^{A}\rho_{0}d\xi_{\bm{k}}\frac{1}{(\xi_{\bm{k}}^{2}-1+2i\text{Re}\Delta_{0}/\text{Im}\Delta_{0})^{3/2}}\,,
+\end{equation}
+where $A\equiv\cosh\left(\frac{U_{1}}{\rho_{0}|U|^{2}}\right)$. Here
+we know the integral must take the form of $f\left(A,\frac{\text{Re}\Delta_{0}}{\text{Im}\Delta_{0}}\right)$.
+Obviously, we cannot calculate the analytic expression for this integral.
+However, here we prove when $\text{Re}\Delta_{0}\rightarrow0$ the
+function should be propotional to $(\text{Re}\Delta_{0}/\text{Im}\Delta_{0})^{-1/2}$
+qualitatively. Since only the points near the value $\xi_{k}=1$ contributes
+to the integral, we expand the integral around the point with the
+width $2a$ where $a=\text{Re}\Delta_{0}/\text{Im}\Delta_{0}$: 
+\begin{equation}
+\int_{-a}^{a}\rho_{0}d\xi_{\bm{k}}\frac{1}{(2\delta\xi_{\bm{k}}+2ia)^{3/2}}\sim a^{-1/2}\hat{A}\yen,.
+\end{equation}
+Hence, we here have another critical exponent defined as $\chi\sim(\delta U)^{-\zeta},\zeta=1/2$
+for near the boundary $\text{Re}\Delta_{0}\propto\delta U$.
+
+Indeed, there is a relation between the critical exponents $\eta$
+and $\zeta$ for any kinds of exceptional points. For the energy spectrums
+which can be expanded as $(k-k_{E})^{1/n}$ around the exceptional
+point $k=k_{E}$, the correlation function takes the form as: 
+\begin{equation}
+C(\bm{x})\propto\frac{J_{-1/2+1/n}(x)}{x^{3/2-1/n}}\,.
+\end{equation}
+Under the limitation $x\rightarrow\infty$, we have $J_{-1/2+1/n}(x)\sim\frac{1}{\sqrt{x}}$.
+From the definition of the anomalous dimension, we find that $\eta=1-\frac{1}{n}$.
+Similarly, we find the compressibility near the boundary satisfied:
+\begin{equation}
+\chi\propto\int_{-A}^{A}\rho_{0}d\xi_{\bm{k}}\frac{1}{(\xi_{\bm{k}}^{2}-1+2i\text{Re}\Delta_{0}/\text{Im}\Delta_{0})^{1+1/n}}\propto(\delta U)^{1/n}\,,
+\end{equation}
+which indicates that $\zeta=1/n$. Therefore, we have: 
+\begin{equation}
+\eta+\zeta=1\,.
+\end{equation}
+When $n$ is an integer here, the gapless points correspond to the
+$n$-th order exceptional points in the non-Hermitian systems.
+
+\section{Pair Correlation Function}
+
+In the discussion above we only focus on the correlation function
+for single electron. In this section we turn to the pair correlation
+function frequently used in superconducting system.
+
+The pair correlation function is defined here below: 
+\begin{equation}
+\rho_{2}(\boldsymbol{r}_{1}\sigma_{1},\boldsymbol{r}_{2}\sigma_{2};\boldsymbol{r}_{1}'\sigma_{1}',\boldsymbol{r}_{2}'\sigma_{2}')\equiv{}_{L}\langle C_{\sigma_{1}}^{\dagger}(\boldsymbol{r}_{1})C_{\sigma_{2}}^{\dagger}(\boldsymbol{r}_{2})C_{\sigma_{2}'}(\boldsymbol{r}_{2}')C_{\sigma_{1}'}(\boldsymbol{r}_{1}')\rangle_{R}\,.
+\end{equation}
+Here what we concern is the relative position of the two Cooper pairs
+instead of relative position of two electrons in the same Cooper pair.
+Hence, we set $\boldsymbol{r}_{1}=\boldsymbol{r}_{2}=\boldsymbol{r}$
+and $\boldsymbol{r}_{1}'=\boldsymbol{r}_{2}'=0$ here. Without lossing
+generality, we assume $\sigma_{1}=\uparrow=\sigma_{1}',\sigma_{2}=\downarrow=\sigma_{2}'$.
+With Wick theorem, we can simplify the pair correlation function as:
+\begin{eqnarray}
+\rho_{2}(\boldsymbol{R}\uparrow,\boldsymbol{R}\downarrow;0\uparrow,0\downarrow) & = & _{L}\langle C_{\uparrow}^{\dagger}(\boldsymbol{R})C_{\downarrow}^{\dagger}(\boldsymbol{R})C_{\downarrow}(0)C_{\uparrow}(0)\rangle_{R}\nonumber \\
+ & = & _{L}\langle C_{\uparrow}^{\dagger}(\boldsymbol{R})C_{\downarrow}^{\dagger}(\boldsymbol{R})\rangle_{R}{}_{L}\langle C_{\downarrow}(0)C_{\uparrow}(0)\rangle_{R}+{}_{L}\langle C_{\uparrow}^{\dagger}(\boldsymbol{R})C_{\uparrow}(0)\rangle_{R}{}_{L}\langle C_{\downarrow}^{\dagger}(\boldsymbol{R})C_{\downarrow}(0)\rangle_{R}\,.
+\end{eqnarray}
+The second term can be figured out in the upper calculation. If we
+take the limit $\boldsymbol{R}\rightarrow\infty$, it will decay to
+0 as $R^{-3/2}$ on the transition boundary. What is important here
+is the first term. Due to the translational invariance here, we can
+simplify it as: 
+\begin{eqnarray}
+\rho_{2}(\boldsymbol{R}\uparrow,\boldsymbol{R}\downarrow;0\uparrow,0\downarrow) & = & _{L}\langle C_{\uparrow}^{\dagger}(0)C_{\downarrow}^{\dagger}(0)\rangle_{R}{}_{L}\langle C_{\downarrow}(0)C_{\uparrow}(0)\rangle_{R}\nonumber \\
+ & = & \frac{1}{N^{2}}\sum_{\boldsymbol{k}_{1},\boldsymbol{k}_{2}}{}_{L}\langle C_{\boldsymbol{k}_{1}\uparrow}^{\dagger}C_{-\boldsymbol{k}_{1}\downarrow}^{\dagger}\rangle_{R}{}_{L}\langle C_{-\boldsymbol{k}_{2}\downarrow}C_{\boldsymbol{k}_{2}\uparrow}\rangle_{R}\nonumber \\
+ & = & \left(\frac{\Delta_{0}}{U}\right)^{2}\,.
+\end{eqnarray}
+Here we use the definition of $\Delta_{0}$: $\Delta_{0}=-\frac{U}{N}\sum_{\boldsymbol{k}}{}_{L}\langle C_{-\boldsymbol{k}\downarrow}C_{\boldsymbol{k}\uparrow}\rangle_{R}$.
+Even on the phase boundary, this will still not vanish. In contrast,
+the result is given by: 
+\begin{equation}
+\rho_{2}(\boldsymbol{R}\uparrow,\boldsymbol{R}\downarrow;0\uparrow,0\downarrow)=-\frac{(\text{Im}\Delta_{0})^{2}}{U^{2}}\neq0\,.
+\end{equation}
+This also indicates that the phase transition in non-Hermitian system
+is completely different from the Hermtian one between normal metal
+and superconducting phase, where the gap $\Delta_{0}$ vanishes and
+pair correlation function decays to 0 at infinity.
+
+\section{Calculation for Renormalization Group(RG) Theory}
+
+Here we consider the RG flow of the interaction strength. In standard
+Wilsonian RG theory, the one-loop beta function is well know which
+is at the order of $O(U^{2})$: 
+\begin{equation}
+\frac{dU}{dt}=\frac{1}{4\pi}U^{2}:=\beta_{1}(U)\,.
+\end{equation}
+However, this is not enough to obtain the phase boundary in the main
+text. Here we take the two-loop correction into account and consider
+the terms at the order of $O(U^{3})$.
+
+Up to just one integral over the momentum, the higher order contribution
+to RG flow comes from the correction for the high-momentum propagator.
+Actually, we have the following self-interaction for high-momentum
+propagator, as shown in Fig. \ref{feynman_diagram1}:
+
+\begin{equation}
+\Sigma(\bm{k},\Omega)=\int\frac{d\omega}{2\pi}\frac{U}{i\omega-v_{F}k}=U\,,
+\end{equation}
+
+where $k$ and $\Omega$ are the momentum and frequency for the external
+leg respectively. Therefore, the propagator is modified as
+
+\begin{equation}
+G(\bm{k},\Omega)=\frac{1}{i\Omega-v_{F}k}+\frac{U}{(i\Omega-v_{F}k)^{2}}\,.
+\end{equation}
+
+By considering the self-energy diagrams in Fig. \ref{feynman_diagram1},
+there is two-loop beta function in the BCS diagram. By applying the
+Wilsonian RG and integrating out the energy shell $(\Lambda-d\Lambda,\Lambda)$,
+we have: 
+\begin{align}
+\beta_{2}(U) & =-\{\rho_{0}d\Lambda U^{2}(\int\frac{d\Omega}{2\pi}\frac{U}{(i\Omega-\Lambda)^{2}}\frac{1}{-i\Omega-\Lambda}+\int\frac{d\Omega}{2\pi}\frac{1}{i\Omega-\Lambda}\frac{U}{(i\Omega+\Lambda)^{2}}\}\times\frac{1}{2}\\
+ & =\frac{\rho_{0}^{2}U^{3}}{2}dt\,,
+\end{align}
+where we define $\rho_{0}=1/\Lambda$ with $\Lambda$ the upper bound
+of fermionic energy and $dt=-\frac{d\Lambda}{\Lambda^{2}}$ representing
+the RG flow parameter. Hence, we combine both the one-loop and two-loop
+contributions together and the RG-flow equation is written as: 
+\begin{equation}
+\frac{dV}{dt}=V^{2}-\frac{1}{2}V^{3}\,.\label{eq:RG_Flow_Equ_Total}
+\end{equation}
+Here $V=\rho_{0}U$ is a dimensionless coupling strength. The RG flow
+diagram for Eq. (\ref{eq:RG_Flow_Equ_Total}) is shown in the Fig.
+\ref{RG_Flow_figure}. 
+\begin{figure}
+\begin{fmffile}{diagram} \begin{fmfgraph*}(120,80) \fmfleft{i}
+\fmfright{o} \fmf{plain}{i,v,v,o} \fmfdot{v} \end{fmfgraph*}
+\end{fmffile}\feynmandiagram[{[}layered layout, horizontal=a to
+b][{[}edges] { {i1, i2} -- a{[}dot{]} -- {[}half left{]} b{[}dot{]}
+-- {[}half left{]} a, b -- {f1, f2}, };
+
+\caption{The Feynman diagram for self energy correction and interaction strength
+renormalization. The right diagram is known as BCS diagram.}
+
+\label{feynman_diagram1} 
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=0.5\columnwidth,bb = 0 0 200 100, draft, type=eps]{phase_diagram}
+
+\caption{RG flow diagram for Eq. (\ref{eq:RG_Flow_Equ_Total})}
+
+\label{RG_Flow_figure} 
+\end{figure}
+
+Obviously, there is a non-trivial fixed point as $V=2$ and a critical
+line depicted as a blue curve. This line separates the whole space
+into two phases, with one flowing to the origin and the other flowing
+to the nontrivial fixed point. The equation of this line can be derived
+as follow:
+
+Noting that
+
+\begin{equation}
+\begin{cases}
+\frac{dV_{R}}{dt} & =V_{R}^{2}-V_{I}^{2}-\frac{1}{2}V_{R}^{3}+\frac{3}{2}V_{R}V_{I}^{2}\\
+\frac{dV_{I}}{dt} & =2V_{R}V_{I}-\frac{3}{2}V_{I}V_{R}^{2}+\frac{1}{2}V_{I}^{3}
+\end{cases}
+\end{equation}
+, where $V_{R}=\mathrm{Re}(V),V_{I}=\mathrm{Im}(V)$. On this line,
+when we consider the fixed point at $V_{I}\rightarrow\infty$, we
+see $\frac{dV_{R}}{dt}=0$. Hence, the only solution is $V_{R}=\frac{2}{3},V_{I}=\infty$.
+The specific expression of the critical line can be obtained by integrating
+the Eq. (\ref{eq:RG_Flow_Equ_Total}):
+
+\begin{equation}
+\Delta t=-\frac{1}{V^{\mathrm{f}}}+\frac{1}{2}\ln V^{\mathrm{f}}-\frac{1}{2}\ln(2-V^{\mathrm{f}})+\frac{1}{V}-\frac{1}{2}\ln V+\frac{1}{2}\ln(2-V)\,,\label{eq:Relation_between_t_and_U}
+\end{equation}
+with the superscribe f denoting the final state. At the critical line,
+$V_{I}^{\mathrm{f}}\to\infty,V_{R}^{\mathrm{f}}\to\frac{2}{3}$, the
+imaginary part of the above equation reads as 
+\begin{equation}
+0=\frac{\pi}{2}-\frac{V_{I}}{V_{R}^{2}+V_{I}^{2}}-\frac{1}{2}\arctan\frac{V_{I}}{V_{R}}-\frac{1}{2}\arctan\frac{V_{I}}{2-V_{R}}\,.\label{eq:Phase_boundary_by_RG}
+\end{equation}
+This is the equation define the phase boundary. Around the origin,
+the expression of this critical line (\ref{eq:Phase_boundary_by_RG})
+can be expanded as: 
+\begin{equation}
+0=-\frac{V_{I}}{V_{R}^{2}+V_{I}^{2}}+\frac{\pi}{2}\,,
+\end{equation}
+which is consistent with the phase boundary (\ref{phase_transition}).
+
+In the Eq. (\ref{eq:Relation_between_t_and_U}), if we take $V^{\mathrm{f}}$
+to be purely imaginary, we will get the recursion temperature: 
+\begin{equation}
+\Delta t=\frac{i}{V_{I}^{\mathrm{f}}}+\frac{1}{2}\ln V_{I}^{\mathrm{f}}+i\frac{\pi}{4}-\frac{1}{4}\ln(4+(V_{I}^{\mathrm{f}})^{2})-\frac{i}{2}(2\pi-\arctan\frac{V_{I}^{\mathrm{f}}}{2})+\frac{1}{V}-\frac{1}{2}\ln V+\frac{1}{2}\ln(2-V)\,.\label{Delta t}
+\end{equation}
+If we assume $|V|<<1$, the above equation (\ref{Delta t}) can be
+rewritten as 
+\begin{equation}
+\begin{cases}
+0 & =\frac{1}{V_{I}^{\mathrm{f}}}+\frac{\pi}{4}+\frac{1}{2}\arctan\frac{V_{I}^{\mathrm{f}}}{2}-\frac{V_{I}}{V_{R}^{2}+V_{I}^{2}}-\frac{1}{2}\arctan\frac{V_{I}}{V_{R}}-\frac{1}{2}\arctan(\frac{V_{I}}{2-V_{R}})\\
+e^{-\Delta t} & =\sqrt{\frac{\sqrt{4+(V_{I}^{\mathrm{f}})^{2}}}{V_{I}^{\mathrm{f}}}}\exp(-\frac{V_{R}}{V_{R}^{2}+V_{I}^{2}})(\frac{|V|}{|2-V|})^{\frac{1}{2}}
+\end{cases}
+\end{equation}
+. From the second equation, we have the recursion temperature with
+the ending point $(0,V_{I}^{f})$ in RG flow. 
+\begin{equation}
+T_{\mathrm{recur}}\sim e^{-\Delta t}=\sqrt{\frac{\sqrt{4+(V_{I}^{\mathrm{f}})^{2}}}{V_{I}^{\mathrm{f}}}}\exp(-\frac{V_{R}}{V_{R}^{2}+V_{I}^{2}})(\frac{|V|}{|2-V|})^{\frac{1}{2}}\,.
+\end{equation}
+If we further assume that $V_{I}^{\mathrm{f}}\to\infty$, which take
+place near the phase boundary, we can obtain the simplified recursion
+temperature. 
+\begin{equation}
+T_{\mathrm{recur}}\sim e^{-\Delta t}=\exp(-\frac{V_{R}}{V_{R}^{2}+V_{I}^{2}})(\frac{|V|}{|2-V|})^{\frac{1}{2}}\,.
+\end{equation}
+
+\end{document}

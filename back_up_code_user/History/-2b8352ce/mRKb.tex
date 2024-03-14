@@ -1,0 +1,52 @@
+\input{Format/praambel.tex}
+%\numberwithin{equation}{section} %Gleichung werden nach Kapiteln nummeriert
+
+\usepackage{upgreek}
+\usepackage{siunitx}
+
+\begin{document}
+\input{Format/formatierung}
+
+%◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼
+%\input{content.tex}
+\section{Introduction}
+\input{Section/intro}
+\section{Question}
+\input{Section/Question}
+\section{Evaluation}
+\input{Section/Evaluation}
+%◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼
+%%% Ende des Fließtextes
+\input{Format/formatierung_unten.tex}
+
+
+% \newcommand{\initAnhang}{
+%     \renewcommand{\thepage}{\Alph{chapter}\ \arabic{page}}
+%     \newpage
+% }
+% \newcommand{\anhang}[1]{
+%     \setcounter{page}{1}
+%     \input{#1}
+%     \newpage
+% }
+
+% \initAnhang
+%  \anhang{Anhang.tex}
+
+
+%\clearpage
+
+%\printbibliography[
+%heading=MyCollection,
+%title={References}
+%]
+\label{Ende Literatur}
+
+
+%\pagenumbering{roman}
+%\setcounter{page}{1}
+%\fancyfoot[C]{\thepage}
+
+\label{Ende Anhang}
+
+\end{document}

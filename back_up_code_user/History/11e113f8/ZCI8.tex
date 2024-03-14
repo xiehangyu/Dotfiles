@@ -1,0 +1,451 @@
+\documentclass[aps,prl,twocolumn,superscriptaddress,]{revtex4-1}
+\usepackage{cancel}
+\usepackage[normalem]{ulem}
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{natbib}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{esint}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{times}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{feynmf}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{xfrac}
+\usepackage[colorlinks,citecolor=blue]{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{longtable,booktabs}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{subfigure}
+\usepackage{dsfont}
+\usepackage{booktabs}
+\usepackage{amsbsy}
+\usepackage{dcolumn}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{esint}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsbsy}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{extarrows}
+\usepackage{datetime}
+\usepackage[super]{nth}
+\hypersetup{
+	colorlinks=magenta,
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=magenta,
+}
+\def\Z{\mathbb{Z}}
+\newcommand{\red}[1]{{\textcolor{red}{#1}}}
+\newtheorem{theorem}{Theorem}\newtheorem{statement}{Statement}\newcommand{\mb}{\mathbb}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\wt}{\widetilde}
+\newcommand{\mc}{\mathcal}
+\newcommand{\bra}{\langle}
+\newcommand{\ket}{\rangle}
+\newcommand{\ep}{\epsilon}
+\newcommand{\tf}{\textbf}
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+%%%%%%%%%% End TeXmacs macros
+
+\begin{document}
+\title{Dissipative Superfluidity in a Molecular Bose-Einstein Condensate}
+\author{Hongchao Li}
+\thanks{These two authors contributed equally to this work.}
+\affiliation{Department of Physics, The University of Tokyo, 7-3-1 Hongo, Tokyo 113-0033,
+	Japan}
+\email{lhc@cat.phys.s.u-tokyo.ac.jp}
+
+\author{Xie-Hang Yu}
+\thanks{These two authors contributed equally to this work.}
+\affiliation{Max-Planck-Institut für Quantenoptik, Hans-Kopfermann-Straße 1, D-85748
+	Garching, Germany}
+\affiliation{Munich Center for Quantum Science and Technology, Schellingstraße
+	4, 80799 München, Germany}
+\email{xiehang.yu@mpq.mpg.de}
+
+\author{Masaya Nakagawa}
+\affiliation{Department of Physics, The University of Tokyo, 7-3-1 Hongo, Tokyo 113-0033,
+	Japan}
+\email{nakagawa@cat.phys.s.u-tokyo.ac.jp}
+
+\author{Masahito Ueda}
+\affiliation{Department of Physics, University of Tokyo, 7-3-1 Hongo, Tokyo 113-0033,
+	Japan}
+\affiliation{RIKEN Center for Emergent Matter Science (CEMS), Wako, Saitama 351-0198,
+	Japan}
+\affiliation{Institute for Physics of Intelligence, The University of Tokyo, 7-3-1
+	Hongo, Tokyo 113-0033, Japan}
+\email{ueda@cat.phys.s.u-tokyo.ac.jp}
+
+\date{\today}
+\begin{abstract}
+We establish the superfluid transport theory for a molecular Bose-Einstein
+condensate (BEC). We show that a weak uniform two-body loss from
+	chemical reactions between molecules can induce an effective repulsive interaction among the molecules, leading to superfluid transport of bosons. We use the effective field theory and linear response theory to calculate the superfluid fraction and quantum depletion part of the molecular BEC. Our results imply that the effective repulsive interaction induced by dissipation enhances the formation of superfluidity. We calculate the spectral function to investigate the fundamental excitations of the dissipative superfluids. We design experiments to measure the superfluid fraction and spectral function with ultracold molecules and atoms. 
+\end{abstract}
+\maketitle
+\emph{Introduction.---} Superfluidity exhibits extraordinary properties of many-body systems such as zero viscosity and the nonclassical inertia~\cite{Leggett2006}. 
+%It was first observed in liquid Helium-4 in the 1930s for bosonic systems \citep{Kapitza1938,ALLEN1938}. It also manifests in fermionic superconductivity such as BCS(singlet) superconductivity and p-wave(triplet) superconductivity such as Helium-3 \citep{Liu2014,RevModPhys.47.331,RevModPhys.29.205,PhysRev.108.1175}. 
+The properties of superfluidity have been widely studied in condensed matter physics \citep{Coleman_2015,Schmitt2015,RevModPhys.29.205,RevModPhys.47.331,Ueda2010,RevModPhys.71.463,Pethick_Smith_2008} and are of fundamental interest. The mechanism of superfluidity is that the interaction between the particles can cause rigidity of the phase of the many-body systems, which describes the free energy penalty with the twists of the phase \citep{Coleman_2015}. With the recent development of ultracold atomic experiments, superfluids can be prepared in ultracold atomic systems, 
+%such as fermionic superfluids \citep{Chin2006,PhysRevResearch.3.023205,Behrle2018,Zwierlein2005,PhysRevLett.92.040403,Gaebler:2010aa} in BCS superconductivity and bosonic superfluids 
+especially in interacting Bose-Einstein condensates~\citep{PhysRevLett.106.205303,PhysRevLett.92.130403,doi:10.1126/sciadv.1701513,RevModPhys.80.885,PhysRevLett.83.2502,PhysRevLett.99.260401,Pieczarka:2020aa,Wright2013}.
+
+Quantum gases of dipolar molecules, which serve as a platform to realize clean and controllable long-range anisotropic interacting systems, have received great attention in the fields of many-body physics and quantum simulation \cite{Ni2008,Ni2010,Arthur2019,Liu2020,Bause2021,Gersema2021,Bause2023,Ospelkaus2010,Karman2018,Sebastian2016,Bigagli2023,Lin2023,Yan2020,Cairncross2021,Lam2022,Guo2022}.  However, they inevitably suffer from two-body loss due to the chemical reaction and inelastic scattering between molecules, which is particularly important in bosonic molecular systems~\cite{Arthur2019,Liu2020,Bause2021,Gersema2021,Bause2023}. Recently, with the development of the microwave shielding~\cite{Karman2018,Bigagli2023,Lin2023}, it is possible to observe the molecular BEC in experiments~\cite{Sebastian2023}. A key question is to understand the feature of superfluidity under such two-body loss in molecular BEC~\cite{Sebastian2023} since the dissipation is still non-negligible. While the superfluid transport theory has been well developed in closed quantum systems, its extension to dissipative open quantum systems is still limited~\cite{Keeling2011,Ce2022}. This gap underscores the necessity of investigating dissipative superfluids to comprehend their mechanism in open quantum systems.
+
+%However, they inevitably suffer from the various dissipation due to interactions among atoms/molecules \citep{RevModPhys.85.553,Diehl2008,RevModPhys.75.715,doi:10.1142/S0129055X12500018,Bigagli2023}. In molecular systems, the non-negligible two-body loss takes place due to the chemical reaction and/or inelastic scattering between molecules \cite{Bigagli2023,PhysRevA.97.012704,Drews2017,doi:10.1126/sciadv.1701513,PhysRevA.71.013417,Braaten_2013,PhysRevResearch.2.033163}. A key question is to understand the behavior of superfluids under such two-body loss in molecular BEC. While the superfluid theory has been well developed in closed quantum systems, its extension to open quantum systems with loss is still limited \citep{Keeling2011,Ce2022}. This gap underscores the necessity of investigating dissipative superfluids to comprehend their mechanism in open quantum systems.
+
+In this Letter, we develop the dissipative bosonic superfluid theory in molecular BEC in the presence of dipolar interaction and uniform two-body loss to elucidate that the dissipation can also induce phase rigidity and hence superfluidity. Moreover, we demonstrate that the superfluidity exists even without interactions between particles. By utilizing Schwinger-Keldysh theory of open quantum systems, we formulate the effective action of quantum phase of bosonic systems. We show that both the condensate part and the quantum depletion part fully engage in the superfluid transport even in the absence of the interactions. In addition, we also explicitly calculate the quantum depletion density induced by dissipation and interactions, which is non-zero even without the interaction. Our results illustrate that the dissipation can induce an effective repulsive interaction between bosons which leads to the phase regidity.
+%We show that the condensate part engages in the superfluid transport even in the absence of interactions. 
+%This is because the dissipation induces an effective repulsive interaction between bosons which leads to the phase rigidity and hence superfluidity. 
+%In addition,
+%we illustrate that the effective interaction induced by dissipation can also give rise to quantum depletion part representing the finite-momentum component of the bosons. %We also prove that all the quantum depletion part also engages into the superfluid transport. 
+In contrast to previous study \cite{Diehl:2008aa}, we focus on the dynamics of the superfluid density in the presence of two-body loss instead of steady states under single-particle loss.
+
+Furthermore, we investigate the spectrum of the fundamental excitations in superfluids of molecular BEC and its stability. To be specific, we calculate the spectrum of the Bogoliubov quasiparticles of dissipative superfluids and determine the stability from the imaginary parts of the spectrum. We find that the dissipation can effectively enhance the stability of the molecular BEC against the dipolar interaction. Last, we design an experiment for the observation of superfluid density
+and spectral function as predicted. 
+
+%Following the experiment on molecular BEC \citep{Bigagli2023}, we can prepare the molecular BEC in a toroidal trap. By rotating the system, we can measure the total angular momentum to measure the superfluid fraction. In addition, we can use ARPES to observe the spectral function of the system. 
+
+%To observe these phenomena more comprehensively, we can also prepare atomic condensate with two-body loss induced by photoassociation. With Feshbach resonance, we can control the magnitude of interactions and dissipation to measure the superfluid density and spectral function for rather arbitrary strength of interactions and dissipation.
+
+ 
+
+\emph{Superfluid Density.--- }We consider a three-dimensional
+molecular bosonic gas in an ultracold atomic system \cite{Lahaye_2009,Chomaz_2023} described by the Hamiltonian
+\begin{align}
+	H=&\sum_{\bm{r}}\frac{1}{2m}\nabla a_{\bm{r}}^{\dagger}\nabla a_{\bm{r}}+V(\bm{r},\bm{r}'),\\
+V=&\frac{U_{R}}{2}\sum_{\bm{r}}(a_{\bm{r}}^{\dagger})^{2}(a_{\bm{r}})^{2}\nonumber\\
+  &+c_{dd}\sum_{\bm{r,\bm{r}'}}a_{\bm{r}}^{\dagger}a_{\bm{r'}}^{\dagger}\frac{\hat{\bm{d}}_1\cdot\hat{\bm{d}}_2-3(\hat{\bm{d}}_1\cdot\hat{\bm{s}})(\hat{\bm{d}}_1\cdot\hat{\bm{s}})}{|\bm{r}_{12}|^3}a_{\bm{r'}}a_{\bm{r}},
+\end{align}
+where $m$ is the mass of a single particle, $U_R>0$ is the strength of the contact interaction, $c_{dd}$ is that of the dipolar interaction, and $a_{\bm{\bm{r}}}$ represents the annihilation operator of a boson at the position $\bm{r}$. Here we use $\hat{d}_{1(2)}$ to represent the unit vector of the dipole at position $\bm{r}(\bm{r}')$ and $\bm{r}_{12}=\bm{r}_1-\bm{r}_2$ to denote the relative position between two points. %When we introduce the inelastic collision between the bosons, the density matrix of the bosonic system evolves in a dissipative dynamics, which
+The dissipative dynamics induced by the inelastic collision between the bosons can be described by the Lindblad equation \citep{10.1093/acprof:oso/9780199213900.001.0001,Nielsen2012}
+\begin{equation}
+\frac{d\rho}{dt}=\mathcal{L}\rho=-i[H,\rho]-\frac{\gamma}{2}\sum_{\bm{r}}(\{L_{\bm{r}}^{\dagger}L_{\bm{r}},\rho\}-2L_{\bm{r}}\rho L_{\bm{r}}^{\dagger}),\label{eq: Lindblad}
+\end{equation}
+where $\rho$ is the density matrix of the bosonic system, and the Lindblad operator $L_{\bm{r}}=a_{\bm{r}}^{2}$ represents
+the two-body loss at the position $\bm{r}$ with the loss rate $\gamma>0$.
+Under this situation, atoms after inelastic collisions will be lost into
+the environment. To understand the many-body physics behind the Lindblad dynamics, we consider Eq.
+(\ref{eq: Lindblad}) on the Schwinger-Keldysh contour with the Keldysh action given by \citep{Sieberer_2016}
+\begin{equation}
+	\begin{aligned}S= & \int_{-\infty}^{\infty}dt\int d\bm{r}[\sum_{\tmmathbf{r}}(\bar{a}_{\tmmathbf{r}+}i\partial_{t}a_{\tmmathbf{r}+}-\bar{a}_{\tmmathbf{r}-}i\partial_{t}a_{\tmmathbf{r}-})-H_{+}\\&+H_{-}
+		+\frac{i\gamma}{2}\sum_{\tmmathbf{r}}(\bar{L}_{\tmmathbf{r}+}L_{\tmmathbf{r}+}+\bar{L}_{\tmmathbf{r}-}L_{\tmmathbf{r}-}-2L_{\tmmathbf{r}+}L_{\tmmathbf{r}-})],
+	\end{aligned}
+	\label{eq:Keldysh_action}
+\end{equation}
+where we use the subscript $+$ and $-$ to label the forward and
+backward contours. Here these operators are defined as $H_{\alpha}=\sum_{\tmmathbf{r}}\nabla\bar{a}_{\tmmathbf{r}\alpha}\nabla a_{\tmmathbf{r}\alpha}/2m-\mu \bar{a}_{\bm{r}\alpha}a_{\bm{r}\alpha}+U_{R}/2\sum_{\tmmathbf{r}}\bar{a}_{\tmmathbf{r},\alpha}^{2}a_{\tmmathbf{r}\alpha}^{2}+c_{dd}\sum_{\tmmathbf{r},\bm{r}'}(1-3\cos\theta_{\bm{r}-\bm{r}'})/|\bm{r}-\bm{r}'|^3\times\bar{a}_{\tmmathbf{r},\alpha}\bar{a}_{\tmmathbf{r}',\alpha}a_{\tmmathbf{r}'\alpha}a_{\tmmathbf{r}\alpha}$,
+$L_{\tmmathbf{r}\alpha}=a_{\tmmathbf{r}\alpha}^{2}$ and $\bar{L}_{\tmmathbf{r}\alpha}=\bar{a}_{\tmmathbf{r}\alpha}^{2}$
+with $\alpha=\pm$. Here $\cos{\theta_{\bm{r}}}=r_z/r$, i.e., all of the molecules are polarized along the $z$-axis for simplicity.
+% we only consider the polarized molecules along the $z$-axis for simplicity.
+We note that the action \eqref{eq:Keldysh_action}
+has a weak $\mathbb{U}(1)$ symmetry $a_{\tmmathbf{k}\alpha}\rightarrow a_{\tmmathbf{k}\alpha}e^{i\theta}$
+but not a strong $\mathbb{U}(1)$ symmetry $a_{\tmmathbf{k}\alpha}\rightarrow a_{\tmmathbf{k}\alpha}e^{i\theta_{\alpha}}$. Hence, the particle number is
+not conserved during the dynamics. In the action, these bosonic operators are written
+into bosonic fields as a function of the momentum and time. With the
+definition of the action, we can also introduce a generating functional
+by 
+\begin{equation}
+Z=\tmop{Tr}\rho=\int D[a_{-},\bar{a}_{-},a_{+},\bar{a}_{+}]e^{iS}=1.
+\end{equation}
+%From the action \eqref{eq:Keldysh_action}, we can see it 
+To consider the superfluid density in the dissipative bosonic system, we decompose the bosonic fields
+as \citep{Wen2007}
+\begin{eqnarray}
+a_{\tmmathbf{r}\alpha} & = & \varphi_{0}(1+\phi_{\alpha}(\tmmathbf{r}))e^{i\theta_{\alpha}},\nonumber \\
+\bar{a}_{\tmmathbf{r}\alpha} & = & \varphi_{0}(1+\phi_{\alpha}(\tmmathbf{r}))e^{-i\theta_{\alpha}},
+\end{eqnarray}
+where $\varphi_{0}(t)$ is the saddle point of the action. The fields $\phi_{\alpha}$ and $\theta_{\alpha}$ denote the fluctuation
+in the amplitude and the phase of the bosonic fields on the contour
+$\alpha$. Physically, the amplitude field $\phi$ represents
+the Higgs mode while the phase field $\theta$ represents the Nambu-Goldstone (NG) mode. Since
+here we assume that nearly all the bosons are in the condensate state,
+the fluctuation $\phi_{\alpha}$ and $\theta_{\alpha}$ are small
+quantities and hence $\varphi_{0}(t)=\sqrt{n_0}(t)\exp(-i\int_0^t dt' \mu(t')dt')$ with $n_0$ being the number density of the condensate bosons and $\mu(t):=n_0(t)(U_R-8\pi/3c_{dd})$ representing the rotation of condesate. Substituting this into the action \eqref{eq:Keldysh_action}, we have the action $S(\phi_{+},\phi_{-},\theta_{+},\theta_{-})$ as
+a function of the fluctuations. The specific form of the Keldysh action
+can be found in Supplemental Material \citep{SupplementaryMaterial}.
+Correspondingly, the generating functional can be also rewritten as
+\begin{equation}
+Z=\int D[\phi_{+},\phi_{-},\theta_{+},\theta_{-}]e^{iS(\phi_{+},\phi_{-},\theta_{+},\theta_{-})}.
+\end{equation}
+
+Now we move on to investigate the superfluid density. Since the superfluid
+part is only related to the gapless phase fluctuation, we focus on
+the effective field theory of the NG mode in the system. Hence, in
+the quasi-steady state limit $\gamma n\rightarrow0$ with weak dissipation,
+we integrate the amplitude fields which gives rise to the effective
+action as in the imaginary-time framework~\citep{SupplementaryMaterial,PhysRevD.103.056020}
+\begin{equation}
+S_{\tmop{eff}}=S_{+}-S_{-},S_{\alpha}=\int d\tau d^{3}x\frac{\varphi_{0}^{2}}{2m}(\nabla\tilde{\theta}_{\alpha})^{2},\label{eq:effective}
+\end{equation}
+where we define $\nabla\tilde{\theta}_{\alpha}:=\nabla\theta_{\alpha}+\bm{\psi}(x)$
+with the function $\bm{\psi}(x)$ satisfying $\nabla\cdot\bm{\psi}(x)=2\gamma\varphi_{0}^{4}$
+standing for the dissipative current which is driven by the dissipation
+to the environment. The deriviation of the effective action is shown
+in Supplemental Material \citep{SupplementaryMaterial}. We note that
+the effective action \eqref{eq:effective} exhibits the phase rigidity
+in the Hermitian case. In the closed system, the action is equivalent
+to the free energy in the zero-temperature system, which shows that
+the free energy increases with the increase of the twist of phase. Therefore, to show
+the superfluid component in the open system, we add the twist to the phases on both the
+forward and backward contours. These twists can be identified as the superfluid velocity by \citep{Coleman_2015} $\bm{v}_{\alpha}=\nabla\theta_{\alpha}/m.$ On the other hand, the measured superfluid current density in the experiments can be defined as the average of the classical current operator, i.e., 
+\begin{equation}
+\bm{j}_{s}=\frac{1}{2}\langle\bm{j}_{+}+\bm{j}_{-}\rangle=\frac{1}{Z}\int D[a](\bm{j}_{+}+\bm{j}_{-})e^{iS},
+\end{equation}
+where the superfluid current density on each contour can be solved
+as $\bm{j}_{\alpha}=\delta S/\delta(m\bm{v}_{\alpha})$. Meanwhile,
+the superfluid density is defined as $n_s:=\delta\bm{j}_s/\delta\bm{v}_s$.
+From the effective action and the assumption that $\bm{v}_{+}=-\bm{v}_{-}=\bm{v}_{s}$,
+we obtain the superfluid density
+\begin{equation}
+	n_s=\varphi_0^2=n_0.\label{eq:supercurrent}
+\end{equation}
+We can see that the superfluid density equals to the density of the condensate part, indicating the condensate part contributes to the superfluid transport. Details are shown in Supplemental Material \cite{SupplementaryMaterial}. Here we can also see the origin of the term containing $\bm{\psi}$ in the action \eqref{eq:effective} from the continuity equation given by
+\begin{equation}
+\frac{dn}{dt}=-\nabla\cdot(\bm{j}_{1}+\bm{j}_{2}),
+\end{equation}
+where $\bm{j}_{1}=\varphi_{0}^{2}\bm{v}_{s}$ is the superfluid current induced by the external perturbation
+and $\bm{j}_{2}=\varphi_{0}^{2}\bm{\psi}/m$ effectively represents the loss to the environment
+Therefore, the term related to $\bm{\psi}(x)$ can be effectively considered as the dissipative
+current induced by dissipation~\citep{PhysRevLett.93.160404} and does not contribute to the superfluid transport.
+
+Furthermore, we can see even though there is no interaction $U_{R}$, the dissipation itself can induce the superfluid transport solely. The physics can be understood from the Lindblad dynamics. In the evolution of the dissipative bosonic system, two bosons will collide with each other and be lost into the environment if they meet each other on the same site. Hence, for those bosons observed in the systems, they tend to avoid to occupy the same site, which can be considered as an effective repulsive interaction between bosons. %This effective repulsion also leads to a phase rigidity in the many-body system. 
+Or equivalently, the two-body loss suppresses the density fluctuation by eliminating particles from the points where the density is higher than the average value. This suppression of density fluctuation leads to the phase rigidity and hence superfluidity.  However, this is only the case in the bosonic system. The situation is quite different for the fermionic system since a single s-wave repulsive interaction does not lead to fermionic superfluidity. Previous works show that if there is no interaction, a purely weak dissipation drives the fermionic system into a normal phase, which has the same behavior as the dissipative Fermi liquid in the renormalization group flow \citep{Yamamoto2019,Hongchao2023}. This evidence also supports that weak dissipation itself can lead to an effective repulsive interaction between particles, which is the nature of two-body loss in open quantum systems. We note that here the number density decays with time as $n(t)\sim n(0)/(1+2\gamma n(0)t)$. Hence, this superfluid part will also decay with time.
+
+However, the effective field theory only considers the quadratic contribution from the amplitude and phase fluctuations while neglecting the higher-order terms, corresponding to the quantum depletion part in the BEC induced by interactions and dissipation. We now consider the superfluid density in the quantum depletion part. Since the condensate part still dominates, we apply the mean-field approximation with $a_{0+}=a_{0-}=\bar{a}_{0-}=\bar{a}_{0+}\approx\sqrt{n}$ where $a_{0}$ represents the annihilation operator of a boson with momentum $\bm{k}=0$. Let us here consider a quasi-steady state where $n$
+can be considered as a constant in a long time period. Under the Fourier transformation and the quasi-steady-state approximation, we first solve the density of the quantum depletion part starting from the action \eqref{eq:Keldysh_action} and prove that the normal fluid density for the quantum depletion part is 0 for arbitrary interaction and dissipation. Combining with Eq. \eqref{eq:supercurrent}, we can reach the conclusion that all of the bosons contribute to the superfluid transport. The proof is shown in Supplemental Material \citep{SupplementaryMaterial}. Next, we derive the expression of the quantum depletion density. In the limit $U_{R}\gg\gamma$, the quantum depletion density has no
+linear correction of $\gamma$: 
+\begin{equation}\label{eq:depletion-1}
+n_{D}=\frac{m^{3/2}}{3\pi^{2}}(nU_R)^{3/2}\left(h_1+\frac{h_2\eta}{2\sqrt{2}}\left(\frac{\gamma}{U_{R}}\right)^{2}+O\left(\frac{\gamma}{U_{R}}\right)^{2}\right),
+\end{equation}
+where $\eta$ is a constant taking the value of $2.1$ and $h_1(\varepsilon_{dd}),h_2(\varepsilon_{dd})$ are $O(1)$ functions of the ratio $\varepsilon_{dd}:=8\pi c_{dd}/3U_R$, satisfying $h_1(0)=h_2(0)=1$. By substituting the experimental data from \cite{Bigagli2023}, we have $\varepsilon_{dd}=0.833$ and $h_1\simeq1.204,h_2\simeq1.305$ \cite{Lima2011,Lima2012}, indicating that the dipolar interaction only slightly increases the quantum depletion part. This quantum depletion part can be also expressed in terms of the complex scattering length \citep{PhysRevA.79.023614,PhysRevA.103.013724}
+\begin{equation}
+a_{c}=a_{r}-ia_{i}:=\frac{m}{4\pi}(U_{R}-i\gamma).\label{eq:definition_ac}
+\end{equation}
+In an extreme case $\gamma=0$, Eq. \eqref{eq:depletion-1} meets the Hermitian result:
+$n_{D}=\frac{8}{3\sqrt{\pi}}(na_{r})^{3/2}$. In the other limit $U_{R}\ll\gamma$,
+the quantum depletion density is given by 
+\begin{equation}\label{eq:depletion-2}
+n_{D}=\frac{(\gamma n)^{3/2}m^{3/2}}{24\pi^{5/2}}\Gamma\left(\frac{1}{4}\right)\left(1+\frac{6U_{R}}{\gamma}\frac{\Gamma(3/4)^{2}}{\Gamma(1/4)^{2}}+O\left(\frac{U_{R}}{\gamma}\right)^{2}\right),
+\end{equation}
+which indicates that the effective repulsion induced by the dissipation
+can induce quantum depletion part even though there is no interaction
+between bosons. Therefore, the dissipation here leads to a coherent depletion which depletes the condensation but does not decrease the superfluid fraction.
+%\textcolor{blue}{still remains superfluidity \sout{does not decrease the superfluid fraction}}. \textcolor{blue}{\sout{It} The dissipation} actually enhances the superfluidity by inducing an effective repulsive interaction. 
+According to the definition of the complex scattering
+length in Eq. (\ref{eq:definition_ac}), the quantum depletion part for
+$U_{R}=0$ can be expressed as $n_{D}=\frac{1}{3\pi}\Gamma\left(\frac{1}{4}\right)(na_{i})^{3/2}\propto(na_{i})^{3/2}$. By measuring the imaginary part of the complex scattering length from
+the scattering cross section \citep{PhysRevC.90.064004,PhysRevD.38.742,PhysRevA.78.023608},
+we can verify the results of the quantum depletion part. We note that our expressions \eqref{eq:depletion-1} and \eqref{eq:depletion-2} show space-averaged quantum depletion density. Due to the anisotropy of the dipole interaction, the quantum depletion part is also angle-dependent. The complete expression is shown in Supplemental Material~\cite{SupplementaryMaterial}. 
+
+%\textcolor{blue}{Furthermore, we can prove that the normal fluid density for the quantum depletion part is 0 for arbitrary interaction and dissipation. Combining this with the conclusion before, we can reach the conclusion that all of the bosons engage into the superfluid transport. Derivation is shown in Supplemental Material \citep{SupplementaryMaterial}.}
+\
+ \
+
+\emph{f-sum Rule.--- }To find a more general expression for the superfluid density, we examine the commutator between $\hat{\rho}_{-\bm{k}}$ and the evolution of $\hat{\rho}_{\bm{k}}$ where $\hat{\rho}_{\bm{k}}:=a_{\bm{k+q}}^{\dagger}a_{\bm{k}}$ is the density operator in the momentum space. The commutator is given by
+\begin{equation}
+[\hat{\rho}_{-\bm{k}},\mathcal{L}^{\dagger}(\hat{\rho}_{\bm{k}})]=-2i\epsilon_{\bm{k}}\hat{N},
+\end{equation}
+where $\hat{N}$ is the operator of total particle number and $\epsilon_{\bm{k}}=\frac{|\bm{k}|^{2}}{2m}$
+is the kinetic energy. This expression can be interpreted as the generalized
+$f$-sum rule in open quantum systems. As an application, we can utilize
+this identity to demonstrate that 
+\begin{equation}
+\int\frac{d\omega}{2\pi\omega}\gamma_{\mathrm{t}}^{L}(\bm{k},\omega,t)=N(t),\label{eq:Application_sum_rule}
+\end{equation}
+where $N$ represents the total particle number. Here the current-current
+correlation function $\gamma_{\mathrm{t}}^{i,j}(\bm{k},\omega,t)$
+is defined as $\gamma_{\mathrm{t}}^{i,j}(\bm{k},\omega,t)=m\langle\int dt_{0}e^{-i\omega t_{0}}[\hat{j}_{\mathrm{t}}^{i}(\bm{k},t+t_{0}),\hat{j}_{\mathrm{t}}^{j}(-\bm{k},t)]\rangle$
+with its longitudinal component $\gamma_{\mathrm{t}}^{L}=\frac{k_{i}k_{j}}{|\bm{k}|^{2}}\gamma_{\mathrm{t}}^{i,j}$
+and $\hat{\bm{j}}_{\mathrm{t}}$ being the total current of the system \citep{SupplementaryMaterial,PhysRevLett.93.160404},
+given by
+\begin{equation}
+\hat{\bm{j}}_{\mathrm{t}}=\frac{i}{2m}\left(\nabla a_{\bm{r}}^{\dagger}a_{\bm{r}}-a_{\bm{r}}^{\dagger}\nabla a_{\bm{r}}\right)+\bm{\psi}(\bm{r}).
+\end{equation}
+
+Equation (\ref{eq:Application_sum_rule}) is reminiscent of the well-known result
+in closed quantum systems, which provides an alternative definition
+of the superfluid density \citep{Mathematical_method_SF_1968}. The
+normal fluid density corresponds to the transverse part of the current-current
+correlation function. Here we can still use the difference between
+the longitudal part and the transverse part of the correlation function
+$\gamma_{\mathrm{t}}^{i,j}(\bm{k},\omega,t)$ to define the superfluid
+component.
+%\footnote{Even though here the calculation of transverse part gives the result of quantum depletion part, it can be attributed to the problem of Bogoliubov approximation we apply here. In the approximation, we only add perturbation to the quantum depletion part. If we also add the perturbation to the condensate part, the transverse part should give a zero result. This is not only a problem of open quantum systems but also a problem in closed quantum systems.}. Since the transverse part gives the value of quantum depletion part, we can see the difference between transverse part and longitudal part also supports the existence of superlfuidity here. 
+We claim that here the $f$-sum rule is a direct consequence of the weak $\mathbb{U}(1)$ symmetry of the Lindbladian \eqref{eq: Lindblad} even with the breaking of the strong $\mathbb{U}(1)$ symmetry, which leads to the decay of particle number~\cite{Albert2014,Sieberer_2016}. We note that this $f$-sum rule \eqref{eq:Application_sum_rule} is a general result without using any approximation.  
+%Combined with the above result, we can show that the quantum depletion part is much less than the total density, providing a non-zero lower bound on the superfluid density. Thus, it serves as another implication for the existence of the superfluid in the purely dissipative system.
+
+\emph{Spectrum and Green's Functions.---}In order to further
+understand the physical property of the excitations in dissipative superfluidity, we investigate the excitation spectrum of superfluids in the dissipative BEC system. %, we analyzeits spectrum and Green's functions. 
+Since the quantum depletion is small, we apply the mean-field approximation and the quasi-steady-state approximation to the action
+and rewrite Eq. (\ref{eq:Keldysh_action}) as \citep{SupplementaryMaterial}
+\begin{equation}
+S=\sum_{\bm{k},\omega}\Psi_{\tmmathbf{k},\omega}^{\dagger}\begin{pmatrix}h_{+}^{2\times2} & B\\
+B^{\dagger} & h_{-}^{2\times2}
+\end{pmatrix}\Psi_{\tmmathbf{k},\omega}\label{eq:Gaussian_action}
+\end{equation}
+where $\Psi_{\tmmathbf{k},\omega}=(a_{\tmmathbf{k},\omega,+},a_{\tmmathbf{-k},-\omega,+}^{\dagger},a_{\tmmathbf{k},\omega,-},a_{\tmmathbf{-k},-\omega,-}^{\dagger})^{T}$,
+$h_{\pm}^{2\times2}=\mp\frac{1}{2}\begin{pmatrix}\epsilon_{\tmmathbf{k}}+\tilde{U}_Rn\mp2i\gamma n-\omega & \mp(\tilde{U}_R-i\gamma)n\\
+\mp(\tilde{U}_R+i\gamma)n & \epsilon_{\tmmathbf{k}}+\tilde{U}_Rn\mp2i\gamma n+\omega
+\end{pmatrix}$, and $B=\begin{pmatrix}0 & 0\\
+0 & -2i\gamma n
+\end{pmatrix}$
+with $\tilde{U}_R(\bm{k}):=U_R(1-\varepsilon_{dd}(1-3\cos^2\theta_{\bm{k}}))$, $\varepsilon_{dd}=\frac{8\pi c_{dd}}{3U_R}$. The
+Green's functions of bosonic fields~\cite{Kamenev_2011} are directly given by the inverse
+of the Gaussian matrix in Eq. (\ref{eq:Gaussian_action}) (see Supplementary Material for the detailed expression \citep{SupplementaryMaterial}). 
+\begin{comment}
+Here, we are specially interested in the spectral function defined as~\citep{Coleman_2015,phillips_2012}
+
+\begin{equation}
+\begin{aligned}A(\bm{k},\omega) & =\frac{i}{2\pi}(G^{>}(\bm{k},\omega)+G^{<}(\bm{k},\omega))\end{aligned}
+,\label{eq:spectrum_function}
+\end{equation}
+where the lesser (greater) Green function is defined as $G^{\overset{<}{>}}(\bm{k},\omega):=-i\langle a_{\tmmathbf{k},\omega,\pm}a_{\tmmathbf{k},\omega,\mp}^{\dagger}\rangle$
+following the definition in nonequilibrium Green's function \citep{Kamenev_2011}.
+The analytical expression of the spectral function can be found in Supplemental Material \citep{SupplementaryMaterial}. In Fig.
+\ref{fig1}, we show the spectral function in two different limits:
+the strong dissipation limit where $\gamma\gg U_{R}$ and the strong repulsive-interaction limit where $U_{R}\gg\gamma$ along different directions. The strength of the dipole-dipole interaction is chosen to be a typical value
+$\epsilon_{dd}=0.83$ \citep{Bigagli2023}. In the strong-dissipation regime,
+the peak frequency is nearly independent of the direction $\theta_{\bm{k}}$
+since the system is dominated by the dissipation. In the strong-interaction regime, the peak frequency $\omega_{\text{peak}}=\text{argmax}_{\omega}A(\bm{k},\omega)$
+is more sensitive to the direction and $\omega_{\mathrm{peak}}$ exhibits the well-known spectrum of an interacting BEC \citep{Schmitt2015} in a closed system which confirms
+our calculation. 
+%There always exists one peak in both cases for given momentum and the strength of interaction and the peak is broadened by the dissipation as one can expect (see Supplemental Material~\cite{SupplementaryMaterial} for 3D plot of the spectral functions). This broadening indicates the finite lifetime of quasiparticles in the systems. This spectral function can be measured in the state-of-the-art experimental platform and provides a test for our results.
+
+\begin{figure}
+\includegraphics[width=1\columnwidth]{dipole_dipole_peak_value}
+
+\caption{The peak frequency of the spectral function $A$ of the dissipative
+BEC (\ref{eq:spectrum_function}) as a function of the  kinetic energy
+$\epsilon=\frac{|\bm{k}|^{2}}{2m}$ in different limits and different
+directions. Here we choose $\epsilon_{dd}=0.83.$ Figures a,c and e show the strong repulsive interaction limit where $U_{R}n=1.0$ a.u. and  $\gamma n=0.1$ a.u.. Figures b,d and f show the strong dissipation
+limit where $U_{R}n=0.1$ a.u. and $\gamma n=1.0$ a.u.. From top to
+bottom, the directions are $\theta=0,\pi/4,\pi/2$.
+In the regime $\tilde{U}_{R}\gg\gamma$, $\omega_{\mathrm{peak}}$
+exhibits behavior initially following a square-root trent and subsequently
+transitioning to a linear relationship with $\epsilon$, consistent
+with the spectrum of the interacting BEC in a closed system. In the
+strong dissipation regime, the peak is less sensitive to the direction
+and shows a bending at $\epsilon=1.0$ a.u. where the real part of the
+spectrum increases. }
+
+\label{fig1}
+\end{figure}
+\end{comment}
+The excitation spectrum can be read from the poles of the Green's function. Requiring that $\mathrm{det}\begin{pmatrix}h_{+}^{2\times2} & B\\
+	B^{\dagger} & h_{-}^{2\times2}
+	\end{pmatrix}$ to be zero leads to a fourth-order equation of $\omega$, which
+has the following solutions \citep{SupplementaryMaterial}:
+\begin{equation}
+\begin{aligned}\omega_{1,2} & =-2i\gamma n\pm\sqrt{\epsilon_{\tmmathbf{k}}(\epsilon_{\tmmathbf{k}}+2\tilde{U}_{R}(\bm{k})n)-\gamma^{2}n^{2}},\\
+\omega_{3,4} & =2i\gamma n\pm\sqrt{\epsilon_{\tmmathbf{k}}(\epsilon_{\tmmathbf{k}}+2\tilde{U}_{R}(\bm{k})n)-\gamma^{2}n^{2}}.
+\end{aligned}
+\label{eq:complex_spectrum}
+\end{equation}
+The Solutions $\omega_{1,2}$ originate from the poles of we retarded Green function, which we recognize as the excitation
+spectra of the Bogoliubov quasiparticles of the retarded bosonic operators. Similarly, $\omega_{3,4}$
+are complex conjugate to $\omega_{1,2}$, representing spectra of
+Bogoliubov quasiparticles of advanced bosonic operators. Spectra $\omega_{1,2}$ can be also obtained from the Gross-Pitaevskii equation~\cite{liu2022weakly}. Alternatively,
+$\omega_{3,4}$ are the negative of $\omega_{2,1}$, thus representing
+the propagation in reverse time \footnote{Due to the nonunitary Bogoliubov transformation, the amplitude modes have mixed with the phase modes, leading to the difference between the spectrums of the NG mode and that of the bosonic operators.}. For the condensation part where $\epsilon_{\tmmathbf{k}}=0$,
+Eq. (\ref{eq:complex_spectrum}) reduces to $\omega=\pm3i\gamma n,\pm i\gamma n$.
+This purely imaginary eigenspectrum also indicates the decay of the
+density of the BEC $n(t)$, agreeing with the previous result \cite{Ce2022}.  
+
+
+We can also investigate the stability of the dissipative BEC via the complex spectra Eq. (\ref{eq:complex_spectrum}). The system is stable if and only if the retarded spectra $\omega_{1,2}$ has a negative imaginary number, which corresponds to a physical life time of the quasi particle. If there is no dipolar interaction, the Bose gas remains stable when $\gamma>|U_R|/\sqrt{3}$ when $U_R<0$ \cite{Ce2022} while in closed quantum system, an arbitrary attractive interaction can lead to unstability. In addition, in the presence of dipolar interaction, the system becomes stable when $\varepsilon_{dd}<1+\sqrt{3}\gamma/U_R$. This also supports that the dissipation induces an effective repulsive interaction between bosons. In Fig. \ref{fig:stable}, we show the stable and unstable region of the molecular BEC on the plane of $\varepsilon_{dd}$ and $\gamma/U_R$. We note that the two-body loss extend the stable region. This stability analysis sets the upper bound for the dipolar interaction strength in the molecular BEC. 
+\begin{figure}
+    \includegraphics[width=0.7\columnwidth]{Stable_Region.png}
+    
+    \caption{The stable and unstable region of molecular BEC on the plane of $\varepsilon_{dd}=\frac{8\pi c_{dd}}{3U_R}$ and $\gamma/U_R$. When there is no dissipation, the system becomes unstable when $\epsilon_{dd}>1$. In the dissipative superfluids, the system becomes stable when $\epsilon_{dd}<1+\sqrt{3}\gamma/U_R$. The two-body loss extend the stable region of the superfluids. }
+    
+       \label{fig:stable}
+\end{figure}
+
+
+To observe this complex spectra, we propose that one can measure the spectral function in experiment, which is defined as 
+\begin{equation}
+	\begin{aligned}A(\bm{k},\omega) & =\frac{i}{2\pi}(G^{>}(\bm{k},\omega)+G^{<}(\bm{k},\omega))\end{aligned}
+	,\label{eq:spectrum_function}
+\end{equation}
+where the lesser (greater) Green function is defined as $G^{\overset{<}{>}}(\bm{k},\omega):=-i\langle a_{\tmmathbf{k},\omega,\pm}a_{\tmmathbf{k},\omega,\mp}^{\dagger}\rangle$.
+Its expression is shown in Supplemental Material \cite{SupplementaryMaterial}. We emphasize that the peak frequency of the spectral function $\omega_{\mathrm{peak}}=\mathrm{argmax_\omega}A(\bm{k},\omega)$, encoding the information of the complex spectra, shows distinct behavior in the weak dissipation limit and the strong dissipation limit. This serves as an experimental test to verify our analysis.
+
+%Another interesting thing is to note that when $\epsilon_{\tmmathbf{k}}(\epsilon_{\tmmathbf{k}}+2U_{R}n)\leq\gamma^{2}n^{2}$, the eigenspectrums are always purely imaginary. On the other hand, when $\epsilon_{\tmmathbf{k}}(\epsilon_{\tmmathbf{k}}+2U_{R}n)>\gamma^{2}n^{2}$, the real part of $\omega_{1(2)}$ equals to $\omega_{3(4)}$ and opposite to $\omega_{2,4(1,3)}$. Hence, we always has the relation $\tmop{Re}(\omega_{1})=\tmop{Re}(\omega_{3})=-\tmop{Re}(\omega_{2})=-\tmop{Re}(\omega_{4})$, which indicates that there is only one nontrivial real part in the four branches of the eigenspectrums and the dissipation only splits the imaginary part.
+
+\emph{Experimental Realization.---}We explores the experimental viability of the model considered above. Here we propose a method to measure a dissipative superfluid in an ultracold atomic system, which incorporates techniques established in the state-of-the-art platform \citep{PhysRevLett.104.030401}. Initially, a uniform BEC of polarized NaCs molecules can be prepared within a toroidal ring trap \citep{PhysRevLett.104.030401,PhysRevLett.110.025302}. To measure the superfluid density, one may apply an optically induced azimuthal vector field to simulate a uniform rotation. As a result, the normal fluid component will be driven to rotate in the trap while the superfluid component remains at rest. Thus, the superfluid density can be inferred from the fluid's total angular momentum $\langle L\rangle$ expressed as \cite{PhysRevLett.104.030401}
+\begin{equation}
+	\frac{\rho_{\mathrm{s}}}{\rho_{\mathrm{t}}}=1-\lim_{\omega_{\mathrm{eff}}\to0}\frac{\langle L\rangle}{I_{\mathrm{cl}}\omega_{\mathrm{eff}}},
+\end{equation}
+where $\omega_{\mathrm{eff}}$ is proportional to $\Delta l$ and $I_{\mathrm{cl}}$ represents the classical moment of inertia of the fluid. $\langle L\rangle$ can also be measured from spectroscopy \cite{PhysRevLett.104.030401}.
+
+In addition, the spectral function can also be assessed using angle-resolved
+photoemission spectroscopy in ultracold atomic systems~\citep{Brown2020,PhysRevB.97.125117}. The molecules are excited to an untrapped state by a radio-frequency pulse which transfers negligible momentum. The original momentum of the atom $\bm{k}$ is thus determined from the time-of-flight absorption image. The energy can be determined from the radio-frequency pulse. By measuring the number of atoms with given momentum and energy, we can obtain the spectral function of the dissipative bosonic system. The anisotropic spectrum is also hopefully to be observed by Bragg spectroscopy~\cite{Bismut2012}.
+
+However, due to the difficulty of controlling the dipolar and contact interaction strengths, the spectral function may not be fully measured in the molecular systems. In the experiments of a molecular BEC \cite{Bigagli2023}, we have $a_i=5.89\times10^{-9}\text{cm}=1.113a_0\ll a_{s},a_{dd}$. Hence, to observe Fig. \ref{fig1} b,d,f, we also propose an experiment in atomic systems. A uniform BEC of ${}^{23}\text{Na}$ or ${}^{87}\text{Rb}$ atoms can also be prepared within a trap. The interaction strength $U_{R}$ between atoms can be modulated using the Feshbach resonance \citep{Donley2002,PhysRevLett.115.265302,Inouye1998,RevModPhys.82.1225,Winkler2006},
+regarding in which region $U_{R}(\gg\gamma\ \mathrm{or\ \ll\gamma)}$
+is studied while the dipolar interaction is very weak in the atomic system. To induce the two-body loss, a perpendicular laser is
+injected to the ring trap which induces photoassociation \citep{PhysRevLett.88.120403,doi:10.1126/sciadv.1701513,PhysRevLett.101.060406,PhysRevLett.121.073202,PhysRevLett.130.063001}, combining two atoms into a molecule and escape from the trap.
+
+
+%This vector field is achieved by using another two copropagating Laguerre-Gauss (LG) beams \citep{PhysRevLett.104.030401}, perpendicular to the ring trap, with different orbital angular momenta $\Delta l$. These beams will couple $m_{F}=-1,0,1$. As a result, the two-photon Raman transition imparts angular momentum proportional to $\Delta l$ to the normal fluid component. However, the superfluid component remains unaffected in terms of the average angular momentum. 
+
+%The energy $E$ is calculated as 
+%\begin{equation}
+%	E=\frac{\hbar^{2}|\bm{k}|^{2}}{2m}-\hbar(\nu-\nu_{0}),
+%\end{equation}
+%where $\nu$ is the radio pulse frequency and the $\nu_{0}$ is the energy level splitting of the atom. 
+
+
+\emph{Conclusion.---}In this Letter, we investigate the
+transport property of a dissipative molecular BEC with two-body loss and
+unveil that superfluidity can be induced solely through dissipation
+without interaction $U_{R}$. 
+%We find that all the particles in the condensation part engage in the superfluid transport even without interaction between bosons and also discover the existence of the quantum depletion part induced by dissipation.
+We demonstrate that the normal fluid density is always zero, i.e., all the bosons engage in superfluid transport even without interactions between bosons. We also point out the existence of the quantum depletion part induced by dissipation, which is nonvanishing but small compared to the condensate part, supporting our mean-field approximation. This finding demonstrates that dissipation can stimulate an effective repulsive interactions among
+bosons and hence play a significant role in dissipative
+quantum many-body physics. We further investigate the spectrum and the stability of a dissipative molecular BEC, which can be observed from the spectral function. %The spectral function shows distinctive
+%behaviors in two different limits: the strong dissipation limit $(U_{R}\ll\gamma)$
+%or the strong repulsive interaction limit $(U_{R}\gg\gamma)$, which illustrates
+%that the dissipative superfluids are intrinsically different from the
+%conventional ones in closed quantum systems. 
+We have proposed
+a method for measuring the superfluid density and the spectral function
+of our dissipative BEC system. We also discuss how our theoretical results can be tested experimentally.
+
+While we have focused on a spinless dissipative molecular Bose-Einstein condensate, it is also worthwhile to consider the role of dissipation in spin-1 or spin-2 dissipative BECs. We also expect that the two-body loss can induce squeezing of the bosonic operators, which can be applied to dissipation engineering.
+
+We are grateful to Zongping Gong for fruitful discussion. H. L. is
+supported by Forefront Physics and Mathematics Program to Drive Transformation
+(FoPM), a World-leading Innovative Graduate Study (WINGS) Program,
+the University of Tokyo. M.N. is supported by JSPS KAKENHI Grant No.
+JP20K14383. M.U. is supported by JSPS KAKENHI Grant No. JP22H01152
+and the CREST program “Quantum Frontiers” of JST (Grand No. JPMJCR23I1).
+
+\bibliographystyle{apsrev4-2}
+\bibliography{MyNewCollection}
+
+\end{document}

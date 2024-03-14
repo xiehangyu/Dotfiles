@@ -1,0 +1,84 @@
+\subsection{Four-Point Measure:}
+
+It can eliminate the contact resistance of measurement setup. It is
+used to measure very small resistance, such as in superconductor.
+
+\subsection{Radiation frequency}
+
+The lowest order harmonic has the equation $fh=2eU$ or 
+\begin{equation}
+f=\frac{2eU}{h},
+\end{equation}
+ which will give the value $U$ as $U=2\times10^{-5}V$.
+
+For the second order harmonic, $f=\frac{4eU}{h}$ and $U=1\times10^{-5}V$.
+
+\subsection{2nd Josephson equation}
+
+Denote the scalar potential by $\Phi$. From the Schrodinger equation,
+we know that the time dependent of $\varphi$ is $\varphi(t)=-\frac{2e}{\hbar}\Phi t$.
+Therefore, from Eq. (2.8), we arrive at 
+\begin{align}
+\dot{\gamma} & =-\frac{2e}{\hbar}(\Phi_{2}-\Phi_{1})+\frac{2e}{\hbar}\int_{1}^{2}\frac{\dot{\overrightarrow{A}}}{c}\cdot\overrightarrow{ds}\nonumber \\
+ & =-\frac{2e}{\hbar}\int_{1}^{2}(\nabla\Phi-\frac{\dot{\overrightarrow{A}}}{c})\cdot\overrightarrow{ds}\nonumber \\
+ & =-\frac{2e}{\hbar}\int_{1}^{2}\overrightarrow{E}\cdot\overrightarrow{ds}=\frac{2e}{\hbar}U
+\end{align}
+Therefore, 
+\begin{equation}
+\dot{\gamma}-\frac{2e}{\hbar}U=0
+\end{equation}
+
+
+\subsection{Josephson effect and pendulum}
+From
+\begin{equation}
+I_{tot}=I_{c}\sin\gamma+\frac{U}{R_{n}}+C\dot{U}
+\end{equation}
+with $U=\frac{\hbar\dot{\gamma}}{2e}$, we have 
+\begin{equation}
+I_{tot}=I_{c}\sin\gamma+\frac{\hbar}{2eR_{n}}\dot{\gamma}+\frac{C\hbar}{2e}\ddot{\gamma}.
+\end{equation}
+We can also write it as 
+\begin{equation}
+\frac{I_{tot}}{I_{c}}=\sin\gamma+\frac{\Phi_{0}}{2\pi R_{n}I_{c}}\dot{\gamma}+\frac{C\Phi_{0}}{2\pi I_{c}}\ddot{\gamma}.
+\end{equation}
+We further introduce $t'=\sqrt{\frac{2\pi I_{c}}{C\Phi_{0}}}t$ to
+make the equation dimensionless:
+\begin{equation}
+\frac{I_{tot}}{I_{c}}=\sin\gamma+\frac{d\gamma}{dt'}\sqrt{\frac{\Phi_{0}}{2\pi R_{n}^{2}CI_{c}}}+\frac{d\gamma}{dt''},
+\end{equation}
+or 
+\begin{equation}
+a_{d}=\sin\gamma+\frac{1}{\beta_{c}^{2}}\frac{d\gamma}{dt'}+\frac{d\gamma}{dt''}.
+\end{equation}
+In classical mechanics, the pendulum has the equation
+\begin{equation}
+ml^{2}\ddot{\theta}+mgl\sin\theta+f\dot{\theta}=L_{d},
+\end{equation}
+where $f$ is the damping moment caused by friction, $L_{d}$ is the
+external driven moment. We can see that 
+\begin{equation}
+\begin{cases}
+\gamma & =\theta;\\
+I_{c} & =mgl;\\
+\frac{\Phi_{0}}{2\pi R_{n}} & =f;\\
+\frac{C\Phi_{0}}{2\pi} & =ml^{2};\\
+I_{tot} & =L_{d}.
+\end{cases}
+\end{equation}
+
+
+\subsection{Gauge invariant}
+
+It is well known that the $\overrightarrow{E}$ is gauge invariant.
+We only need to show that $\gamma$ is gauge invariant. Actually,
+under gauge transformation, 
+\begin{align}
+\frac{2e}{\hbar c}\int_{1}^{2}\overrightarrow{A}\cdot\overrightarrow{s} & \to\frac{2e}{\hbar c}\int_{1}^{2}\overrightarrow{A}\cdot\overrightarrow{s}+\frac{2e}{\hbar c}\int_{1}^{2}\nabla\chi\overrightarrow{ds}\nonumber \\
+ & =\frac{2e}{\hbar c}\int_{1}^{2}\overrightarrow{A}\cdot\overrightarrow{s}+\frac{2e}{\hbar c}(\chi_{2}-\chi_{1})
+\end{align}
+and 
+\begin{equation}
+\varphi_{2}-\varphi_{1}\to\varphi_{2}-\varphi_{1}-\frac{2e}{\hbar c}(\chi_{2}-\chi_{1})
+\end{equation}
+Therefore, $\gamma$ is gauge invariant. 

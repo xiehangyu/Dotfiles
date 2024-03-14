@@ -1,0 +1,597 @@
+\documentclass[aps,onecolumn,superscriptaddress,notitlepage,longbibliography]{revtex4-1}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{feynmf}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{xfrac}
+\usepackage[colorlinks,citecolor=blue]{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{longtable,booktabs}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{subfigure}
+\usepackage{dsfont}
+\usepackage{booktabs}
+\usepackage{amsbsy}
+\usepackage{dcolumn}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{esint}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsbsy}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{extarrows}
+\usepackage{datetime}
+\usepackage{comment}
+\usepackage[super]{nth}
+%%%%%%%%%% Start TeXmacs macros
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\catcode`\>=\active \def>{
+\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmfloatcontents}{}
+\newlength{\tmfloatwidth}
+\newcommand{\tmfloat}[5]{
+  \renewcommand{\tmfloatcontents}{#4}
+  \setlength{\tmfloatwidth}{\widthof{\tmfloatcontents}+1in}
+  \ifthenelse{\equal{#2}{small}}
+    {\setlength{\tmfloatwidth}{0.45\linewidth}}
+    {\setlength{\tmfloatwidth}{\linewidth}}
+  \begin{minipage}[#1]{\tmfloatwidth}
+    \begin{center}
+      \tmfloatcontents
+      \captionof{#3}{#5}
+    \end{center}
+  \end{minipage}}
+%%%%%%%%%% End TeXmacs macros
+
+\begin{document}
+
+\title{Supplementary Points}
+
+\maketitle
+
+\section{Phase Difference between Contours}
+
+Previously we take the mean-field approximation
+\begin{equation}
+  a_{0 +}^{\dagger} = a_{0 -}^{\dagger} = a_{0 +} = a_{0 -} \approx \sqrt{N} .
+\end{equation}
+However, if the coupling between two contours is introduced, there may exist a
+phase different between the two contours. Hence, we need to assume
+\begin{equation}
+  a_{0 -} = \sqrt{N} e^{i \theta_-}, a_{0 -}^{\dagger} = \sqrt{N} e^{- i
+  \theta_-}, a_{0 +} = \sqrt{N} e^{i \theta_+}, a_{0 +}^{\dagger} = \sqrt{N}
+  e^{- i \theta_+} .
+\end{equation}
+Hence, the mean-field action can be rewritten as
+\begin{eqnarray}
+  S & = & \int_{- \infty}^{\infty} d t \left[ \sum_{\tmmathbf{k}}
+  (a^{\dagger}_{\tmmathbf{k}+} i \partial_t a_{\tmmathbf{k}+} -
+  a^{\dagger}_{\tmmathbf{k}-} i \partial_t a_{\tmmathbf{k}-}) - H_+' + H'_- -
+  4 i \gamma n \sum_{\tmmathbf{k}} a_{\tmmathbf{k}-}^{\dagger}
+  a_{\tmmathbf{k}+} e^{i (\theta_+ - \theta_-)} \right] \nonumber\\
+  &  & + \int_{- \infty}^{\infty} d t [i \gamma n N (1 - e^{2 i (\theta_+ -
+  \theta_-)})], 
+\end{eqnarray}
+where
+\begin{equation}
+  H_{\alpha}' = \frac{U_R n}{2} N + \sum_{\tmmathbf{k}} \left[
+  (\varepsilon_{\tmmathbf{k}} + U_R n - 2 i \alpha \gamma n) a_{\tmmathbf{k}
+  \alpha}^{\dagger} a_{\tmmathbf{k} \alpha} + \frac{U^{\ast} n}{2}
+  a_{-\tmmathbf{k} \alpha} a_{\tmmathbf{k} \alpha} e^{- 2 i \theta_{\alpha}} +
+  \frac{U n}{2} a_{\tmmathbf{k} \alpha}^{\dagger} a_{-\tmmathbf{k}
+  \alpha}^{\dagger} e^{2 i \theta_{\alpha}} \right] .
+\end{equation}
+To remove the phases in $H_{\alpha}$, we substitute the fields
+$a_{\tmmathbf{k} \alpha}$ with $a_{\tmmathbf{k} \alpha} e^{i
+\theta_{\alpha}}$. Then the action becomes
+\begin{eqnarray}
+  S & = & \int_{- \infty}^{\infty} d t \left[ \sum_{\tmmathbf{k}}
+  (a^{\dagger}_{\tmmathbf{k}+} i \partial_t a_{\tmmathbf{k}+} -
+  a^{\dagger}_{\tmmathbf{k}-} i \partial_t a_{\tmmathbf{k}-}) - H_+ + H_- - 4
+  i \gamma n \sum_{\tmmathbf{k}} a_{\tmmathbf{k}-}^{\dagger} a_{\tmmathbf{k}+}
+  e^{2 i (\theta_+ - \theta_-)} \right] \nonumber\\
+  &  & + \int_{- \infty}^{\infty} d t [i \gamma n N (1 - e^{2 i (\theta_+ -
+  \theta_-)})] . 
+\end{eqnarray}
+If there is no dissipation, we can always fix the gauge $\theta_+ - \theta_- =
+0$. When the dissipation is exhibited, we can assume that $\theta_+ -
+\theta_-$ is an analytic function of the dissipation $\gamma$. Hence, we can
+see the difference of the phase brings a correction with the order $O
+(\gamma^2 n^2)$, which is ignorable. In the following calculation we ignore
+this phase difference.
+
+We show this point in another way. The Heisenberg equation of the operator
+$a_{\tmmathbf{k}}$ is given by
+\begin{eqnarray}
+  \frac{d a_{\tmmathbf{k}}}{d t} & = & - i [a_{\tmmathbf{k}}, H] -
+  \frac{\gamma}{2 V} \sum_{\tmmathbf{p}, \tmmathbf{q}, \tmmathbf{l}} \{
+  a_{\tmmathbf{k}}, a_{\tmmathbf{l}}^{\dagger} a^{\dagger}_{\tmmathbf{p}}
+  a_{\tmmathbf{p -} \tmmathbf{q}} a_{\tmmathbf{l +} \tmmathbf{q}} \} +
+  \frac{\gamma}{V} \sum_{\tmmathbf{p}, \tmmathbf{q}, \tmmathbf{l}}
+  a_{\tmmathbf{l}}^{\dagger} a^{\dagger}_{\tmmathbf{p}} a_{\tmmathbf{k}}
+  a_{\tmmathbf{p -} \tmmathbf{q}} a_{\tmmathbf{l +} \tmmathbf{q}} \nonumber\\
+  & = & - i \varepsilon_{\tmmathbf{k}} a_{\tmmathbf{k}} - i \frac{U_R - i
+  \gamma}{2 V} \sum_{\tmmathbf{p}, \tmmathbf{q}} (a^{\dagger}_{\tmmathbf{p}}
+  a_{\tmmathbf{p -} \tmmathbf{q}} a_{\tmmathbf{k} \tmmathbf{+} \tmmathbf{q}} +
+  a^{\dagger}_{\tmmathbf{p}} a_{\tmmathbf{k} \tmmathbf{-} \tmmathbf{q}}
+  a_{\tmmathbf{p} \tmmathbf{+} \tmmathbf{q}}) \nonumber\\
+  & = & - i \varepsilon_{\tmmathbf{k}} a_{\tmmathbf{k}} - i \frac{U_R - i
+  \gamma}{V} \sum_{\tmmathbf{p}, \tmmathbf{q}} a^{\dagger}_{\tmmathbf{p}}
+  a_{\tmmathbf{p -} \tmmathbf{q}} a_{\tmmathbf{k} \tmmathbf{+} \tmmathbf{q}} .
+\end{eqnarray}
+By definition of the phase of the condensate, we can remove the phase by the
+transformation
+\begin{equation}
+  a_{\tmmathbf{k}} \rightarrow a_{\tmmathbf{k}} e^{i \theta} .
+\end{equation}
+
+\section{Green's Function}
+
+Here we show the Green's function of the dissipative superfluids. The
+correlation-function matrix takes the form of
+\begin{eqnarray}
+  G & = & \left\langle \left(\begin{array}{c}
+    a_{k \tmmathbf{, +}}\\
+    a^{\dagger}_{- k \tmmathbf{, +}}\\
+    a_{k, -}\\
+    a^{\dagger}_{- k, -}
+  \end{array}\right) \left(\begin{array}{cccc}
+    a^{\dagger}_{k, +} & a_{- k, +} & a^{\dagger}_{k, -} & a_{- k, -}
+  \end{array}\right) \right\rangle \nonumber\\
+  & = & \left(\begin{array}{cccc}
+    - \frac{\varepsilon_{\tmmathbf{k}} + U_R n - 2 i \gamma n - \omega}{2} & -
+    \frac{U n}{2} &  & \\
+    - \frac{U^{\ast} n}{2} & - \frac{\varepsilon_{\tmmathbf{k}} + U_R n - 2 i
+    \gamma n + \omega}{2} &  & - 2 i \gamma n\\
+    - 2 i \gamma n &  & \frac{\varepsilon_{\tmmathbf{k}} + U_R n + 2 i \gamma
+    n - \omega}{2} & \frac{U n}{2}\\
+    &  & \frac{U^{\ast} n}{2} & \frac{\varepsilon_{\tmmathbf{k}} + U_R n + 2
+    i \gamma n + \omega}{2}
+  \end{array}\right)^{- 1} . 
+\end{eqnarray}
+By directly deriving the inverse matrix, we have the following Green's
+function:
+\begin{eqnarray}
+  G^T & \equiv & \langle a_{k, +} a^{\dagger}_{k, +} \rangle \nonumber\\
+  & = & \frac{2 (\omega + U_R n - 2 i \gamma n + \varepsilon_{\tmmathbf{k}})
+  (\omega^2 - \varepsilon_{\tmmathbf{k}}^2 - 2 \varepsilon_{\tmmathbf{k}} (U_R
+  n + 2 i \gamma n) + \gamma n (5 \gamma n - 4 i U_R n))}{\omega^4 + 2 (5
+  \gamma^2 n^2 - \varepsilon_{\tmmathbf{k}} (\varepsilon_{\tmmathbf{k}} + 2
+  U_R n)) \omega^2 + [\varepsilon_{\tmmathbf{k}} (\varepsilon_{\tmmathbf{k}} +
+  2 U_R n) + 3 \gamma^2 n^2]^2}, \\
+  G^{<} & \equiv & \langle a_{k, +} a^{\dagger}_{k, -} \rangle \nonumber\\
+  & = & \frac{- 8 i \gamma n (U_R^2 n^2 + \gamma^2 n^2)}{\omega^4 + 2 (5
+  \gamma^2 n^2 - \varepsilon_{\tmmathbf{k}} (\varepsilon_{\tmmathbf{k}} + 2
+  U_R n)) \omega^2 + [\varepsilon_{\tmmathbf{k}} (\varepsilon_{\tmmathbf{k}} +
+  2 U_R n) + 3 \gamma^2 n^2]^2}, \\
+  G^{>} & = & \langle a_{k, -} a_{k, +}^{\dagger} \rangle \nonumber\\
+  & = & \frac{- 8 i \gamma n ((\omega + \varepsilon_{\tmmathbf{k}} + U_R n)^2
+  + 4 \gamma^2 n^2)}{\omega^4 + 2 (5 \gamma^2 n^2 - \varepsilon_{\tmmathbf{k}}
+  (\varepsilon_{\tmmathbf{k}} + 2 U_R n)) \omega^2 +
+  [\varepsilon_{\tmmathbf{k}} (\varepsilon_{\tmmathbf{k}} + 2 U_R n) + 3
+  \gamma^2 n^2]^2}, \\
+  G^{\tilde{T}} & = & \langle a_{k, -} a_{k, -}^{\dagger} \rangle \nonumber\\
+  & = & \frac{2 (\omega + U_R n + 2 i \gamma n + \varepsilon_{\tmmathbf{k}})
+  (- \omega^2 + \varepsilon_{\tmmathbf{k}}^2 + 2 \varepsilon_{\tmmathbf{k}}
+  (U_R n - 2 i \gamma n) - \gamma n (5 \gamma n + 4 i U_R n))}{\omega^4 + 2 (5
+  \gamma^2 n^2 - \varepsilon_{\tmmathbf{k}} (\varepsilon_{\tmmathbf{k}} + 2
+  U_R n)) \omega^2 + [\varepsilon_{\tmmathbf{k}} (\varepsilon_{\tmmathbf{k}} +
+  2 U_R n) + 3 \gamma^2 n^2]^2} . 
+\end{eqnarray}
+From these expression we can see the fundamental relation: $G^T = -
+(G^{\tilde{T}})^{\ast}$. To observe the spectrum function, we need first
+investigate the retarded Green's function, which is given by the relation
+\begin{eqnarray}
+  \left(\begin{array}{cc}
+    G^K & G^R\\
+    G^A & 0
+  \end{array}\right) & = & \left(\begin{array}{cc}
+    1 & 1\\
+    1 & - 1
+  \end{array}\right) \left(\begin{array}{cc}
+    G^T & G^{<}\\
+    G^{>} & G^{\tilde{T}}
+  \end{array}\right) \left(\begin{array}{cc}
+    1 & 1\\
+    1 & - 1
+  \end{array}\right) . 
+\end{eqnarray}
+Therefore, the retarded, advanced and Keldysh Green's functions are given by
+\begin{eqnarray}
+  G^K & = & \frac{- 8 i \gamma n ((\omega + \varepsilon_{\tmmathbf{k}} + U_R
+  n)^2 + U_R^2 n^2 + 5 \gamma^2 n^2)}{\omega^4 + 2 (5 \gamma^2 n^2 -
+  \varepsilon_{\tmmathbf{k}} (\varepsilon_{\tmmathbf{k}} + 2 U_R n)) \omega^2
+  + [\varepsilon_{\tmmathbf{k}} (\varepsilon_{\tmmathbf{k}} + 2 U_R n) + 3
+  \gamma^2 n^2]^2}, \\
+  G^R & = & \frac{2 (\omega + \varepsilon_{\tmmathbf{k}} + U_R n + 2 i \gamma
+  n)}{\omega^2 + 4 i \gamma n \omega - \varepsilon_{\tmmathbf{k}}^2 - 2 U_R n
+  \varepsilon_{\tmmathbf{k}} - 3 \gamma^2 n^2}, \\
+  G^A & = & \frac{2 (\omega + \varepsilon_{\tmmathbf{k}} + U_R n - 2 i \gamma
+  n)}{\omega^2 - 4 i \gamma n \omega - \varepsilon_{\tmmathbf{k}}^2 - 2 U_R n
+  \varepsilon_{\tmmathbf{k}} - 3 \gamma^2 n^2} = (G^R)^{\ast} . 
+\end{eqnarray}
+Based on the retarded Green's function, we obtain the spectrum function as
+\begin{equation}
+  A (\omega) = - 2 \tmop{Im} G^R (\omega) = \frac{8 \gamma n (3 \gamma^2 n^2 +
+  (\omega + \varepsilon_{\tmmathbf{k}}) (\omega + \varepsilon_{\tmmathbf{k}} +
+  2 U_R n))}{\omega^4 + 2 (5 \gamma^2 n^2 - \varepsilon_{\tmmathbf{k}}
+  (\varepsilon_{\tmmathbf{k}} + 2 U_R n)) \omega^2 +
+  [\varepsilon_{\tmmathbf{k}} (\varepsilon_{\tmmathbf{k}} + 2 U_R n) + 3
+  \gamma^2 n^2]^2} .
+\end{equation}
+The diagrams of the spectrum Green's function are depicted below for some
+given momenum $\tmmathbf{k}$. When $U_R = 0$, the spectrum function becomes
+\begin{equation}
+  A (\omega) = \frac{8 \gamma n (3 \gamma^2 n^2 + (\omega +
+  \varepsilon_{\tmmathbf{k}})^2)}{\omega^4 + 2 (5 \gamma^2 n^2 -
+  \varepsilon_{\tmmathbf{k}}^2) \omega^2 + [\varepsilon_{\tmmathbf{k}}^2 + 3
+  \gamma^2 n^2]^2} = \frac{8}{\gamma n} \frac{3 + (\omega' +
+  \varepsilon')^2}{{\omega'}^4 + 2 \left( {5 - \varepsilon'}^2 \right)
+  {\omega'}^2 + \left( {\varepsilon'}^2 + 3 \right)^2},
+\end{equation}
+where $\omega' = \omega / \gamma n, \varepsilon' = \varepsilon_{\tmmathbf{k}}
+/ \gamma n$.
+\includegraphics*[width=0.5\linewidth]{./figs/spectrum.pdf}
+
+\section{How many spectrums are there in the system?}
+
+Previously, we have introduced four spectrums by figuring out the poles in
+Green's function. However, they are not indepedent to each other. The poles
+are given by the equation
+\begin{equation}
+  \omega^4 + 2 (5 \gamma^2 n^2 - \varepsilon_{\tmmathbf{k}}
+  (\varepsilon_{\tmmathbf{k}} + 2 U_R n)) \omega^2 +
+  [\varepsilon_{\tmmathbf{k}} (\varepsilon_{\tmmathbf{k}} + 2 U_R n) + 3
+  \gamma^2 n^2]^2 = 0.
+\end{equation}
+Nevertheless, the polynomial on the L.H.S can be factorized as
+\begin{equation}
+  (\omega^2 + 4 i \gamma n \omega - \varepsilon_{\tmmathbf{k}}^2 - 2 U_R n
+  \varepsilon_{\tmmathbf{k}} - 3 \gamma^2 n^2) (\omega^2 - 4 i \gamma n \omega
+  - \varepsilon_{\tmmathbf{k}}^2 - 2 U_R n \varepsilon_{\tmmathbf{k}} - 3
+  \gamma^2 n^2) . \label{eq:poles}
+\end{equation}
+The solutions to Eq. (19) can be expressed as
+\begin{eqnarray}
+  \omega_{1, 2} & = & - 2 i \gamma n \pm \sqrt{\varepsilon_{\tmmathbf{k}}
+  (\varepsilon_{\tmmathbf{k}} + 2 U_R n) - \gamma^2 n^2}, \\
+  \omega_{3, 4} & = & 2 i \gamma n \pm \sqrt{\varepsilon_{\tmmathbf{k}}
+  (\varepsilon_{\tmmathbf{k}} + 2 U_R n) - \gamma^2 n^2} . 
+\end{eqnarray}
+For those momentum satisfying $\varepsilon_{\tmmathbf{k}}
+(\varepsilon_{\tmmathbf{k}} + 2 U_R n) < \gamma^2 n^2$, the real parts of all
+the spectrums are zero. For those momentum satisfying
+$\varepsilon_{\tmmathbf{k}} (\varepsilon_{\tmmathbf{k}} + 2 U_R n) > \gamma^2
+n^2$, the real parts of $\omega_{1 (2)}$ are equal to $\omega_{3 (4)}$. The
+relations are given by $\omega_1 = \omega_3^{\ast}$ and $\omega_2 =
+\omega_4^{\ast}$. Hence, we can reach the conclusion that
+\begin{equation}
+  \tmop{Re} [\omega_1] = \tmop{Re} [\omega_3] = - \tmop{Re} [\omega_2] = -
+  \tmop{Re} [\omega_4] .
+\end{equation}
+There is only one nontrivial real part in four spectrums.
+
+\section{Bogoliubov Diagonalization}
+
+We begin with the Bogoliubov transformation in the closed quantum systems. The
+mean-field Hamiltonian takes the form of
+\begin{equation}
+  H = \frac{1}{2} \left(\begin{array}{cc}
+    a_k^{\dagger} & a_{- k}
+  \end{array}\right) \left(\begin{array}{cc}
+    \varepsilon_{\tmmathbf{k}} + U n & U n\\
+    U n & \varepsilon_{\tmmathbf{k}} + U n
+  \end{array}\right) \left(\begin{array}{c}
+    a_k\\
+    a_{- k}^{\dagger}
+  \end{array}\right) .
+\end{equation}
+
+
+To derive the Bogoliubov diagonalization matrix, we first transform the matrix
+as
+\begin{equation}
+  \left(\begin{array}{cc}
+    \varepsilon_{\tmmathbf{k}} + U n & U n\\
+    U n & \varepsilon_{\tmmathbf{k}} + U n
+  \end{array}\right) \rightarrow \left(\begin{array}{cc}
+    \varepsilon_{\tmmathbf{k}} + U n & U n\\
+    U n & \varepsilon_{\tmmathbf{k}} + U n
+  \end{array}\right) \left(\begin{array}{cc}
+    1 & 0\\
+    0 & - 1
+  \end{array}\right) = \left(\begin{array}{cc}
+    \varepsilon_{\tmmathbf{k}} + U n & - U n\\
+    U n & - (\varepsilon_{\tmmathbf{k}} + U n)
+  \end{array}\right)
+\end{equation}
+since the commutation relation differs for different indices in the matrix.
+The eigenvectors of the matrix are
+\begin{eqnarray}
+  E_1 = \sqrt{\varepsilon_{\tmmathbf{k}} (\varepsilon_{\tmmathbf{k}} + 2 U n)}
+  & , & v_1 = \left( 1 + x^2 + x \sqrt{x^2 + 2}, 1 \right)^T, \\
+  E_2 = - \sqrt{\varepsilon_{\tmmathbf{k}} (\varepsilon_{\tmmathbf{k}} + 2 U
+  n)} & , & v_2 = \left( 1 + x^2 - x \sqrt{x^2 + 2}, 1 \right)^T, 
+\end{eqnarray}
+where $x = \sqrt{\varepsilon_{\tmmathbf{k}} / U n}$. Hence, the similar
+transformation can be written as
+\begin{equation}
+  U = \left(\begin{array}{cc}
+    1 + x^2 + x \sqrt{x^2 + 2} & 1 + x^2 - x \sqrt{x^2 + 2}\\
+    1 & 1
+  \end{array}\right) \equiv \left(\begin{array}{cc}
+    \frac{1}{\alpha} & \alpha\\
+    1 & 1
+  \end{array}\right),
+\end{equation}
+where $\alpha = 1 + x^2 - x \sqrt{x^2 + 2}$.
+
+To recover the Bogoliubov transformation, we renormalize each eigenvector as
+\begin{eqnarray}
+  v_1 & \rightarrow & \beta_1 v_1 = \left( \frac{1}{\sqrt{1 - \alpha^2}},
+  \frac{\alpha}{\sqrt{1 - \alpha^2}} \right)^T, \\
+  v_2 & \rightarrow & \beta_2 v_2 = \left( \frac{\alpha}{\sqrt{1 - \alpha^2}},
+  \frac{1}{\sqrt{1 - \alpha^2}} \right)^T, 
+\end{eqnarray}
+with $\beta_1 = \alpha / \sqrt{1 - \alpha^2}, \beta_2 = 1 / \sqrt{1 -
+\alpha^2}$. In this case we obtain the Bogoliubov transformation matrix
+\begin{equation}
+  U = \left(\begin{array}{cc}
+    \frac{1}{\sqrt{1 - \alpha^2}} & \frac{\alpha}{\sqrt{1 - \alpha^2}}\\
+    \frac{\alpha}{\sqrt{1 - \alpha^2}} & \frac{1}{\sqrt{1 - \alpha^2}}
+  \end{array}\right) . \label{Bogoliubov}
+\end{equation}
+In addition, we note that even though the original similar transformation is a
+little different from the Bogoliubov transformation in \eqref{Bogoliubov}, it
+can still be used to diagonalize the Hamiltonian.
+
+For the open quantum system, we still transform the matrix $G^{- 1}$ by
+\begin{equation}
+  G^{- 1} \rightarrow G^{- 1} \left(\begin{array}{cccc}
+    1 & 0 & 0 & 0\\
+    0 & - 1 & 0 & 0\\
+    0 & 0 & - 1 & 0\\
+    0 & 0 & 0 & 1
+  \end{array}\right) .
+\end{equation}
+Therefore, the Bogoliubov transformation matrix (unrenormalized one) is given
+by
+
+
+\includegraphics*[width=1.0\linewidth]{./figs/toolong.png}
+
+\section{Nambu-Goldstone Mode}
+
+To observe the Nambu-Goldstone mode, we first transform the action into
+another basis. By defining the retarded or advanced operators
+$a_{\tmmathbf{k}, R} = \frac{1}{2} (a_{\tmmathbf{k}, +} + a_{\tmmathbf{k},
+-})$ and $a_{\tmmathbf{k}, A} = a_{\tmmathbf{k}, +} - a_{\tmmathbf{k}, -}$.
+The action becomes
+\[ a^{\dagger}_{\tmmathbf{k}+} i \partial_t a_{\tmmathbf{k}+} -
+   a^{\dagger}_{\tmmathbf{k}-} i \partial_t a_{\tmmathbf{k}-} =
+   a^{\dagger}_{\tmmathbf{k}, A} i \partial_t a_{\tmmathbf{k}, R} +
+   a^{\dagger}_{\tmmathbf{k}, R} i \partial_t a_{\tmmathbf{k}, A}, \]
+\begin{eqnarray*}
+  - H_+ + H_- - 4 i \gamma n \sum_{\tmmathbf{k}} a_{\tmmathbf{k}-}^{\dagger}
+  a_{\tmmathbf{k}+} & = & \sum_{\tmmathbf{k}} - (\varepsilon_{\tmmathbf{k}} +
+  U_R n - 2 i \gamma n) a_{\tmmathbf{k}, A}^{\dagger} a_{\tmmathbf{k}, R} -
+  (\varepsilon_{\tmmathbf{k}} + U_R n + 2 i \gamma n) a_{\tmmathbf{k},
+  R}^{\dagger} a_{\tmmathbf{k}, A}\\
+  &  & - \frac{U^{\ast} n}{2} (a_{- \tmmathbf{k}, R} a_{\tmmathbf{k}, A} +
+  a_{- \tmmathbf{k}, A} a_{\tmmathbf{k}, R}) - \frac{U n}{2} (a_{\tmmathbf{k},
+  R}^{\dagger} a^{\dagger}_{- \tmmathbf{k}, A} + a^{\dagger}_{\tmmathbf{k}, A}
+  a^{\dagger}_{- \tmmathbf{k}, R}),
+\end{eqnarray*}
+Hence, we can reorganize the action as
+\begin{equation}
+  S = \frac{1}{2} \sum_{\tmmathbf{k}} \int \frac{d \omega}{2 \pi}
+  \left(\begin{array}{cccc}
+    a_{\tmmathbf{k}, R}^{\dagger} & a_{- \tmmathbf{k}, R} & a_{\tmmathbf{k},
+    A}^{\dagger} & a_{- \tmmathbf{k}, A}
+  \end{array}\right) \left(\begin{array}{cc}
+    O_{2 \times 2} & G\\
+    G^{\dagger} & 2i \gamma n I_{2 \times 2}
+  \end{array}\right) \left(\begin{array}{c}
+    a_{\tmmathbf{k}, R}\\
+    a_{- \tmmathbf{k}, R}^{\dagger}\\
+    a_{\tmmathbf{k}, A}\\
+    a_{- \tmmathbf{k}, A}^{\dagger}
+  \end{array}\right),
+\end{equation}
+where
+\begin{equation}
+  G = \left(\begin{array}{cc}
+    \omega - (\varepsilon_{\tmmathbf{k}} + U_R n + 2 i \gamma n) & - U n\\
+    - U^{\ast} n & - \omega - (\varepsilon_{\tmmathbf{k}} + U_R n - 2 i \gamma
+    n)
+  \end{array}\right) .
+\end{equation}
+The poles of the Green's function is given by
+\begin{equation}
+  \det (G) = 0 \Rightarrow (\omega - (\varepsilon_{\tmmathbf{k}} + U_R n + 2 i
+  \gamma n)) (\omega + (\varepsilon_{\tmmathbf{k}} + U_R n - 2 i \gamma n)) +
+  | U |^2 n^2 = 0.
+\end{equation}
+\begin{equation}
+  \det (G^{\dagger}) = 0 \Rightarrow (\omega - (\varepsilon_{\tmmathbf{k}} +
+  U_R n - 2 i \gamma n)) (\omega + (\varepsilon_{\tmmathbf{k}} + U_R n + 2 i
+  \gamma n)) + | U |^2 n^2 = 0.
+\end{equation}
+These two equations can be rewritten as
+\begin{eqnarray}
+  \omega^2 + 4 i \gamma n \omega - \varepsilon_{\tmmathbf{k}}^2 - 2 U_R n
+  \varepsilon_{\tmmathbf{k}} - 3 \gamma^2 n^2 & = & 0, \\
+  \omega^2 - 4 i \gamma n \omega - \varepsilon_{\tmmathbf{k}}^2 - 2 U_R n
+  \varepsilon_{\tmmathbf{k}} - 3 \gamma^2 n^2 & = & 0, 
+\end{eqnarray}
+which are equivalent to \ Eq.\ref{eq:poles}.
+
+In this way, we diagonalize the matrix in another convenient way. Here we
+define
+\begin{equation}
+  H = \left(\begin{array}{cc}
+    (\varepsilon_{\tmmathbf{k}} + U_R n + 2 i \gamma n) & U n\\
+    U^{\ast} n & (\varepsilon_{\tmmathbf{k}} + U_R n - 2 i \gamma n)
+  \end{array}\right) .
+\end{equation}
+To diagonalize the matrix $H$, we follow the same procedure above and
+transform $H$ as $H \sigma_z$. The problem is equivalent to diagonalize the
+matrix
+\begin{equation}
+  \left(\begin{array}{cc}
+    (\varepsilon_{\tmmathbf{k}} + U_R n + 2 i \gamma n) & - U n\\
+    U^{\ast} n & - (\varepsilon_{\tmmathbf{k}} + U_R n - 2 i \gamma n)
+  \end{array}\right) .
+\end{equation}
+The eigenvectors are given by
+\begin{eqnarray}
+  v_1 & = & \left( \frac{U_R n + \varepsilon_{\tmmathbf{k}} +
+  \sqrt{\varepsilon_{\tmmathbf{k}} (\varepsilon_{\tmmathbf{k}} + 2 U_R n) -
+  \gamma^2 n^2}}{U^{\ast} n}, 1 \right)^T \nonumber\\
+  & \equiv & \left( \frac{1}{\bar{\alpha}}, 1 \right)^T, \\
+  v_2 & = & \left( \frac{U_R n + \varepsilon_{\tmmathbf{k}} -
+  \sqrt{\varepsilon_{\tmmathbf{k}} (\varepsilon_{\tmmathbf{k}} + 2 U_R n) -
+  \gamma^2 n^2}}{U^{\ast} n}, 1 \right)^T \nonumber\\
+  & \equiv & (\alpha, 1)^T, 
+\end{eqnarray}
+with $\alpha = \frac{U_R n + \varepsilon_{\tmmathbf{k}} -
+\sqrt{\varepsilon_{\tmmathbf{k}} (\varepsilon_{\tmmathbf{k}} + 2 U_R n) -
+\gamma^2 n^2}}{U^{\ast} n}, \bar{\alpha} = \frac{U_R n +
+\varepsilon_{\tmmathbf{k}} - \sqrt{\varepsilon_{\tmmathbf{k}}
+(\varepsilon_{\tmmathbf{k}} + 2 U_R n) - \gamma^2 n^2}}{U n}$. We note that
+$\alpha^{\ast} = \bar{\alpha}$ only holds when $\varepsilon_{\tmmathbf{k}}
+(\varepsilon_{\tmmathbf{k}} + 2 U_R n) - \gamma^2 n^2 \geqslant 0$ which
+corresponds to a nontrivial real part. Therefore, the diagonalization matrix
+is given by
+\begin{equation}
+  U = \left(\begin{array}{cc}
+    \frac{1}{\bar{\alpha}} & \alpha\\
+    1 & 1
+  \end{array}\right) .
+\end{equation}
+By gauge transformation
+\begin{eqnarray}
+  v_1 & \rightarrow & \beta_1 v_1 = \left( \frac{1}{\sqrt{1 - \alpha
+  \bar{\alpha}}}, \frac{\bar{\alpha}}{\sqrt{1 - \alpha \bar{\alpha}}}
+  \right)^T, \\
+  v_2 & \rightarrow & \beta_2 v_2 = \left( \frac{\alpha}{\sqrt{1 - \alpha
+  \bar{\alpha}}}, \frac{1}{\sqrt{1 - \alpha \bar{\alpha}}} \right)^T, 
+\end{eqnarray}
+we obtain the Bogoliubov matrix for the retarded(classical) operators
+\begin{equation}
+  U = \left(\begin{array}{cc}
+    \frac{1}{\sqrt{1 - \alpha \bar{\alpha}}} & \frac{\alpha}{\sqrt{1 - \alpha
+    \bar{\alpha}}}\\
+    \frac{\bar{\alpha}}{\sqrt{1 - \alpha \bar{\alpha}}} & \frac{1}{\sqrt{1 -
+    \alpha \bar{\alpha}}}
+  \end{array}\right), \left(\begin{array}{cc}\bar{\beta}_{\tmmathbf{k}, R} &
+    \beta_{- \tmmathbf{k}, R}\end{array}\right) = \left(\begin{array}{cc}a^{\dagger}_{\tmmathbf{k}, R} &
+    a_{- \tmmathbf{k}, R}\end{array}\right)\left(\begin{array}{cc}
+    \frac{1}{\sqrt{1 - \alpha \bar{\alpha}}} & \frac{\alpha}{\sqrt{1 - \alpha
+    \bar{\alpha}}}\\
+    \frac{\bar{\alpha}}{\sqrt{1 - \alpha \bar{\alpha}}} & \frac{1}{\sqrt{1 -
+    \alpha \bar{\alpha}}}
+  \end{array}\right).\label{Eq:bogoliubov1}
+\end{equation}
+and the Bogoliubov matrix for the advanced(quantum) operators
+\begin{equation}
+  U^{- 1} = \left(\begin{array}{cc}
+    \frac{1}{\sqrt{1 - \alpha \bar{\alpha}}} & - \frac{\alpha}{\sqrt{1 -
+    \alpha \bar{\alpha}}}\\
+    - \frac{\bar{\alpha}}{\sqrt{1 - \alpha \bar{\alpha}}} & \frac{1}{\sqrt{1 -
+    \alpha \bar{\alpha}}}
+  \end{array}\right), \left(\begin{array}{c}
+    \beta_{\tmmathbf{k}, A}\\
+    \bar{\beta}_{- \tmmathbf{k}, A}
+  \end{array}\right) = \left(\begin{array}{cc}
+    \frac{1}{\sqrt{1 - \alpha \bar{\alpha}}} & \frac{\alpha}{\sqrt{1 - \alpha
+    \bar{\alpha}}}\\
+    \frac{\bar{\alpha}}{\sqrt{1 - \alpha \bar{\alpha}}} & \frac{1}{\sqrt{1 -
+    \alpha \bar{\alpha}}}
+  \end{array}\right) \left(\begin{array}{c}
+    a_{\tmmathbf{k}, A}\\
+    a^{\dagger}_{- \tmmathbf{k}, A}
+  \end{array}\right) . \label{Eq:bogoliubov2}
+\end{equation}
+
+
+Hence, the action becomes
+\begin{equation}
+  S = \frac{1}{2} \sum_{\tmmathbf{k}} \int \frac{d \omega}{2 \pi}
+  \left(\begin{array}{cccc}
+    \bar{\beta}_{\tmmathbf{k}, R} & \beta_{- \tmmathbf{k}, R} &
+    \bar{\beta}_{\tmmathbf{k}, A} & \beta_{- \tmmathbf{k}, A}
+  \end{array}\right) \left(\begin{array}{cc}
+    O_{2 \times 2} & i\partial_t \sigma_z-H'\\
+    i\partial_t \sigma_z-\bar{H'} & 2i \gamma n U^{-2} 
+  \end{array}\right) \left(\begin{array}{c}
+    \beta_{\tmmathbf{k}, R}\\
+    \bar{\beta}_{- \tmmathbf{k}, R}\\
+    \beta_{\tmmathbf{k}, A}\\
+    \bar{\beta}_{- \tmmathbf{k}, A}
+  \end{array}\right),
+\end{equation}
+where
+\begin{equation}
+  H' = \left(\begin{array}{cc}
+    - 2 i \gamma - \sqrt{\varepsilon_{\tmmathbf{k}}
+    (\varepsilon_{\tmmathbf{k}} + 2 U_R n) - \gamma^2 n^2} & 0\\
+    0 & - 2 i \gamma + \sqrt{\varepsilon_{\tmmathbf{k}}
+    (\varepsilon_{\tmmathbf{k}} + 2 U_R n) - \gamma^2 n^2}
+  \end{array}\right) , \label{Eq:Hprime}
+\end{equation}
+and 
+\begin{equation}
+  \bar{H'} = \left(\begin{array}{cc}
+    2 i \gamma - \sqrt{\varepsilon_{\tmmathbf{k}}
+    (\varepsilon_{\tmmathbf{k}} + 2 U_R n) - \gamma^2 n^2} & 0\\
+    0 &  2 i \gamma + \sqrt{\varepsilon_{\tmmathbf{k}}
+    (\varepsilon_{\tmmathbf{k}} + 2 U_R n) - \gamma^2 n^2}
+  \end{array}\right) ,
+\end{equation}
+\begin{equation}
+\left(\begin{array}{cc}\bar{\beta}_{\tmmathbf{k}, A} &
+  \beta_{- \tmmathbf{k}, A}\end{array}\right) = \left(\begin{array}{cc}a^{\dagger}_{\tmmathbf{k}, A} &
+  a_{- \tmmathbf{k}, A}\end{array}\right)\left(\begin{array}{cc}
+  \frac{1}{\sqrt{1 - \alpha \bar{\alpha}}} & \frac{\alpha}{\sqrt{1 - \alpha
+  \bar{\alpha}}}\\
+  \frac{\bar{\alpha}}{\sqrt{1 - \alpha \bar{\alpha}}} & \frac{1}{\sqrt{1 -
+  \alpha \bar{\alpha}}},
+  \end{array}\right), \,
+  \left(\begin{array}{c}
+    \beta_{\tmmathbf{k}, R}\\
+    \bar{\beta}_{- \tmmathbf{k}, R}
+  \end{array}\right) = \left(\begin{array}{cc}
+    \frac{1}{\sqrt{1 - \alpha \bar{\alpha}}} & \frac{\alpha}{\sqrt{1 - \alpha
+    \bar{\alpha}}}\\
+    \frac{\bar{\alpha}}{\sqrt{1 - \alpha \bar{\alpha}}} & \frac{1}{\sqrt{1 -
+    \alpha \bar{\alpha}}}
+  \end{array}\right) \left(\begin{array}{c}
+    a_{\tmmathbf{k}, R}\\
+    a^{\dagger}_{- \tmmathbf{k}, R}
+  \end{array}\right) .
+\end{equation} 
+
+In the above transformation, we can obtain $\bar{\beta}=\beta^\dagger$ when $k$ is large enough such that $\epsilon_{\tmmathbf{k}}(\epsilon_{\tmmathbf{k}}+2U_Rn)-\gamma^2n^2>0$.
+%By a slightly different choice, we can require $\bar{\beta}=\beta^\dagger$ since the original action is Hermitian. In this case, the Bogoliubov transformation is given by Eq. (\ref{Eq:bogoliubov1},\ref{Eq:bogoliubov2}) (one needs to replace $\bar{\beta}$ with $\beta^\dagger$) and their Hermitian conjugating. The diagonalized action is also Hermitian with $\bar{H'}=H'^\dagger$ and $H'$ given by Eq. (\ref{Eq:Hprime}).
+
+
+\end{document}

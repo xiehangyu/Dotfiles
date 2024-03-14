@@ -1,0 +1,7 @@
+{
+    "window.zoomLevel": 2,
+    "editor.wordWrap": "on",
+    "vim.vimrc.path": "$HOME/.vimrc",
+    "vim.vimrc.enable": true,
+    "security.workspace.trust.startupPrompt": "always"
+}

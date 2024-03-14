@@ -1,0 +1,172 @@
+\documentclass[english]{ctexart}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{verbose}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+\usepackage{graphicx}
+\usepackage[authoryear]{natbib}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{braket}
+\usepackage{tikz}
+%\usepackage{braket}
+%\usepackage{braket}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{diagbox}
+\usepackage{chngcntr}
+\lstset{
+numbers=left,
+framexleftmargin=10mm,
+frame=none,
+keywordstyle=\bf\color{blue},
+identifierstyle=\bf,
+numberstyle=\color[RGB]{0,192,192},
+commentstyle=\it\color[RGB]{0,96,96},
+stringstyle=\rmfamily\slshape\color[RGB]{128,0,0}
+}
+
+%\usetheme{Darmstadt}
+%\usetheme{Frankfurt}
+% or ...
+
+%\setbeamercovered{transparent}
+\lstdefinelanguage
+   [x64]{Assembler}     % add a "x64" dialect of Assembler
+   [x86masm]{Assembler} % based on the "x86masm" dialect
+   % with these extra keywords:
+   {morekeywords={CDQE,CQO,CMPSQ,CMPXCHG16B,JRCXZ,LODSQ,MOVSXD, %
+                  POPFQ,PUSHFQ,SCASQ,STOSQ,IRETQ,RDTSCP,SWAPGS, %
+                  rax,rdx,rcx,rbx,rsi,rdi,rsp,rbp, %
+                  r8,r8d,r8w,r8b,r9,r9d,r9w,r9b, %
+                  r10,r10d,r10w,r10b,r11,r11d,r11w,r11b, %
+                  r12,r12d,r12w,r12b,r13,r13d,r13w,r13b, %
+                  r14,r14d,r14w,r14b,r15,r15d,r15w,r15b,retq,callq,cmpl}} % etc.
+
+\lstset{language=[x64]Assembler}
+\counterwithin*{section}{part}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\title{对电流随光强增加而减小的文献总结}
+\author{戴梦佳\ \ PB20511879}
+
+\maketitle
+总体来说，光电流的产生包括两个步骤：
+\begin{enumerate}
+\item 光子将电子从价带打到导带，形成电子空穴对。
+\item 电子和空穴被输运到电极产生光电流，这其中包括电子与空穴的重新组合（recombination）。一旦电子与空穴重新组合，光电流就将减小（相当于载流子浓度减小了）。
+\end{enumerate}
+增加光强，第一个过程肯定是会被加强的。这将导致光电流的增加，但第二个过程随光强的变化关系未知，很可能是复杂的非线性关系，也不一定是单调的。由于最终测得的光电流是两个过程共同作用的结果，而由于第二个过程对光强的复杂依赖关系，最终的光电流的确可能随光强的增加不是单调的。这一现象也在其他文献不同体系中被观测到了。不过，这些文献大多也只给了定性的原理解释，很难给出定量的计算。
+
+\part{文献一:\emph{Light intensity-induced photocurrent switching effect(https://doi.org/10.1038/s41467-020-14675-5)}}
+
+\section{主要结论：}
+
+这篇文章观察到了光电流随光强的非单调变化，如图 （\ref{fig1}）所示。
+
+\begin{figure}
+\includegraphics[width=0.7\textwidth]{\string"Figure/Screenshot from 2023-04-01 23-38-52\string".png}
+
+\caption{光电流随光强变化}
+
+\label{fig1}
+\end{figure}
+在这幅图中，文章作者提出，净光电流随光强的增加先呈增加趋势，然后到达最大值后会减小，最终改变方向反向增加。更进一步，我们可以将净光电流分成阴极光电流和阳极光电流，净光电流为两者之差。阴极光电流先随光强增大迅速增大，之后达到饱和，而阳极光电流则始终增大。从而，在低光强下阴极电流占主导，高光强下阳极电流占主导，最终导致了光电流随光强的非单调变化。
+
+\section{实验设施:}
+
+\textbf{实验材料:} $ZnO$, $CA$和$C_{60}(OH)_{30-36}$的混合物。
+
+\textbf{实验要求：}
+\begin{enumerate}
+\item 需要有氧气（氧化剂）的参与，这里氧化剂或氧气的作用是在电解质中参与氧化还原反应，从而起到吸引电子，将电子从材料输运到电解质溶液（产生阴极光电流）的作用。在我们的实验体系中，虽然观察到的现象是真空中电流的非单调性，但考虑到我们很多实验结果的真空、空气对比都与大多数光电材料的真空、空气对比相反。所以，这并不和我们的结果构成排斥。
+\item 材料需要提前经历一段时间的光照(约为10分钟)，称为预处理阶段。
+\end{enumerate}
+\textbf{实验方法: }包括UV-Vis spectral， differential pulse voltammogram
+(DPV)等多种辅助方法，测定反应过程中及反应前后物质的化学结构，推断出变化的原因。
+
+\section{实验解释：}
+
+\textbf{简单版本：}
+
+经过预处理的光照之后，$ZnO$与$C_{60}(OH)_{30-36}$形成了新的共价键，这个共价键的性质（例如可以容纳的电子数量）与光强有关。这个共价键可以trap住电子，使得电子不能产于输运。而一旦电子被trap住，它就有可能重新和正电荷组合，或者被输运到基底（而不是电极）上。由于提升光强影响了共价键的性质，使得电子被trap的几率和时间增强，从而更容易和正电荷组合，降低载流子浓度，从而使得整体光电流下降。
+
+我们可以近似认为，电子的寿命就是电子被共价键trap的时间。通过分析电子的寿命，见图（\ref{fig2}），我们发现，电子被trap的时间的确随着光强的增强而增大，证明提升光强后，电子更容易被trap。
+
+\begin{figure}
+\includegraphics[width=0.3\textwidth]{\string"Figure/Screenshot from 2023-04-02 00-04-31\string".png}
+
+\caption{电子寿命随光强变化}
+
+\label{fig2}
+\end{figure}
+
+\textbf{复杂版本：}
+
+在电子被trap的过程中，发生的动力学过程是很复杂的，其中还涉及到动力学与统计力学的相互作用，以及电子不同输运pathway的竞争。大体来说，主要包括三个pathway:
+\begin{enumerate}
+\item 与正电荷重新结合。这将导致光电流的减小。
+\item 被输运到基底中，这实际上对应贡献了阳极光电流，见图（\ref{fig1}）。
+\item 被输运到电解质中与氧化物质作用，这对应着贡献了阴极光电流。
+\end{enumerate}
+对于新形成的共价键，可以理解为对应着电子的一个新的束缚态，这些束缚态只能捕获激发状态的电子。当光强很小时，只有非常少的一部分电子被激发，从而落入到束缚态（共价键）中的电子非常少，即该束缚态大部分都是空的，密度很低。这时候，上述的第三个pathway占主导，束缚态中的电子可以很容易与氧化物质作用，贡献阴极光电流。并且初始时随着光强的提升，束缚态中电子密度增大，从而有更多电子与氧化物质作用，对应着初始时阴极光电流的快速增加。然后，随着光强的进一步提升，束缚态逐渐饱和，从而电子和氧化物质作用的速率也达到饱和，对应着图（\ref{fig1}）中阴极光电流的饱和。而此时，阳极光电流不仅可以由上述第二个pathway贡献，还可以由电子直接从导带输运到基底中，从而阳极光电流始终随着被激发的电子数目（也就是光强）增加。这就解释了图（\ref{fig1}）中阳极光电流和阴极光电流随光强的不同变化曲线。由于净光电流是两者之差，所以净光电流会有一个拐点。
+
+\part{文献二：\emph{High intensity induced photocurrent polarity switching
+in lead sulfide nanowire field effect transistors (doi:10.1088/0957-4484/25/19/195202)}}
+
+\section{主要结论}
+
+文章作者实验并模拟计算了光电流随光强的变化，发现光电流将会在大于$\sim100W/cm^{2}$的光强量级下改变方向, 见图（\ref{fig3}）。他们将这归咎与光子激发的载流子（photo-injected
+carriers）改变了半导体触面（contact）处的电场大小。
+
+\begin{figure}
+\includegraphics[viewport=0bp 0bp 401bp 370bp,clip,width=0.6\textwidth]{\string"Figure/Screenshot from 2023-04-02 01-13-55\string".png}
+
+\caption{模拟结果}
+
+\label{fig3}
+\end{figure}
+
+
+\section{实验设施}
+
+\textbf{实验材料:} lead sulfide (PbS) nanowires (NW) field effect transistors
+(FETs) ,为一种红外photodetector.
+
+\textbf{实验方法：}scanning photocurrent microscopy (SPCM)
+
+\textbf{有无预处理：}无。
+
+\section{实验解释}
+
+通过有限元模拟计算在光照射下，半导体的表面电场强度与电荷密度（使用有源麦克斯韦方程组），得到光电流的强度。在麦克斯韦方程组中，他们做了如下假定：
+\begin{enumerate}
+\item 电子的寿命是恒定的（此假定与文献一不同）。
+\item 将光对电子的激发过程用一个（均匀的）电子激发率代替，同时将正电荷与电子的重新组合过程（recombination）用一个（均匀的）电子消失率代替。
+\item 考虑半导体中掺杂，例如受主原子（吸收电子，提供正电荷，例如第三主族元素）的密度对求解电场过程的影响。
+\end{enumerate}
+通过有限元模拟，他们发现，如果掺杂的密度是均匀的（在空间分布中是一个常数），那么光电流将始终随着光强单调变化。所以，光电流对光强的非单调变化来源于掺杂的密度是不均匀的。而产生这种不均匀的原因则是
+photo-injected carriers。他们的解释是：
+\begin{itemize}
+\item photo-injected carriers会显著改变半导体能带的结构形状，从而产生极强的非线性；
+\item 这种非线性的一个体现就是，在触面附近，有限电荷密度会远远低于体内的电荷密度，从而使得触面附近有很强的边界效应，即边界处的电场被弯曲，见图（\ref{fig4}）。
+\item 这种触面处的边界效应与门电压和栅极电压一起，产生了一种有效的掺杂。而且这种有效的掺杂在触面附近浓度低，体内浓度高。从而产生了一种等效的不均匀掺杂密度。
+\item 这种等效的不均匀掺杂密度最终导致了光电流不再随光强线性变化。
+\end{itemize}
+所以，他们将这种光电流不随光强线性变化的原因归结于photo-injected carriers引起的强烈非线性。
+
+\begin{figure}
+\includegraphics[width=0.6\textwidth]{\string"Figure/Screenshot from 2023-04-02 01-35-22\string".png}
+
+\caption{边界效应}
+
+\label{fig4}
+\end{figure}
+
+\end{document}

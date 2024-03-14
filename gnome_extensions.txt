@@ -1,0 +1,5 @@
+kBoardBattery-brightstone8x.gmail.com
+mouse-battery-vietnamtutor.com
+mouse-batteryvietnamtutor.com.v1.shell-extension
+network-connections-shortcut@l300lvl.co.nr.v6.shell-extension
+window-listgnome-shell-extensions.gcampax.github.com.v42.shell-extension

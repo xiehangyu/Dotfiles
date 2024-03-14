@@ -1,0 +1,939 @@
+%% LyX 2.3.6.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[twoside,twocolumn,english,aps,nofootinbib,superscriptaddress,notitlepage,longbibliography]{revtex4-2}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{verbose}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{times}
+\usepackage{tikz-feynman}
+\usepackage{feynmf}
+\usepackage{tabularx}
+\usepackage{xfrac}
+\usepackage{amsfonts}
+\usepackage{longtable}
+\usepackage{booktabs}\usepackage{url}
+\usepackage{subfigure}
+\usepackage{dsfont}
+\usepackage{booktabs}
+\usepackage{dcolumn}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{multirow}
+%\usepackage{cleveref}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{extarrows}
+\usepackage{datetime}
+\usepackage{comment}
+\usepackage[super]{nth}
+\usepackage{braket}
+\usepackage{tikz-network}
+
+\def\Z{\mathbb{Z}}
+\newcommand{\red}[1]{{\textcolor{red}{#1}}}
+\newtheorem{theorem}{Theorem}\newtheorem{statement}{Statement}\newcommand{\mb}{\mathbb}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\wt}{\widetilde}
+\newcommand{\mc}{\mathcal}
+\newcommand{\ep}{\epsilon}
+\newcommand{\tf}{\textbf}
+\definecolor{myred}{RGB}{232,102,102}
+\definecolor{myblue}{RGB}{187,187,255}
+\definecolor{myorange0}{RGB}{252,226,5}
+\definecolor{myorange0c}{RGB}{255,255,255}
+\definecolor{myorange}{RGB}{255,165,0}
+\definecolor{mygrey}{RGB}{105,105,105}
+\definecolor{OliveGreen}{RGB}{85,107,47}
+\definecolor{NavyBlue}{RGB}{0,0,128}
+%\definecolor{myY}{RGB}{220,255,203}
+\definecolor{mygreen}{RGB}{34,139,34}
+\definecolor{myY}{RGB}{220,255,203}
+\definecolor{myYO}{RGB}{255, 220, 151}
+
+\definecolor{mygreenc}{RGB}{150,50,50}
+\newcommand{\Wgatedagger}[2]{
+\draw[very thick] (#1-0.5, #2 +0.5) -- (#1+0.5,#2-0.5);
+\draw[very thick] (#1-0.5,#2-0.5) -- (#1+0.5,#2+0.5);
+\draw[ thick, fill=mygreenc, rounded corners=2pt] (#1-0.25,#2+0.25) rectangle (#1+0.25,#2-0.25);
+\draw[thick] (#1,#2+0.15) -- (#1+0.15,#2+0.15) -- (#1+0.15,#2);
+%\Text[x=0,y=-0.075]{\x \y}
+}
+\newcommand{\Wgategreen}[2]{
+\draw[very thick] (#1-0.5, #2 +0.5) -- (#1+0.5,#2-0.5);
+\draw[very thick] (#1-0.5,#2-0.5) -- (#1+0.5,#2+0.5);
+\draw[ thick, fill=mygreen, rounded corners=2pt] (#1-0.25,#2+0.25) rectangle (#1+0.25,#2-0.25);
+\draw[thick] (#1,#2+0.15) -- (#1+0.15,#2+0.15) -- (#1+0.15,#2);
+%\Text[x=0,y=-0.075]{\x \y}
+}
+\newcommand{\Wgatered}[2]{
+\draw[very thick] (#1-0.5, #2 +0.5) -- (#1+0.5,#2-0.5);
+\draw[very thick] (#1-0.5,#2-0.5) -- (#1+0.5,#2+0.5);
+\draw[ thick, fill=myred, rounded corners=2pt] (#1-0.25,#2+0.25) rectangle (#1+0.25,#2-0.25);
+\draw[thick] (#1,#2+0.15) -- (#1+0.15,#2+0.15) -- (#1+0.15,#2);
+%\Text[x=0,y=-0.075]{\x \y}
+}
+\newcommand{\MYsquareB}[2]{
+
+\draw[ thick, fill=black, rounded corners=2pt] (#1-0.25,#2+0.25) rectangle (#1+0.25,#2-0.25);
+\draw[thick, color=white] (#1,#2+0.15) -- (#1+0.15,#2+0.15) -- (#1+0.15,#2);
+%\Text[x=0,y=-0.075]{\x \y}
+}
+\newcommand{\Wgateblue}[2]{
+\draw[very thick] (#1-0.5, #2 +0.5) -- (#1+0.5,#2-0.5);
+\draw[very thick] (#1-0.5,#2-0.5) -- (#1+0.5,#2+0.5);
+\draw[ thick, fill=myblue, rounded corners=2pt] (#1-0.25,#2+0.25) rectangle (#1+0.25,#2-0.25);
+\draw[thick] (#1,#2+0.15) -- (#1+0.15,#2+0.15) -- (#1+0.15,#2);
+%\Text[x=0,y=-0.075]{\x \y}
+}
+\newcommand{\MYcircle}[2]{
+\draw[thick, fill=white] (#1,#2) circle (0.1cm); }
+\newcommand{\MYsquare}[2]{
+%\node[regular polygon,
+%    draw= thick,
+%    regular polygon sides = 4,
+ %    fill =white,
+ %    minimum size = .2cm
+ %    ] (p) at (#1,#2) {}; 
+ \coordinate (Origin) at (#1,#2);
+\filldraw [thick, fill=white, even odd rule] ($(Origin)+(-.1cm,-.1cm)$) coordinate (Square) -- ++(0.0cm,0.2cm) -- ++(0.2cm,0.0cm) -- ++(0.0cm,-0.2cm) -- cycle;
+ }
+\newcommand{\MYtriangle}[2]{
+ \coordinate (Origin) at (#1,#2);
+\filldraw [thick, fill=white, even odd rule] ($(Origin)+(-.0cm,{0.666*cos(60)*0.3cm})$) coordinate (Triangle) -- ++(0.15cm,-{cos(60)*0.3cm}) -- ++(-0.3cm,0.0cm) -- ++(0.15cm,{cos(60)*0.3cm}) -- cycle;
+}
+\newcommand{\MYcircleB}[2]{
+\draw[thick, fill=black] (#1,#2) circle (0.1cm); }
+
+\newcommand{\rhoO}[2]{
+\draw[very thick] (-.5+#1,0.5+#2) -- (#1,0+#2);
+\draw[very thick] (#1,0+#2) -- (.5+#1,0.5+#2);
+\draw[very thick] (-.5+#1,#2) -- (.5+#1,#2);
+\draw[ thick, fill=mygreen, rounded corners=2pt] (-0.35+#1,0.2-0.25+#2) rectangle (0.35+#1,0.2+0.2+#2);
+\draw[very thick] (0.1+#1,0.15+.18+#2)-- (.15+0.1+#1,0.15+.18+#2) -- (.15+0.1+#1,0+.18+#2);
+}
+
+\newcommand{\Wgategrey}[2]{
+\draw[very thick] (#1-0.5, #2 +0.5) -- (#1+0.5,#2-0.5);
+\draw[very thick] (#1-0.5,#2-0.5) -- (#1+0.5,#2+0.5);
+\draw[ thick, fill=mygrey, rounded corners=2pt] (#1-0.25,#2+0.25) rectangle (#1+0.25,#2-0.25);
+\draw[thick] (#1,#2+0.15) -- (#1+0.15,#2+0.15) -- (#1+0.15,#2);
+%\Text[x=0,y=-0.075]{\x \y}
+}
+\newcommand{\mcirc}{\mathbin{\scalerel*{\fullmoon}{G}}}
+\newcommand{\msquare}{\mathord{\scalerel*{\Box}{G}}}
+\newcommand{\mcircf}{\mathbin{\scalerel*{\newmoon}{G}}}
+\newcommand{\mtriangle}{\mathord{\scalerel*{\triangle}{G}}}
+
+\newcommand{\tr}{\text{tr} \, }
+\newcommand{\Tr}{\text{Tr} \, }
+%Tiles
+\newcommand{\lineW}{.8mm}
+\newcommand{\sroot}{1.41421356237}
+
+%\input{HeadIncludes.txt}
+\def\scale{0.3}
+
+\newcommand{\gs}[1]{{\color{red}[#1]}}
+\newcommand{\pk}[1]{{\color{blue}#1}}
+
+%Set up the metadata
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\section{Hierarchy Generalization of Dual Unitarity}
+
+\subsection{Dual Unitary}
+
+In this paper, we consider a chain of $2L$ sites with local dimension
+$D$. Thus, the corresponding total Hilbert space is $\mathcal{H}=(C^{D})^{2L}$.
+We denote the local basis vector by $\ket{j}$ with $j=0,1,\cdots,D-1$.
+The dynamics of the chain is driven by brickwall floquet circuits,
+see \textcolor{red}{Fig. (Do we really need this figure?) }for an
+illustration. 
+
+The local gate $U$ is a $d^{2}\times d^{2}$ unitary matrix, which
+can be represented graphically by a box with incoming and outgoing
+legs, \begin{equation}
+U=\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\Wgatered{0}{0}
+\end{tikzpicture}
+,
+\qquad
+\qquad
+U^{\dagger}=\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\Wgateblue{5}{5}
+\end{tikzpicture}.
+\end{equation}The dual local gate $\tilde{U}$ is introduced by reshuffling the
+indices
+\begin{equation}
+\bra{j}\bra{l}\tilde{U}\ket{i}\ket{k}=\bra{k}\bra{l}U\ket{i}\ket{j}.
+\end{equation}
+A gate is dual unitary (citations) means that not only $U$ is unitary
+but also $\tilde{U}$. Graphically, it implies unitarity in both time
+and space directions
+
+\begin{equation}
+\tilde U\tilde U^\dag=\tilde U^\dag \tilde U = I_{D^2} \,\, \Rightarrow \, 
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\def\eps{0.2};
+\draw[thick] (-1.75+2,0.5+\eps) -- (-1.25+2,1+\eps);
+\draw[thick] (-1.25+2,0+\eps) -- (-1.75+2,0.5+\eps);
+\draw[thick] (-1.25+2,0-\eps) -- (-1.75+2,-0.5-\eps);
+\draw[thick] (-1.75+2,-0.5-\eps) -- (-1.25+2,-1-\eps);
+\draw[thick] (-1.9+2,0.7+\eps) to[out=170, in=-170] (-1.9+2,-0.7-\eps);
+\draw[thick] (-1.9+2,0.3+\eps) to[out=170, in=-170] (-1.9+2,-0.3-\eps);
+\draw[thick, fill=myblue, rounded corners=2pt] (-2+2,0.25+\eps) rectangle (-1.5+2,0.75+\eps); \draw[thick, fill=myred, rounded corners=2pt] (-2+2,-0.25-\eps) rectangle (-1.5+2,-0.75-\eps); 
+\draw[thick] (-1.95+4,0.7+\eps) to[out=170, in=-170] (-1.95+4,-0.7-\eps);
+\draw[thick] (-1.95+4,0.3+\eps) to[out=170, in=-170] (-1.95+4,-0.3-\eps);
+\draw[thick] (-1.6+4,0.7+\eps) -- (-1.95+4,0.7+\eps)(-1.6+4,0.7+\eps) -- (-1.25+4,1+\eps);
+\draw[thick] (-1.6+4,0.3+\eps) -- (-1.95+4,0.3+\eps)(-1.6+4,0.3+\eps) -- (-1.25+4,+\eps);
+\draw[thick] (-1.6+4,-0.3-\eps) -- (-1.95+4,-0.3-\eps)(-1.6+4,-0.3-\eps) -- (-1.25+4,-\eps);
+\draw[thick] (-1.6+4,-0.7-\eps) -- (-1.95+4,-0.7-\eps)(-1.6+4,-0.7-\eps) -- (-1.25+4,-1-\eps);
+\Text[x=1.15,y=0]{$=$};
+\Text[x=2.9,y=-0.05]{,};
+\Text[x=0,y=-1.3]{};
+\end{tikzpicture} \,\,
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.6]
+\def\eps{0.2};
+\draw[thick] (-2.25+2,1+\eps) -- (-1.75+2,0.5+\eps);
+\draw[thick] (-1.75+2,0.5+\eps) -- (-2.25+2,0+\eps);
+\draw[thick] (-1.75+2,-0.5-\eps) -- (-2.25+2,0-\eps);
+\draw[thick] (-2.25+2,-1-\eps) -- (-1.75+2,-0.5-\eps);
+\draw[thick] (-1.6+2,0.7+\eps) to[out=10, in=-10] (-1.6+2,-0.7-\eps);
+\draw[thick] (-1.6+2,0.3+\eps) to[out=10, in=-10] (-1.6+2,-0.3-\eps);
+\draw[thick, fill=myblue, rounded corners=2pt] (-2+2,0.25+\eps) rectangle (-1.5+2,0.75+\eps);
+\draw[thick, fill=myred, rounded corners=2pt] (-2+2,-0.25-\eps) rectangle (-1.5+2,-0.75-\eps); 
+\draw[thick] (-1.6+4,0.7+\eps) to[out=10, in=-10] (-1.6+4,-0.7-\eps);
+\draw[thick] (-1.6+4,0.3+\eps) to[out=10, in=-10] (-1.6+4,-0.3-\eps);
+\draw[thick] (-1.6+4,0.7+\eps) -- (-1.95+4,0.7+\eps)(-2.25+4,1+\eps) -- (-1.95+4,0.7+\eps);
+\draw[thick] (-1.6+4,0.3+\eps) -- (-1.95+4,0.3+\eps)(-2.25+4,+\eps) -- (-1.95+4,0.3+\eps);
+\draw[thick] (-1.6+4,-0.3-\eps) -- (-1.95+4,-0.3-\eps)(-2.25+4,-\eps) -- (-1.95+4,-0.3-\eps);
+\draw[thick] (-1.6+4,-0.7-\eps) -- (-1.95+4,-0.7-\eps)(-2.25+4,-1-\eps) -- (-1.95+4,-0.7-\eps);
+\Text[x=1.35,y=0]{$=$} \Text[x=3.1,y=-0.05]{.} \Text[x=0,y=-1.3]{}
+\end{tikzpicture}
+\end{equation}This class of gates covers both integrable regions and chaotic regions
+(citation). The parametrization of dual unitary gates when $D=2$
+has been fully determined (citation). Although there is no complete
+parametrization for dual unitary when $D\geq3$, some families of
+the gates have been proposed (citation). In the following, we propose
+a new parametrization of the $2-$qudit gates which can lead to a
+large family of dual unitary gates in higher dimensions. This parametrization
+method is also useful when we discuss the hierarchy generalization
+of dual unitary circuits.
+
+\subsection{Hierarchy Generalization}
+
+The dual unitary circuit contributes an important and rare exactly
+solvable model in understanding OTOC, quantum quench and many-body
+phase transition(citation). A natural question is, whether the dual
+unitarity condition is necessary in deriving this property. Another
+motivation is that, some basic and famous Clifford gates, such as
+Identity and Controlled-Not gate are not dual-unitary although they
+are solvable. To address these problems, we generalize the definition
+of dual unitary gate to a larger series so called as ``Hierarchy
+Dual gate''. It is easier to express our results in folded picture
+where $U^{\dagger}$ is folded back to $U$ to be a joint operator
+$U^{*}\otimes U$. We use the empty bullet to represent the vectorized
+identity operator in the folded picture as
+
+\begin{equation}
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\Wgategreen{0}{0}
+\end{tikzpicture}
+=
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\Wgatered{-0.1}{-0.1}
+\Wgateblue{0.1}{0.1}
+\end{tikzpicture}
+,
+\qquad
+\qquad
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\MYcircle{0.25}{0.25}
+\draw[very thick] (-0.25,-0.25)--(0.20,0.20);
+\end{tikzpicture}
+=
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\draw[very thick] (-0.25,-0.25)--(0.25,0.25)--(0.05,0.45)--(-0.45,-0.05);
+\end{tikzpicture}
+.
+\end{equation} The dual unitary condition can be re-expressed in folded picture
+as
+
+\begin{equation}
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\Wgategreen{0}{0}
+\MYcircle{0.55}{0.55}
+\MYcircle{0.55}{-0.55}
+\end{tikzpicture}
+=
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\MYcircle{0.55}{0.55}
+\MYcircle{0.55}{-0.55}
+\draw[very thick] (-0.5,0.55) -- (0.5,0.55);
+\draw[very thick] (-0.5,-0.55) -- (0.5,-0.55);
+\end{tikzpicture}
+.
+\end{equation}\
+
+Since only one green box is involved in the dual-unitary condition,
+we call it as $1_{\mathrm{st}}$ Hierarchy dual. In the next subsections
+\ref{subsec:Second-Hierarchy} and \ref{subsec:Third-Hierarchy},
+we generalize the dual unitary ($1_{\mathrm{st}}$ Hierarchy dual)
+to the $2_{\mathrm{nd}}$ and $3_{\mathrm{rd}}$ Hierarchy dual and
+further study their parametrizations.
+
+\subsection{Second Hierarchy\label{subsec:Second-Hierarchy}}
+
+It is remarkable that the basic Clifford gates like Controlled-Not
+and Identity is not dual unitary. However, our study suggests that
+they indeed satisfy some other Hierarchy condition, namely
+
+\begin{equation}
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\Wgategreen{0.5}{0.5}
+\Wgategreen{-0.5}{-0.5}
+\MYcircle{-0.05}{1.05}
+\MYcircle{-1.05}{-0.05}
+\MYcircle{-1.05}{-1.05}
+\end{tikzpicture}
+=
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\Wgategreen{-0.5}{-0.5}
+\MYcircle{-0.05}{1.05}
+\MYcircle{-1.05}{0.05}
+\MYcircle{-1.05}{-1.05}
+\draw[thick] (0,1.05)--(1,1.05);
+\end{tikzpicture}
+,
+\qquad
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\Wgategreen{-0.5}{0.5}
+\Wgategreen{0.5}{-0.5}
+\MYcircle{0.05}{1.05}
+\MYcircle{1.05}{-0.05}
+\MYcircle{1.05}{-1.05}
+\end{tikzpicture}
+=
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\Wgategreen{0.5}{-0.5}
+\MYcircle{0.05}{1.05}
+\MYcircle{1.05}{0.05}
+\MYcircle{1.05}{-1.05}
+\draw[thick] (0,1.05)--(-1,1.05);
+\end{tikzpicture}
+\label{eq2:bottomtotop}
+\end{equation}
+
+Since this condition involves two green boxes on the left hand side,
+we call it as the $2_{\mathrm{nd}}$ Hierarchy dual. Algebraically,
+we can express the condition as 
+\begin{equation}
+\begin{aligned}(I_{D}\otimes\tilde{U}^{\dagger})\cdot\tilde{U}^{\dagger}\tilde{U}\otimes I_{D}\cdot(I_{D}\otimes\tilde{U})=I_{D}\otimes\tilde{U}^{\dagger}\tilde{U},\\
+(I_{D}\otimes\tilde{U})\cdot\tilde{U}\tilde{U}^{\dagger}\otimes I_{D}\cdot(I_{D}\otimes\tilde{U}^{\dagger})=I_{D}\otimes\tilde{U}\tilde{U}^{\dagger}.
+\end{aligned}
+\label{eq:2ndEq}
+\end{equation}
+A simple observation shows that if a circuit is $1_{\mathrm{st}}$
+Hierarchy dual, it must be $2_{\mathrm{nd}}$ Hierarchy dual, therefore
+$1_{\mathrm{st}}\subsetneqq2_{\mathrm{nd}}$. In this article, we
+are interested in the gate which is only $2_{\mathrm{nd}}$ Hierarchy
+dual but not first, denoting by $\overline{2}_{\mathrm{nd}}=2_{\mathrm{nd}}-1_{\mathrm{st}}$.
+Similarly as in the $1_{\mathrm{st}}$ Hierarchy dual case (citation),
+the full parametrization for qubit case is obtained as when $D=2$,
+we have a nice parametrization of all interacting 2-qubit gate
+\begin{equation}
+U=v_{1}\otimes v_{2}e^{i(J_{x}\sigma_{x}\sigma_{x}+J_{y}\sigma_{y}\sigma_{y}+J_{z}\sigma_{z}\sigma_{z})}v_{3}\otimes v_{4}.
+\end{equation}
+Here $v_{1},v_{2},v_{3},v_{4}\in\mathbb{SU}(2)$ are all single site
+gates. Due to the structure of gate, we can put $v_{3}=v_{4}=I_{D}$
+without loss of generality since $v_{1}$ at this time step is always
+combined with $v_{4}$ from the next time step therefore a redefinition
+$v_{1}\to v_{4}\cdot v_{1}$ is always possible. The same argument
+holds for $v_{2}$ and $v_{3}$. The $\overline{2}_{\mathrm{nd}}$
+condition is that $J_{z}=\frac{\pi}{4},J_{x}=J_{y}=0$ and $v_{1},v_{2}\in\{U(r,\theta,\phi)|\sqrt{2}\sin r\sin\theta=\pm1\}$,
+where $U(r,\theta,\phi)=e^{ir(\cos\theta\sigma_{z}+\sin\theta\cos\phi\sigma_{x}+\sin\theta\sin\phi\sigma_{y})}$
+is the representation of $\mathbb{SU}(2)$ using Bloch sphere. Geometrically,
+this particular combination of $r,\theta,\phi$ is a rotation which
+rotates $\sigma_{z}$ to the $x-y$ plane.
+
+In higher dimensions, though we don't have a complete parametrization
+for $2_{\mathrm{nd}}$ Hierarchy dual, but we can still obtain two
+rich families of $2_{\mathrm{nd}}$ Hierarchy dual. One is with generalized
+Controlled-NOT gate in higher dimension defined as 
+\begin{equation}
+S=\sum_{i}\ket{i}\bra{i}\otimes X^{i},
+\end{equation}
+where $X$ is just the generator of Clifford gate in higher dimension.
+As before, we can also put single site operator $v_{1}$ and $v_{2}$
+at the top of $S$ subject to the constraint
+\begin{equation}
+\begin{aligned}\sum_{j}\bra{j}v_{1}\ket{i}\bra{j+k'-k}v_{1}^{*}\ket{i} & =\delta_{k,k'}\ \mathrm{for}\ \forall k,k',i.\\
+\sum_{j}\bra{i}v_{2}\ket{j}\bra{i}v_{2}^{*}\ket{j+k'-k} & =\delta_{k,k'}\ \mathrm{for}\ \forall k,k',i.
+\end{aligned}
+\end{equation}
+This two equations has a symmetry of transpose between each other. 
+
+The other family is used the Clifford group method we developed in
+the previous subsection(\textcolor{blue}{maybe a hyperlink in the
+future}). With the proposed ansatz, we can simplify Eq. (\ref{eq:2ndEq})
+to 
+\begin{widetext}
+\begin{equation}
+\begin{aligned}(\sum_{b}\theta_{p_{b},q_{b}}^{*}\theta_{p_{b}+k,q_{b}+l})(\sum_{d}\theta_{p_{d},q_{d}}^{*}\theta_{p_{d}+s,q_{d}+t}M_{p_{d},q_{d}}^{\dagger}v_{1}^{*}M_{k,-l}v_{1}^{T}M_{p_{d},q_{d}})=0\ \forall(s,t)\neq(0,0)\ \mathrm{and}\ (k,l)\neq(0,0)\\
+(\sum_{b}\theta_{p_{b},q_{b}}^{*}\theta_{p_{b}+k,q_{b}+l})(\sum_{d}\theta_{p_{d},q_{d}}^{*}\theta_{p_{d}+s,q_{d}+t}M_{-p_{d},q_{d}}^{\dagger}v_{2}^{*}M_{-k,-l}v_{2}^{T}M_{-p_{d},q_{d}})=0\ \forall(s,t)\neq(0,0)\ \mathrm{and}\ (k,l)\neq(0,0)
+\end{aligned}
+\end{equation}
+\end{widetext}
+
+If for $\forall(k,l)\neq(0,0)$, the first terms all vanish, this
+will give the $1_{\mathrm{st}}$Hierarchy dual. Solving this nonlinear
+equations we can get a family of solutions. For example, when $D=4k+2$
+for some integer $k$, $\theta_{p,q}=\omega^{\frac{D}{2}pq}$ with
+$v_{1}=v_{2}=I_{D}$ is a case for $\overline{2}_{\mathrm{nd}}$.
+Also, $\theta_{p,q}=\begin{cases}
+\omega^{\frac{p^{2}}{2}} & D=\mathrm{even}\\
+\omega^{p^{2}} & D=\mathrm{odd}
+\end{cases}$ is also $\overline{2}_{\mathrm{nd}}$ for some nontrivial $v_{1}$
+and $v_{2}$.
+
+Before ending this subsection, we point out that Eq. (\ref{eq2:bottomtotop})
+also implies
+
+\begin{equation}
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\Wgategreen{-0.5}{-0.5}
+\Wgategreen{0.5}{0.5}
+\MYcircle{1.05}{1.05}
+\MYcircle{1.05}{-0.05}
+\MYcircle{0.05}{-1.05}
+\end{tikzpicture}
+=
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\Wgategreen{-0.5}{-0.5}
+\MYcircle{1.05}{1.05}
+\MYcircle{0.05}{0.05}
+\MYcircle{0.05}{-1.05}
+\draw[thick] (0,1.05)--(1,1.05);
+\end{tikzpicture}
+,
+\qquad
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\Wgategreen{-0.5}{0.5}
+\Wgategreen{0.5}{-0.5}
+\MYcircle{-1.05}{1.05}
+\MYcircle{-1.05}{-0.05}
+\MYcircle{0.05}{-1.05}
+\end{tikzpicture}
+=
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\Wgategreen{0.5}{-0.5}
+\MYcircle{-1.05}{1.05}
+\MYcircle{0.05}{0.05}
+\MYcircle{0.05}{-1.05}
+\draw[thick] (0,1.05)--(-1,1.05);
+\end{tikzpicture}
+.
+\label{eq:2ndfig}
+\end{equation}
+
+The prove strategy is by defining \begin{equation}
+A=
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.5]
+\Wgategreen{-0.5}{-0.5}
+\Wgategreen{0.5}{0.5}
+\MYcircle{1.05}{1.05}
+\MYcircle{1.05}{-0.05}
+\MYcircle{0.05}{-1.05}
+\end{tikzpicture}
+-
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.5]
+\Wgategreen{-0.5}{-0.5}
+\MYcircle{1.05}{1.05}
+\MYcircle{0.05}{0.05}
+\MYcircle{0.05}{-1.05}
+\draw[thick] (0,1.05)--(1,1.05);
+\end{tikzpicture}
+,
+B=
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.5]
+\Wgategreen{-0.5}{-0.5}
+\Wgategreen{0.5}{0.5}
+\MYcircle{-0.05}{1.05}
+\MYcircle{-1.05}{-0.05}
+\MYcircle{-1.05}{-1.05}
+\end{tikzpicture}
+-
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.5]
+\Wgategreen{-0.5}{-0.5}
+\MYcircle{-0.05}{1.05}
+\MYcircle{-1.05}{0.05}
+\MYcircle{-1.05}{-1.05}
+\draw[thick] (0,1.05)--(1,1.05);
+\end{tikzpicture}
+.
+\end{equation}and we can prove $\mathrm{Tr}A^{\dagger}A=\mathrm{Tr}B^{\dagger}B$,
+therefore the vanishing of $A$ also implies vanishing of $B$. This
+can be proved graphically. To this end, we can introduce a four-folded
+gate as $
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\Wgatedagger{0}{0}
+\end{tikzpicture}
+=
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\Wgatered{-0.3}{-0.3}
+\Wgateblue{-0.1}{-0.1}
+\Wgatered{0.1}{0.1}
+\Wgateblue{0.3}{0.3}
+\end{tikzpicture}
+.
+$The first term of $\mathrm{Tr}A^{\dagger}A$ is
+
+\begin{equation}
+\mathrm{Tr}
+(
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.5]
+\Wgategreen{-0.5}{-0.5}
+\Wgategreen{0.5}{0.5}
+\MYcircle{1.05}{1.05}
+\MYcircle{1.05}{-0.05}
+\MYcircle{0.05}{-1.05}
+\end{tikzpicture}
+)^{\dagger}
+(
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.5]
+\Wgategreen{-0.5}{-0.5}
+\Wgategreen{0.5}{0.5}
+\MYcircle{1.05}{1.05}
+\MYcircle{1.05}{-0.05}
+\MYcircle{0.05}{-1.05}
+\end{tikzpicture}
+)
+=
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.5]
+\Wgatedagger{-0.5}{-0.5}
+\Wgatedagger{0.5}{0.5}
+\MYcircle{1.05}{1.05}
+\MYcircle{1.05}{-0.05}
+\MYcircle{0.05}{-1.05}
+\MYsquare{-0.05}{1.05}
+\MYsquare{-1.05}{-0.05}
+\MYsquare{-1.05}{-1.05}
+\end{tikzpicture}
+,
+\end{equation}where \begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\MYcircle{0.25}{0.25}
+\draw[very thick] (-0.25,-0.25)--(0.20,0.20);
+\end{tikzpicture} stands for the contraction between the same leg from the first and
+second layer as well as the third and forth layer while \begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\MYsquare{0.25}{0.25}
+\draw[very thick] (-0.25,-0.25)--(0.20,0.20);
+\end{tikzpicture} stands for the contraction between the first and forth layer as well
+as second and third layer. The result will be the same if we exchange
+the second and forth layer, while simultaneously exchange \begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\MYcircle{0.25}{0.25}
+\draw[very thick] (-0.25,-0.25)--(0.20,0.20);
+\end{tikzpicture} and \begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\MYsquare{0.25}{0.25}
+\draw[very thick] (-0.25,-0.25)--(0.20,0.20);
+\end{tikzpicture}. Therefore, we arrive at\begin{equation}
+\mathrm{Tr}
+(
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.5]
+\Wgategreen{-0.5}{-0.5}
+\Wgategreen{0.5}{0.5}
+\MYcircle{1.05}{1.05}
+\MYcircle{1.05}{-0.05}
+\MYcircle{0.05}{-1.05}
+\end{tikzpicture}
+)^{\dagger}
+(
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.5]
+\Wgategreen{-0.5}{-0.5}
+\Wgategreen{0.5}{0.5}
+\MYcircle{1.05}{1.05}
+\MYcircle{1.05}{-0.05}
+\MYcircle{0.05}{-1.05}
+\end{tikzpicture}
+)
+=
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.5]
+\Wgatedagger{-0.5}{-0.5}
+\Wgatedagger{0.5}{0.5}
+\MYcircle{1.05}{1.05}
+\MYcircle{1.05}{-0.05}
+\MYcircle{0.05}{-1.05}
+\MYsquare{-0.05}{1.05}
+\MYsquare{-1.05}{-0.05}
+\MYsquare{-1.05}{-1.05}
+\end{tikzpicture}
+=
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.5]
+\Wgatedagger{-0.5}{-0.5}
+\Wgatedagger{0.5}{0.5}
+\MYsquare{1.05}{1.05}
+\MYsquare{1.05}{-0.05}
+\MYsquare{0.05}{-1.05}
+\MYcircle{-0.05}{1.05}
+\MYcircle{-1.05}{-0.05}
+\MYcircle{-1.05}{-1.05}
+\end{tikzpicture}
+.
+\end{equation}The R.H.S. is just the first term of $\mathrm{Tr}B^{\dagger}B$. Similarly,
+one can prove that the rest terms of $\mathrm{Tr}A^{\dagger}A$ and
+$\mathrm{Tr}B^{\dagger}B$ agree with each other one by one. Eq. (\ref{eq:2ndfig})
+will play an important role when calculating the spatio-temporary
+correlation function.
+
+\subsection{IRF case (interaction)}
+
+\subsection{Third Hierarchy\label{subsec:Third-Hierarchy}}
+
+Following the idea in subsection \ref{subsec:Second-Hierarchy}, we
+can define the condition of $3_{\mathrm{rd}}$ Hierarchy dual as \begin{equation}
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\Wgategreen{0.5}{0.5}
+\Wgategreen{-0.5}{-0.5}
+\MYcircle{-0.05}{1.05}
+\MYcircle{-1.05}{-0.05}
+\MYcircle{-1.05}{-1.05}
+\Wgategreen{1.5}{1.5}
+\MYcircle{1.05}{2.05}
+\end{tikzpicture}
+=
+\begin{tikzpicture}[baseline=(current  bounding  box.center), scale=0.7]
+\Wgategreen{-0.5}{-0.5}
+\Wgategreen{0.5}{0.5}
+\MYcircle{-0.05}{1.05}
+\MYcircle{-1.05}{0.05}
+\MYcircle{-1.05}{-1.05}
+\MYcircle{0.45}{1.55}
+\draw[thick] (0.5,1.55)--(1.5,1.55);
+\end{tikzpicture}
+.
+\end{equation}Also, it is immediately seen that a gate is $2_{\mathrm{nd}}$ Hierarchy
+dual must be $3_{\mathrm{rd}}$ Hierarchy dual. We are also interested
+in the case which is only $3_{\mathrm{rd}}$ Hierarchy dual but not
+$2_{\mathrm{nd}}$, denoting as $\overline{3}_{\mathrm{rd}}=3_{\mathrm{rd}}-2_{\mathrm{nd}}$.
+One example in $\overline{3}_{\mathrm{rd}}$ is Controlled-Z gate.
+A fully parametrization in qubit case with $U=v_{1}\otimes v_{2}e^{i(J_{x}\sigma_{x}\sigma_{x}+J_{y}\sigma_{y}\sigma_{y}+J_{z}\sigma_{z}\sigma_{z})}$
+is $J_{x}=J_{y}=0$ and $v_{1},v_{2}$ either Pauli matrix in the
+$x-y$ plane or diagonal matrix in $z$ basis. Our parametrization
+(\textcolor{blue}{here a hyperlink in the future}) can also be applied
+here, see SUPPLEMENTAL MATERIAL(citation) for the algebraic equation
+for $\theta_{p,q}$. An example is $\theta_{p,q}=\omega^{p^{2}}$
+with $v_{1},v_{2}=I_{D}$.
+
+\section{Applications}
+
+In this section, we discuss the physical application of $2_{\mathrm{nd}}$
+Hierarchy dual in spatio-temporal correlation functions and quantum
+quenches. When properly, we also briefly mention the result for $3_{\mathrm{rd}}$
+Hierarchy dual.
+
+\subsection{Spatio-temporal correlations}
+
+In this subsection, we discuss the spatio-temporal correlation functions,
+sometimes known as OTOC. The spatio-temporal correlation function
+is defined in Heisenberg picture as 
+\begin{equation}
+C_{ij}(t)=\langle a_{i}(t)b_{j}\rangle=\mathrm{Tr}\left(a_{i}Ub_{j}U^{\dagger}\right),
+\end{equation}
+where we take the temperature to be infinity. Since the propagation
+of an identity operator is trivial, we further require that $a_{i},b_{j}$
+to be both traceless. The correlations in the folded picture are graphically
+expressed as \begin{align}
+&\braket{a_i(t) b_j}=
+\begin{tikzpicture}[baseline=(current bounding box.center), scale=0.55]
+\foreach \jj[evaluate=\jj as \j using -2*(ceil(\jj/2)-\jj/2)] in {0,...,5}
+\foreach \i in {1,...,6}
+{\Wgategreen{2*\i+\j}{\jj}}
+\foreach \i in {2,...,13}{
+\MYcircle{\i-.5}{-0.5}
+\MYcircle{\i-1.5}{6-0.5}
+}
+\MYcircleB{3.5}{-.5}
+\MYcircleB{5.5}{6-.5}
+\Text[x=3.5,y=-1.0]{$b$}
+\Text[x=5.5,y=6.0]{$a$}
+\end{tikzpicture}\, . \label{eq:Corr1}
+\end{align}First, with time unitarity, we can simplify the circuit from the bottom
+and top. The result is
+
+\begin{align}
+&\braket{a_i(t) b_j}=
+\begin{tikzpicture}[baseline=(current bounding box.center), scale=0.55]
+\Wgategreen{3}{0}
+\Wgategreen{2}{1}
+\Wgategreen{4}{1}
+\Wgategreen{1}{2}
+\Wgategreen{3}{2}
+\Wgategreen{5}{2} 
+\Wgategreen{2}{3}
+\Wgategreen{4}{3}
+\Wgategreen{6}{3}
+\Wgategreen{3}{4} 
+\Wgategreen{5}{4}
+\Wgategreen{4}{5}
+\MYcircle{1.5}{0.5}
+\MYcircle{0.5}{1.5}
+\foreach \i in {1,...,4}
+{\MYcircle{2.5+\i}{\i-1.5}}
+\foreach \i in {1,...,4}
+{
+\MYcircle{4.5-\i}{6.5-\i}
+}
+\MYcircle{5.5}{4.5}
+\MYcircle{6.5}{3.5}
+\MYcircleB{2.5}{-.5}
+\MYcircleB{4.5}{6-.5}
+\Text[x=2.5,y=-1.0]{$b$}
+\Text[x=4.5,y=6.0]{$a$}
+\end{tikzpicture}\, . 
+\end{align}
+
+Now we can apply Eq. (\ref{eq2:bottomtotop}) to simplify the circuit
+as 
+
+\begin{align}
+&\braket{a_i(t) b_j}=
+\begin{tikzpicture}[baseline=(current bounding box.center), scale=0.55]
+\Wgategreen{4}{5}
+\Wgategreen{5}{4}
+\Wgategreen{4}{3}
+\foreach \i in {1,2,3}
+{\Wgategreen{2+\i}{\i-1}}
+\foreach \i in {1,...,5}
+{
+\MYcircle{3.5}{\i+0.5}
+}
+\foreach \i in {1,2,3}
+{\MYcircle{5.5}{1.5+\i}}
+\MYcircle{2.5}{0.5}
+\foreach \i in {1,2,3}
+{\MYcircle{2.5+\i}{\i-1.5}}
+\MYcircleB{2.5}{-.5}
+\MYcircleB{4.5}{6-.5}
+\Text[x=2.5,y=-1.0]{$b$}
+\Text[x=4.5,y=6.0]{$a$}
+\end{tikzpicture}\, .
+\end{align}At last, we can apply Eq. (\ref{eq:2ndfig}) to the corner of the
+path, which brings us\begin{align}
+&\braket{a_i(t) b_j}=
+\begin{tikzpicture}[baseline=(current bounding box.center), scale=0.55]
+\Wgategreen{4}{5}
+\Wgategreen{5}{4}
+\Wgategreen{4}{3}
+\foreach \i in {1,2}
+{\Wgategreen{2+\i}{\i-1}}
+\foreach \i in {1,...,5}
+{
+\MYcircle{3.5}{\i+0.5}
+}
+\foreach \i in {2,3}
+{\MYcircle{5.5}{1.5+\i}}
+\MYcircle{2.5}{0.5}
+\foreach \i in {1}
+{\MYcircle{2.5+\i}{\i-1.5}}
+\foreach \i in {1,2,3}
+{\MYcircle{4.5}{\i-0.5}}
+\MYcircleB{2.5}{-.5}
+\MYcircleB{4.5}{6-.5}
+\Text[x=2.5,y=-1.0]{$b$}
+\Text[x=4.5,y=6.0]{$a$}
+\end{tikzpicture}\, .
+\end{align}This correlator will vanish because the discontinuous path will finally
+simplify to $\mathrm{\mathrm{Tr}}a_{i}\mathrm{Tr}b_{j}$ and in our
+assumptions they are both traceless.
+
+Therefore, the only non-vanishing correlators are either at the light
+cone or on the same time line
+
+\begin{equation}
+\begin{aligned}
+&\braket{a_i(t) b_j}\delta_{i,t+j}=
+\begin{tikzpicture}[baseline=(current bounding box.center), scale=0.55]
+\foreach \i in {0,...,5}
+{\Wgategreen{3+\i}{\i}}
+\foreach \i in {0,...,5}
+{\MYcircle{2.5+\i}{0.5+\i}}
+\foreach \i in {0,...,5}
+{\MYcircle{3.5+\i}{-0.5+\i}}
+\MYcircleB{2.5}{-.5}
+\MYcircleB{8.5}{6-.5}
+\Text[x=2.5,y=-1.0]{$b$}
+\Text[x=8.5,y=6.0]{$a$}
+\end{tikzpicture}
+,\\
+&\braket{a_i(t) b_j}\delta_{i,j}=
+\begin{tikzpicture}[baseline=(current bounding box.center), scale=0.55]
+\foreach \i in {0,1,2}
+{
+\Wgategreen{4}{2*\i}
+\Wgategreen{3}{1+2*\i}
+\MYcircle{4.5}{2*\i-0.5}
+\MYcircle{4.5}{2*\i+0.5}
+\MYcircle{2.5}{1.5+2*\i}
+\MYcircle{2.5}{0.5+2*\i}
+}
+\MYcircleB{3.5}{-.5}
+\MYcircleB{3.5}{6-.5}
+\Text[x=3.5,y=-1.0]{$b$}
+\Text[x=3.5,y=6.0]{$a$}
+\end{tikzpicture}
+.
+\end{aligned}
+\end{equation}
+
+The above result can also be put into the language of quantum channels.
+Here we define four channels
+
+\begin{widetext}
+\begin{equation}
+\epsilon_L(b)=
+\begin{tikzpicture}[baseline=(current bounding box.center), scale=0.55]
+\Wgategreen{0}{0}
+\MYcircle{-0.5}{-0.5}
+\MYcircle{-0.5}{0.5}
+\MYcircleB{0.5}{-0.5}
+\Text[x=0.5,y=-1]{$b$}
+\end{tikzpicture}
+,
+\qquad
+\epsilon_R(b)=
+\begin{tikzpicture}[baseline=(current bounding box.center), scale=0.55]
+\Wgategreen{0}{0}
+\MYcircle{0.5}{-0.5}
+\MYcircle{0.5}{0.5}
+\MYcircleB{-0.5}{-0.5}
+\Text[x=-0.5,y=-1]{$b$}
+\end{tikzpicture}
+,
+\qquad
+M_L(b)=
+\begin{tikzpicture}[baseline=(current bounding box.center), scale=0.55]
+\Wgategreen{0}{0}
+\MYcircle{0.5}{-0.5}
+\MYcircle{-0.5}{0.5}
+\MYcircleB{-0.5}{-0.5}
+\Text[x=-0.5,y=-1]{$b$}
+\end{tikzpicture}
+,
+\qquad
+M_R(b)=
+\begin{tikzpicture}[baseline=(current bounding box.center), scale=0.55]
+\Wgategreen{0}{0}
+\MYcircle{-0.5}{-0.5}
+\MYcircle{0.5}{0.5}
+\MYcircleB{0.5}{-0.5}
+\Text[x=0.5,y=-1]{$b$}
+\end{tikzpicture}
+.
+\end{equation}
+\end{widetext}
+
+With these four channels, the correlation functions can be expressed
+as in a compact way. Here for simplicity, we assume that $j$ is an
+integer. The very similar argument can be put to the case where $j$
+is a half integer.
+\begin{equation}
+C_{ij}(t)=\begin{cases}
+\mathrm{Tr}\left(aM_{L}^{2(i-j)}(b)\right) & t=i-j\\
+\mathrm{Tr}\left(a\epsilon_{R}^{\kappa}(\epsilon_{L}\epsilon_{R})^{\lfloor\frac{t}{2}\rfloor}(b)\right) & i=j,t=\mathbb{Z}+\frac{k}{2}\\
+0 & \mathrm{others}
+\end{cases}\label{eq:expression_CF_1site}
+\end{equation}
+The behavior exhibited by this correlator is markedly distinct from
+that observed in the dual unitary case (citation), wherein a non-zero
+value exclusively emerges at the light cone. In contrast, the $2_{\mathrm{n}}$
+Hierarchy dual reveals an additional non-vanishing direction present
+along the time axis. In the case of qubits, it can be demonstrated
+that the channels $\epsilon_{L}$ and $\epsilon_{R}$ are reduced
+to the total depolarization channel, leading to the vanishing of correlators
+along the light cone. Moreover, after conducting thorough algebraic
+calculations, the correlators along the same time line will vanish
+precisely after a half step. However, examples for non-vanishing correlators
+across all three directions and at all times have been identified
+in higher dimensions $D>2$. For instance, utilizing the parametrization
+methods, a family with $D=4k+2$, $k\in\mathbb{N}^{+}$ and $\theta_{p,q}=\omega^{\frac{Dpq}{2}}$
+can be observed.
+
+Compared to the previous studying on correlators with supporting only
+on $1$ site, the case supporting on multi sites may carry richer
+physics. For correlators supporting on $2$ nearest neighbour sites,
+it has similar behavior as Eq. (\ref{eq:expression_CF_1site}), namely
+correlation functions exclusively emerge at three directions.\begin{equation}
+\begin{aligned}
+&\braket{a_i(t) b_j}\delta_{i,t+j}=
+\begin{tikzpicture}[baseline=(current bounding box.center), scale=0.55]
+\foreach \i in {1,...,5}
+{\Wgategreen{3+\i}{\i}}
+\foreach \i in {1,...,5}
+{\MYcircle{2.5+\i}{0.5+\i}}
+\foreach \i in {1,...,5}
+{\MYcircle{3.5+\i}{-0.5+\i}}
+\MYsquareB{3.5}{0.5}
+\MYsquareB{8.5}{5.5}
+\Text[x=3.5,y=-.15]{$b$}
+\Text[x=8.5,y=6.15]{$a$}
+\end{tikzpicture}
+,\\
+&\braket{a_i(t) b_j}\delta_{i,j}=
+\begin{tikzpicture}[baseline=(current bounding box.center), scale=0.55]
+\foreach \i in {1,2}
+{
+\Wgategreen{4}{2*\i}
+\Wgategreen{3}{1+2*\i}
+\Wgategreen{5}{1+2*\i}
+\MYcircle{5.5}{1.5+2*\i}
+\MYcircle{5.5}{0.5+2*\i}
+\MYcircle{2.5}{1.5+2*\i}
+\MYcircle{2.5}{0.5+2*\i}
+}
+\Wgategreen{3}{1}
+\Wgategreen{5}{1}
+\MYcircle{5.5}{1.5}
+\MYcircle{5.5}{0.5}
+\MYcircle{2.5}{1.5}
+\MYcircle{2.5}{0.5}
+\MYsquareB{4}{0}
+\draw[very thick] (4.25,0.25) -- (4.5,0.5);
+\draw[very thick] (3.75,0.25) -- (3.5,0.5);
+\MYsquareB{4}{6}
+\draw[very thick] (3.75,5.75) -- (3.5,5.5);
+\draw[very thick] (4.25,5.75) -- (4.5,5.5);
+\Text[x=4,y=-0.75]{$b$}
+\Text[x=4,y=6.75]{$a$}
+\end{tikzpicture}
+,
+\end{aligned}
+\end{equation}where \begin{tikzpicture}[baseline=(current bounding box.center), scale=0.55]
+\MYsquareB{4}{0}
+\end{tikzpicture} represents the operator acting on nearest neighbor two sites. These
+kinds of correlation function will not vanish along the time axis
+for qubit case, in contrast with the operator supporing on only one
+site.
+
+\section{Conclusion and Perspectives}
+
+It is worthy mentioning that though in the paper, our main focus is
+on the translational invariance one, the result here does not rely
+on this property. The ideas here can be directly generalized to the
+case where some inhomogeneous or randomness is included in space and/or
+time.
+\end{document}

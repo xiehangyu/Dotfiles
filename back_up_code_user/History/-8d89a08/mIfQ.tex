@@ -1,0 +1,163 @@
+\documentclass[english]{ctexart}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{verbose}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+\usepackage{graphicx}
+\usepackage[authoryear]{natbib}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{braket}
+\usepackage{tikz}
+%\usepackage{braket}
+%\usepackage{braket}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{diagbox}
+\usepackage{chngcntr}
+\lstset{
+numbers=left,
+framexleftmargin=10mm,
+frame=none,
+keywordstyle=\bf\color{blue},
+identifierstyle=\bf,
+numberstyle=\color[RGB]{0,192,192},
+commentstyle=\it\color[RGB]{0,96,96},
+stringstyle=\rmfamily\slshape\color[RGB]{128,0,0}
+}
+
+%\usetheme{Darmstadt}
+%\usetheme{Frankfurt}
+% or ...
+
+%\setbeamercovered{transparent}
+\lstdefinelanguage
+   [x64]{Assembler}     % add a "x64" dialect of Assembler
+   [x86masm]{Assembler} % based on the "x86masm" dialect
+   % with these extra keywords:
+   {morekeywords={CDQE,CQO,CMPSQ,CMPXCHG16B,JRCXZ,LODSQ,MOVSXD, %
+                  POPFQ,PUSHFQ,SCASQ,STOSQ,IRETQ,RDTSCP,SWAPGS, %
+                  rax,rdx,rcx,rbx,rsi,rdi,rsp,rbp, %
+                  r8,r8d,r8w,r8b,r9,r9d,r9w,r9b, %
+                  r10,r10d,r10w,r10b,r11,r11d,r11w,r11b, %
+                  r12,r12d,r12w,r12b,r13,r13d,r13w,r13b, %
+                  r14,r14d,r14w,r14b,r15,r15d,r15w,r15b,retq,callq,cmpl}} % etc.
+
+\lstset{language=[x64]Assembler}
+\counterwithin*{section}{part}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\title{真空中的光电流弱于空气中的解释}
+\author{戴梦佳\ \ PB20511879}
+
+\maketitle
+真空中光电流弱于空气中光电流的现象虽然少见，但的确在其他文献中有所报道。解释的物理原因包括杂质或空气中带电粒子的电场影响，化学原因包括空气中的氧化物与探测器偶联以增强电荷载流子收集；降低电荷空穴复合速率；氧空位与材料结合作为光电流和水氧化动力学的催化剂等,
+但这些化学原因只是猜想，有的缺乏相关实验证明。
+
+\part{文献一：\emph{Ultrahigh-Gain Photodetectors Based on Atomically Thin
+Graphene-MoS2 Heterostructures （DOI: 10.1038/srep03826）}}
+
+\section{主要结论}
+
+这篇文章观察到了同样光强下，真空中的光电流弱于空气中的光电流的现象，见图（\ref{fig1}）。他们把这种现象归结于有效电场的形成和掺杂浓度的影响。
+
+\begin{figure}
+\includegraphics[width=0.7\textwidth]{\string"Figure/Screenshot from 2023-04-08 22-45-08\string".png}
+
+\caption{真空中的光电流弱于空气中的光电流}
+
+\label{fig1}
+\end{figure}
+
+
+\section{实验设施}
+
+\textbf{实验材料：}石墨烯/$MoS_{2}$ heterostructure, $MoS_{2}$ 是在一块二氧化硅基底上。
+
+\textbf{验证方法：}采用霍尔效应确定载流子类型和第一性仿真计算。
+
+\section{实验解释}
+
+\textbf{实验材料分析：}在他们的实验体系中，石墨烯的导电率远远高于$MoS_{2}$。当光照在$MoS_{2}$上激发$MoS_{2}$内的电子后，由于导电率的巨大差异，电子会更倾向于从$MoS_{2}$移动到石墨烯。此时，如果能有一个电场从石墨烯指向$MoS_{2}$，就可以将大量电子从$MoS_{2}$输运到石墨烯，从而形成大量的光电流。该论文对实验现象的解释主要围绕这个电场展开。
+
+\textbf{现象解释：}
+
+首先，在空气中，这个从石墨烯指向$MoS_{2}$的电场主要来源于两个方面
+\begin{enumerate}
+\item 内在电场，外加电场，空气中带电杂质和吸附物的共同作用。具体来说，带电杂质（charge impurity）和吸附物聚集在石墨烯和$MoS_{2}$的交界面上。它们库伦作用形成了一个从石墨烯指向$MoS_{2}$的有效电场。
+\item 石墨烯在空气中是$p-$掺杂，这主要是由于石墨烯吸附空气中的水分、氧气，基底杂志等掺杂作用决定的。这一点被霍尔效应实验所证实。而$p-$掺杂的石墨烯会吸引电子从$MoS_{2}$转移到石墨烯上，形成光电流。
+\end{enumerate}
+但是，在真空中，上面两个过程都会发生变化。
+\begin{enumerate}
+\item 在真空中，这些带电杂质和吸附物会脱离石墨烯与$MoS_{2}$ (desorbed), 从而这些charge impurity和吸附物不再贡献有效电场。
+\item 石墨烯也无法再吸附水分和氧气，从而石墨烯的掺杂浓度会大大改变。甚至，实验得出的结论显示，在真空中，石墨烯变为$n-$掺杂，从而无法再吸引光电子从$MoS_{2}$转移到石墨烯。第一性原理计算也证明了，石墨烯在真空中是$n-$掺杂。
+\end{enumerate}
+综合上述原因，真空中从石墨烯指向$MoS_{2}$的电场要比空气中的弱很多，从而造成了观测到的光电流下降。
+
+\part{文献二：\emph{Dependence of photocurrent in singlecrystalline boron nanobelts
+on atmosphere （https://doi.org/10.1063/1.2404609）}}
+
+\section{主要结论：}
+
+这篇文章详细分析了真空中以及不同气体组分下光电流强度的变化情况，见图（\ref{fig2}），图（\ref{fig3}）。
+
+\begin{figure}
+\includegraphics[width=0.6\textwidth]{\string"Figure/Screenshot from 2023-04-09 00-30-51\string".png}
+
+\caption{图（a）是正常空气中的光电流曲线，图（b）是真空中的光电流曲线。}
+
+\label{fig2}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=0.7\textwidth]{\string"Figure/Screenshot from 2023-04-09 00-33-14\string".png}
+
+\caption{不同空气成分下的光电流曲线}
+
+\label{fig3}
+\end{figure}
+文章得出的结论包括
+\begin{enumerate}
+\item 正常空气中的光电流强度远大于真空中的强度。
+\item 对不同气体组分中的光电流强度比较：$71\%$湿度的空气$>$$99.9\%$氧气$\approx$$10\%$氧气+Ar$>$$10\%$氢气+Ar$\approx$$99.9999\%$Ar$\approx$本底（暗室条件下的）光电流。
+\end{enumerate}
+
+\section{实验设施}
+
+\textbf{实验样品：}四方硼组成的单晶纳米带，英文是single-crystalline nanobelts composed
+of -tetragonal boron ($\alpha-t-B$)。
+
+\textbf{特殊处理：}在做真空测量前，样品先在500$K$条件下退火了两小时。
+
+\section{实验解释}
+
+该论文只提出了一些解释实验现象的假想猜测，但很多缺乏配套的理论（实验）验证。作者的猜测主要包括
+\begin{enumerate}
+\item 对空气成分的吸收可以增强电导率
+\item 当吸收的空气成分分子（这里指的是水分子）与实验样品材料有近似的格点结构时，可以最大增强光电流。
+\item 吸收的$O_{2}$和$H_{2}O$从样品材料中接受电子，形成$O_{2}^{-}$和$OH^{-}$这两种带负电的离子，从而造成surface
+band bending。surface band bending会改变材料表面的电势能，影响电子的输运性质。
+\item 材料中的格点缺陷和空位会形成束缚态，从而影响电子-空穴对复合的速率。
+\end{enumerate}
+
+\part{其它解释}
+
+对于我们观测到的真空中光电流弱于空气中的现象，我个人还有一些猜想
+\begin{enumerate}
+\item 可能与波长在紫外有关。很多紫外波长表现处的吸收峰性质会与可见光的性质不一样。例如，由于紫外波段能量高，光子有可能不止激发了电子，还参与了其它空气中杂质的电离。所以，空气提供了新的电离介质，即空气中有更多的光电子产生，从而有更强的光电流。
+\item 可能发生了类似于荧光雪崩的现象。由于空气介质的电离和散射等非线性作用，被激发的光电子（拥有很高能量）在回到基态时，向外界发出了两个或多个新的光子。这些新的光子继续激发新的电子。即由于空气中的非线性作用，一个光子激发一个电子后，激发的电子会进一步激发更多的电子，从而产生雪崩效应，一个光子激发了多个电子。同时紫外波段的光子能量足够强，使这种雪崩效应成为可能。这样，相比于真空，空气中拥有了更多的光电子，也即更强的光电流。关于如何探测荧光雪崩，目前查到的一些方法包括：
+\begin{enumerate}
+\item 使用time-correlated single-photon counting(TCSPC)探测信号相对于激光pulse的延迟，来判断是否发生了荧光雪崩以及荧光雪崩的持续时间。
+\item 使用高灵敏度探测器，通过探测输入信号和输出信号的强度比，判断有无信号加强和雪崩现象。例如photomultiplier tubes(PMT),
+charge-coupled devices (CCDS), electron-multiplying CCDs (EMCCDs)。
+\item 另外一种方法是通过超高分辨率探测器确定每一个光电子产生的位置（即源的位置）。如果发生雪崩现象的话，就可以发现很多次级源。通过这些源的位置分布有可能可以判断出是否发生了雪崩。
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

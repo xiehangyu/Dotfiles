@@ -1,0 +1,168 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage[utf8]{inputenc}
+\usepackage{subfigure}
+\usepackage{csquotes}
+\usepackage{helvet}   %Schriftart Helvetica
+\renewcommand{\familydefault}{\sfdefault}
+\sloppy % reduziert Silbentrennung stark auf ein Minimum
+
+
+\usepackage{epstopdf}   % Für .eps files
+\usepackage{tabularx}
+\usepackage{comment}
+\usepackage{lastpage}
+
+\usepackage{fancyhdr}   % Seitenlayout mit Kopf/Fußzeile
+\usepackage[hidelinks]{hyperref} % Setzt Verweise und Links innerhalb des PDF-Dokuments
+\usepackage{url}        % Ermöglicht Erstellen von URL-Links
+\usepackage{booktabs}
+\clubpenalty  = 10000 % Schusterjungen verhindern
+\widowpenalty = 10000 % Hurenkinder verhindern
+\usepackage{subcaption}
+\usepackage[a4paper,left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\setlength{\parindent}{0cm} % Einrücken nach \\ wird auf 0 gesetzt 
+\setlength{\parskip}{1.5ex plus0.5ex minus0.2ex} % Absatzabstand
+\pagestyle{fancy}
+\fancyhf{}                  %alle Kopf- und Fußzeilenfelder bereinigen
+\fancyhead[L]{}             %Kopfzeile links
+%\fancyhead[R]{\Autor}      %Kopfzeile rechts
+%\renewcommand{\headrulewidth}{0.4pt} %obere Trennlinie
+\fancyfoot[C]{\thepage\ }        %Seitennummer
+%\fancyfoot[C]{Seite \thepage\ von \pageref{LastPage}}  
+\renewcommand{\footrulewidth}{0.4pt} %untere Trennlinie
+%\numberwithin{equation}{section} %Gleichung werden nach Kapiteln nummeriert
+\usepackage{blindtext}
+\usepackage[T1]{fontenc}
+\begin{document}
+\input{Format/formatierung}
+
+%◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼
+\section{Introduction}
+\subsection{EPR paradox}
+In 1935, Einstein, Podolsky and Rosen (EPR) formulated an apparent paradox of quantum theory that quantum mechanics could not be a complete theory but should be supplemented by additional variables. These additional variables were to restore to the theory causality and locality. 
+
+They considered two quantum systems that were initially allowed to interact and were then later separated. A measurement of a physical observable performed on one system then had to have an immediate effect on the conjugate observable in the other system even if the systems were causally disconnected. They made two measurements at places remote from one another. This ensures that the measurements do not influence the results obtained by the other (locality). Due to entanglement, the results of measurements must be predetermined (reality). Otherwise there would be an instantaneous interaction between two particles. Following quantum mechanics, the initial wave function does not determine the result of an individual measurement. This paradox leads to the idea that quantum mechanics is not complete.
+
+Hence EPR suggested that quantum theory could be complete as a local and deterministic theory by considering local hidden variables (LHV).
+
+\subsection{Bell's and CHSH inequality}
+Whether local hidden variables really describe the physical world remained a purely philosophical question until 1964 when John Bell has discovered an inequality, which allows assessing this question experimentally. The test can be performed by measuring correlations on pairs of spin-1/2 particles. Bell's inequality predicts a limit on the degree of correlations for any LHV theory ($S\leq 2$ in CHSH formulation), however the predictions of quantum mechanics for certain two-particle states (entangled states) should exceed this limit ($S\leq 2\sqrt{2}$).
+
+Since then many experiments testing Bell's inequality were performed. However, there are two major requirements which are necessary for a conclusive test:
+
+\begin{itemize}
+\item Detection efficiency: at least 82.8\% of particles have to be detected on each side.
+\item Locality: the events of the measurements (including the choice of the measurement basis) on the two sides must be space-like separated.
+\end{itemize}
+\subsection{proof of CHSH inequaility}
+
+Here we give a short proof of CHSH inequality.
+
+First consider the LHV prediction: if the hidden variable $\lambda$
+has the distribution $p(\lambda)$, the expected measurement outcome
+with two photons polarized at $\alpha,\beta$ directions respectively
+will be
+\begin{equation}
+E(\alpha,\beta)=\int d\lambda p(\lambda)A(\alpha,\lambda)B(\beta,\lambda)
+\end{equation}
+where $A$,$B$ are two functions determined by LHC with values $A,B\in\{-1,1\}$.Consider
+the quantity 
+\begin{align*}
+S(\alpha,\alpha',\beta,\beta') & =|E(\alpha,\beta)-E(\alpha,\beta')|+|E(\alpha',\beta)+E(\alpha',\beta')|\\
+ & =|\int d\lambda p(\lambda)[(A(\alpha,\lambda)B(\beta,\lambda)-A(\alpha,\lambda)B(\beta',\lambda)]|\\ & +|\int d\lambda p(\lambda)[A(\alpha',\lambda)B(\beta,\lambda)+A(\alpha',\lambda)B(\beta',\lambda)]|\\
+ & =|\int d\lambda p(\lambda)A(\alpha,\lambda)[B(\beta,\lambda)-B(\beta',\lambda)]|+|\int d\lambda p(\lambda)A(\alpha',\lambda)[B(\beta,\lambda)+B(\beta',\lambda)]\\
+ & \leq\int d\lambda p(\lambda)|A(\alpha,\lambda)[B(\beta,\lambda)-B(\beta',\lambda)]|+\int d\lambda p(\lambda)|A(\alpha',\lambda)[B(\beta,\lambda)+B(\beta',\lambda)|\\
+ & =\int d\lambda p(\lambda)\{|A(\alpha,\lambda)[B(\beta,\lambda)-B(\beta',\lambda)]|+|A(\alpha',\lambda)[B(\beta,\lambda)+B(\beta',\lambda)|\}
+\end{align*}
+Because $A,B\in\{-1,1\}$, it is obviously that 
+\begin{align*}
+ & |A(\alpha,\lambda)[B(\beta,\lambda)-B(\beta',\lambda)]|+|A(\alpha',\lambda)[B(\beta,\lambda)+B(\beta',\lambda)|\\
+\leq & |B(\beta,\lambda)-B(\beta',\lambda)|+|B(\beta,\lambda)+B(\beta',\lambda)|\\
+= & 2
+\end{align*}
+Therefore, we can obtain 
+\begin{equation}
+S(\alpha,\alpha',\beta,\beta')\leq2
+\end{equation}
+in LHV. 
+
+However, in quantum mechanics, if the state is $\ket{\phi^{+}}=\frac{\ket{00}+\ket{11}}{\sqrt{2}}$,
+we can easily obtained
+\begin{align*}
+\sigma_{z}\sigma_{z}\ket{\phi^{+}} & =\sigma_{x}\sigma_{x}\ket{\phi^{+}}=\ket{\phi^{+}}\\
+\braket{\phi^{+}|\sigma_{z}\sigma_{x}|\phi^{+}} & =\braket{\phi^{+}|\sigma_{x}\sigma_{z}|\phi^{+}}=0
+\end{align*}
+therefore
+\begin{align*}
+E(\alpha,\beta) & =\braket{\phi^{+}|(\cos\alpha\sigma_{z}+\sin\alpha\sigma_{x})(\cos\beta\sigma_{z}+\sin\beta\sigma_{x})|\phi^{+}}\\
+ & =\cos\alpha\cos\beta+\sin\alpha\sin\beta=\cos(\alpha-\beta)
+\end{align*}
+If we choose $\alpha=0,\alpha'=\frac{\pi}{2},\beta=\frac{\pi}{4},\beta'=\frac{3\pi}{4}$,
+we will get
+\begin{equation}
+S(\alpha,\alpha',\beta,\beta')=2\sqrt{2}>2
+\end{equation}
+which contradicts with the result in LHV. This is known as CHSH inequality.
+%\input{Section/Intro}
+\section{Calculation details}
+In the following three pages, we present detailed calculations of three states measured in the experiment: $\ket{\mathrm{Classical}}$, $\ket{\phi^{+}}$, $\ket{\phi^{-}}$. The visibility of these three states are $\eta=3.6\%$,$89\%$,$79\%$, respectively. It is obvious that the visibility of the first state is so law that we call it the classical states, while the last two states have quantum entanglement property.
+The detailed calculations for CHSH inequality is shown in the following three pages. The first, second the third pages are for $\ket{\mathrm{Classical}}$, $\ket{\phi^{+}}$, $\ket{\phi^{-}}$, respectively. From the calculation, we know that for classical states, $S=1.439,\overline{S}=1.017$. It obeys the prediction by local hidden variable theorem (LHV). However, for the state $\ket{\phi^{+}}$, we have $S=2.435,\overline{S}=0.029$ which violates the LHV. For the state $\ket{\phi^{-}}$, we have $S=0.042,\overline{S}=2.474$ which also violates LHV. Thus, the two last two states show purely quantum property and indicates the contradiction between LHV and quantum mechanics.
+For a pictorial illustration of the above result, see Fig. \ref{illustration_figures}. From this figure, we can easily see which state is within LHV prediction (inside the square) or violates LHV prediction (ourside the square).
+\begin{figure}
+\subfloat[a]{\includegraphics[width=0.4\textwidth]{fig/CLass}
+}\subfloat[b]{\includegraphics[width=0.4\textwidth]{fig/phi_plus}
+}\subfloat[c]{\includegraphics[width=0.4\textwidth]{fig/phi_minus}
+}
+
+\caption{The pictorial illustration of the CHSH inequality for different three
+states. The subfigures (a)-(c) are for classical states, $\ket{\phi^{+}}$,
+$\ket{\phi^{-}}$, respectively.}
+
+\label{illustration_figures}
+\end{figure}
+
+\clearpage
+\includepdf[pages={1,3,2}]{./fig/Polarizer.pdf}
+\section{Conclusion}
+In this experiment, we measure the non-classical physics with entangled photons. Specifically, we measure the CHSH inequality for three different kinds of states. One obeys the prediction of LHV and the other two violates LHV. It illustrates the strong difference between quantum description and classical description. This experiment tells us that the LHV is wrong and quantum mechanical description is true. We can only truly predict the entanglement property from the quantum mechanics language. This examperiment deepens our understanding of quantum mechanics.
+%\input{Section/Conclusion}
+%◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼
+%%% Ende des Fließtextes
+\input{Format/formatierung_unten.tex}
+
+
+% \newcommand{\initAnhang}{
+%     \renewcommand{\thepage}{\Alph{chapter}\ \arabic{page}}
+%     \newpage
+% }
+% \newcommand{\anhang}[1]{
+%     \setcounter{page}{1}
+%     \input{#1}
+%     \newpage
+% }
+
+% \initAnhang
+%  \anhang{Anhang.tex}
+
+
+%\input{Section/Appendix}
+%\clearpage
+
+%\printbibliography[
+%heading=MyCollection,
+%title={References}
+%]
+\label{Ende Literatur}
+
+
+%\pagenumbering{roman}
+%\setcounter{page}{1}
+%\fancyfoot[C]{\thepage}
+
+\label{Ende Anhang}
+
+\end{document}

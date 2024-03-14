@@ -1,0 +1,1242 @@
+\documentclass[aps,superscriptaddress,notitlepage,longbibliography]{revtex4-1}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{esint}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{times}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{feynmf}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{xfrac}
+\usepackage[colorlinks,citecolor=blue]{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{longtable,booktabs}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{subfigure}
+\usepackage{dsfont}
+\usepackage{booktabs}
+\usepackage{amsbsy}
+\usepackage{dcolumn}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{esint}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsbsy}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{extarrows}
+\usepackage{datetime}
+\usepackage[super]{nth}
+\hypersetup{
+	colorlinks=magenta,
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=magenta,
+}
+\def\Z{\mathbb{Z}}
+\newcommand{\red}[1]{{\textcolor{red}{#1}}}
+\newtheorem{theorem}{Theorem}\newtheorem{statement}{Statement}\newcommand{\mb}{\mathbb}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\wt}{\widetilde}
+\newcommand{\mc}{\mathcal}
+\newcommand{\bra}{\langle}
+\newcommand{\ket}{\rangle}
+\newcommand{\ep}{\epsilon}
+\newcommand{\tf}{\textbf}
+
+\makeatother
+
+\begin{document}
+\title{Supplemental Material for ``Superfluidity in Dissipative Bose-Einstein
+Condensate''}
+\author{Hongchao Li}
+\thanks{These two authors contributed equally to this work.}
+\affiliation{Department of Physics, University of Tokyo, 7-3-1 Hongo, Tokyo 113-0033,
+Japan}
+\email{lhc@cat.phys.s.u-tokyo.ac.jp}
+
+\author{Xie-Hang Yu}
+\thanks{These two authors contributed equally to this work.}
+\affiliation{Max-Planck-Institut f�r Quantenoptik, Hans-Kopfermann-Stra�e 1, D-85748
+Garching, Germany}
+\affiliation{Munich Center for Quantum Science and Technology, Schellingstra�e
+4, 80799 M�nchen, Germany}
+\email{xiehang.yu@mpq.mpg.de}
+
+\author{Masaya Nakagawa}
+\affiliation{Department of Physics, University of Tokyo, 7-3-1 Hongo, Tokyo 113-0033,
+Japan}
+\email{nakagawa@cat.phys.s.u-tokyo.ac.jp}
+
+\author{Masahito Ueda}
+\affiliation{Department of Physics, University of Tokyo, 7-3-1 Hongo, Tokyo 113-0033,
+Japan}
+\affiliation{RIKEN Center for Emergent Matter Science (CEMS), Wako, Saitama 351-0198,
+Japan}
+\affiliation{Institute for Physics of Intelligence, University of Tokyo, 7-3-1
+Hongo, Tokyo 113-0033, Japan}
+\email{ueda@cat.phys.s.u-tokyo.ac.jp}
+
+\date{\today}
+
+\maketitle
+ 
+
+\tableofcontents{}
+
+\section{Derivation of Effective Action for the Quantum Phase}
+
+We tend to derive the effective Keldysh action of the quantum phase
+of bosonic fields. To begin with, we first review the superfluid theory
+in the closed bosonic quantum systems \citep{Ueda2010}: 
+\begin{equation}
+S=\int dtd^{3}x[i\varphi_{+}^{\ast}(x)\partial_{t}\varphi_{+}(x)-H_{+}-i\varphi_{-}^{\ast}(x)\partial_{t}\varphi_{-}(x)+H_{-}],\label{eq:closed_action}
+\end{equation}
+where 
+\begin{equation}
+H_{\pm}=\frac{1}{2m}(\nabla\varphi_{\pm}^{\ast})\cdot(\nabla\phi_{\pm}^{\ast})-\mu|\varphi_{\pm}|^{2}+\frac{U}{2}|\varphi_{\pm}|^{4}.
+\end{equation}
+If we transform the fields into the retarded and advanced fields:
+\begin{equation}
+\varphi_{R}=\frac{1}{2}(\varphi_{+}+\varphi_{-}),\varphi_{A}=\varphi_{+}-\varphi_{-},
+\end{equation}
+the action can be rewritten as 
+\begin{eqnarray}
+S & = & \int dtd^{3}x\left[\frac{i}{2}\varphi_{R}^{\ast}(x)\partial_{t}\varphi_{A}(x)+\frac{i}{2}\varphi_{A}^{\ast}(x)\partial_{t}\varphi_{R}(x)-\frac{1}{2m}(\nabla\varphi_{R}^{\ast})\cdot(\nabla\varphi_{A})-\frac{1}{2m}(\nabla\varphi_{A}^{\ast})\cdot(\nabla\varphi_{R})\right]\nonumber \\
+ &  & +\int dtd^{3}x\left[-\frac{U}{2}|\varphi_{+}|^{4}+\frac{U}{2}|\varphi_{-}|^{4}\right].
+\end{eqnarray}
+Here we consider the $U(1)$ symmetry breaking of the bosonic fields
+$\phi_{+},\phi_{-}$ as \citep{PhysRevD.103.056020}
+\begin{eqnarray}
+\varphi_{+} & = & \varphi_{0}(1+\phi_{+})e^{i\theta_{+}},\label{eq:phi+}\\
+\varphi_{-} & = & \varphi_{0}(1+\phi_{-})e^{i\theta_{-}}.\label{eq:phi-}
+\end{eqnarray}
+Here $\phi_{\alpha}$ and $\theta_{\alpha}$ represent gapped Higgs
+modes and gapless Nambu-Goldstone mode on the contour $\alpha$ separately.
+These expressions are supported by the mean-field solution of the
+equation $\delta S/\delta\varphi_{A}=0$, which is given by 
+\begin{equation}
+(i\partial_{t}-\mu+U_{R}|\varphi_{R}|^{2})\varphi_{R}=0.
+\end{equation}
+The solution of this equation is 
+\begin{eqnarray*}
+\varphi_{R} & = & \sqrt{n},\\
+\mu & = & \varphi_{R}^{2}U_{R},\\
+\varphi_{A} & = & 0.
+\end{eqnarray*}
+By expanding the action \eqref{eq:closed_action} to the second order
+term of $\phi_{\pm}$ and $\theta_{\pm}$, we have 
+\begin{equation}
+S=S_{+}-S_{-},\label{eq:total_action}
+\end{equation}
+where 
+\begin{equation}
+S_{\alpha}=\int dtd^{3}x\left[-\varphi_{0}^{2}\partial_{t}\theta_{\alpha}-\frac{1}{2m}\varphi_{0}^{2}(\nabla\theta_{\alpha})^{2}-2\varphi_{0}^{2}\phi_{\alpha}\partial_{t}\theta_{\alpha}-\frac{1}{2m}\varphi_{0}^{2}(\nabla\phi_{\alpha})^{2}-2U\varphi_{0}^{4}\phi_{\alpha}^{2}\right].
+\end{equation}
+By substituting $S_{\alpha}$ into Eq. \eqref{eq:total_action}, we
+obtain 
+\begin{eqnarray}
+S & = & \int dtd^{3}x\left[-\varphi_{0}^{2}\partial_{t}\theta_{A}-\frac{1}{m}\varphi_{0}^{2}(\nabla\theta_{R})(\nabla\theta_{A})-2\varphi_{0}^{2}\phi_{R}\partial_{t}\theta_{A}-2\varphi_{0}^{2}\phi_{A}\partial_{t}\theta_{R}-\frac{1}{m}\varphi_{0}^{2}(\nabla\phi_{R})(\nabla\phi_{A})\right]\nonumber \\
+ &  & +\int dtd^{3}x[-4U\varphi_{0}^{4}\phi_{R}\phi_{A}].\nonumber \\
+ & = & \int dtd^{3}x\left[-\frac{1}{m}\varphi_{0}^{2}(\nabla\theta_{R})(\nabla\theta_{A})-2\varphi_{0}^{2}\left(\begin{array}{cc}
+\phi_{R} & \phi_{A}\end{array}\right)\left(\begin{array}{c}
+\partial_{t}\theta_{A}\\
+\partial_{t}\theta_{R}
+\end{array}\right)\right]\nonumber \\
+ &  & +\int dtd^{3}x\left[-\left(\begin{array}{cc}
+\phi_{R} & \phi_{A}\end{array}\right)\left(\begin{array}{cc}
+0 & -\frac{\varphi_{0}^{2}}{2m}\nabla^{2}+2U\varphi_{0}^{4}\\
+-\frac{\varphi_{0}^{2}}{2m}\nabla^{2}+2U\varphi_{0}^{4} & 0
+\end{array}\right)\left(\begin{array}{c}
+\phi_{R}\\
+\phi_{A}
+\end{array}\right)\right].
+\end{eqnarray}
+Then we integrate the amplitude fields $\phi_{R},\phi_{A}$ and obtain
+\begin{eqnarray}
+S & = & \int dtd^{3}x\left[-\frac{1}{m}\varphi_{0}^{2}(\nabla\theta_{R})(\nabla\theta_{A})\right]\nonumber \\
+ &  & +\varphi_{0}^{4}\int dtd^{3}x\left[\left(\begin{array}{cc}
+\partial_{t}\theta_{R} & \partial_{t}\theta_{A}\end{array}\right)\left(\begin{array}{cc}
+0 & \left(-\frac{\varphi_{0}^{2}}{2m}\nabla^{2}+2U\varphi_{0}^{4}\right)^{-1}\\
+\left(-\frac{\varphi_{0}^{2}}{2m}\nabla^{2}+2U\varphi_{0}^{4}\right)^{-1} & 0
+\end{array}\right)\left(\begin{array}{c}
+\partial_{t}\theta_{A}\\
+\partial_{t}\theta_{R}
+\end{array}\right)\right].\nonumber \\
+ & = & \int dtd^{3}x\left[-\frac{1}{m}\varphi_{0}^{2}(\nabla\theta_{R})(\nabla\theta_{A})+\partial_{t}\theta_{R}\frac{\varphi_{0}^{4}}{-\frac{\varphi_{0}^{2}}{2m}\nabla^{2}+2U\varphi_{0}^{4}}\partial_{t}\theta_{A}\right].
+\end{eqnarray}
+Hence, we rotate the action back to the forward and backward contours
+and obtain 
+\begin{equation}
+S=S_{+}^{\text{eff}}-S_{-}^{\text{eff}},
+\end{equation}
+where 
+\begin{equation}
+S_{\alpha}^{\text{eff}}=\int dtd^{3}x\left[-\frac{1}{2m}\varphi_{0}^{2}(\nabla\theta_{\alpha})(\nabla\theta_{\alpha})+\partial_{t}\theta_{\alpha}\frac{\varphi_{0}^{2}}{-\frac{1}{2m}\nabla^{2}+2U\varphi_{0}^{2}}\partial_{t}\theta_{\alpha}\right].\label{eq:action_2}
+\end{equation}
+By applying the Fourier transformation, we have the excitation spectrum:
+\begin{equation}
+\omega=\sqrt{\frac{k^{2}}{2m}\left(\frac{k^{2}}{2m}+2Un\right)},\varphi_{0}^{2}=n.
+\end{equation}
+By taking $\partial_{t}\theta_{+}=\partial_{t}\theta_{-}=0$, we can
+see the first term in Eq. \eqref{eq:action_2} represents the phase
+rigidity which takes the form after Wick rotation: $S=\int d\tau d^{3}x\left[\frac{1}{2m}\varphi_{0}^{2}(\nabla\theta_{+})^{2}-\frac{1}{2m}\varphi_{0}^{2}(\nabla\theta_{-})^{2}\right]$.
+
+Then we turn to the Lindblad system, in which case the action becomes
+\begin{equation}
+S=\int dtd^{3}x[i\varphi_{+}^{\ast}(x)\partial_{t}\varphi_{+}(x)-H_{+}-i\varphi_{-}^{\ast}(x)\partial_{t}\varphi_{-}(x)+H_{-}-i\gamma\varphi_{-}^{\ast}(x)^{2}\varphi_{+}(x)^{2}],
+\end{equation}
+where 
+\begin{equation}
+H_{\pm}=\frac{1}{2m}(\nabla\varphi_{\pm}^{\ast})\cdot(\nabla\phi_{\pm}^{\ast})-\mu|\varphi_{\pm}|^{2}+\frac{U_{\pm}}{2}|\varphi_{\pm}|^{4}
+\end{equation}
+with $U_{\pm}=U_{R}\mp i\gamma$. We still apply the decompositions
+in Eqs. \eqref{eq:phi+} and \eqref{eq:phi-}, which are supported
+by the mean-field solution of the equation $\delta S/\delta\varphi_{A}=0$,
+which is given by 
+\begin{equation}
+(i\partial_{t}-\mu+(U_{R}-i\gamma)|\varphi_{R}|^{2})\varphi_{R}=0.
+\end{equation}
+The solution of this equation is 
+\begin{eqnarray*}
+\varphi_{R}(t) & = & \frac{\varphi_{R}(0)}{\sqrt{1+2\gamma\varphi_{R}(0)^{2}t}}=\sqrt{\frac{n(0)}{1+2\gamma n(0)t}},\\
+\mu(t) & = & \varphi_{R}^{2}(t)U_{R},\\
+\varphi_{A} & = & 0.
+\end{eqnarray*}
+Hence, we just replace the approximation with the mean-field solution
+as $\varphi_{0}=\varphi_{R}(t)$, which is a function of time $t$.
+
+Still the bosonic fields can be decomposed into fields of $\theta_{\pm}$
+and $\phi_{\pm}$ as Eqs. (\ref{eq:phi+}) and (\ref{eq:phi-}), which
+results in
+\begin{equation}
+S=S_{+}-S_{-}+\int dtd^{3}x[(-4i\gamma)\varphi_{0}^{4}\phi_{+}\phi_{-}+2\gamma\varphi_{0}^{4}\theta_{A}+8\gamma\varphi_{0}^{4}\phi_{R}\theta_{A}],
+\end{equation}
+where 
+\begin{equation}
+S_{\alpha}=\int dtd^{3}x\left[-\varphi_{0}^{2}\partial_{t}\theta_{\alpha}-\frac{1}{2m}\varphi_{0}^{2}(\nabla\theta_{\alpha})^{2}-2\varphi_{0}^{2}\phi_{\alpha}\partial_{t}\theta_{\alpha}-\frac{1}{2m}\varphi_{0}^{2}(\nabla\phi_{\alpha})^{2}-2(U_{R}-i\alpha\gamma)\varphi_{0}^{4}\phi_{\alpha}^{2}\right].
+\end{equation}
+By substitution, we have the action
+
+\begin{eqnarray}
+S & = & \int dtd^{3}x\left[-\varphi_{0}^{2}\partial_{t}\theta_{A}-\frac{1}{m}\varphi_{0}^{2}(\nabla\theta_{R})(\nabla\theta_{A})-2\varphi_{0}^{2}\phi_{R}\partial_{t}\theta_{A}-2\varphi_{0}^{2}\phi_{A}\partial_{t}\theta_{R}-\frac{1}{m}\varphi_{0}^{2}(\nabla\phi_{R})(\nabla\phi_{A})\right]\nonumber \\
+ &  & +\int dtd^{3}x\left[-4U_{R}\varphi_{0}^{4}\phi_{R}\phi_{A}+2i\gamma\varphi_{0}^{4}\left(2\phi_{R}^{2}+\frac{1}{2}\phi_{A}^{2}\right)+2\gamma\varphi_{0}^{4}\theta_{A}+8\gamma\varphi_{0}^{4}\phi_{R}\theta_{A}\right]\nonumber \\
+ & = & \int dtd^{3}x\left[-\varphi_{0}^{2}\partial_{t}\theta_{A}-\frac{1}{m}\varphi_{0}^{2}(\nabla\theta_{R})(\nabla\theta_{A})-2\varphi_{0}^{2}\left(\begin{array}{cc}
+\phi_{R} & \phi_{A}\end{array}\right)\left(\begin{array}{c}
+\partial_{t}\theta_{A}-4\gamma\varphi_{0}^{2}\theta_{A}\\
+\partial_{t}\theta_{R}
+\end{array}\right)\right]\nonumber \\
+ &  & +\int dtd^{3}x\left[-\left(\begin{array}{cc}
+\phi_{R} & \phi_{A}\end{array}\right)\left(\begin{array}{cc}
+-4i\gamma\varphi_{0}^{4} & -\frac{\varphi_{0}^{2}}{2m}\nabla^{2}+2U_{R}\varphi_{0}^{4}\\
+-\frac{\varphi_{0}^{2}}{2m}\nabla^{2}+2U_{R}\varphi_{0}^{4} & -i\gamma\varphi_{0}^{4}
+\end{array}\right)\left(\begin{array}{c}
+\phi_{R}\\
+\phi_{A}
+\end{array}\right)+2\gamma\varphi_{0}^{4}\theta_{A}\right].
+\end{eqnarray}
+After integrating the amplitude fields $\phi_{R,A}$, we obtain the
+effective action as 
+\begin{eqnarray}
+S & = & \int dtd^{3}x\left[-\varphi_{0}^{2}\partial_{t}\theta_{A}-\frac{1}{m}\varphi_{0}^{2}(\nabla\theta_{R})(\nabla\theta_{A})\right]\nonumber \\
+ &  & +\int dtd^{3}x\left[\varphi_{0}^{4}\left(\begin{array}{cc}
+\partial_{t}\theta_{A}-4\gamma\varphi_{0}^{2}\theta_{A} & \partial_{t}\theta_{R}\end{array}\right)A^{-1}\left(\begin{array}{c}
+\partial_{t}\theta_{A}-4\gamma\varphi_{0}^{2}\theta_{A}\\
+\partial_{t}\theta_{R}
+\end{array}\right)+2\gamma\varphi_{0}^{4}\theta_{A}\right],
+\end{eqnarray}
+where $A=\left(\begin{array}{cc}
+-4i\gamma & -\frac{\varphi_{0}^{2}}{2m}\nabla^{2}+2U_{R}\varphi_{0}^{4}\\
+-\frac{\varphi_{0}^{2}}{2m}\nabla^{2}+2U_{R}\varphi_{0}^{4} & -i\gamma
+\end{array}\right)$. When we take $\partial_{t}\theta_{+}=\partial_{t}\theta_{-}=0$,
+we obtain 
+\begin{eqnarray}
+S & = & \int dtd^{3}x\left[-\frac{1}{m}\varphi_{0}^{2}(\nabla\theta_{R})(\nabla\theta_{A})+16\gamma^{2}\varphi_{0}^{4}\theta_{A}^{2}\frac{\varphi_{0}^{4}(-i\gamma\varphi_{0}^{4})}{-4\gamma^{2}\varphi_{0}^{8}-\left(-\frac{\varphi_{0}^{2}}{2m}\nabla^{2}+2U_{R}\varphi_{0}^{4}\right)^{2}}+2\gamma\varphi_{0}^{4}\theta_{A}\right]\nonumber \\
+ & \simeq & \int dtd^{3}x\left[-\frac{1}{m}\varphi_{0}^{2}(\nabla\theta_{R})(\nabla\theta_{A})+4i\gamma^{2}\varphi_{0}^{4}\theta_{A}^{2}\frac{\gamma}{\gamma^{2}+U_{R}^{2}}+2\gamma\varphi_{0}^{4}\theta_{A}\right],
+\end{eqnarray}
+where we ignore the contribution from $\nabla^{2}$ since we consider
+long-wave limit. We can see the second term on the R.H.S represents
+the imaginary part of the contribution, which is an infinitesimal
+quantity $O(\gamma\theta_{A}^{2})$. To concern the phase rigidity,
+we only need to concern about the real part of the action after Wick
+rotation, which is given by 
+\begin{eqnarray}
+S & = & \int d\tau d^{3}x\left[\frac{1}{m}\varphi_{0}^{2}(\nabla\theta_{R})(\nabla\theta_{A})-2\gamma\varphi_{0}^{4}\theta_{A}\right]\nonumber \\
+ & = & \int d\tau d^{3}x\left[\frac{1}{2m}\varphi_{0}^{2}(\nabla\theta_{+})(\nabla\theta_{+})-\frac{1}{2m}\varphi_{0}^{2}(\nabla\theta_{-})(\nabla\theta_{-})-2\gamma\varphi_{0}^{4}(\theta_{+}-\theta_{-})\right]\nonumber \\
+ & = & \int d\tau d^{3}x\varphi_{0}^{2}\left[\frac{1}{2m}(\nabla\theta_{+}+\bm{\psi}(x))(\nabla\theta_{+}+\bm{\psi}(x))-\frac{1}{2m}(\nabla\theta_{-}+\bm{\psi}(x))(\nabla\theta_{-}+\bm{\psi}(x))\right],\label{action-superfluid}
+\end{eqnarray}
+with $\nabla\cdot\bm{\psi}=2\gamma\varphi_{0}^{4}$. We can construct
+the function as $\bm{\psi}=2\gamma\varphi_{0}^{4}\bm{x}/3$. Therefore,
+we can still see the phase rigidity in the action. The vector field
+$\bm{\psi}(x)$ represents the dissipative current from the environment.
+Since the twist of quantum phase can be related to the velocity as
+$\bm{v}_{s\alpha}=\nabla\theta_{\alpha}/m$ \citep{Coleman_2015},
+the dissipative current can be determined by 
+\begin{eqnarray}
+\langle\bm{j}_{s}\rangle & = & \frac{\delta S}{m\delta\bm{v}_{s}}=\frac{1}{2}\left(\frac{\delta S}{m\delta\bm{v}_{s+}}-\frac{\delta S}{m\delta\bm{v}_{s-}}\right)|_{\bm{v}_{s+}=-\bm{v}_{s-}=\bm{v}_{s}}\nonumber \\
+ & = & \frac{\varphi_{0}^{2}}{m}(m\bm{v}_{s}+\bm{\psi}),
+\end{eqnarray}
+which indicates that $\rho_{s}=\varphi_{0}^{2}=n(t)$ by definition
+of the superfluid density $\rho_{s}=\partial\langle\bm{j}_{s}\rangle/\partial\bm{v}_{s}$.
+Therefore, the superfluid density is just the total mass density.
+All the bosons participate in the superfluid transport. Further, to
+understand the current related to $\bm{\psi}$, here we define our
+cuurent density operator as $\hat{\bm{j}}=\frac{1}{2}\sum_{\bm{k}}\bm{k}(c_{\bm{k}+}^{\dagger}c_{\bm{k}+}+c_{\bm{k}-}^{\dagger}c_{\bm{k}-})$
+and we calculate the measured value of the current as 
+\begin{equation}
+\bm{j}=\langle\hat{\bm{j}}\rangle=\frac{1}{Z}\int D[c_{+}]D[c_{-}]\hat{\bm{j}}e^{iS}.
+\end{equation}
+This is the classical current we always introduce in the open quantum
+systems. However, here we have a number density decay in the continuous
+equation as 
+\begin{equation}
+\frac{dn}{dt}=-\nabla\cdot\bm{j}_{t},
+\end{equation}
+where $\bm{j}_{t}=\bm{j}_{c}+\bm{j}_{e}$ with the current $\bm{j}_{c}$
+being the current flow between different space point and the current
+$\bm{j}_{e}$ being the dissipative current due to the loss of particle
+numbers. This dissipative current is given by 
+\[
+\nabla\cdot\bm{j}_{e}=-\frac{dn_{t}}{dt}=\frac{2\gamma n(0)^{2}}{(1+2\gamma n(0)t)^{2}}
+\]
+\[
+\ 
+\]
+We assume the system is uniform and hence give the expression of $\bm{j}_{e}$
+as 
+\begin{equation}
+\bm{j}_{e}=\frac{2\gamma n(0)^{2}}{3(1+2\gamma n(0)t)^{2}}\bm{x}=\frac{2}{3}\gamma n^{2}\bm{x},
+\end{equation}
+which is exactly the same as our field-theoretic calculation. Since
+this is an isotropic term and has nothing to do with the external
+perturbation, in the measurement, this term will not be influenced.
+Hence, this current will not influence the phase stiffness and the
+superfluid density since $D_{\alpha\beta}=\partial j_{\alpha}/\partial v_{\beta}$.
+This can be also shown in the field-theoretic calculations.
+
+\section{f-sum Rule}
+
+This is also an important and relevant topic. We first consider such
+a quantity 
+\begin{equation}
+\langle[\rho_{-\bm{k}},\mathcal{L}^{\dagger}(\rho_{\bm{k}})]\rangle=\text{Tr}[\rho[\rho_{-\bm{k}},\mathcal{L}^{\dagger}(\rho_{\bm{k}})]]
+\end{equation}
+where 
+\begin{equation}
+\rho_{\bm{k}}=\sum_{\bm{p}}a_{\bm{p}}^{\dagger}a_{\bm{p}+\bm{k}},\mathcal{L}^{\dagger}(O):=i[O,H]-\frac{\gamma}{2}\sum_{i}\{O,L_{i}^{\dagger}L_{i}\}+\gamma\sum_{i}L_{i}^{\dagger}OL_{i}.
+\end{equation}
+Here we consider the Heisenberg picture where the operators evolve
+as 
+\begin{equation}
+\frac{dO}{dt}=\mathcal{L}^{\dagger}(O)=i[O,H]-\frac{\gamma}{2}\sum_{i}\{O,L_{i}^{\dagger}L_{i}\}+\gamma\sum_{i}L_{i}^{\dagger}OL_{i}.\label{eq:Ldynamics}
+\end{equation}
+From previous calculation \citep{Ueda2010}, we notice that 
+\begin{equation}
+i\left[{\rho_{\bm{k}}},H\right]=i\sum_{\bm{p}}(\varepsilon_{\bm{p}+\bm{k}}-\varepsilon_{\bm{p}})a_{\bm{p}}^{\dagger}a_{\bm{p}+\bm{k}}.
+\end{equation}
+Then we calculate the following terms in $\mathcal{L}(\rho_{\bm{k}})$.
+We can see 
+\begin{equation}
+-\frac{\gamma}{2}\sum_{i}\{O,L_{i}^{\dagger}L_{i}\}+\gamma\sum_{i}L_{i}^{\dagger}OL_{i}=-\frac{\gamma}{2}\sum_{i}[O,L_{i}^{\dagger}]L_{i}+\frac{\gamma}{2}\sum_{i}L_{i}^{\dagger}[O,L_{i}].
+\end{equation}
+By substituting $L_{i}=a_{i}^{2}$ and apply the Fourier transformation,
+we obtain 
+\begin{eqnarray}
+ &  & -\frac{\gamma}{2}\sum_{\bm{p},\bm{q},\bm{l}}[\rho_{\bm{k}},a_{\bm{p}+\bm{l}}^{\dagger}a_{\bm{q}-\bm{l}}^{\dagger}]a_{\bm{q}}a_{\bm{p}}+\frac{\gamma}{2}\sum_{\bm{p},\bm{q},\bm{l}}a_{\bm{p}+\bm{l}}^{\dagger}a_{\bm{q}-\bm{l}}^{\dagger}[\rho_{\bm{k}},a_{\bm{q}}a_{\bm{p}}]\nonumber \\
+ & = & -\gamma\sum_{\bm{p},\bm{q},\bm{l}}\left[a_{\bm{l}}^{\dagger}a_{\bm{p}}^{\dagger}a_{\bm{l}+\bm{k}-\bm{q}}a_{\bm{p}+\bm{q}}+a_{\bm{l}}^{\dagger}a_{\bm{p}}^{\dagger}a_{\bm{p}-\bm{q}}{a_{\bm{l}+\bm{k}+\bm{q}}}\right]\nonumber \\
+ & = & -2\gamma\left(\sum_{\bm{q}}\rho_{\bm{k}-\bm{q}}\rho_{\bm{q}}-\rho_{\bm{k}}\right).
+\end{eqnarray}
+By utilizing the fact that $[\rho_{\bm{k}},\rho_{\bm{p}}]=0$ for
+arbitrary $\bm{p},\bm{k}$, we have 
+\begin{eqnarray}
+[\rho_{-\bm{k}},\mathcal{L}^{\dagger}(\rho_{\bm{k}})] & = & \left[\rho_{-\bm{k}},i\sum_{\bm{p}}(\varepsilon_{\bm{p}+\bm{k}}-\varepsilon_{\bm{p}})a_{\bm{p}}^{\dagger}a_{\bm{p}+\bm{k}}-2\gamma\left(\sum_{\bm{q}}\rho_{\bm{k}-\bm{q}}\rho_{\bm{q}}-\rho_{\bm{k}}\right)\right]\nonumber \\
+ & = & -i\sum_{\bm{p}}(\varepsilon_{\bm{p}+\bm{k}}+\varepsilon_{\bm{p}-\bm{k}}-\varepsilon_{\bm{p}})a_{\bm{p}}^{\dagger}a_{\bm{p}}\nonumber \\
+ & = & -2i\varepsilon_{\bm{k}}\hat{N}.
+\end{eqnarray}
+Therefore, 
+\begin{equation}
+\langle[\rho_{-\bm{k}},\mathcal{L}^{\dagger}(\rho_{\bm{k}})]\rangle=-2i\varepsilon_{\bm{k}}N.
+\end{equation}
+Below, we will show how to use the eigenspectrum of the Lindblad operator
+to represent $\langle[\rho_{-\bm{k}},\mathcal{L}^{\dagger}(\rho_{\bm{k}})]\rangle$.
+To begin with, we define the right eigenvectors $\hat{r}_{\alpha}$
+and the left eigenvectors $\hat{l}_{\alpha}$ of $\mathcal{L}^{\dagger}$
+as \citep{Scarlatella2019} 
+\begin{eqnarray}
+\mathcal{L}^{\dagger}(\hat{r}_{\alpha}) & = & \lambda_{\alpha}\hat{r}_{\alpha},\\
+\mathcal{L}^{\dagger}(\hat{l}_{\alpha}) & = & \lambda_{\alpha}^{\ast}\hat{l}_{\alpha},
+\end{eqnarray}
+which satisfy 
+\begin{equation}
+\text{Tr}(\hat{l}_{\alpha}^{\dagger}\hat{r}_{\beta})=\delta_{\alpha\beta},\sum_{\alpha}\hat{r}_{\alpha}\hat{l}_{\alpha}^{\dagger}=\mathbb{I}.
+\end{equation}
+Then we can expand $\mathcal{L}^{\dagger}(\rho_{\bm{k}})$ as 
+\begin{equation}
+\mathcal{L}^{\dagger}(\rho_{\bm{k}})=\sum_{\alpha}\lambda_{\alpha}\hat{r}_{\alpha}\text{Tr}(\hat{l}_{\alpha}^{\dagger}\rho_{\bm{k}}).
+\end{equation}
+Therefore, we obtain 
+\begin{eqnarray}
+\langle[\rho_{-\bm{k}},\mathcal{L}^{\dagger}(\rho_{\bm{k}})]\rangle & = & \sum_{\alpha}\lambda_{\alpha}(\text{Tr}[\rho_{s}\rho_{-\bm{k}}\hat{r}_{\alpha}]-\text{Tr}[\rho_{-\bm{k}}\rho_{s}\hat{r}_{\alpha}])\text{Tr}(\hat{l}_{\alpha}^{\dagger}\rho_{\bm{k}})\nonumber \\
+ & = & \sum_{\alpha}\lambda_{\alpha}\text{Tr}[[\rho_{s},\rho_{-\bm{k}}]\hat{r}_{\alpha}]\text{Tr}(\hat{l}_{\alpha}^{\dagger}\rho_{\bm{k}}),
+\end{eqnarray}
+where we use $\rho_{s}$ to represent the initial density matrix.
+We further define a new retarded Green's function for open quantum
+systems: 
+\begin{equation}
+\tilde{G}^{R}(\bm{k},t_{0},t)=-i\theta(t)\langle[\rho_{-\bm{k}}(t_{0}),\rho_{\bm{k}}(t_{0}+t)]\rangle
+\end{equation}
+in the Heisenburg picture. Hence, we can expand the Green's function
+as 
+\begin{eqnarray}
+\tilde{G}^{R}(\bm{k},t_{0},t) & = & -i\theta(t)\sum_{\alpha}e^{\lambda_{\alpha}t}[\text{Tr}[\rho_{s}\rho_{-\bm{k}}\hat{r}_{\alpha}]\text{Tr}(\hat{l}_{\alpha}^{\dagger}\rho_{\bm{k}})-\text{Tr}[\rho_{-\bm{k}}\rho_{s}\hat{r}_{\alpha}]\text{Tr}(\hat{l}_{\alpha}^{\dagger}\rho_{\bm{k}})]\nonumber \\
+ & = & -i\theta(t)\sum_{\alpha}e^{\lambda_{\alpha}t}\text{Tr}[[\rho_{s},\rho_{-\bm{k}}]\hat{r}_{\alpha}]\text{Tr}(\hat{l}_{\alpha}^{\dagger}\rho_{\bm{k}}).
+\end{eqnarray}
+Under the Fourier transformation of $t$, we obtain 
+\begin{equation}
+\tilde{G}^{R}(\bm{k},t_{0},\omega)=\int dte^{i\omega t}\tilde{G}^{R}(\bm{k},t_{0},t)=\sum_{\alpha}\frac{1}{\omega-i\lambda_{\alpha}+i0^{+}}\text{Tr}[[\rho_{s},\rho_{-\bm{k}}]\hat{r}_{\alpha}]\text{Tr}(\hat{l}_{\alpha}^{\dagger}\rho_{\bm{k}}).
+\end{equation}
+If we define a closed contour $C$ that contains all the poles $\lambda_{\alpha}-0^{+}$,
+the relation becomes: 
+\begin{equation}
+\oint_{C}\frac{\omega d\omega}{2\pi}\tilde{G}^{R}(\bm{k},t_{0},\omega)=\text{Tr}[[\rho_{s},\rho_{-\bm{k}}]\hat{r}_{\alpha}]\text{Tr}(\hat{l}_{\alpha}^{\dagger}\rho_{\bm{k}})=-2i\varepsilon_{\bm{k}}N(t_{0}).\label{eq:f}
+\end{equation}
+Alternatively, the f-sum rule can also be used to derive the relation
+between current-current correlation function and the number operator.
+We begin from the dynamics of the operator $\rho_{\bm{k}}$ as 
+\begin{equation}
+\frac{\partial\rho_{\bm{r}}(t)}{\partial t}=\mathcal{L}^{\dagger}\rho_{\bm{r}}=i[H,\rho_{\bm{r}}]+\frac{\gamma}{2}\sum_{\bm{r}}[2L_{\bm{r}}^{\dagger}\rho_{\bm{r}}L_{\bm{r}}-L_{\bm{r}}^{\dagger}L_{\bm{r}}\rho_{\bm{r}}-\rho_{\bm{r}}L_{\bm{r}}^{\dagger}L_{\bm{r}}].\label{eq:continuous}
+\end{equation}
+After simplification, this dynamics can be reorganized as 
+\begin{equation}
+\frac{\partial\rho_{\bm{r}}(t)}{\partial t}=-\nabla\cdot(\bm{j}_{t}):=-\nabla\cdot(\bm{j}_{c}+\bm{j}_{e}),
+\end{equation}
+where $\bm{j}_{t}:=\bm{j}_{c}+\bm{j}_{e}$ is the total current with
+$\bm{j}_{c}$ being the current flow in the closed quantum system
+and $\bm{j}_{e}$ being the current induced by two-body loss. They
+are separately given by 
+\begin{eqnarray}
+\bm{j}_{c} & = & \frac{i}{2}[\nabla a^{\dagger}(\bm{r})a(\bm{r})-a^{\dagger}(\bm{r})\nabla a(\bm{r})],\\
+\bm{j}_{e} & = & \frac{2}{3}\gamma n^{2}\bm{r}.
+\end{eqnarray}
+By performing Fourier transformation to Eq. \eqref{eq:continuous},
+we obtain 
+\begin{equation}
+-i\mathcal{L}^{\dagger}(\rho_{\bm{k}})=\omega\rho_{\bm{k}}(\omega)=-\bm{k}\cdot\bm{j}_{t}(\bm{k},\omega).
+\end{equation}
+The f-sum rule \eqref{eq:f} tells us 
+\begin{equation}
+m[\rho_{\bm{k}}(t),\mathcal{L}^{\dagger}(\rho_{-\bm{k}}(t))]=-ik^{2}N(t).
+\end{equation}
+Under the Fourier transformation, the f-sum rule becomes 
+\begin{equation}
+m\int dte^{i(\omega_{1}-\omega-\omega_{2})t}\frac{d\omega_{1}}{2\pi}\frac{d\omega_{2}}{2\pi}[\rho_{-\bm{k}}(\omega_{1}),\mathcal{L}^{\dagger}(\rho_{\bm{k}}(\omega_{2}))]=-ik^{2}N(\omega).\label{eq:f2}
+\end{equation}
+The L.H.S of Eq. \eqref{eq:f2} can be simplified as 
+\begin{eqnarray}
+ &  & m\int dt\frac{d\omega_{1}}{2\pi}\frac{d\omega_{2}}{2\pi}e^{i(\omega_{1}-\omega-\omega_{2})t}[\rho_{-\bm{k}}(\omega_{1}),\mathcal{L}^{\dagger}(\rho_{\bm{k}}(\omega_{2}))]\nonumber \\
+ & = & \frac{m}{2\pi}\int d\omega_{1}d\omega_{2}\delta(\omega_{1}-\omega-\omega_{2})\left[\frac{-\bm{k}\cdot\bm{j}_{t}(\bm{k},\omega_{1})}{\omega_{1}},i\bm{k}\cdot\bm{j}_{t}(-\bm{k},\omega_{2})\right]\nonumber \\
+ & = & -ik_{i}k_{j}m\int\frac{d\omega_{1}}{2\pi\omega_{1}}[j_{t}^{i}(\bm{k},\omega_{1}),j_{t}^{j}(-\bm{k},\omega-\omega_{1})]
+\end{eqnarray}
+and the f-sum rule can be rewritten as 
+\[
+N(\omega)=\frac{k_{i}k_{j}}{k^{2}}m\int\frac{d\omega_{1}}{2\pi\omega_{1}}[j_{t}^{i}(\bm{k},\omega_{1}),j_{t}^{j}(-\bm{k},\omega-\omega_{1})]
+\]
+Furthremore, we define the total current-current correlation function
+as 
+\begin{eqnarray}
+\gamma_{t}^{i,j}(\bm{k},\omega,t_{0}) & = & m\int dte^{-i\omega t}[j_{t}^{i}(\bm{k},t+t_{0}),j_{t}^{j}(-\bm{k},t_{0})]\nonumber \\
+ & = & m\int dte^{-i\omega(t+t_{0})}[j_{t}^{i}(\bm{k},t+t_{0}),j_{t}^{j}(-\bm{k},t_{0})]e^{i\omega t_{0}}\nonumber \\
+ & = & m[j_{t}^{i}(\bm{k},\omega),j_{t}^{j}(-\bm{k},t_{0})]e^{i\omega t_{0}}.
+\end{eqnarray}
+By substituting the definition into the f-sum rule \eqref{eq:f2},
+we have 
+\begin{eqnarray}
+N(t_{0}) & = & \frac{k_{i}k_{j}}{k^{2}}m\int\frac{d\omega_{1}}{2\pi\omega_{1}}\int\frac{d\omega}{2\pi}e^{i\omega t_{0}}[j_{t}^{i}(\bm{k},\omega_{1}),j_{t}^{j}(-\bm{k},\omega-\omega_{1})]\nonumber \\
+ & = & \frac{k_{i}k_{j}}{k^{2}}m\int\frac{d\omega_{1}}{2\pi\omega_{1}}\int\frac{d\omega}{2\pi}e^{i\omega_{1}t_{0}}[j_{t}^{i}(\bm{k},\omega_{1}),j_{t}^{j}(-\bm{k},\omega-\omega_{1})]e^{i(\omega-\omega_{1})t_{0}}\nonumber \\
+ & = & m\frac{k_{i}k_{j}}{k^{2}}\int\frac{d\omega_{1}}{2\pi\omega_{1}}e^{i\omega_{1}t_{0}}[j_{t}^{i}(\bm{k},\omega_{1}),j_{t}^{j}(-\bm{k},t_{0})]\nonumber \\
+ & = & \frac{k_{i}k_{j}}{k^{2}}\int\frac{d\omega_{1}}{2\pi\omega_{1}}\gamma_{t}^{i,j}(\bm{k},\omega_{1},t_{0}).
+\end{eqnarray}
+Since the longitudial component of the correlation function is given
+by $\gamma_{t}^{L}(\bm{k},\omega)=\frac{k_{i}k_{j}}{k^{2}}\gamma_{t}^{i,j}(\bm{k},\omega)$,
+we can also represent the f-sum rule as 
+\begin{equation}
+\int\frac{d\omega}{2\pi\omega}\gamma_{t}^{L}(\bm{k},\omega,t)=N(t).\label{eq:total}
+\end{equation}
+Then we move to the normal fluid density, which is determined from
+\begin{equation}
+\langle J_{i}(t)\rangle=\rho_{n}^{i,j}u_{j},
+\end{equation}
+where we define the averaged current density as \citep{SM_footnote}
+\begin{equation}
+\langle J_{i}(t)\rangle=\frac{1}{V}\int d^{3}r\langle j_{i}(\bm{r},t)\rangle.
+\end{equation}
+Since the dissipative current is isotropic in the space, we assume
+the dissipative current does not influence the averaged current density.
+The only contribution originates from the closed current $\bm{j}_{c}$.
+From the Lindbladian dynamics \eqref{eq:Ldynamics}, we derive the
+linear response theory in open quantum system as 
+\begin{eqnarray}
+\frac{d}{dt}\langle J_{i}(t)\rangle & = & \frac{1}{V}\int d^{3}r\frac{d}{dt}\langle j_{i}(\bm{r},t)\rangle\nonumber \\
+ & = & \frac{1}{V}\int d^{3}r\left\langle i[j_{i},H]-\frac{\gamma}{2}\sum_{\bm{r}}\{j_{i},L_{\bm{r}}^{\dagger}L_{\bm{r}}\}+\gamma\sum_{\bm{r}}L_{\bm{r}}^{\dagger}j_{i}L_{\bm{r}}\right\rangle \nonumber \\
+ & = & -\frac{i}{V}m\int d^{3}r\int d^{3}r'\langle[j_{i}(\bm{r},t),j_{j}(\bm{r}',t)]\rangle u_{j}.
+\end{eqnarray}
+Here we assume the perturbation is only added on the Hamiltonian of
+the closed quantum system. The averaged current density is thus given
+by 
+\begin{eqnarray}
+\langle J_{i}(t)\rangle & = & -\frac{i}{V}m\int d^{3}r\int d^{3}r'\int^{t}dt'\langle[j_{i}(\bm{r},t),j_{j}(\bm{r}',t')]\rangle u_{j}\nonumber \\
+ & = & -\frac{i}{V}m\int\frac{d\omega_{2}}{2\pi}\int d^{3}r\int d^{3}r'\int^{t}dt'e^{-i\omega_{2}t'}\langle[j_{i}(\bm{r},t),j_{j}(\bm{r}',-\omega_{2})]\rangle u_{j}\nonumber \\
+ & = & \frac{m}{V}\int\frac{d\omega_{2}}{2\pi\omega_{2}}\int d^{3}r\int d^{3}r'e^{-i\omega_{2}t'}\langle[j_{i}(\bm{r},t),j_{j}(\bm{r}',-\omega_{2})]\rangle u_{j},
+\end{eqnarray}
+where we cancel the constant term with the initial condition. Then
+the tensor for the normal fluid density is given by 
+\begin{eqnarray}
+\rho_{n}^{i,j}(t) & = & \frac{m}{V}\int\frac{d\omega_{2}}{2\pi\omega_{2}}\int d^{3}r\int d^{3}r'e^{-i\omega_{2}t'}\langle[j_{i}(\bm{r},t),j_{j}(\bm{r}',-\omega_{2})]\rangle\nonumber \\
+ & = & \lim_{\bm{k}\rightarrow0}m\int\frac{d\omega_{2}}{2\pi\omega_{2}}e^{-i\omega_{2}t'}\langle[j_{i}(\bm{k},t),j_{j}(-\bm{k},-\omega_{2})]\rangle\nonumber \\
+ & = & \lim_{\bm{k}\rightarrow0}\int\frac{d\omega}{2\pi\omega}\gamma^{i,j}(\bm{k},\omega,t).
+\end{eqnarray}
+Here we define the current-current correlation function for the closed
+current operators. To connect this with the tensor $\gamma_{t}^{i,j}$,
+we can see $[\bm{j}_{e}(\bm{r}),\bm{j}_{e}(\bm{r}')]=0$ and $[\bm{j}(\bm{r}),\bm{j}_{e}(\bm{r}')]$
+is isotropic in the space. Hence, we can directly replace the current
+operators with the total current operator as 
+\begin{equation}
+\rho_{n}^{i,j}(t)=\lim_{\bm{k}\rightarrow0}\int\frac{d\omega}{2\pi\omega}\gamma_{t}^{i,j}(\bm{k},\omega,t).
+\end{equation}
+With similar analysis with closed quantum system, we find that the
+normal fluid density corresponds to the transverse component of the
+total current-current correlation function. Together with Eq. \eqref{eq:total},
+we can define the superfluid density with the difference between the
+transverse part and longitudinal part of the correlation function
+tensor.
+
+\section{Derivation of Quantum Depletion Part}
+
+We begin from constructing the mean-field Lindbladian action. The
+Hamiltonian of the weakly interacting bosonic system reads as: 
+\begin{eqnarray}
+H & = & \sum_{\bm{k}}\varepsilon_{\bm{k}}a_{\bm{k}}^{\dagger}a_{\bm{k}}+\frac{U_{R}}{2}\sum_{\bm{r}}(a_{\bm{r}}^{\dagger})^{2}(a_{\bm{r}})^{2}\nonumber \\
+ & = & \sum_{\bm{k}}\varepsilon_{\bm{k}}a_{\bm{k}}^{\dagger}a_{\bm{k}}+\frac{U_{R}}{2V}\sum_{\bm{k},\bm{q},\bm{p}}a_{\bm{k}}^{\dagger}a_{\bm{p}}^{\dagger}a_{\bm{p}-\bm{q}}a_{\bm{k}+\bm{q}}\label{Hamiltonian}
+\end{eqnarray}
+Here we assume a contact interaction for simplicity. By adding dissipation
+to the system, we turn it into an open quantum system. This open quantum
+system is described by the Lindblad equation: 
+\begin{equation}
+\frac{d\rho}{dt}=\mathcal{L}\rho=-i[H,\rho]-\frac{\gamma}{2}\sum_{\bm{r}}(\{L_{\bm{r}}^{\dagger}L_{\bm{r}},\rho\}-2L_{\bm{r}}^{\dagger}\rho L_{\bm{r}})\label{Lindbland}
+\end{equation}
+Here we take the Lindblad operator as $L_{\bm{r}}=a_{\bm{r}}^{2}$.
+Then we consider generalization it to closed-time-contour path integral.
+On Schwinger-Keldysh contour \citep{Sieberer_2016}, the action is
+written as: 
+\begin{equation}
+S=\int_{-\infty}^{\infty}dt\left[\sum_{\bm{k}}(a_{\bm{k}+}^{\dagger}i\partial_{t}a_{\bm{k}+}-a_{\bm{k}-}^{\dagger}i\partial_{t}a_{\bm{k}-})-H_{+}+H_{-}+\frac{i\gamma}{2}\sum_{\bm{r}}(L_{\bm{r}+}^{\dagger}L_{\bm{r}+}+L_{\bm{r}-}^{\dagger}L_{\bm{r}-}-2L_{\bm{r}+}L_{\bm{r}-}^{\dagger})\right],
+\end{equation}
+where $H_{\alpha}=\sum_{\bm{k}}\varepsilon_{\bm{k}}a_{\bm{k}\alpha}^{\dagger}a_{\bm{k}\alpha}+\frac{U_{R}}{2V}\sum_{\bm{k},\bm{q},\bm{p}}a_{\bm{k}\alpha}^{\dagger}a_{\bm{p}\alpha}^{\dagger}a_{\bm{p}-\bm{q},\alpha}a_{\bm{k}+\bm{q},\alpha}(\alpha=+,-)$.
+\ By applying Fourier transformation to the dissipation part, the
+Schwinger-Keldysh action is given by: 
+\begin{eqnarray}
+S & = & \int_{-\infty}^{\infty}dt\left[\sum_{\bm{k}}(a_{\bm{k}+}^{\dagger}(i\partial_{t}-\varepsilon_{\bm{k}})a_{\bm{k}+}-a_{\bm{k}-}^{\dagger}(i\partial_{t}-\varepsilon_{\bm{k}})a_{\bm{k}-})-\frac{U}{2V}\sum_{\bm{k},\bm{q},\bm{p}}a_{\bm{k}+}^{\dagger}a_{\bm{p}+}^{\dagger}a_{\bm{p}-\bm{q},+}a_{\bm{k}+\bm{q},+}\right.\nonumber \\
+ &  & +\frac{U^{\ast}}{2V}\sum_{\bm{k},\bm{q},\bm{p}}a_{\bm{k}-}^{\dagger}a_{\bm{p}-}^{\dagger}a_{\bm{p}-\bm{q},-}a_{\bm{k}+\bm{q},-}-i\frac{\gamma}{V}\sum_{\bm{k},\bm{q},\bm{p}}a_{\bm{k}-}^{\dagger}a_{\bm{p}-}^{\dagger}a_{\bm{p}-\bm{q},+}a_{\bm{k}+\bm{q},+},
+\end{eqnarray}
+where $U=U_{R}-i\gamma$. Under the mean-field approximation, we separate
+the operators into the condensate parts and non-condensate parts.
+Assumed that most of bosons in the system form the condensate, we
+have: 
+\begin{equation}
+a_{0}^{\dagger}a_{0}\approx N,\sum_{\bm{k}}a_{\bm{k}}^{\dagger}a_{\bm{k}}\ll N.
+\end{equation}
+Here $N$ is the total number of electrons in the system. Since $N\gg1$,
+we can equivalently assume that for condensate we have 
+\begin{equation}
+a_{0+}^{\dagger}=a_{0-}^{\dagger}=a_{0+}=a_{0-}\approx\sqrt{N}.
+\end{equation}
+By applying the approximations, we simplify the interaction term as:
+\begin{equation}
+\sum_{\bm{k},\bm{q},\bm{p}}a_{\bm{k}+}^{\dagger}a_{\bm{p}+}^{\dagger}a_{\bm{p}-\bm{q},+}a_{\bm{k}+\bm{q},+}\approx N^{2}+N\sum_{\bm{k}}a_{-\bm{k},+}a_{\bm{k}+}+N\sum_{\bm{k}}a_{\bm{k}+}^{\dagger}a_{-\bm{k},+}^{\dagger}+4N\sum_{\bm{k}}a_{\bm{k}+}^{\dagger}a_{\bm{k}+},\label{mean1}
+\end{equation}
+
+\begin{equation}
+\sum_{\bm{k},\bm{q},\bm{p}}a_{\bm{k}-}^{\dagger}a_{\bm{p}-}^{\dagger}a_{\bm{p}-\bm{q},-}a_{\bm{k}+\bm{q},-}\approx N^{2}+N\sum_{\bm{k}}a_{-\bm{k},-}a_{\bm{k}-}+N\sum_{\bm{k}}a_{\bm{k}-}^{\dagger}a_{-\bm{k},-}^{\dagger}+4N\sum_{\bm{k}}a_{\bm{k}-}^{\dagger}a_{\bm{k}-},
+\end{equation}
+\begin{equation}
+\sum_{\bm{k},\bm{q},\bm{p}}a_{\bm{k}-}^{\dagger}a_{\bm{p}-}^{\dagger}a_{\bm{p}-\bm{q},+}a_{\bm{k}+\bm{q},+}\approx N^{2}+N\sum_{\bm{k}}a_{-\bm{k},+}a_{\bm{k}+}+N\sum_{\bm{k}}a_{\bm{k}-}^{\dagger}a_{-\bm{k},-}^{\dagger}+4N\sum_{\bm{k}}a_{\bm{k}-}^{\dagger}a_{\bm{k}+}.\label{mean3}
+\end{equation}
+Then the action is simplified as: 
+\begin{eqnarray}
+S & = & \int_{-\infty}^{\infty}dt[\sum_{\bm{k}}(a_{\bm{k}+}^{\dagger}(i\partial_{t}-\varepsilon_{\bm{k}})a_{\bm{k}+}-a_{\bm{k}-}^{\dagger}(i\partial_{t}-\varepsilon_{\bm{k}})a_{\bm{k}-})-\frac{U_{R}}{2V}a_{0+}^{\dagger}a_{0+}^{\dagger}a_{0,+}a_{0,+}+\frac{U_{R}}{2V}a_{0-}^{\dagger}a_{0-}^{\dagger}a_{0,-}a_{0,-}\nonumber \\
+ &  & -\frac{U^{\ast}n}{2}\sum_{\bm{k}}a_{-\bm{k},+}a_{\bm{k}+}-\frac{Un}{2}\sum_{\bm{k}}a_{\bm{k}+}^{\dagger}a_{-\bm{k},+}^{\dagger}-2Un\sum_{\bm{k}}a_{\bm{k}+}^{\dagger}a_{\bm{k}+}+\frac{U^{\ast}n}{2}\sum_{\bm{k}}a_{-\bm{k},-}a_{\bm{k}-}\nonumber \\
+ &  & +\frac{Un}{2}\sum_{\bm{k}}a_{\bm{k}-}^{\dagger}a_{-\bm{k},-}^{\dagger}+2U^{\ast}n\sum_{\bm{k}}a_{\bm{k}-}^{\dagger}a_{\bm{k}-}-4i\gamma n\sum_{\bm{k}}a_{\bm{k}-}^{\dagger}a_{\bm{k}+}\large{\large{}]}\\
+ & = & \int_{-\infty}^{\infty}dt\left[\sum_{\bm{k}}(a_{\bm{k}+}^{\dagger}i\partial_{t}a_{\bm{k}+}-a_{\bm{k}-}^{\dagger}i\partial_{t}a_{\bm{k}-})-H_{+}+H_{-}-4i\gamma n\sum_{\bm{k}}a_{\bm{k}-}^{\dagger}a_{\bm{k}+}\right],\label{action}
+\end{eqnarray}
+where: 
+\begin{eqnarray}
+H_{\alpha} & = & \frac{U_{R}}{2V}a_{0\alpha}^{\dagger}a_{0\alpha}^{\dagger}a_{0\alpha}a_{0\alpha}+\sum_{\bm{k}}\left[(\varepsilon_{\bm{k}}+2U_{R}n-2i\alpha\gamma n)a_{\bm{k}\alpha}^{\dagger}a_{\bm{k}\alpha}+\frac{U^{\ast}n}{2}a_{-\bm{k}\alpha}a_{\bm{k}\alpha}+\frac{Un}{2}a_{\bm{k}\alpha}^{\dagger}a_{-\bm{k}\alpha}^{\dagger}\right]\nonumber \\
+ & = & \frac{U_{R}n}{2}N+\sum_{\bm{k}}\left[(\varepsilon_{\bm{k}}+U_{R}n-2i\alpha\gamma n)a_{\bm{k}\alpha}^{\dagger}a_{\bm{k}\alpha}+\frac{U^{\ast}n}{2}a_{-\bm{k}\alpha}a_{\bm{k}\alpha}+\frac{Un}{2}a_{\bm{k}\alpha}^{\dagger}a_{-\bm{k}\alpha}^{\dagger}\right].\label{H}
+\end{eqnarray}
+Then we move to calculate the quantum depletion part based on the
+action \eqref{action}. Since the system is generally in dynamics
+and difficult to solve, we only assue a case that $n\gamma\ll1$ which
+represents quasi-steady state for the interacting bosonic systems.
+Due to the complexity in Schwinger-Keldysh action, we here turn to
+calculate the quantum depletion part perturbed by velocity introduced.
+We consider the perturbation to the Schwinger-Keldysh theory as $\bm{k}\rightarrow\bm{k}-m\bm{v}$
+for the forward contour and $\bm{k}\rightarrow\bm{k}+m\bm{v}$ for
+the backward contour for the finite-momentum section with $\bm{k}\neq0$.
+In this sense, the Schwinger-Keldysh action \eqref{action} is transformed
+as 
+\begin{equation}
+S\rightarrow S-m\bm{v}\cdot(\bm{j}_{+}+\bm{j}_{-}),
+\end{equation}
+We define the phase stiffness with \citep{Coleman_2015}
+\begin{equation}
+Q_{ab}=\frac{1}{2V}\frac{\partial^{2}F}{\partial v_{a}\partial v_{b}}|_{v=0},\label{Qv}
+\end{equation}
+where we define the generating functional as 
+\begin{equation}
+F=-i\log Z[\bm{v}],
+\end{equation}
+Therefore, the averaged mass current can be substituted as 
+\begin{equation}
+\langle j_{a}\rangle=-\frac{1}{2mV}\frac{\partial F}{\partial v_{a}}
+\end{equation}
+since 
+\begin{equation}
+-\frac{1}{mV}\frac{\partial F}{\partial\bm{v}}=\frac{i}{mV}\frac{1}{Z}\frac{\partial Z}{\partial\bm{v}}=\frac{i}{V}\frac{1}{Z}\int D\phi e^{i[S(\phi)-\bm{v}\cdot(\bm{J}_{+}+\bm{J}_{-})]}(\bm{J}_{+}+\bm{J}_{-})|_{v=0}=\langle\hat{\bm{j}}_{+}+\hat{\bm{j}}_{-}\rangle=2\langle\bm{j}\rangle,
+\end{equation}
+where we use $\hat{\bm{j}}=(\hat{\bm{j}}_{+}+\hat{\bm{j}}_{-})/2$
+standing for the classical current operator. By definition of the
+density of the quantum depletion part 
+\begin{equation}
+j_{a}=n_{D}v_{a},
+\end{equation}
+where $\rho_{D}$ is the density of the quantum depletion part. We
+can see the diagonal elements of the phase stiffness matrix $Q_{ab}$
+is just the density of the quantum depletion part as 
+\begin{equation}
+Q_{ab}=mn_{D}\delta_{ab}.
+\end{equation}
+In addition, the definition of current here can be also reduced to
+the closed quantum system where $\langle\hat{\bm{j}}_{+}\rangle=\langle\hat{\bm{j}}_{-}\rangle=\langle\hat{\bm{j}}\rangle/2$.
+We will later show this point in our calculation for interacting Bose
+gas without dissipation. Adding the perturbation $\bm{v}$ to the
+system, the functional $Z$ is thus given by 
+\begin{eqnarray}
+Z & = & \int D[a_{\bm{k}+}(\tau),a_{-\bm{k}+}^{\dagger}(\tau),a_{\bm{k}-}(\tau),a_{-\bm{k},-}^{\dagger}(\tau)]e^{-S(a_{\bm{k}+}(\tau),a_{-\bm{k}+}^{\dagger}(\tau),a_{\bm{k}-}(\tau),a_{-\bm{k},-}^{\dagger}(\tau))}\nonumber \\
+ & = & \int D[a_{\bm{k}+}(i\omega_{n}),a_{-\bm{k}+}^{\dagger}(i\omega_{n}),a_{\bm{k}-}(i\omega_{n}),a_{-\bm{k},-}^{\dagger}(i\omega_{n})]e^{\frac{1}{2}\Psi_{\bm{k}}^{\dagger}(i\omega_{n})G^{-1}(\bm{k},i\omega_{n})\Psi_{\bm{k}}(i\omega_{n})},
+\end{eqnarray}
+where we define 
+\begin{equation}
+\Psi_{\bm{k}}(i\omega_{n})=(a_{\bm{k}+}(i\omega_{n}),a_{-\bm{k}+}^{\dagger}(i\omega_{n}),a_{\bm{k}-}(i\omega_{n}),a_{-\bm{k},-}^{\dagger}(i\omega_{n}))^{T}.
+\end{equation}
+and the matrix $G$ as 
+\begin{equation}
+G(\bm{k},i\omega_{n})=\left(\begin{array}{cccc}
+a_{1} & b & 0 & 0\\
+b^{\ast} & a_{2} & 0 & c\\
+c & 0 & -a_{2}^{\ast} & -b\\
+0 & 0 & -b^{\ast} & -a_{1}^{\ast}
+\end{array}\right)^{-1},\label{Green2}
+\end{equation}
+where $a_{1}=-(\varepsilon_{\bm{k}-m\bm{v}}+U_{R}n-2i\gamma n-\omega),b=-Un,a_{2}=-(\varepsilon_{\bm{k}+m\bm{v}}+U_{R}n-2i\gamma n+\omega),c=-4i\gamma n$.
+In this case, we integrate the all bosonic degrees of freedom and
+obtain the effective action: 
+\begin{equation}
+Z=e^{iS_{\text{eff}}}=e^{iF},
+\end{equation}
+which yields the form of the generating functional $F$ as 
+\begin{equation}
+F=-i\sum_{k}\text{Tr}\log[iG(\bm{k},\omega)]
+\end{equation}
+with $\sum_{k}=\sum_{\bm{k}}\sum_{\omega}$. Then we move to calculate
+(\ref{Qv}). The first derivative gives the expression for the bosonic
+current. 
+\begin{equation}
+-\langle J_{a}\rangle=-i\frac{1}{2mV}\frac{\partial F}{\partial v_{a}}=-i\frac{1}{2V}\sum_{k}\text{Tr}[(\sigma_{z}\otimes\sigma_{z})\nabla_{a}\varepsilon_{\bm{k}-m\bm{v}\sigma_{0}\otimes\sigma_{z}}G(\bm{k},\omega)].
+\end{equation}
+In this case the phase stiffness is given by: 
+\begin{eqnarray}
+Q_{ab} & = & \frac{-1}{2V}\frac{\partial^{2}F}{\partial v_{a}\partial v_{b}}|_{v=0}\nonumber \\
+ & = & -i\frac{m^{2}}{2V}\sum_{k}\text{Tr}[(\sigma_{z}\otimes\sigma_{0})\nabla_{ab}^{2}\varepsilon_{\bm{k}}G(\bm{k},i\omega_{n})]+i\frac{m^{2}}{2V}\sum_{k}\nabla_{a}\varepsilon_{k}\nabla_{b}\varepsilon_{k}\text{Tr}[(\sigma_{z}\otimes\sigma_{z})G(\sigma_{z}\otimes\sigma_{z})G].
+\end{eqnarray}
+Here we apply the equality: $\nabla_{b}G=-G\nabla_{b}G^{-1}G$. Also
+we use the part integral to the first part and obtain 
+\begin{equation}
+Q_{ab}=-i\frac{m^{2}}{2V}\sum_{k}\nabla_{a}\varepsilon_{k}\nabla_{b}\varepsilon_{k}\left\{ \text{Tr}[(\sigma_{z}\otimes\sigma_{z})G(\sigma_{z}\otimes\sigma_{z})G]-\text{Tr}[(\sigma_{z}\otimes\sigma_{0})G(\sigma_{z}\otimes\sigma_{0})G]\right\} .\label{Qab}
+\end{equation}
+Let's firstly consider a trace: $\text{Tr}[AGAG]$. We transform it
+into: 
+\begin{eqnarray}
+\text{Tr}[AGAG] & = & \text{Tr}[A[G,A]G]+\text{Tr}[A^{2}G^{2}]\nonumber \\
+ & = & \text{Tr}[[G,A][G,A]]+\text{Tr}[[G,A]AG]+\text{Tr}[A^{2}G^{2}]\nonumber \\
+ & = & \text{Tr}[[G,A][G,A]]+2\text{Tr}[A^{2}G^{2}]-\text{Tr}[AGAG].
+\end{eqnarray}
+Hence, we reach a conclusion that: 
+\begin{equation}
+\text{Tr}[AGAG]=\text{Tr}[A^{2}G^{2}]+\frac{1}{2}\text{Tr}[[G,A]^{2}].
+\end{equation}
+In the expression (\ref{Qab}), we can replace $A$ with $\sigma_{z}\otimes\sigma_{z}$
+and $\sigma_{z}\otimes\sigma_{0}$. In this case, both of the matrices
+satisfy that $A^{2}=I$. Therefore, we simplify the formula into:
+\begin{equation}
+Q_{ab}=-i\frac{m^{2}}{4V}\sum_{k}\nabla_{a}\varepsilon_{k}\nabla_{b}\varepsilon_{k}\left\{ \text{Tr}[[G,\sigma_{z}\otimes\sigma_{z}]^{2}]-\text{Tr}[[G,\sigma_{z}\otimes\sigma_{0}]^{2}]\right\} .\label{Qab2}
+\end{equation}
+In this way, we firstly rewrite the Green's function as 
+\begin{equation}
+G=\left(\begin{array}{cc}
+G_{11} & G_{12}\\
+G_{21} & G_{22}
+\end{array}\right).
+\end{equation}
+With the help of Green's function before (Eq. (\ref{Green2})), we
+have: 
+\begin{eqnarray}
+G_{11} & = & \frac{1}{|G^{-1}|}\left(\begin{array}{cc}
+a_{2}(a_{1}^{\ast}a_{2}^{\ast}-|b|^{2}) & -b(a_{1}^{\ast}a_{2}^{\ast}-|b|^{2})\\
+b^{\ast}(|b|^{2}+c^{2}-a_{1}^{\ast}a_{2}^{\ast}) & a_{1}(a_{1}^{\ast}a_{2}^{\ast}-|b|^{2})
+\end{array}\right),\\
+G_{12} & = & \frac{1}{|G^{-1}|}\left(\begin{array}{cc}
+|b|^{2}c & -a_{2}^{\ast}bc\\
+-a_{1}b^{\ast}c & a_{1}a_{2}^{\ast}c
+\end{array}\right),\\
+G_{21} & = & \frac{1}{|G^{-1}|}\left(\begin{array}{cc}
+a_{2}a_{1}^{\ast}c & -a_{1}^{\ast}bc\\
+-a_{2}b^{\ast}c & |b|^{2}c
+\end{array}\right),\\
+G_{22} & = & \frac{1}{|G^{-1}|}\left(\begin{array}{cc}
+-a_{1}^{\ast}(a_{1}a_{2}-|b|^{2}) & -b(|b|^{2}+c^{2}-a_{1}a_{2})\\
+b^{\ast}(a_{1}a_{2}-|b|^{2}) & -a_{2}^{\ast}(a_{1}a_{2}-|b|^{2})
+\end{array}\right)\,,
+\end{eqnarray}
+where we follow the notation above. Here we define the determinant
+of the Green's function as $|G|$ with the form of: 
+\begin{equation}
+|G^{-1}|=|a_{1}|^{2}|a_{2}|^{2}-a_{1}a_{2}|b|^{2}+|b|^{2}c^{2}-a_{1}^{\ast}a_{2}^{\ast}|b|^{2}+|b|^{4}.\label{deter}
+\end{equation}
+Then let's focus on the commutators in the phase stiffness $\left(\ref{Qab2}\right)$
+which has two components 
+\begin{eqnarray}
+\text{Tr}[G,\sigma_{z}\otimes\sigma_{z}]^{2} & = & \text{Tr}\left[\left(\begin{array}{cc}
+G_{11} & G_{12}\\
+G_{21} & G_{22}
+\end{array}\right),\sigma_{z}\otimes\sigma_{z}\right]^{2}\nonumber \\
+ & = & \text{Tr}[G_{11},\sigma_{z}]^{2}+\text{Tr}[G_{22},\sigma_{z}]^{2}-2\text{Tr}[\{G_{12},\sigma_{z}\}\{G_{21},\sigma_{z}\}],\\
+\text{Tr}[[G,\sigma_{z}\otimes\sigma_{0}]^{2}] & = & \text{Tr}\left[\left(\begin{array}{cc}
+G_{11} & G_{12}\\
+G_{21} & G_{22}
+\end{array}\right),\sigma_{z}\otimes\sigma_{0}\right]^{2}\nonumber \\
+ & = & -4\text{Tr}[\{G_{12},G_{21}\}]\nonumber \\
+ & = & -8\text{Tr}[G_{12}G_{21}].
+\end{eqnarray}
+Here we define the anti-commutator $\{A,B\}=AB+BA$. The first trace
+has four components listed below 
+\begin{eqnarray}
+\text{Tr}[G_{11},\sigma_{z}]^{2} & = & \frac{1}{|G^{-1}|^{2}}8|b|^{2}(a_{1}^{\ast}a_{2}^{\ast}-|b|^{2})(|b|^{2}+c^{2}-a_{1}^{\ast}a_{2}^{\ast}),\label{G11}\\
+\text{Tr}[G_{22},\sigma_{z}]^{2} & = & \frac{1}{|G^{-1}|^{2}}8|b|^{2}(a_{1}a_{2}-|b|^{2})(|b|^{2}+c^{2}-a_{1}a_{2}),\\
+\text{Tr}[\{G_{12},\sigma_{z}\}\{G_{21},\sigma_{z}\}] & = & \frac{1}{|G^{-1}|^{2}}4|b|^{2}c^{2}(a_{1}^{\ast}a_{2}+a_{1}a_{2}^{\ast}),\\
+\text{Tr}[G_{12}G_{21}] & = & \frac{1}{|G^{-1}|^{2}}|b|^{2}c^{2}[a_{2}a_{1}^{\ast}+|a_{2}|^{2}+|a_{1}|^{2}+a_{1}a_{2}^{\ast}].\label{G12}
+\end{eqnarray}
+Combining with (\ref{G11}-\ref{G12}), we obtain
+\begin{equation}
+Q_{ab}=i\frac{4m^{2}}{V}\sum_{k}\nabla_{a}\varepsilon_{k}\nabla_{b}\varepsilon_{k}\frac{-|b|^{2}}{2|G^{-1}|^{2}}\left[(a_{1}^{\ast}a_{2}^{\ast}-|b|^{2})(|b|^{2}+c^{2}-a_{1}^{\ast}a_{2}^{\ast})+\left(a_{1}a_{2}-|b|^{2}\right)(|b|^{2}+c^{2}-a_{1}a_{2})-c^{2}(|a_{2}|^{2}+|a_{1}|^{2})\right].
+\end{equation}
+Since we here only concern about the diagonal part, we rewrite the
+$Q_{ab}$ into $Q(T)\delta_{ab}$. In this case, we obtain 
+\begin{equation}
+Q=\frac{4}{3}\int_{-\infty}^{\infty}d\omega\int_{-\infty}^{\infty}k^{4}dk\frac{-|b|^{2}}{4\pi^{2}|G^{-1}|^{2}}\left[(a_{1}^{\ast}a_{2}^{\ast}-|b|^{2})(|b|^{2}+c^{2}-a_{1}^{\ast}a_{2}^{\ast})+\left(a_{1}a_{2}-|b|^{2}\right)(|b|^{2}+c^{2}-a_{1}a_{2})-c^{2}(|a_{2}|^{2}+|a_{1}|^{2})\right]\,,\label{Qboson}
+\end{equation}
+Equation \eqref{Qboson} gives the complete expression of the phase
+stiffness for arbitrary interaction strength $U_{R}$ and dissipation
+strength $\gamma$. It is difficult to directly show the expression
+of the phase stiffness in general. However, we can consider two extreme
+cases: $U_{R}\gg\gamma$ and $U_{R}\ll\gamma$. To consider these
+problems, we firstly deal with the determinant $|G|$. With the help
+of Eq. (\ref{deter}), we have 
+\begin{eqnarray}
+|G^{-1}| & = & \varepsilon^{4}+2(4\gamma^{2}n^{2}-\omega^{2}-|U|^{2}n^{2})\varepsilon^{2}+(4\gamma^{2}n^{2}+\omega^{2})^{2}-2(4\gamma^{2}n^{2}-\omega^{2})|U|^{2}n^{2}+|U|^{4}n^{4}\nonumber \\
+ & \equiv & \omega^{4}-2k_{1}\omega^{2}+k_{2},
+\end{eqnarray}
+where $k_{1}=(\varepsilon^{2}-4\gamma^{2}n^{2}-|U|^{2}n^{2}),k_{2}=(\varepsilon^{2}+4\gamma^{2}n^{2}-|U|^{2}n^{2})^{2}$.
+The numerator of it can be shown by: 
+\begin{eqnarray}
+ &  & -[(\varepsilon+2i\gamma n)^{2}-\omega^{2}-|U|^{2}n^{2}]^{2}-[(\varepsilon-2i\gamma n)^{2}-\omega^{2}-|U|^{2}n^{2}]^{2}+32\gamma^{2}n^{2}(|U|^{2}n^{2}+8\gamma^{2}n^{2})\nonumber \\
+ & = & -2[\omega^{4}-2k_{1}\omega^{2}+k_{1}^{2}-16\gamma^{2}n^{2}\varepsilon^{2}]+32\gamma^{2}n^{2}(|U|^{2}n^{2}+8\gamma^{2}n^{2})
+\end{eqnarray}
+with the notion $\varepsilon:=\varepsilon_{\bm{k}}+U_{R}n$ for simplicity. 
+
+Let's first consider the case with $\gamma=0$ where there is no dissipation
+and the system is closed. In such case, the quantities $a_{1},a_{2},b,c$
+become 
+\begin{equation}
+a_{1}=\omega-\varepsilon_{\bm{k}}-U_{R}n,a_{2}=-\omega-\varepsilon_{\bm{k}}-U_{R}n,b=-U_{R}n,c=0.
+\end{equation}
+Then we substitute these quantities into superfluid density and obtain
+\begin{equation}
+Q=\frac{4i}{3}\int_{-\infty}^{\infty}d\omega\int_{-\infty}^{\infty}\frac{k^{4}}{2\pi^{2}}dk\frac{U_{R}^{2}n^{2}}{[-\omega^{2}+\varepsilon_{\bm{k}}^{2}+2\varepsilon_{\bm{k}}U_{R}n]^{2}},\label{Qzero}
+\end{equation}
+With the similar procedure, we can also calculate $Q'$ in the closed
+system without using Schwinger-Keldysh Green's function and find its
+relation with $Q$ as $Q'=Q$. The proof is as below.
+
+The Green's function of the forward contour can be written as: 
+\begin{equation}
+G=-\left(\begin{array}{cc}
+\varepsilon_{\bm{k}-m\bm{v}}+U_{R}n-i\omega_{n} & U_{R}n\\
+U_{R}n & \varepsilon_{\bm{k}+m\bm{v}}+U_{R}n+i\omega_{n}
+\end{array}\right)^{-1}=-(\varepsilon_{\bm{k}-m\bm{v}\sigma_{z}}+U_{R}n+U_{R}n\sigma_{x}-i\omega_{n}\sigma_{z})^{-1}.
+\end{equation}
+Then we still consider the second derivative to free energy. The first
+derivative gives the expression for the bosonic current. 
+\begin{equation}
+-\langle J_{a}\rangle=\frac{1}{V}\frac{\partial F}{\partial v_{a}}=-\frac{m}{\beta V}\sum_{k}\text{Tr}[\sigma_{z}\nabla_{a}\varepsilon_{\bm{k}-m\bm{v}\sigma_{z}}G(\bm{k},i\omega_{n})].
+\end{equation}
+In this case the phase stiffness is also given by: 
+\begin{eqnarray}
+Q'_{ab} & = & -\frac{1}{V}\frac{\partial^{2}F}{\partial v_{a}\partial v_{b}}|_{v=0}\nonumber \\
+ & = & -\frac{m^{2}}{\beta V}\sum_{k}\text{Tr}[\nabla_{ab}^{2}\varepsilon_{\bm{k}}G(\bm{k},i\omega_{n})]+\frac{m^{2}}{\beta V}\sum_{k}\nabla_{a}\varepsilon_{k}\nabla_{b}\varepsilon_{k}\text{Tr}[\sigma_{z}G\sigma_{z}G]\\
+ & = & -\frac{m^{2}}{\beta V}\sum_{k}\nabla_{a}\varepsilon_{k}\nabla_{b}\varepsilon_{k}\text{Tr}[\sigma_{z}G\sigma_{z}G-G^{2}]\nonumber \\
+ & = & -\frac{m^{2}}{2\beta V}\sum_{k}\nabla_{a}\varepsilon_{k}\nabla_{b}\varepsilon_{k}\text{Tr}[\sigma_{z},G]^{2}.
+\end{eqnarray}
+By explicitly writing down the form of the Green's function, we have
+\begin{equation}
+G=\frac{1}{(\omega_{n}^{2}+\varepsilon_{\bm{k}}^{2}+2\varepsilon_{\bm{k}}U_{R}n)}\left(\begin{array}{cc}
+-\varepsilon_{\bm{k}}-U_{R}n-i\omega_{n} & U_{R}n\\
+U_{R}n & -\varepsilon_{\bm{k}}-U_{R}n+i\omega_{n}
+\end{array}\right)
+\end{equation}
+and the commutator takes the form of 
+\begin{equation}
+[\sigma_{z},G]=\frac{1}{(\omega_{n}^{2}+\varepsilon_{\bm{k}}^{2}+2\varepsilon_{\bm{k}}U_{R}n)}\left(\begin{array}{cc}
+0 & -2U_{R}n\\
+2U_{R}n & 0
+\end{array}\right).
+\end{equation}
+Therefore, the behaviour of $Q'$ is given by 
+\begin{equation}
+Q'=\frac{4m^{2}}{\beta V}\sum_{k}\nabla_{a}\varepsilon_{k}\nabla_{b}\varepsilon_{k}\frac{U_{R}^{2}n^{2}}{(\omega_{n}^{2}+\varepsilon_{\bm{k}}^{2}+2\varepsilon_{\bm{k}}U_{R}n)^{2}}.
+\end{equation}
+By replacing the energy $\varepsilon_{\bm{k}}$ with $\varepsilon_{\bm{k}}=k^{2}/2m$,
+we have 
+\begin{equation}
+Q'=\frac{4m^{2}}{\beta}\sum_{n}\int\frac{d^{3}k}{(2\pi)^{3}}\frac{k_{a}k_{b}}{m^{2}}\frac{U_{R}^{2}n^{2}}{(\omega_{n}^{2}+\varepsilon_{\bm{k}}^{2}+2\varepsilon_{\bm{k}}U_{R}n)^{2}}=\frac{4}{3\beta}\sum_{n}\int\frac{k^{4}dk}{2\pi^{2}}\frac{U_{R}^{2}n^{2}}{(\omega_{n}^{2}+\varepsilon_{\bm{k}}^{2}+2\varepsilon_{\bm{k}}U_{R}n)^{2}}.
+\end{equation}
+By comparing with (\ref{Qzero}), we reach the conclusion 
+\begin{equation}
+Q'=Q
+\end{equation}
+after Wick rotation. The phase stiffness thus becomes 
+\begin{eqnarray}
+Q' & = & \frac{4}{3}\int\frac{d\omega}{2\pi}\int\frac{k^{4}dk}{2\pi^{2}}\frac{U_{R}^{2}n^{2}}{(\omega^{2}+\varepsilon_{\bm{k}}^{2}+2\varepsilon_{\bm{k}}U_{R}n)^{2}}\nonumber \\
+ & = & \frac{2}{3}\int_{0}^{\infty}\frac{k^{4}dk}{2\pi^{2}}\frac{U_{R}^{2}n^{2}}{[\varepsilon_{\bm{k}}^{2}+2\varepsilon_{\bm{k}}U_{R}n]^{3/2}}\nonumber \\
+ & = & \frac{1}{3\pi^{2}}\sqrt{n^{3}U_{R}^{3}}m^{5/2}\nonumber \\
+ & \propto & (U_{R}n)^{3/2}.\label{QQ}
+\end{eqnarray}
+This is consistent with the result calculated by linear response theory
+\citep{Ueda2010}
+\begin{equation}
+n_{D}=\frac{1}{3\pi^{2}}\sqrt{(nU_{R})^{3}m^{3}}.
+\end{equation}
+
+If we assume $U_{R}\gg\gamma\neq0$, i.e., the dissipation is very
+weak but non-vanishing, we derive the phase stiffness from the trace
+in Eq. \eqref{Qab} 
+\begin{eqnarray}
+ &  & \text{Tr}[(\sigma_{z}\otimes\sigma_{z})G(\sigma_{z}\otimes\sigma_{z})G]-\text{Tr}[(\sigma_{z}\otimes\sigma_{0})G(\sigma_{z}\otimes\sigma_{0})G]\nonumber \\
+ & = & \frac{8U_{R}^{2}n^{2}}{(\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n)-\omega^{2})^{2}}+\frac{8(-6U_{R}^{2}n^{2}(\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n)+7\omega^{2})+(\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n)-\omega^{2})^{2})}{(\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n)-\omega^{2})^{4}}\gamma^{2}n^{2}.\label{eq:divergent}
+\end{eqnarray}
+Here we only expand up to the second order of $\gamma n$. After integration
+over $\omega$ under Wick rotation, we have 
+\begin{eqnarray}
+ &  & -i\int d\omega\text{Tr}[(\sigma_{z}\otimes\sigma_{z})G(\sigma_{z}\otimes\sigma_{z})G]-\text{Tr}[(\sigma_{z}\otimes\sigma_{0})G(\sigma_{z}\otimes\sigma_{0})G]\nonumber \\
+ & = & \frac{4\pi U_{R}^{2}n^{2}}{(\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n))^{3/2}}+2\pi\frac{(3(U_{R}n)^{2}+4\varepsilon_{\bm{k}}U_{R}n+2\varepsilon_{\bm{k}}^{2})\sqrt{\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n)}}{(\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n))^{3}}\gamma^{2}n^{2},
+\end{eqnarray}
+which gives the form of the phase stiffness as 
+\begin{eqnarray}
+Q & = & \frac{m^{5/2}}{3\pi^{2}}\left[(U_{R}n)^{3/2}+\frac{(\gamma n)^{2}}{2\sqrt{2U_{R}n}}\int_{0}^{\infty}dxx^{\frac{3}{2}}\frac{(3+4x+2x^{2})\sqrt{x(2+x)}}{x^{3}(2+x)^{3}}\right]\nonumber \\
+ & \simeq & \frac{m^{5/2}}{3\pi^{2}}(U_{R}n)^{3/2}\left[1+\frac{1}{2\sqrt{2}}\left(\frac{\gamma}{U_{R}}\right)^{2}\times\mathcal{O}(1)\right].\label{eq:integration}
+\end{eqnarray}
+Actually, the integration of the second term in Eq. (\ref{eq:divergent})
+is divergent at $\omega=0$, since our theory is only consistent in
+short time $\gamma t\ll1$ when $n$ can be regarded as a constant.
+Therefore, to obtain the right result, one has to add a cutoff at
+the small frequency domain of Eq. (\ref{eq:divergent}). Alternatively,
+A simple regularization of Eq. (\ref{eq:integration}) by substituting
+$3/2^{\frac{3}{2}}x(2+x)$ from the integral to remove the IR divergence
+would give the integration result $\frac{4+3\ln2}{2\sqrt{2}}$.
+
+Then we turn to the other limit $U_{R}=0$. In this way, we have 
+\begin{equation}
+a_{1}=-(\varepsilon_{\bm{k}}-2i\gamma n-\omega),b=i\gamma n,a_{2}=-(\varepsilon_{\bm{k}}-2i\gamma n+\omega),c=-4i\gamma n
+\end{equation}
+The numerator becomes 
+\begin{equation}
+-2[\omega^{4}-2k_{1}\omega^{2}+k_{1}^{2}-16\gamma^{2}n^{2}\varepsilon_{\bm{k}}^{2}]+288\gamma^{4}n^{4},
+\end{equation}
+where $k_{1}=(\varepsilon_{\bm{k}}^{2}-5\gamma^{2}n^{2}),k_{2}=(\varepsilon_{\bm{k}}^{2}+3\gamma^{2}n^{2})^{2}$.
+Besides, the denominator becomes 
+\begin{equation}
+|G^{-1}|^{2}=(\omega^{4}-2k_{1}\omega^{2}+k_{2})^{2}
+\end{equation}
+Hence, the phase stiffness can be rewritten as 
+\begin{equation}
+Q=\frac{(2m)^{5/2}\gamma^{2}n^{2}}{3\pi^{2}}\int_{-\infty}^{\infty}d\omega\int_{0}^{\infty}\varepsilon_{\bm{k}}^{3/2}d\varepsilon_{\bm{k}}\frac{[\omega^{4}-2k_{1}\omega^{2}+k_{1}^{2}-16\gamma^{2}n^{2}\varepsilon_{\bm{k}}^{2}]-144\gamma^{4}n^{4}}{(\omega^{4}-2k_{1}\omega^{2}+k_{2})^{2}}\,,
+\end{equation}
+By substituting the integrated variables as $\omega\rightarrow\gamma n\omega,\varepsilon_{\bm{k}}\rightarrow\gamma n\varepsilon_{\bm{k}}$,
+we have 
+\begin{equation}
+Q=\frac{(2m)^{5/2}}{3\pi^{2}}(\gamma n)^{3/2}\times A,\label{QU=00003D0}
+\end{equation}
+where $A$ takes the form of 
+\begin{eqnarray*}
+A & = & \int_{-\infty}^{\infty}dx\int_{0}^{\infty}y^{3/2}dy\frac{[x^{4}+2(y^{2}-5)x^{2}+(y^{2}-5)^{2}-16y^{2}]-144}{(x^{4}+2(y^{2}-5)x^{2}+(y^{2}+3)^{2})^{2}}\\
+ & = & \frac{1}{2^{11/2}\sqrt{\pi}}\Gamma\left(\frac{1}{4}\right)^{2}>0.
+\end{eqnarray*}
+From the expression (\ref{QU=00003D0}), we can see when $U_{R}=0$,
+the density of superfluid in quasi-steady state is propotional to
+$(\gamma n)^{3/2}$, which indicates the quantum depletion part is
+induced purely from dissipation. In addition, we can also see the
+perturbation from the superfluid phase stiffness \eqref{Qboson}.
+Further, if we assume $0\neq U_{R}\ll\gamma$ and expand the phase
+stiffness \eqref{Qab} around $U_{R}=0$, we obtain 
+\begin{eqnarray}
+ &  & \text{Tr}[(\sigma_{z}\otimes\sigma_{z})G(\sigma_{z}\otimes\sigma_{z})G]-\text{Tr}[(\sigma_{z}\otimes\sigma_{0})G(\sigma_{z}\otimes\sigma_{0})G]\nonumber \\
+ & = & -4\gamma^{2}n^{2}\left[\frac{1}{(\omega^{2}-4i\gamma n\omega-\varepsilon_{\bm{k}}^{2}-3\gamma^{2}n^{2})^{2}}+\frac{1}{(\omega^{2}+4i\gamma n\omega-\varepsilon_{\bm{k}}^{2}-3\gamma^{2}n^{2})^{2}}\right]\nonumber \\
+ &  & +4\gamma nU_{R}n\left[\frac{4\varepsilon_{\bm{k}}}{(\omega^{2}-4i\gamma n\omega-\varepsilon_{\bm{k}}^{2}-3\gamma^{2}n^{2})^{3}}+\frac{4\varepsilon_{\bm{k}}}{(\omega^{2}+4i\gamma n\omega-\varepsilon_{\bm{k}}^{2}-3\gamma^{2}n^{2})^{2}}\right]\nonumber \\
+ &  & +O(U_{R}^{2}n^{2}).
+\end{eqnarray}
+By substituting the expression into Eq. \eqref{Qab} and integrate
+the variables $\omega$ and $\varepsilon_{\bm{k}}$, we have the phase
+stiffness 
+\begin{equation}
+Q=\frac{m^{5/2}(\gamma n)^{3/2}}{24\pi^{5/2}}\Gamma\left(\frac{1}{4}\right)^{2}\left(1+6\frac{U_{R}}{\gamma}\frac{\Gamma(3/4)^{2}}{\Gamma(1/4)^{2}}\right)+O(U_{R}^{2}/\gamma^{2}).
+\end{equation}
+
+
+\section{Derivation of Spectral Function and Spectrum}
+
+Here we show the Green's function of the dissipative superfluids.
+The correlation-function matrix takes the form of 
+\begin{eqnarray}
+G & = & -i\left\langle \left(\begin{array}{c}
+a_{k\bm{,+}}\\
+a_{-k\bm{,+}}^{\dagger}\\
+a_{k,-}\\
+a_{-k,-}^{\dagger}
+\end{array}\right)\left(\begin{array}{cccc}
+a_{k,+}^{\dagger} & a_{-k,+} & a_{k,-}^{\dagger} & a_{-k,-}\end{array}\right)\right\rangle \nonumber \\
+ & = & \left(\begin{array}{cccc}
+-\frac{\varepsilon_{\bm{k}}+U_{R}n-2i\gamma n-\omega}{2} & -\frac{Un}{2}\\
+-\frac{U^{\ast}n}{2} & -\frac{\varepsilon_{\bm{k}}+U_{R}n-2i\gamma n+\omega}{2} &  & -2i\gamma n\\
+-2i\gamma n &  & \frac{\varepsilon_{\bm{k}}+U_{R}n+2i\gamma n-\omega}{2} & \frac{Un}{2}\\
+ &  & \frac{U^{\ast}n}{2} & \frac{\varepsilon_{\bm{k}}+U_{R}n+2i\gamma n+\omega}{2}
+\end{array}\right)^{-1}.
+\end{eqnarray}
+By directly deriving the inverse matrix, we have the following Green's
+function \citep{Kamenev_2011}: 
+\begin{eqnarray}
+G^{T}(\bm{k},\omega) & \equiv & -i\langle a_{k,+}a_{k,+}^{\dagger}\rangle\nonumber \\
+ & = & \frac{2(\omega+U_{R}n-2i\gamma n+\varepsilon_{\bm{k}})(\omega^{2}-\varepsilon_{\bm{k}}^{2}-2\varepsilon_{\bm{k}}(U_{R}n+2i\gamma n)+\gamma n(5\gamma n-4iU_{R}n))}{\omega^{4}+2(5\gamma^{2}n^{2}-\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n))\omega^{2}+[\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n)+3\gamma^{2}n^{2}]^{2}},\\
+G^{<}(\bm{k},\omega) & \equiv & -i\langle a_{k,+}a_{k,-}^{\dagger}\rangle\nonumber \\
+ & = & \frac{-8i\gamma n(U_{R}^{2}n^{2}+\gamma^{2}n^{2})}{\omega^{4}+2(5\gamma^{2}n^{2}-\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n))\omega^{2}+[\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n)+3\gamma^{2}n^{2}]^{2}},\\
+G^{>}(\bm{k},\omega) & = & -i\langle a_{k,-}a_{k,+}^{\dagger}\rangle\nonumber \\
+ & = & \frac{-8i\gamma n((\omega+\varepsilon_{\bm{k}}+U_{R}n)^{2}+4\gamma^{2}n^{2})}{\omega^{4}+2(5\gamma^{2}n^{2}-\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n))\omega^{2}+[\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n)+3\gamma^{2}n^{2}]^{2}},\\
+G^{\tilde{T}}(\bm{k},\omega) & = & -i\langle a_{k,-}a_{k,-}^{\dagger}\rangle\nonumber \\
+ & = & \frac{2(\omega+U_{R}n+2i\gamma n+\varepsilon_{\bm{k}})(-\omega^{2}+\varepsilon_{\bm{k}}^{2}+2\varepsilon_{\bm{k}}(U_{R}n-2i\gamma n)-\gamma n(5\gamma n+4iU_{R}n))}{\omega^{4}+2(5\gamma^{2}n^{2}-\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n))\omega^{2}+[\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n)+3\gamma^{2}n^{2}]^{2}}.
+\end{eqnarray}
+From these expression we can see the fundamental relation: $G^{T}=-(G^{\tilde{T}})^{\ast}$.
+To observe the spectrum function, we need first investigate the retarded
+Green's function, which is given by the relation 
+\begin{eqnarray}
+\left(\begin{array}{cc}
+G^{K} & G^{R}\\
+G^{A} & 0
+\end{array}\right) & = & \left(\begin{array}{cc}
+1 & 1\\
+1 & -1
+\end{array}\right)\left(\begin{array}{cc}
+G^{T} & G^{<}\\
+G^{>} & G^{\tilde{T}}
+\end{array}\right)\left(\begin{array}{cc}
+1 & 1\\
+1 & -1
+\end{array}\right).
+\end{eqnarray}
+Therefore, the retarded, advanced and Keldysh Green's functions are
+given by 
+\begin{eqnarray}
+G^{K}(\bm{k},\omega) & = & \frac{-8i\gamma n((\omega+\varepsilon_{\bm{k}}+U_{R}n)^{2}+U_{R}^{2}n^{2}+5\gamma^{2}n^{2})}{\omega^{4}+2(5\gamma^{2}n^{2}-\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n))\omega^{2}+[\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n)+3\gamma^{2}n^{2}]^{2}},\\
+G^{R}(\bm{k},\omega) & = & \frac{2(\omega+\varepsilon_{\bm{k}}+U_{R}n+2i\gamma n)}{\omega^{2}+4i\gamma n\omega-\varepsilon_{\bm{k}}^{2}-2U_{R}n\varepsilon_{\bm{k}}-3\gamma^{2}n^{2}},\\
+G^{A}(\bm{k},\omega) & = & \frac{2(\omega+\varepsilon_{\bm{k}}+U_{R}n-2i\gamma n)}{\omega^{2}-4i\gamma n\omega-\varepsilon_{\bm{k}}^{2}-2U_{R}n\varepsilon_{\bm{k}}-3\gamma^{2}n^{2}}=(G^{R})^{\ast}.
+\end{eqnarray}
+Based on the retarded Green's function, we obtain the spectrum function
+as \citep{Coleman_2015}
+\begin{eqnarray}
+A(\bm{k},\omega) & = & \frac{i}{2\pi}(G^{<}+G^{>})\nonumber \\
+ & = & \frac{1}{\pi}\frac{4\gamma n((\omega+\varepsilon_{\bm{k}}+U_{R}n)^{2}+U_{R}^{2}n^{2}+5\gamma^{2}n^{2})}{\omega^{4}+2(5\gamma^{2}n^{2}-\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n))\omega^{2}+[\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n)+3\gamma^{2}n^{2}]^{2}}.
+\end{eqnarray}
+The figures of the spectral function are shown in the main text. We
+note that when $U_{R}=0$, the spectrum function becomes 
+\begin{eqnarray*}
+A(\bm{k},\omega) & = & \frac{1}{\pi}\frac{4\gamma n((\omega+\varepsilon_{\bm{k}})^{2}+5\gamma^{2}n^{2})}{\omega^{4}+2(5\gamma^{2}n^{2}-\varepsilon_{\bm{k}}^{2})\omega^{2}+[\varepsilon_{\bm{k}}^{2}+3\gamma^{2}n^{2}]^{2}}\\
+ & = & \frac{1}{\pi\gamma n}\frac{4((\omega'+\varepsilon')^{2}+5)}{{\omega'}^{4}+2\left({5-\varepsilon'}^{2}\right){\omega'}^{2}+\left({\varepsilon'}^{2}+3\right)^{2}}.
+\end{eqnarray*}
+where $\omega'=\omega/\gamma n,\varepsilon'=\varepsilon_{\bm{k}}/\gamma n$.
+
+The spectrum of the Schwinger-Keldysh action is given by the poles
+of the spectral function as 
+\begin{equation}
+\omega^{4}+2(5\gamma^{2}n^{2}-\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n))\omega^{2}+[\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n)+3\gamma^{2}n^{2}]^{2}=0.
+\end{equation}
+Nevertheless, the polynomial on the L.H.S can be factorized as 
+\begin{equation}
+(\omega^{2}+4i\gamma n\omega-\varepsilon_{\bm{k}}^{2}-2U_{R}n\varepsilon_{\bm{k}}-3\gamma^{2}n^{2})(\omega^{2}-4i\gamma n\omega-\varepsilon_{\bm{k}}^{2}-2U_{R}n\varepsilon_{\bm{k}}-3\gamma^{2}n^{2}).\label{eq:poles}
+\end{equation}
+The solutions to Eq. \eqref{eq:poles} can be expressed as 
+\begin{eqnarray}
+\omega_{1,2} & = & -2i\gamma n\pm\sqrt{\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n)-\gamma^{2}n^{2}},\\
+\omega_{3,4} & = & 2i\gamma n\pm\sqrt{\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n)-\gamma^{2}n^{2}}.
+\end{eqnarray}
+For those momentum satisfying $\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n)<\gamma^{2}n^{2}$,
+the real parts of all the spectrums are zero. For those momentum satisfying
+$\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n)>\gamma^{2}n^{2}$,
+the real parts of $\omega_{1(2)}$ are equal to $\omega_{3(4)}$.
+The relations are given by $\omega_{1}=\omega_{3}^{\ast}$ and $\omega_{2}=\omega_{4}^{\ast}$.
+Hence, we can reach the conclusion that 
+\begin{equation}
+\text{Re}[\omega_{1}]=\text{Re}[\omega_{3}]=-\text{Re}[\omega_{2}]=-\text{Re}[\omega_{4}].
+\end{equation}
+There is only one nontrivial real part in four spectrums. For the
+evolution on the quantum states, the poles of the retarded Green's
+function give the spectrum $\omega_{1,2}$. These two spectrums coincides
+with the spectrums of the observables $A_{\bm{k}}$, indeed. We can
+also see this point from another framework of the Schwinger-Keldysh
+action. We first transform the action into another basis. By defining
+the retarded or advanced operators $a_{\bm{k},R}=\frac{1}{2}(a_{\bm{k},+}+a_{\bm{k},-})$
+and $a_{\bm{k},A}=a_{\bm{k},+}-a_{\bm{k},-}$ \citep{Kamenev_2011},
+we have 
+\begin{equation}
+a_{\bm{k}+}^{\dagger}i\partial_{t}a_{\bm{k}+}-a_{\bm{k}-}^{\dagger}i\partial_{t}a_{\bm{k}-}=a_{\bm{k},A}^{\dagger}i\partial_{t}a_{\bm{k},R}-a_{\bm{k},R}^{\dagger}i\partial_{t}a_{\bm{k},A},
+\end{equation}
+\begin{eqnarray}
+-H_{+}+H_{-}-4i\gamma n\sum_{\bm{k}}a_{\bm{k}-}^{\dagger}a_{\bm{k}+} & = & \sum_{\bm{k}}-(\varepsilon_{\bm{k}}+U_{R}n-2i\gamma n)a_{\bm{k},A}^{\dagger}a_{\bm{k},R}-(\varepsilon_{\bm{k}}+U_{R}n+2i\gamma n)a_{\bm{k},R}^{\dagger}a_{\bm{k},A}\nonumber \\
+ &  & -\frac{U^{\ast}n}{2}(a_{-\bm{k},R}a_{\bm{k},A}+a_{-\bm{k},A}a_{\bm{k},R})-\frac{Un}{2}(a_{\bm{k},R}^{\dagger}a_{-\bm{k},A}^{\dagger}+a_{\bm{k},A}^{\dagger}a_{-\bm{k},R}^{\dagger}).
+\end{eqnarray}
+Hence, the action can be reorganized as 
+\begin{equation}
+S=\frac{1}{2}\sum_{\bm{k}}\int\frac{d\omega}{2\pi}\left(\begin{array}{cccc}
+a_{\bm{k},R}^{\dagger} & a_{-\bm{k},R} & a_{\bm{k},A}^{\dagger} & a_{-\bm{k},A}\end{array}\right)\left(\begin{array}{cc}
+O_{2\times2} & G\\
+G^{\dagger} & O_{2\times2}
+\end{array}\right)\left(\begin{array}{c}
+a_{\bm{k},R}\\
+a_{-\bm{k},R}^{\dagger}\\
+a_{\bm{k},A}\\
+a_{-\bm{k},A}^{\dagger}
+\end{array}\right),\label{eq:action4}
+\end{equation}
+where 
+\begin{equation}
+G=\left(\begin{array}{cc}
+\omega-(\varepsilon_{\bm{k}}+U_{R}n+2i\gamma n) & -Un\\
+-U^{\ast}n & -\omega-(\varepsilon_{\bm{k}}+U_{R}n-2i\gamma n)
+\end{array}\right).
+\end{equation}
+The poles of the Green's function are given by 
+\begin{equation}
+\det(G)=0\Rightarrow(\omega-(\varepsilon_{\bm{k}}+U_{R}n+2i\gamma n))(\omega+(\varepsilon_{\bm{k}}+U_{R}n-2i\gamma n))+|U|^{2}n^{2}=0.
+\end{equation}
+\begin{equation}
+\det(G^{\dagger})=0\Rightarrow(\omega-(\varepsilon_{\bm{k}}+U_{R}n-2i\gamma n))(\omega+(\varepsilon_{\bm{k}}+U_{R}n+2i\gamma n))+|U|^{2}n^{2}=0.
+\end{equation}
+These two equations can be rewritten as 
+\begin{eqnarray}
+\omega^{2}-4i\gamma n\omega-\varepsilon_{\bm{k}}^{2}-2U_{R}n\varepsilon_{\bm{k}}-3\gamma^{2}n^{2} & = & 0,\\
+\omega^{2}+4i\gamma n\omega-\varepsilon_{\bm{k}}^{2}-2U_{R}n\varepsilon_{\bm{k}}-3\gamma^{2}n^{2} & = & 0.
+\end{eqnarray}
+Hence, the spectrum $\omega_{1,2}$ represent the spectrums of the
+retarded bosonic operators and the spectrum $\omega_{3,4}$ represent
+the spectrums of the advanced bosnic operators. To see the fundamental
+excitations in the system, we need to diagonalize the action \eqref{eq:action4}
+with similar transformation. We first review the similar transformation
+in the closed quantum systems. The mean-field Hamiltonian takes the
+form of 
+\begin{equation}
+H=\frac{1}{2}\left(\begin{array}{cc}
+a_{k}^{\dagger} & a_{-k}\end{array}\right)\left(\begin{array}{cc}
+\varepsilon_{\bm{k}}+Un & Un\\
+Un & \varepsilon_{\bm{k}}+Un
+\end{array}\right)\left(\begin{array}{c}
+a_{k}\\
+a_{-k}^{\dagger}
+\end{array}\right).
+\end{equation}
+
+To derive the Bogoliubov diagonalization matrix, we first transform
+the matrix as 
+\begin{equation}
+\left(\begin{array}{cc}
+\varepsilon_{\bm{k}}+Un & Un\\
+Un & \varepsilon_{\bm{k}}+Un
+\end{array}\right)\rightarrow\left(\begin{array}{cc}
+\varepsilon_{\bm{k}}+Un & Un\\
+Un & \varepsilon_{\bm{k}}+Un
+\end{array}\right)\left(\begin{array}{cc}
+1 & 0\\
+0 & -1
+\end{array}\right)=\left(\begin{array}{cc}
+\varepsilon_{\bm{k}}+Un & -Un\\
+Un & -(\varepsilon_{\bm{k}}+Un)
+\end{array}\right)
+\end{equation}
+since the commutation relation differs for different indices in the
+matrix. The eigenvectors of the matrix are 
+\begin{eqnarray}
+E_{1}=\sqrt{\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2Un)} & , & v_{1}=\left(1+x^{2}+x\sqrt{x^{2}+2},1\right)^{T},\\
+E_{2}=-\sqrt{\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2Un)} & , & v_{2}=\left(1+x^{2}-x\sqrt{x^{2}+2},1\right)^{T},
+\end{eqnarray}
+where $x=\sqrt{\varepsilon_{\bm{k}}/Un}$. Hence, the similarity transformation
+can be written as 
+\begin{equation}
+U=\left(\begin{array}{cc}
+1+x^{2}+x\sqrt{x^{2}+2} & 1+x^{2}-x\sqrt{x^{2}+2}\\
+1 & 1
+\end{array}\right)\equiv\left(\begin{array}{cc}
+\frac{1}{\alpha} & \alpha\\
+1 & 1
+\end{array}\right),
+\end{equation}
+where $\alpha=1+x^{2}-x\sqrt{x^{2}+2}$.
+
+To recover the Bogoliubov transformation, we renormalize each eigenvector
+as 
+\begin{eqnarray}
+v_{1} & \rightarrow & \beta_{1}v_{1}=\left(\frac{1}{\sqrt{1-\alpha^{2}}},\frac{\alpha}{\sqrt{1-\alpha^{2}}}\right)^{T},\\
+v_{2} & \rightarrow & \beta_{2}v_{2}=\left(\frac{\alpha}{\sqrt{1-\alpha^{2}}},\frac{1}{\sqrt{1-\alpha^{2}}}\right)^{T},
+\end{eqnarray}
+with $\beta_{1}=\alpha/\sqrt{1-\alpha^{2}},\beta_{2}=1/\sqrt{1-\alpha^{2}}$.
+In this case we obtain the Bogoliubov transformation matrix \citep{Ueda2010}
+\begin{equation}
+U=\left(\begin{array}{cc}
+\frac{1}{\sqrt{1-\alpha^{2}}} & \frac{\alpha}{\sqrt{1-\alpha^{2}}}\\
+\frac{\alpha}{\sqrt{1-\alpha^{2}}} & \frac{1}{\sqrt{1-\alpha^{2}}}
+\end{array}\right).\label{Bogoliubov}
+\end{equation}
+Similarly, in the open quantum system, we need to diagonalize the
+matrix 
+\begin{equation}
+J=\left(\begin{array}{cc}
+\varepsilon_{\bm{k}}+U_{R}n+2i\gamma n & Un\\
+U^{\ast}n & \varepsilon_{\bm{k}}+U_{R}n-2i\gamma n
+\end{array}\right)
+\end{equation}
+from the matrix $G$. We follow the same procedure above and transform
+$J$ as $J\sigma_{z}$ for diagonalization. The problem is equivalent
+to diagonalize the matrix 
+\begin{equation}
+\left(\begin{array}{cc}
+\varepsilon_{\bm{k}}+U_{R}n+2i\gamma n & -Un\\
+U^{\ast}n & -(\varepsilon_{\bm{k}}+U_{R}n-2i\gamma n)
+\end{array}\right).
+\end{equation}
+The eigenvectors are given by 
+\begin{eqnarray}
+v_{1} & = & \left(\frac{U_{R}n+\varepsilon_{\bm{k}}+\sqrt{\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n)-\gamma^{2}n^{2}}}{U^{\ast}n},1\right)^{T}\nonumber \\
+ & \equiv & \left(\frac{1}{\bar{\alpha}},1\right)^{T},\\
+v_{2} & = & \left(\frac{U_{R}n+\varepsilon_{\bm{k}}-\sqrt{\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n)-\gamma^{2}n^{2}}}{U^{\ast}n},1\right)^{T}\nonumber \\
+ & \equiv & (\alpha,1)^{T},
+\end{eqnarray}
+with $\alpha=\frac{U_{R}n+\varepsilon_{\bm{k}}-\sqrt{\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n)-\gamma^{2}n^{2}}}{U^{\ast}n},\bar{\alpha}=\frac{U_{R}n+\varepsilon_{\bm{k}}-\sqrt{\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n)-\gamma^{2}n^{2}}}{Un}$.
+We note that $\alpha^{\ast}=\bar{\alpha}$ only holds when $\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n)-\gamma^{2}n^{2}\geqslant0$
+which corresponds to a nontrivial real part. Therefore, the diagonalization
+matrix is given by 
+\begin{equation}
+U=\left(\begin{array}{cc}
+\frac{1}{\bar{\alpha}} & \alpha\\
+1 & 1
+\end{array}\right).
+\end{equation}
+By gauge transformation 
+\begin{eqnarray}
+v_{1} & \rightarrow & \beta_{1}v_{1}=\left(\frac{1}{\sqrt{1-\alpha\bar{\alpha}}},\frac{\bar{\alpha}}{\sqrt{1-\alpha\bar{\alpha}}}\right)^{T},\\
+v_{2} & \rightarrow & \beta_{2}v_{2}=\left(\frac{\alpha}{\sqrt{1-\alpha\bar{\alpha}}},\frac{1}{\sqrt{1-\alpha\bar{\alpha}}}\right)^{T},
+\end{eqnarray}
+we obtain the Bogoliubov matrix for the retarded(classical) operators
+\begin{equation}
+U=\left(\begin{array}{cc}
+\frac{1}{\sqrt{1-\alpha\bar{\alpha}}} & \frac{\alpha}{\sqrt{1-\alpha\bar{\alpha}}}\\
+\frac{\bar{\alpha}}{\sqrt{1-\alpha\bar{\alpha}}} & \frac{1}{\sqrt{1-\alpha\bar{\alpha}}}
+\end{array}\right),\left(\begin{array}{c}
+\beta_{\bm{k},R}\\
+\bar{\beta}_{-\bm{k},R}
+\end{array}\right)=\left(\begin{array}{cc}
+\frac{1}{\sqrt{1-\alpha\bar{\alpha}}} & \frac{\alpha}{\sqrt{1-\alpha\bar{\alpha}}}\\
+\frac{\bar{\alpha}}{\sqrt{1-\alpha\bar{\alpha}}} & \frac{1}{\sqrt{1-\alpha\bar{\alpha}}}
+\end{array}\right)\left(\begin{array}{c}
+a_{\bm{k},R}\\
+a_{-\bm{k},R}^{\dagger}
+\end{array}\right).
+\end{equation}
+and the Bogoliubov matrix for the advanced (quantum) operators 
+\begin{equation}
+U^{-1}=\left(\begin{array}{cc}
+\frac{1}{\sqrt{1-\alpha\bar{\alpha}}} & -\frac{\alpha}{\sqrt{1-\alpha\bar{\alpha}}}\\
+-\frac{\bar{\alpha}}{\sqrt{1-\alpha\bar{\alpha}}} & \frac{1}{\sqrt{1-\alpha\bar{\alpha}}}
+\end{array}\right),\left(\begin{array}{c}
+\beta_{\bm{k},A}\\
+\bar{\beta}_{-\bm{k},A}
+\end{array}\right)=\left(\begin{array}{cc}
+\frac{1}{\sqrt{1-\alpha\bar{\alpha}}} & \frac{\alpha}{\sqrt{1-\alpha\bar{\alpha}}}\\
+\frac{\bar{\alpha}}{\sqrt{1-\alpha\bar{\alpha}}} & \frac{1}{\sqrt{1-\alpha\bar{\alpha}}}
+\end{array}\right)\left(\begin{array}{c}
+a_{\bm{k},A}\\
+a_{-\bm{k},A}^{\dagger}
+\end{array}\right).
+\end{equation}
+Hence, the action becomes 
+\begin{equation}
+S=\frac{1}{2}\sum_{\bm{k}}\int\frac{d\omega}{2\pi}\left(\begin{array}{cccc}
+\bar{\beta}_{\bm{k},R} & \beta_{-\bm{k},R} & \bar{\beta}_{\bm{k},A} & \beta_{-\bm{k},A}\end{array}\right)\left(\begin{array}{cc}
+O_{2\times2} & H'\\
+(H')^{\dagger} & O_{2\times2}
+\end{array}\right)\left(\begin{array}{c}
+\beta_{\bm{k},R}\\
+\bar{\beta}_{-\bm{k},R}\\
+\beta_{\bm{k},A}\\
+\bar{\beta}_{-\bm{k},A}
+\end{array}\right),
+\end{equation}
+where 
+\begin{equation}
+H'=\left(\begin{array}{cc}
+i\partial_{t}\sigma_{z}-\left(-2i\gamma-\sqrt{\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n)-\gamma^{2}n^{2}}\right) & 0\\
+0 & i\partial_{t}\sigma_{z}-\left(-2i\gamma+\sqrt{\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n)-\gamma^{2}n^{2}}\right)
+\end{array}\right).
+\end{equation}
+In the expressions above, we can obtain $\bar{\beta}=\beta^{\dagger}$
+when the momentum satisfies $\varepsilon_{\bm{k}}(\varepsilon_{\bm{k}}+2U_{R}n)>\gamma^{2}n^{2}$.
+ 
+
+\bibliographystyle{apsrev4-2}
+\bibliography{MyNewCollection}
+
+\end{document}

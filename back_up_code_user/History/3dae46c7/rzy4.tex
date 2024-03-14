@@ -1,0 +1,636 @@
+%% LyX 2.3.6.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{revtex4-2}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{verbose}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{braket}
+\usepackage{tikz}
+%\usepackage{braket}
+%\usepackage{braket}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{diagbox}
+\lstset{
+numbers=left,
+framexleftmargin=10mm,
+frame=none,
+keywordstyle=\bf\color{blue},
+identifierstyle=\bf,
+numberstyle=\color[RGB]{0,192,192},
+commentstyle=\it\color[RGB]{0,96,96},
+stringstyle=\rmfamily\slshape\color[RGB]{128,0,0}
+}
+
+%\usetheme{Darmstadt}
+%\usetheme{Frankfurt}
+% or ...
+
+%\setbeamercovered{transparent}
+\lstdefinelanguage
+   [x64]{Assembler}     % add a "x64" dialect of Assembler
+   [x86masm]{Assembler} % based on the "x86masm" dialect
+   % with these extra keywords:
+   {morekeywords={CDQE,CQO,CMPSQ,CMPXCHG16B,JRCXZ,LODSQ,MOVSXD, %
+                  POPFQ,PUSHFQ,SCASQ,STOSQ,IRETQ,RDTSCP,SWAPGS, %
+                  rax,rdx,rcx,rbx,rsi,rdi,rsp,rbp, %
+                  r8,r8d,r8w,r8b,r9,r9d,r9w,r9b, %
+                  r10,r10d,r10w,r10b,r11,r11d,r11w,r11b, %
+                  r12,r12d,r12w,r12b,r13,r13d,r13w,r13b, %
+                  r14,r14d,r14w,r14b,r15,r15d,r15w,r15b,retq,callq,cmpl}} % etc.
+
+\lstset{language=[x64]Assembler}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\section{Hierarchy of solvability for two-point function}
+
+The illustration of hierarchy of solvability can be seen in Fig. (\ref{Figure_1_illustration_hierarchy}).
+
+\begin{figure}
+\includegraphics[width=1\textwidth]{Figs/dual_unitary_hierarchy}
+
+\caption{Illustration of hierarchy structure for solvability.}
+
+\label{Figure_1_illustration_hierarchy}
+\end{figure}
+
+\textbf{\emph{1st:}}
+
+Dual-unitary gates
+
+\textbf{\emph{2nd:}}
+
+CNOT gates, with single site operator $V$
+
+if it acts on right bottom or left top, it is definitely left-2nd
+invariant. To be right-2nd invariant, the necessary and sufficient
+condition is $\mathbf{Re}\{V_{10}^{*}V_{00}\}=0$;
+\begin{equation}
+V=\begin{pmatrix}\frac{1-i}{2} & \frac{1+i}{2}\\
+\frac{1}{\sqrt{2}} & \frac{i}{\sqrt{2}}
+\end{pmatrix}
+\end{equation}
+
+if it acts on left bottom or right top, it is definitely right-2nd
+invariant. To be left-2nd invariant, the necessary and sufficient
+condition is $\mathbf{Re}\{V_{00}V_{01}^{*}\}=0$.
+
+This example can also give us the matrix which is only left or right
+invariant.
+
+\textbf{\emph{3rd:}}
+
+CZ gates. 
+
+\section{SFF and transformation matrix}
+
+\textbf{\emph{with randomness:}}
+
+\emph{Dual-unitary gates:} chaotic.
+
+\emph{CNOT:}
+\begin{enumerate}
+\item It self along do not have this property.
+\item With single site randomness, it is chaotic.
+\item One CNOT with one dual-unitary and single site randomness is still
+chaotic.
+\end{enumerate}
+\emph{CZ:}
+\begin{enumerate}
+\item With single site randomness, it is integrable.
+\item One CZ with one dual-unitary and single site randomness is still integrable.
+\end{enumerate}
+\textbf{\emph{without randomness:}}
+
+A gate whose Schmidt decomposition is $U=\sum_{i}O_{i}\otimes P_{j}$
+and satisfying 
+\[
+[O_{i},P_{j}]=0\ \text{for}\ \text{all}\ i,j.
+\]
+
+Here we prove that the CNOT with one dual-unitary and single site
+randomness is chaotic. To prove that, we will show that the operator
+\begin{equation}
+Q_{k}=\frac{1}{t}\sum_{\tau=0}^{t-1}e^{i\frac{2\pi k\tau}{t}}\Pi_{2t}^{2\tau}
+\end{equation}
+is still nearly the eigenvector of $\widetilde{CNOT}\otimes\widetilde{CNOT}^{\dagger}$.
+Actually, since $Q_{k}$ is made up with $2$-site translation operator,
+we have
+\begin{equation}
+\widetilde{CNOT}^{\otimes t}Q_{k}(\widetilde{CNOT}^{\dagger})^{\otimes t}=Q_{k}\widetilde{CNOT}^{\otimes t}(\widetilde{CNOT}^{\dagger})^{\otimes t}=Q_{k}(I_{4}+\eta)^{\otimes t},
+\end{equation}
+where 
+\begin{equation}
+\eta=\begin{pmatrix} &  &  & 1\\
+ &  & 1\\
+ & 1\\
+1
+\end{pmatrix}.
+\end{equation}
+
+For the operator $Q_{k}(I_{4}+\eta)^{\otimes t}$, the components
+outside the space $\mathrm{span}\{Q_{0},Q_{1}\cdots Q_{t-1}\}$ will
+be projected out. Next we will calculate the components inside the
+eigenspace. Since $Q_{k'}Q_{k}=\delta_{k,k'}Q_{k}$, we have 
+\begin{equation}
+\mathrm{Tr}\{Q_{k'}Q_{k}(I_{4}+\eta)^{\otimes t}\}=0\ \mathrm{for\ }k\neq k'.
+\end{equation}
+The non-vanishing overlap is only with $Q_{k}$. Introduce the normalization
+factor, we have $|Q_{k}\rangle\leftrightarrow\frac{Q_{k}}{\sqrt{\mathrm{Tr}Q_{k}}}$
+and
+\begin{equation}
+\langle Q_{k}|(\widetilde{CNOT}\otimes\widetilde{CNOT}^{\dagger})^{\otimes t}|Q_{k}\rangle=\frac{\mathrm{Tr}\{Q_{k}^{2}(I_{4}+\eta)^{\otimes t}\}}{\mathrm{Tr}Q_{k}}=\frac{\mathrm{Tr}\{Q_{k}(I_{4}+\eta)^{\otimes t}\}}{\mathrm{Tr}Q_{k}}.
+\end{equation}
+
+We fuse two sites into a big site with dimension $4$ and write $\Pi_{2t}^{2\tau}\rightarrow\Pi_{t}^{\tau}$,
+where $\Pi_{t}$ is the translation operator for the big site.
+
+Let estimate the trace of $\Pi_{t}^{\tau}$. Suppose $\theta_{\tau}$
+is the minimum number that satisfies
+\begin{equation}
+\tau\theta_{\tau}=0\ \mathrm{mod}\ t
+\end{equation}
+or
+\begin{equation}
+\tau\theta_{\tau}=kt\ \mathrm{for}\ k\in\mathbb{N}^{+}
+\end{equation}
+and $\phi_{\tau}=\frac{t}{\theta_{\tau}}=\frac{\tau}{k}\leq\begin{cases}
+\tau & \mathrm{if}\ \tau\leq\frac{t}{2}\\
+\frac{\tau}{2} & \mathrm{if}\ \tau>\frac{t}{2}
+\end{cases}\leq\frac{t}{2}$. With this notation, the following inequality holds
+\begin{equation}
+\mathrm{Tr}\Pi_{t}^{\tau}=4^{\phi_{\tau}}\leq2^{t}.
+\end{equation}
+The trace of $Q_{k}$ can be lower bounded
+\begin{equation}
+\mathrm{Tr}Q_{k}\geq\frac{\mathrm{Tr}\Pi_{t}^{0}}{t}-\frac{\sum_{\tau=1}^{t-1}\mathrm{Tr}\Pi_{t}^{\tau}}{t}\geq\frac{4^{t}-(t-1)2^{t}}{t}.
+\end{equation}
+In other direction, 
+\begin{equation}
+\mathrm{Tr}Q_{k}\leq\frac{\mathrm{Tr}\Pi_{t}^{0}}{t}+\frac{\sum_{\tau=1}^{t-1}\mathrm{Tr}\Pi_{t}^{\tau}}{t}\leq\frac{4^{t}+(t-1)2^{t}}{t}.
+\end{equation}
+The $\mathrm{|Tr}\{Q_{k}(I_{4}+\eta)^{\otimes t}-Q_{k}I_{4}\}|$ can
+also be bounded 
+\begin{align}
+ & |\mathrm{Tr}\{Q_{k}(I_{4}+\eta)^{\otimes t}-Q_{k}I_{4}\}|\nonumber \\
+\leq & \mathrm{\sum_{\tau=1}^{t-1}\mathrm{Tr}\{\Pi_{t}^{\tau}}[(I_{4}+\eta)^{\otimes t}-I_{4}]\}\nonumber \\
+= & \sum_{\tau=1}^{t-1}4^{\phi_{\tau}}(\begin{pmatrix}\theta_{\tau}\\
+2
+\end{pmatrix}+\begin{pmatrix}\theta_{\tau}\\
+4
+\end{pmatrix}+\cdots+\begin{pmatrix}\theta_{\tau}\\
+2\lceil\frac{\theta_{\tau}-1}{2}\rceil
+\end{pmatrix})^{\phi_{\tau}}\nonumber \\
+\leq & \sum_{\tau=1}^{t-1}4^{\phi_{\tau}}(2^{\theta_{\tau}-1})^{\phi_{\tau}}\nonumber \\
+= & \sum_{\tau=1}^{t-1}4^{\phi_{\tau}}2^{\theta_{\tau}\phi_{\tau}-\phi_{\tau}}\nonumber \\
+= & 2^{t}\sum_{\tau=1}^{t-1}2^{\phi_{\tau}}\nonumber \\
+\leq & t(2\sqrt{2})^{t}.
+\end{align}
+The first equality can be seen in Fig. (\ref{illustration_eta}).
+
+\begin{figure}
+\includegraphics[width=0.6\textwidth]{Figs/illustration_of_eta}
+
+\caption{Illustration of the effect of $\eta$ and $\Pi_{t}^{\tau}$.}
+
+\label{illustration_eta}
+\end{figure}
+
+Therefore, we finally get 
+\begin{equation}
+1-\frac{t(2\sqrt{2})^{t}}{\frac{4^{t}-(t-1)2^{t}}{t}}\leq\langle Q_{k}|(\widetilde{CNOT}\otimes\widetilde{CNOT}^{\dagger})^{\otimes t}|Q_{k}\rangle=1+\frac{\mathrm{Tr}\{Q_{k}[(I_{4}+\eta)^{\otimes t}-I_{4}]\}}{\mathrm{Tr}(Q_{k})}\leq1+\frac{t(2\sqrt{2})^{t}}{\frac{4^{t}-(t-1)2^{t}}{t}}
+\end{equation}
+which approaches $1$ when $t\to\infty$. 
+
+In Fig. (\ref{average_SFF_t}), we show how the average $\langle SFF\rangle$fluctuates
+with $t$ when $t$ is not so large. 
+
+\begin{figure}
+\includegraphics[width=0.6\textwidth]{Figs/average_SFF_with_size}
+
+\label{average_SFF_t}\caption{The average $\langle SFF\rangle$ with different time $t$. Here the
+total system size is $10$.}
+\end{figure}
+
+\textbf{\emph{The circuit with two layers of CNOT:}}
+
+\begin{table}
+\center
+
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+\multicolumn{6}{|c}{Relative Out of Eigenspace Components}\tabularnewline
+\hline 
+\hline 
+ & $Q_{0}$ & $Q_{1}$ & $Q_{2}$ & $Q_{3}$ & $Q_{4}$\tabularnewline
+\hline 
+\textbf{The first round} & \multicolumn{5}{c|}{}\tabularnewline
+\hline 
+After first CNOT layer & 0.9615 & 0.9706 & 0.9706 & 0.9706 & 0.9706\tabularnewline
+\hline 
+After first projection & 0.6576 & 0.5022 & 0.5022 & 0.5022 & 0.5022\tabularnewline
+\hline 
+After second CNOT layer & 0.9673 & 0.9713 & 0.9712 & 0.9712 & 0.9713\tabularnewline
+\hline 
+After second project & 0.7319 & 0.4959 & 0.5024 & 0.5024 & 0.4959\tabularnewline
+\hline 
+\textbf{The second round} & \multicolumn{5}{c|}{}\tabularnewline
+\hline 
+After first CNOT layer & 0.9665 & 0.9715 & 0.9710 & 0.9710 & 0.9715\tabularnewline
+\hline 
+After first projection & 0.7099 & 0.4947 & 0.4995 & 0.4995 & 0.4947\tabularnewline
+\hline 
+After second CNOT layer & 0.9653 & 0.9714 & 0.9710 & 0.9710 & 0.9714\tabularnewline
+\hline 
+After second project & 0.7022 & 0.4951 & 0.5002 & 0.5002 & 0.4951\tabularnewline
+\hline 
+\end{tabular}
+
+\caption{The numerical result for out of eigenspace components. Here $t=5$. }
+
+\end{table}
+
+For $t=5$, there will be a new eigenstate which is outside the eigenspaces
+spanned by $Q_{k}$. The out of component part is 0.7080 and a random
+state will be stabilized to this eigenstate. Also, the eigenstate
+is generated by repeatedly applying the quantum channel to $Q_{0}$.
+The eigenvalue is $\sqrt{1.915}.$ Also for the $Q_{1}$, it generates
+another eigenstate, which has relative overlap component with $Q_{1}$
+about $0.7$. The relative component out of eigenspaces spanned by
+$Q_{k}$ is $0.4950$. This eigenstate has eigenvalue $\sqrt{0.8}$.
+It is also orthogonal to the eigenstate stabilized by $Q_{0}$. For
+the eigenstate generated from $Q_{2}$, this eigenvalue is $\sqrt{0.6169}$.
+For the eigenstate generated by $Q_{3}$, its eigenvalue is $\sqrt{0.6169}$.
+For eigenstate generated from $Q_{4}$, its eigenvalue is $\sqrt{0.807}$.
+They are all orthogonal to each other.
+
+In Fig. (\ref{average_SFF_t_l}), we plotted the $\langle SFF\rangle-t$
+for different time $t$ and system size.
+
+\begin{figure}
+\includegraphics[width=0.8\textwidth]{Figs/average_SFF_with_size_and_time}
+
+\caption{In this figure, we plotted $\langle SFF\rangle-t$ for different time
+$t$ and system size.}
+
+\label{average_SFF_t_l}
+\end{figure}
+
+
+\section{Family of Hierarchy gates}
+
+For modified CNOT gates that 
+\begin{equation}
+(I\otimes V^{\dagger})CNOT(I\otimes V)
+\end{equation}
+to be a 2nd Hierarchy gates, the necessary and sufficient condition
+is still
+\begin{equation}
+\mathbf{Re}(V_{00}V_{10}^{*})=0.
+\end{equation}
+
+Now we can calculate the parametrization for it, such as using Eular
+angles. 
+
+In other way, if we consider the Quantum East gate, i.e.
+\begin{equation}
+U=|0\rangle\langle0|\otimes I_{2}+|1\rangle\langle1|\otimes e^{-ir(\cos\theta\sigma_{x}+\sin\theta\sigma_{z})}
+\end{equation}
+
+The condition that it is 2nd Hierarchy invariant is
+\begin{equation}
+\begin{cases}
+\sin r\sin\theta & =0\\
+\sin2r\cos\theta & =0
+\end{cases}.
+\end{equation}
+That is, the only non-trivial solution is $CNOT$. 
+
+The condition that it is 3rd Hierarchy invariant is 
+\begin{equation}
+\begin{cases}
+\sin2\theta\sin^{2}r & =0\\
+\cos^{2}\theta\sin^{2}r\cos r & =0
+\end{cases}
+\end{equation}
+
+The non-trivial solution, except $CNOT$, is $\theta=\frac{\pi}{2}$,
+$r\in[0,2\pi)$.
+\begin{itemize}
+\item Now let's consider the gate which can be written as $U=e^{i(J_{x}XX+J_{y}YY+J_{z}ZZ)}$,
+we have (non-trivial solution which is not dual-unitary):$J_{x}=\frac{\pi}{2}$,
+$J_{y}=J_{z}=0$ and the permutation. It is left and right $2$-nd
+Hierarchy. This is the only solution given by the form of $U$.
+\item If $U=e^{iJXZ}$, we have the condition $J=\frac{\pi}{4}$ or $J=\frac{3\pi}{4}$.
+It is both left and right invariant.
+\item For the general operator $(e^{ir(\cos\theta\sigma_{z}+\sin\theta\cos\phi\sigma_{x}+\sin\theta\sin\phi\sigma_{y})}\otimes I_{2})e^{i(J_{x}XX+J_{y}YY+J_{z}ZZ)}$,
+one possible condition is $\sin\theta\cos2J_{x}\cos2J_{y}=0$ or $r=\theta=\frac{\pi}{2}$
+or $J_{x}=J_{y}=\frac{\pi}{2}$ or $r=\frac{\pi}{2},\theta=\frac{\pi}{4},\cos(2J_{z}-\phi)\cos\phi\sin2J_{x}=\sin2J_{y}\sin(2J_{z}-\phi)\sin\phi$
+and maybe some other points which are difficult to characterize. The
+numerical result also suggests that the necessary condition is that
+one of $J_{i}=\frac{\pi}{4}/\frac{3\pi}{4}$. Also, the other two
+$J_{j}$ and $J_{k}$ should both equals to $\frac{\pi}{2}/0$.
+\begin{itemize}
+\item If $\theta=0$, the solutions are:
+\begin{itemize}
+\item $J_{x}=\frac{\pi}{2}/0,J_{y}=\frac{\pi}{4}/\frac{3\pi}{4},J_{z}=0/\frac{\pi}{2},r=\frac{\pi}{4}/\frac{3\pi}{4}$
+and the replace of $x,y$. It is both left and right $2$-nd invariant.
+\end{itemize}
+\item If $J_{x}=\frac{\pi}{4}/\frac{3\pi}{4}$
+\item We can take $J_{x}=J_{y}=0,J_{z}=\frac{\pi}{4}$, $U=e^{ir(\cos\theta\sigma_{z}+\sin\theta\cos\phi\sigma_{x}+\sin\theta\sin\phi\sigma_{y})}$z.
+The condition that the gate is $2$-nd Hierarchy invariant is $(HUe^{i\frac{\pi}{4}}\sigma_{z})$
+satisfies the condition for CNOT, namely $\cos^{2}r+\sin^{2}r\cos2\theta=0$
+or $\sin r=\pm\frac{1}{\sqrt{2}\sin\theta}$.
+\item When we set $J_{x}=0,J_{z}=\frac{\pi}{4}$, the necessary condition
+is $\begin{cases}
+2\cos^{2}r & =\cos^{2}\phi\\
+\cos^{2}r+\sin^{2}r\cos2\theta & =0
+\end{cases}$, but it seems that there is no solution for this.
+\end{itemize}
+\item Similarly, we consider the general operator $(I_{2}\otimes e^{ir(\cos\theta\sigma_{z}+\sin\theta\cos\phi\sigma_{x}+\sin\theta\sin\phi\sigma_{y})})e^{i(J_{x}XX+J_{y}YY+J_{z}ZZ)}$.
+The condition for it to be left $2$-nd invariant is one of $J_{i}=\frac{\pi}{4}/\frac{3\pi}{4}$
+and the other two should both equal to $\frac{\pi}{2}/0$. For example,
+we can take $J_{z}=\frac{\pi}{4}$, $J_{x}=J_{y}=0$, therefore the
+condition is $Ue^{i\frac{\pi}{4}\sigma_{z}}H$ satisfying the condition
+for CNOT, namely the parametrization is still $\cos^{2}r+\sin^{2}r\cos2\theta=0$.
+\item For the $3-$rd Hierarchy, we can also parametrize it using a similar
+technical. Consider $(e^{ir(\cos\theta\sigma_{z}+\sin\theta\cos\phi\sigma_{x}+\sin\theta\sin\phi\sigma_{y})}\otimes I_{2})e^{i(J_{x}XX+J_{y}YY+J_{z}ZZ)}$
+and right invariant, we have the condition $J_{x}=J_{y}=0$. In this
+case, the solutions are
+\begin{itemize}
+\item $r=0$, $J_{z}\in\mathbf{R}$
+\item $\theta=0$, $r,\phi,J_{z}\in\mathbf{R}$
+\item $r=\frac{\pi}{2},\theta=\frac{\pi}{2}$, $\phi,J_{z}\in\mathbf{R}$
+\end{itemize}
+\item For $(I_{2}\otimes e^{ir(\cos\theta\sigma_{z}+\sin\theta\cos\phi\sigma_{x}+\sin\theta\sin\phi\sigma_{y})})e^{i(J_{x}XX+J_{y}YY+J_{z}ZZ)}$
+and left invariant, the condition is the same.
+\end{itemize}
+
+\section{Analytical derivation of the classification of Hierarchy}
+
+The gates are also decomposed into a joint 2-qudit gates and 4 single
+qudit gates. For the joint 2-qudit gates, we use the Clifford algebra
+to parametrize them. Namely, we introduce the gate 
+\begin{equation}
+X\ket{j}=\ket{j+1};
+\end{equation}
+
+\begin{equation}
+Z\ket{j}=\omega^{j}\ket{j},
+\end{equation}
+where $\omega=e^{i\frac{2\pi}{D}},$$D$ is the dimension of the local
+space. A general $D\times D$ matrix can be parametrized as 
+\begin{equation}
+M_{p,q}=X^{p}Z^{q}.
+\end{equation}
+They have the property that 
+\begin{equation}
+\begin{cases}
+M_{p,q}^{T} & =\omega^{-pq}M_{-p,q}\\
+M_{p,q}^{\dagger} & =\omega^{pq}M_{-p,-q}\\
+M_{p_{1},q_{1}}M_{p_{2},q_{2}} & =\omega^{q_{1}p_{2}}M_{p_{1}+p_{2},q_{1}+q_{2}}\\
+\mathrm{Tr}(M_{p_{1},q_{1}}M_{p_{2},q_{2}}^{\dagger}) & =\delta_{p_{1},p_{2}}\delta_{q_{1},q_{2}}I_{D}
+\end{cases}
+\end{equation}
+
+For the 2-qudit joint gates, we have two methods to characterize them.
+One is 
+\begin{equation}
+U=\exp\{i\sum_{p,q}\theta_{p,q}M_{p,q}\otimes M_{p,-q}\}
+\end{equation}
+It is obvious that each term in the exponential is commutable with
+each other. The Hermitian condition requires that $\theta_{p,q}^{*}=\theta_{-p,-q}$.
+Therefore, the total degrees of freedom are $D^{2}-1$. Another parameter
+is doing the spectral decomposition of $U$ as 
+\begin{equation}
+U=\frac{1}{D}\sum_{\lambda}e^{i\lambda}\ket{\lambda}\bra{\lambda}.
+\end{equation}
+We further define a matrix to represent the vector as 
+\begin{equation}
+\ket{i}\ket{j}\to\ket{i}\bra{j}.
+\end{equation}
+The requirement for $U$ is that $\ket{\lambda}\to M_{p,q}$. So the
+$U$ can be parametrized as 
+\begin{equation}
+U=\sum_{p,q}e^{i\theta_{p,q}}\ket{M_{p,q}}\bra{M_{p,q}}.\label{eq:parameterize_joing_unitary}
+\end{equation}
+The above two parametrizations are equivalent to each other, since
+$\ket{M_{r,s}}$ is the eigenvector of $M_{p,q}\otimes M_{p,-q}$:
+\begin{align}
+M_{p,q}\otimes M_{p,-q}\ket{M_{r,s}} & =\ket{M_{p,q}M_{r,s}M_{p,-q}^{T}}\nonumber \\
+ & =\ket{M_{p,q}M_{r,s}M_{-p,-q}}\omega^{pq}\nonumber \\
+ & =\ket{M_{p+r,q+s}M_{-p,-q}}\omega^{pq+qr}\nonumber \\
+ & =\ket{M_{r,s}}\omega^{qr-ps}.
+\end{align}
+With Eq. (\ref{eq:parameterize_joing_unitary}), the condition for
+dual-unitary circuits can be expressed as 
+\begin{equation}
+\sum_{a,b}e^{i(-\theta_{p_{a},q_{a}}+\theta_{p_{b},q_{b}})}M_{p_{a},q_{a}}^{\dagger}M_{p_{b},q_{b}}\otimes M_{p_{a},q_{a}}^{T}M_{p_{b},q_{b}}^{*}=I_{2}\otimes I_{2}
+\end{equation}
+or
+\begin{equation}
+\sum_{b}e^{i(-\theta_{p_{b}+k,q_{b}+l}+\theta_{p_{b},q_{b}})}=D^{2}\delta_{k,0}\delta_{l,0}\ \forall k,l.
+\end{equation}
+The easiest solution is 
+\begin{equation}
+\theta_{p_{b},q_{b}}=p_{b}q_{b}\frac{2\pi}{D}
+\end{equation}
+or 
+\begin{equation}
+\theta_{p_{b},q_{b}}=\frac{\pi}{D}(p_{b}^{2}\pm q_{b}^{2})
+\end{equation}
+Similarly, for the second Hierarchy with single qudit operator, the
+(right) 2-nd invariant condition is ($u$ is a single operator)
+
+\begin{align}
+ & \sum_{a,b,c,d}e^{i(-\theta_{p_{b},q_{b}}-\theta_{p_{d},q_{d}}+\theta_{p_{a},q_{a}}+\theta_{p_{c},q_{c}})}M_{p_{b},q_{b}}^{\dagger}M_{p_{a},q_{a}}\otimes M_{p_{d},q_{d}}^{\dagger}u^{\dagger}M_{p_{b},q_{b}}^{T}M_{p_{a},q_{a}}^{*}uM_{p_{c},q_{c}}\otimes M_{p_{d},q_{d}}^{T}M_{p_{c},q_{c}}^{*}\nonumber \\
+=D^{4}\sum_{a,b} & e^{i(-\theta_{p_{b},q_{b}}+\theta_{p_{a},q_{a}})}I_{2}\otimes M_{p_{b},q_{b}}^{\dagger}M_{p_{a},q_{a}}\otimes M_{p_{b},q_{b}}^{T}M_{p_{a},q_{a}}^{*}.
+\end{align}
+This reduces to the equation 
+\begin{equation}
+(\sum_{b}e^{i(-\theta_{p_{b},q_{b}}+\theta_{p_{b}+k,q_{b}+l})})(\sum_{d}e^{i(-\theta_{p_{d},q_{d}}+\theta_{p_{d}+s,q_{d}+t})}M_{p_{d},q_{d}}^{\dagger}u^{\dagger}M_{k,l}uM_{p_{d},q_{d}})=\sum_{d}e^{i(-\theta_{p_{d},q_{d}}+\theta_{p_{d}+s,q_{d}+t})}\delta_{k,0}\delta_{l,0}D^{2}\ \ \forall s,t.\label{eq:2ndHierarchycondition}
+\end{equation}
+We can solve this equation in the following way:
+
+We can always write, when $k,l\neq0$, $u^{\dagger}M_{k,l}u=\sum_{(r,s)\neq(0,0)}\alpha_{r,s}M_{r,s}$.
+Suppose there are totally $n$ numbers of group $(k,l)$ which doesn't
+vanish for the first term in Eq. (\ref{eq:2ndHierarchycondition}),
+then it means that these $n$ groups must vanish for the second term.
+In other words, we have $n$ linearly independent solutions $\{\alpha_{r,s}\}$
+for the second term in Eq. (\ref{eq:2ndHierarchycondition}). This
+problem turns out to be a linearly algebra problem as 
+\begin{equation}
+A_{(D^{2}-1)\times(D^{2}-1)}\begin{pmatrix}\alpha_{1,0}\\
+\alpha_{1,1}\\
+\alpha_{1,2}\\
+\vdots\\
+\alpha_{D,D}
+\end{pmatrix}=0
+\end{equation}
+where the elements in matrix $A$ are functions of $e^{i(-\theta_{p_{d},q_{d}}+\theta_{p_{d}+s,q_{d}+t})}$
+and each row in $A$ represents a specific $(s,t)$ and the equation
+is trivial for $(s,t)=(0,0)$ since we can always write $u^{\dagger}M_{k,l}u=\sum_{(r,s)\neq(0,0)}\alpha_{r,s}M_{r,s}$
+and
+\begin{equation}
+\sum_{p,q}M_{p,q}^{\dagger}M_{r,s}M_{p,q}=\sum_{p,q}M_{r,s}\omega^{pq-qr+p(s-q)}=\sum_{p,q}M_{r,s}\omega^{ps-qr}=D^{2}M_{r,s}\delta_{r,0}\delta_{s,0}
+\end{equation}
+ Thus, we have the following conditions: If there are only $n$ groups
+of $(k,l)$ which satisfy the first term in Eq. (\ref{eq:2ndHierarchycondition})
+, then the rank of $A$ must be less than $n$. For example, for the
+qubit case, we define $\theta_{0,0}=0$ (global phase), $\theta_{1,0}=\theta_{x},\theta_{0,1}=\theta_{z},\theta_{1,1}=\theta_{y}$,
+we have
+\begin{equation}
+A=\begin{pmatrix}-2i\sin\theta_{x} & e^{i\theta_{x}}-e^{i(\theta_{y}-\theta_{z})} & e^{i\theta_{x}}-e^{i(\theta_{z}-\theta_{y})}\\
+-e^{i\theta_{z}}+e^{i(\theta_{y}-\theta_{x})} & 2i\sin\theta_{z} & e^{i\theta_{z}}-e^{i(\theta_{x}-\theta_{y})}\\
+-e^{i\theta_{y}}+e^{i(\theta_{z}-\theta_{x})} & e^{i\theta_{y}}-e^{i(\theta_{x}-\theta_{z})} & 2i\sin\theta_{y}
+\end{pmatrix}.
+\end{equation}
+Then discuss $n=0,1,2$ we can get the full parametrization of qubit
+cases, which is the same result given above.
+
+\section{Exact 2-point function for 2-nd Hierarchy}
+
+Define the quantum channels $\epsilon_{L}$, $\epsilon_{R}$, $M_{R}$,
+$M_{L}$ as shown in Fig. (\ref{definition_of_quantum_channel}).
+
+\begin{figure}
+\includegraphics[width=0.7\textwidth]{Figs/Define_of_channels}
+
+\caption{The definition of four quantum channels.}
+
+\label{definition_of_quantum_channel}
+\end{figure}
+
+We follow the same notation as in \citep{PhysRevLett.123.210601}
+and calculate $D^{\alpha\beta}(x,y,t)$ in the light cone. Here, $x,y,t=\mathbb{Z}+\nu$
+where $\nu\in\{0,1\}$. To simplify notations, we introduce two variables
+\begin{align*}
+N(M) & =\frac{1}{2}-\nu_{t}+\lfloor x+\nu_{t}-\frac{1}{2}\rfloor-\lfloor y\rfloor;\\
+N(\epsilon) & =t-N(M)-\frac{1}{2}.
+\end{align*}
+Here $t=\mathbb{Z}+\nu_{t}$.
+\begin{enumerate}
+\item If $y\in\mathbb{Z}$ \&\& $x>y$, \-\-$D^{\alpha\beta}(x,y,t)=\begin{cases}
+\frac{1}{d^{2t+1}}\mathrm{Tr}(a_{x}^{\alpha}M_{R}^{2N(M)+1}(\epsilon_{L}\epsilon_{R})^{N(\epsilon)}a_{y}^{\beta}), & \text{\ensuremath{\nu_{t}=\nu_{x};}}\\
+0, & \nu_{t}\neq\nu_{x}.
+\end{cases}$
+\item If $y\in\mathbb{Z}$ \&\& $x<y$, $D^{\alpha\beta}(x,y,t)=\begin{cases}
+\frac{1}{d^{2t+1}}\mathrm{Tr}(a_{x}^{\alpha}M_{L}^{2N(M)}\epsilon_{R}(\epsilon_{L}\epsilon_{R})^{N(\epsilon)}a_{y}^{\beta}) & \nu_{t}\neq\nu_{x};\\
+0 & \nu_{t}=\nu_{x}.
+\end{cases}$
+\item If $y\in\mathbb{Z}+\frac{1}{2}$ \&\& $x>y$, $D^{\alpha\beta}(x,y,t)=\begin{cases}
+\frac{1}{d^{2t+1}}\mathrm{Tr}(a_{x}^{\alpha}M_{R}^{2N(M)}\epsilon_{L}(\epsilon_{R}\epsilon_{L})^{N(\epsilon)}a_{y}^{\beta}) & \nu_{t}=\nu_{x};\\
+0 & \nu_{t}\neq\nu_{x}.
+\end{cases}$
+\item If $y\in\mathbb{Z}+\frac{1}{2}$ \&\& $x<y$, $D^{\alpha\beta}(x,y,t)=\begin{cases}
+\frac{1}{d^{2t+1}}\mathrm{Tr}(a_{x}^{\alpha}M_{L}^{2N(M)+1}(\epsilon_{R}\epsilon_{L})^{N(\epsilon)}a_{y}^{\beta}) & \nu_{t}\neq\nu_{x};\\
+0 & \nu_{t}=\nu_{x}.
+\end{cases}$
+\item If $y\in\mathbb{Z}$ \&\& $x=y$, $D^{\alpha\beta}(x,y,t)=\frac{1}{d^{2t+1}}\mathrm{Tr}(a_{x}^{\alpha}\epsilon_{R}^{\nu_{t}}(\epsilon_{L}\epsilon_{R})^{\frac{t-\nu_{t}}{2}}a_{y}^{\beta})$.
+\item If $y\in\mathbb{Z}+\frac{1}{2}$ \&\& $x=y$, $D^{\alpha\beta}(x,y,t)=\frac{1}{d^{2t+1}}\mathrm{Tr}(a_{x}^{\alpha}\epsilon_{L}^{\nu_{t}}(\epsilon_{R}\epsilon_{L})^{\frac{t-\nu_{t}}{2}}a_{y}^{\beta}).$
+\end{enumerate}
+Note that in all of the cases, only $2t$ quantum channels are in
+the final expression. Therefore, the two-point correlation function
+can be calculated efficiently. 
+
+However, if we consider qubits, since $U$ $2$nd Hierarchy implies
+$U^{T}$ $2$nd Hierarchy, the only non-vanishing case is $y=x$.
+See Fig. (\ref{vanish_correlation_functions}) for an illustration. 
+
+\begin{figure}
+\includegraphics[width=0.8\textwidth]{Figs/vanish_of_correlationfunction}\caption{(a) shows if $U^{T}$is second Hierarchy, we have additional conditions
+for the contractions. (b) shows the vanishing of the correlation function
+as a result of this additional structure.}
+
+\label{vanish_correlation_functions}
+\end{figure}
+
+If we suppose both $U$ and $U^{T}$ are both right $2$nd Hierarchy,
+the two-point correlation functions vanish when $x>y$. When $x=y$,
+we have the expression as above (even without left Hierarchy condition).
+
+For qubits, $U$ being left $2$nd Hierarchy means $U^{T}$ being
+right $2$nd Hierarchy.
+
+If we follow the condition Eq. (46) of Ref. (\citep{kos2023circuits}),
+the solvable condition is
+
+\begin{align}
+\sum_{\gamma}I_{d}\otimes K_{\gamma}^{\dagger}(\tilde{U}\tilde{U}^{\dagger}\otimes I_{\chi})K_{\gamma}\otimes I_{d} & =\frac{I_{d^{2}\chi}}{d}\\
+\sum_{\gamma}K_{\gamma}^{\dagger}K_{\gamma} & =\frac{I_{d\chi}}{d}
+\end{align}
+
+
+\section{$2$-nd Hierarchy gate in High Dimension}
+
+For higher dimension, we can generally construct the \textbf{2nd }Hierarchy
+gate as 
+\begin{equation}
+U=\sum_{i}|i\rangle\langle i|\otimes T^{i}
+\end{equation}
+where $T$ is the translation operator that $T|i\rangle=|i+1\rangle$.
+
+with single site operator $V$
+
+if it acts on right bottom or left top, it is definitely left-2nd
+invariant. To be right-2nd invariant, the necessary and sufficient
+condition is 
+\begin{equation}
+\sum_{j}V_{j,i}V_{j+k'-k,i}^{*}=\delta_{k,k'}\ \mathrm{for}\ \forall k,k',i;\label{eq:condition_higher_2ndright}
+\end{equation}
+Here the index $j+k'-k$ should be understood as module the system
+dimension $D$ and $k,k',i\in\{0,1\cdots D-1\}$.
+
+if it acts on left bottom or right top, it is definitely right-2nd
+invariant. To be left-2nd invariant, the necessary and sufficient
+condition is
+\begin{equation}
+\sum_{j}V_{i,k'+j}V_{i,k+j}^{*}=\delta_{k,k'}\ \mathrm{for}\ \forall k,k',i
+\end{equation}
+where $k,k',i\in\{0,1\cdots D-1\}.$ The above equation can also be
+written as 
+\begin{equation}
+\sum_{j}V_{i,j}V_{i,j+k-k'}^{*}=\delta_{k,k'}\ \mathrm{for}\ \forall k,k',i
+\end{equation}
+
+For each $V$, there are $2(N-1)$ degrees of freedom. Take Eq. (\ref{eq:condition_higher_2ndright})
+for an example, we can rewrite it as\textbackslash
+\begin{equation}
+V^{\dagger}T^{\beta}V=\mathrm{diag}(0,0,\cdots,0)
+\end{equation}
+here $\beta=k'-k$. For each $\beta$, we have $\mathrm{\mathrm{Tr}}V^{\dagger}T^{\beta}V=0$,
+which eliminate one constraint from each $\beta$. On the other hand,
+we have
+\begin{equation}
+(V^{\dagger}T^{\beta}V)^{\dagger}=V^{\dagger}T^{-\beta}V
+\end{equation}
+if $T^{\beta}\neq T^{-\beta}$, we can eliminate one $\beta$ constraint.
+On the other hand, if $T^{\beta}=T^{-\beta}$, we conclude that $V^{\dagger}T^{\beta}V$
+is a Hermitian matrix, therefore we eliminate the imaginary part degrees.
+So the total degrees of freedom is 
+\begin{equation}
+N^{2}-1-(N-1)^{2}=2(N-1).
+\end{equation}
+
+\bibliographystyle{apsrev4-2}
+\bibliography{MyCollection}
+
+\end{document}

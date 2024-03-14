@@ -1,0 +1,444 @@
+\documentclass{beamer}
+\mode<presentation>
+{
+  \usetheme{ldv}
+  %\setbeamercovered{transparent}
+  \setbeamercovered{dynamic}
+}
+
+% Uncomment this if you're giving a presentation in german...
+%\usepackage[ngerman]{babel}
+
+% ...and rename this to "Folie"
+\newcommand{\slidenomenclature}{Slide}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{fancyvrb}
+\usepackage{array}
+\usepackage{braket}
+\usepackage{colortbl}
+\usepackage{tabularx}
+
+% Uncomment me when you need to insert code
+\usepackage{color}
+\usepackage{listings}
+% End Code
+
+% Uncomment me when you need video or sound
+\usepackage{multimedia}
+\usepackage{hyperref}
+% End video
+
+% Header
+\newcommand{\zwischentitel}{Free-Fermion Page Curve}
+\newcommand{\leitthema}{Xiehang Yu, Zongping Gong, Ignacio Cirac}
+% End Header
+
+% Titlepage
+\title{Charge-conserved Free-fermion Page Curve :}
+\author{Xiehang Yu}
+\newcommand{\presdatum}{17th, Nov. 2022}
+\institute
+{
+  Quantum Science and Technology (from 10.2021)\\
+}
+\subtitle{Canonical Typicality and Dynamical Emergence}
+% End Titlepage
+
+
+% Slides
+\begin{document}
+
+% 1. Slide: Titlepage
+\begin{frame}
+	Charge-conserved Free-fermion (CRFG) Ensemble:
+
+ 
+        An abitrary random realization 
+
+        
+        where $T(\rho_{\phi},\Omega_{A})=||\rho_{\phi}-\Omega_{A}||_{1}/2$ is the trace distance and
+\end{frame}
+
+% 2. Slide: TOC
+\begin{frame}
+   \frametitle{Table of contents}
+   \tableofcontents[subsectionstyle=hide]
+\end{frame} 
+
+% Further Slides
+\section{Titles} 
+\begin{frame}
+   \frametitle{Title} 
+A Lipschitz continuous function $f:\mathbb{U}(N)\to\mathbb{R}$ satisfying
+\[
+|f(x)-f(y)|\leq l \|x-y\|_{\mathrm{HS}}\ \mathrm{for}\ \forall x,y\in\mathbb{U}(N),
+\]
+will concentrate on its mean value as
+\[
+\mathbb{P}(|f(x)-\mathbb{E}(f)|\geq l \epsilon) \leq 2\exp\left(-\frac{N\epsilon^2}{12}\right)
+\]
+Here $\|x\|_\mathrm{HS}=\sqrt{\mathrm{Tr}(x^{\dagger}x)}$ is the Hilbert-Schmidt norm.
+\begin{center}
+To prove the typicality, we choose
+\[f(U)=\|C_{A}(U)-\mathbb{E}(C_{A})\|_{\mathrm{HS}}=\|\Pi_{A}UC_{0}U^{\dagger}\Pi_{A}^{\dagger}-\mathbb{E}(C_{A})\|_{\mathrm{HS}}\]
+\end{center}
+where $\Pi_{A}$ is the projection operator onto the subsystem $A$. 
+
+\end{frame}
+
+
+
+\subsection{Subsection no.1.1  }
+\begin{frame} 
+   To prove the typicality, we choose
+\[f(U)=\|C_{A}(U),\mathbb{E}(C_{A})\|_{\mathrm{HS}}=\|\Pi_{A}UC_{0}U^{\dagger}\Pi_{A}^{\dagger},\mathbb{E}(C_{A})\|_{\mathrm{HS}}\]
+where $\Pi_{A}$ is the projection operator onto the subsystem $A$. 
+
+
+We can verify $f(U)$ is Lipschitz continuous with $l=2$ 
+\[
+   \mathbb{E}(C_{A})=\frac{1}{2}I_{A},\ \ \ \ \mathbb{E}(f)\leq\sqrt{\frac{N_{A}^{2}}{2(N-1)}} 
+   \]
+The typicality then follows
+\end{frame}
+
+\begin{frame}
+   On the other hand, if we choose \[f(U)=\|C_{A}-\mathbb{E}(C_{A})\|_{\mathrm{HS}}^{2}\]
+
+$f(U)$ is also Lipschitz continuous with $l=2\sqrt{N_{A}}$ and
+
+\[\mathbb{E}(f)\geq\frac{N_{A}^{2}}{4(N+1)}.\]
+
+This can be used to prove the atypicality property.
+\end{frame}
+\begin{frame}
+   Characterizing by Hilbert-Schmidt distance $d_{\mathrm{HS}}(x,y)=\|x-y\|_{\mathrm{HS}}$,
+
+\[\mathbb{P}\left(d_{\mathrm{HS}}(C_{A},I_{A}/2)\geq\sqrt{\frac{N_{A}^{2}}{2(N-1)}}+2\epsilon\right)\leq2\exp\left(-\frac{N\epsilon^{2}}{12}\right)\]
+
+and 
+
+\[\mathbb{\mathbb{P}}\left(d_{\mathrm{HS}}^{2}(C_{A},I_{A}/2)\leq\frac{N_{A}^{2}}{4(N+1)}-2\epsilon\right)\leq2\exp\left(-\frac{\epsilon^{2}N}{12N_{A}}\right).\]
+
+\end{frame}
+\begin{frame}
+   $f=\frac{N_A}{N}=\mathcal{O}(1)$
+   $\epsilon=\mathcal{O}(N^{\alpha}),\ \alpha\in(0,1)$
+\end{frame}
+\begin{frame}
+   \[
+      S_A\geq N_A-4d^2_{\mathrm{HS}}\left(C_A,\frac{I_A}{2}\right)
+   \]
+   \[
+      \mathbb{P}(N_{A}-S_{A}\geq\epsilon) \leq\begin{cases}
+2\exp\left[-\frac{N}{48}\left(\frac{\sqrt{\epsilon}}{2}-\sqrt{\frac{N_{A}^{2}}{2(N-1)}}\right)^{2}\right], & \epsilon>\frac{2N_{A}^{2}}{N-1};\\
+1, & \epsilon\leq\frac{2N_{A}^{2}}{N-1}.
+\end{cases}
+      \]
+   \[
+      S_A\leq N_A-\frac{2}{\ln{2}}d_{\mathrm{HS}}^2\left(C_A,\frac{I_A}{2}\right)
+      \]
+      \[
+         \mathbb{P}\left(S_{A}\geq N_{A}-\frac{N_{A}^{2}}{2\ln2(N+1)}+\frac{2}{\ln2}\epsilon\right)  \leq2e^{-\frac{N}{48N_{A}}\epsilon^{2}}.
+         \]
+\end{frame}
+\begin{frame}
+   \begin{align*}
+      H=\mathrm{Minimal\ Model}+H_1 
+   \\
+      J(\sum_{j:\mathrm{even}}a_{j}^{\dagger}a_{j+2m+1}-\sum_{j:\mathrm{odd}}a_{j}^{\dagger}a_{j+2m+1})+\mathrm{H.c.}
+   \end{align*}
+      hhhhhhh
+\end{frame}
+\begin{frame}
+      \[H=(\sum_{j=1}^{N}a_{j}^{\dagger}a_{j+1}+0.3\sum_{j:\mathrm{even}}a_{j}^{\dagger}a_{j+2}-0.3\sum_{j:\mathrm{odd}}a_{j}^{\dagger}a_{j+2})+\mathrm{H.c}.\]
+\end{frame} 
+\begin{frame}
+   $\mathbb{E}(C_{A})=\frac{1}{2}I_{A}$, $\mathbb{E}(a_k^{\dagger}a_k)=\frac{1}{2}$
+   $\langle a_k^{\dagger}a_k\rangle=\frac{1}{2}$
+   $\langle a_k^{\dagger}a_k\rangle\neq\frac{1}{2}$
+   $J=0.3$, $m=1$
+   \[
+      S_A(C_A)=-\mathrm{Tr}C_A\log_2{C_A}-\mathrm{Tr}(I_A-C_A)\log_2{(I_A-C_A)}
+      \]
+      \[
+         =N_A-\sum_{n=1}^\infty \frac{\mathrm{Tr}X_A^{2n}}{2n(2n-1)\ln{2}}
+         \]
+         $X_A=2C_A-I_A$
+\end{frame}
+\begin{frame}
+   \[   C_A(t)=\Pi_AU_F\tilde{C}(t)U_F^{\dagger}\Pi_A^{\dagger}\]
+   
+   \begin{equation*}
+   \tilde{C}(t)=\begin{pmatrix}\tilde{C}_{k_{1}}(t)\\
+ & \tilde{C}_{k_{2}}(t)\\
+ &  & \tilde{C}_{k_{3}}(t)\\
+ &  &  & \cdots
+\end{pmatrix}
+   \end{equation*}
+$\tilde{C}_{k}\sim e^{i\theta_k t}$
+$\theta_k=E_k-E_{k+\pi}$
+\end{frame}
+\begin{frame}
+   $\overline{e^{it(\theta_k+\theta_k')}}$
+   $k'=k+\pi$ $k'=\pi-k$
+   $e^{ik_1(m_1-m_2)}e^{i\pi m_2}$
+\end{frame}
+\begin{frame}
+   \[\overline{\mathrm{Tr} X_{A}^{2}}= \frac{1}{N^{2}}\sum_{k_{1},k_{2},m_{1},m_{2}}\overline{e^{i\theta_{k_{1}}t}e^{ik_{1}(m_{1}-m_{2})}e^{i\pi m_{2}}e^{i\theta_{k_{2}}t}e^{ik_{2}(m_{2}-m_{1})}e^{i\pi m_{1}}}
+= \frac{N_{A}^{2}}{N}.\]
+$f=\frac{N_A}{N}$
+\begin{equation}
+\frac{\overline{S_{A}}}{N}=f-\frac{1}{\ln{2}}\left(\frac{1}{2}f^{2}+\frac{1}{6}f^{3}+\frac{1}{10}f^{4}\right)+\mathcal{O}(f^{5}).\label{eq:the_Page_curve_for_NNH}
+\end{equation}
+\begin{equation}
+\frac{\mathbb{E}(S_{A})}{N}=f-\frac{1}{\ln{2}}\left(\frac{1}{2}f^{2}+\frac{1}{6}f^{3}+\frac{1}{12}f^{4}\right)+\mathcal{O}(f^{5}).\label{eq:the_Page_curve_result_for_CCRFG}
+\end{equation}
+\end{frame}
+\begin{frame}
+   $S_{A}=N_A-\sum_{n=1}^\infty \frac{\mathrm{Tr}X_A^{2n}}{2n(2n-1)\ln{2}}\geq N_{A}-\frac{\mathrm{Tr}(X_{A})^{2}}{\ln2}\sum_{n}\frac{1}{2n(2n-1)}=N_{A}-\frac{N_{A}^{2}}{N}$
+   $X_{A}^{2n}<X_A^2,\ n>1$
+\end{frame}
+\begin{frame}
+$N_A=N/2$
+$\langle a_i^{\dagger}a_j^{\dagger}\rangle$
+\end{frame}
+\section{Lists} 
+\subsection{Lists I}
+\begin{frame}
+   \frametitle{Unnumbered Lists}
+   \begin{itemize}
+      \item Introduction to  \LaTeX  
+      \item Second bullet point 
+      \item And a third one
+      \item The last one
+   \end{itemize} 
+\end{frame}
+
+\begin{frame}
+   \[
+\mathbb{P}((S_{A}-N_{A})^{2}\geq x)\leq\begin{cases}
+1, & x\leq\frac{4N_{A}^{4}}{(N-1)^{2}};\\
+2\exp\left[-\frac{N}{48}\left(\frac{x^{\frac{1}{4}}}{2}-\sqrt{\frac{N_{A}^{2}}{2(N-1)}}\right)^{2}\right], & x>\frac{4N_{A}^{4}}{(N-1)^{2}}.
+\end{cases}
+\]
+\[
+\mathrm{Var}(S_{A})\leq\langle(S_{A}-N_{A})^{2}\rangle=\mathcal{O}(N^{-2}),
+\]
+\end{frame}
+\begin{frame}
+   \begin{align*}
+&\langle(S_{A}-N_{A})^{2}\rangle =\int\mathbb{P}((S_{A}-N_{A})^{2}\geq x)dx\\
+ & \leq\frac{4N_{A}^{4}}{(N-1)^{2}}+2\int_{\frac{4N_{A}^{4}}{(N-1)^{2}}}^{\infty}dx\exp\left[-\frac{N}{48}\left(\frac{x^{\frac{1}{4}}}{2}-\sqrt{\frac{N_{A}^{2}}{2(N-1)}}\right)^{2}\right].
+\end{align*}
+$e^{-\mathcal{O}(N)}$
+\end{frame}
+\begin{frame}
+   $d_{E}^{\mathrm{eff}}=\frac{1}{\mathrm{Tr}_{E}(\mathrm{Tr}_{A}\epsilon_{S})^{2}}\geq\frac{d_{S}}{d_{A}}$
+   \begin{equation*}
+   \mathbb{P}\left(\left\{ \ket{\phi}|T(\rho_{\phi},\Omega_{A})\geq\epsilon+\frac{1}{2}\sqrt{\frac{d_{A}}{d_{E}^{\mathrm{eff}}}}\right\} \right)\leq4\exp{\left(-\frac{2}{9\pi^{3}}d_{S}\epsilon^{2}\right)}
+   \end{equation*}
+   $\mathcal{H}_S=\mathcal{H}_A\otimes\mathcal{H}_E$
+   $\rho_{\phi}=\mathrm{Tr}_E\ket{\phi}\bra{\phi}$
+   $\ket{\phi}\in\mathcal{H}_S$
+   $\Omega_{A}=\mathrm{Tr}_E\epsilon_S$
+   $\epsilon_S=\frac{\mathbb{I}_S}{d_S}$
+\end{frame}
+\begin{frame}
+   $\langle a_{i}^{\dagger}a_{j}^{\dagger}\rangle=\langle a_{i}a_{j}\rangle=0$
+    $\langle\cdots\rangle=\mathrm{Tr}(\rho\cdots)$
+    $C_{i,j}=\langle a_i^\dag a_{j}\rangle$
+    $S_{A}(C_{A})=-\mathrm{Tr} C_{A}\log_{2}C_{A}-\mathrm{Tr}(I_{A}-C_{A})\log_{2}(I_{A}-C_{A})$
+    $\mathbb{E}(S_{A})=\int d_{\mathrm{H}}(U)S_{A}(C_{A}(U))$
+\end{frame}
+\begin{frame}\frametitle{Lists with Pause}
+   \begin{itemize}
+      \item Introduction to  \LaTeX \pause 
+      \item Second bullet point \pause 
+      \item And a third one \pause 
+      \item The last one
+   \end{itemize} 
+\end{frame}
+
+
+
+\subsection{Lists II}
+\begin{frame}
+   \frametitle{Numbered Lists}
+   \begin{enumerate}
+      \item Introduction to  \LaTeX  
+      \item Second bullet point 
+      \item And a third one
+      \item The last one
+   \end{enumerate}
+\end{frame}
+
+
+
+\begin{frame}
+   \frametitle{Numbered Lists with Pause}
+   \begin{enumerate}
+      \item Introduction to  \LaTeX \pause 
+      \item Second bullet point \pause 
+      \item And a third one \pause 
+      \item The last one
+   \end{enumerate}
+\end{frame}
+
+
+
+\section{Tables} 
+\subsection{Tables}
+\begin{frame}
+   \frametitle{Tables}
+   \begin{tabular}{|c|c|c|}
+      \hline
+      \textbf{Title} & \textbf{Title} & \textbf{Title} \\
+      \hline
+      First column & Second column &  \LaTeX  \\
+      \hline
+      Second row & \LaTeX & Last column \\
+      \hline
+   \end{tabular}
+\end{frame}
+
+
+
+\section{Blocks \& Math}
+\subsection{Blocks}
+\begin{frame}
+   \frametitle{Blocks}
+
+   \begin{block}{This is a simple block}
+      It should contain some text.
+   \end{block}
+
+   \begin{exampleblock}{Example Block}
+      This may be an example.
+   \end{exampleblock}
+
+
+   \begin{alertblock}{Warning}
+      The violent color indicates that this block may alert of something.
+   \end{alertblock}
+\end{frame}
+
+
+
+\subsection{Math} 
+\begin{frame}
+   \frametitle{Math Expressions are a Breeze with \LaTeX \ldots}
+
+   \begin{equation}
+      p(\mathbf{x}_{k}|\mathbf{Z}_{k}) = \frac{p(\mathbf{z}_{k}|\mathbf{x     }_{k})p(\mathbf{x}_{k}|\mathbf{Z}_{k-1})}{\int \! p(\mathbf{z}_{k}|\mathbf{     x}_{k})p(\mathbf{x}_{k}|\mathbf{Z}_{k-1})\,d\mathbf{x}_{k}}
+   \end{equation}
+
+   \begin{equation}
+      w_{k}^{i} \sim w_{k-1}^{i}\frac{p(\mathbf{z}_{k}|\mathbf{x}_{k}^{i})p(\mathbf{x}_{k}^{i}|\mathbf{x}_{k-1}^{i})}{q(\mathbf{x}_{k}^{i}|\mathbf{x}_{k-1}^{i},\mathbf{z}_{k})}
+   \end{equation}
+
+   \ldots and Bayes filtering is great!
+
+\end{frame}
+
+
+
+\section{Colors}
+\begin{frame}
+   \frametitle{An Overview of TUM's Colors}
+   \tiny{Color blue sRGB 100\%: 0-101-189} \\
+   \colorbox{tumcolor-blue}{}{}  \\
+   \vspace{0.5cm}
+   \tiny{Color green sRGB 100\%: 162-173-0} \\
+   \colorbox{tumcolor-green}{}{} \\
+   \vspace{0.5cm}
+   \tiny{Color light grey sRGB 100\%: 218-215-203} \\
+   \colorbox{tumcolor-lightgrey}{}{} \\
+   \vspace{0.5cm}
+   \tiny{Color orange sRGB 100\%: 227-114-34} \\
+   \colorbox{tumcolor-orange}{}{} \\
+   \vspace{0.5cm}
+\end{frame}
+
+
+
+\section{Multimedia}
+\subsection{Split Screen}
+\begin{frame}
+   \frametitle{Splitting Screen}
+   \begin{columns}
+
+      \begin{column}{5cm}
+         \begin{itemize}
+            \item Here
+            \item is some
+            \item text
+         \end{itemize}
+      \end{column}
+
+      \begin{column}{5cm}
+         \begin{tabular}{|c|c|}
+            \hline
+            \textbf{On the} & \textbf{other side} \\
+            \hline
+            there may &  be a table \\
+            \hline
+            or even &  a picture as  \\
+            \hline
+            shown on the &  next frame  \\
+            \hline
+         \end{tabular}
+      \end{column}
+
+   \end{columns}
+\end{frame}
+
+
+
+\subsection{Pictures} 
+\begin{frame}
+   \frametitle{Pictures in Latex Beamer Class}
+   \begin{figure}
+      \includegraphics[scale=2.0]{images/video} 
+      \caption{This is a picture!}
+   \end{figure}
+\end{frame}
+
+
+
+\subsection{Pictures which Need More Space} 
+\begin{frame}[plain]
+   \frametitle{Plain, or a Way to Get More Space}
+   \begin{figure}
+      \includegraphics[scale=3.0]{images/video} 
+      \caption{Picture again.}
+   \end{figure}
+\end{frame}
+
+
+
+\subsection{Code Listings} 
+% The [fragile] is important for listings!
+\begin{frame}[fragile]
+   \frametitle{Don't Ever Bore the Audience with Code Listings}
+   \lstset{language=C, basicstyle=\small \ttfamily, showspaces=false, showtabs=false, tab= , keywordstyle=\bfseries, showstringspaces=false, framexleftmargin=5mm, frame=single, numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, texcl=true}
+   \begin{lstlisting}[caption={Especially when they are erroneous},frame=tlrb]
+#include <stdio.h>
+
+int main(void)
+{
+  printf("Hallo Welt\n");
+  while(1);
+  return 0;
+}
+   \end{lstlisting}
+\end{frame}
+
+% End Slides
+
+\end{document}

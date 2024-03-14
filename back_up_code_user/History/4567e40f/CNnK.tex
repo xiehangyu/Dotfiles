@@ -1,0 +1,110 @@
+%Definition des Papierformats und der Art des Dokuments
+%\documentclass[12pt,a4paper]{report}
+\documentclass[12pt,a4paper]{article}
+\usepackage{tabto} %festgelegter Abstand
+\usepackage{textpos} %festgelegte Position
+
+\usepackage{float} %vertikale Tabelleneinträge ?
+%\usepackage[doublespacing]{setspace} %doppelter Zeilenabstand
+\usepackage{esvect} %Vektorpfeil mit \vv{}
+ 
+\usepackage{lmodern}
+%\usepackage{setspace}
+ 
+%\usepackage[version=4]{mhchem} %Chemie
+ 
+
+ 
+\usepackage{autobreak} %Zeilenumbruch in align
+ 
+\usepackage{bbold} %identity matrix
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage[separate-uncertainty = true,multi-part-units=single]{physics,siunitx}
+\usepackage[nosumlimits]{amsmath}
+\usepackage{gensymb}
+\usepackage{subfigure}
+\usepackage{subcaption}
+\usepackage{amssymb}
+\usepackage[thinc]{esdiff}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{braket}
+\usepackage{minted}
+ 
+\usepackage{tikz} % Graphiken zeichnen ?
+\usetikzlibrary{decorations.pathreplacing}% Graphiken zeichnen ?
+
+%Für in deutsch geschriebene Dokumente 
+
+
+%\usepackage[scaled]{uarial}
+\usepackage{csquotes}
+\usepackage{helvet}   %Schriftart Helvetica
+\renewcommand{\familydefault}{\sfdefault}
+\sloppy % reduziert Silbentrennung stark auf ein Minimum
+
+
+\usepackage{epstopdf}   % Für .eps files
+\usepackage{tabularx}
+\usepackage{comment}
+\usepackage{lastpage}
+
+\usepackage{fancyhdr}   % Seitenlayout mit Kopf/Fußzeile
+\usepackage[hidelinks]{hyperref} % Setzt Verweise und Links innerhalb des PDF-Dokuments
+\usepackage{url}        % Ermöglicht Erstellen von URL-Links
+\usepackage{booktabs}
+\clubpenalty  = 10000 % Schusterjungen verhindern
+\widowpenalty = 10000 % Hurenkinder verhindern
+
+
+% Literatur
+\usepackage[
+    backend=biber, % biber statt bibtex kann besser mit sonderzeichen umgehen...
+    language=english,
+    bibstyle=ieee,
+    citestyle=ieee,
+    maxbibnames=1000,
+    url=true,
+    sorting=none]
+    {biblatex}
+%\bibliography{MyCollection.bib}
+\addbibresource{MyCollection.bib}
+
+
+\usepackage{newunicodechar}
+\newunicodechar{́}{\'} %definiere Unicode-Zeichen (wg. Fehlermeldung bei .bib)
+
+
+
+%\def \Titelshort{ }
+%\def \Autor{Tim Kaiser}
+
+%%% Seitenlayout
+\usepackage[a4paper,left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\setlength{\parindent}{0cm} % Einrücken nach \\ wird auf 0 gesetzt 
+\setlength{\parskip}{1.5ex plus0.5ex minus0.2ex} % Absatzabstand
+
+%%Kopfzeile und Fußzeile
+\pagestyle{fancy}
+\fancyhf{}                  %alle Kopf- und Fußzeilenfelder bereinigen
+\fancyhead[L]{}             %Kopfzeile links
+%\fancyhead[R]{\Autor}      %Kopfzeile rechts
+%\renewcommand{\headrulewidth}{0.4pt} %obere Trennlinie
+\fancyfoot[C]{\thepage\ }        %Seitennummer
+%\fancyfoot[C]{Seite \thepage\ von \pageref{LastPage}}  
+\renewcommand{\footrulewidth}{0.4pt} %untere Trennlinie
+
+
+
+\usepackage{blindtext}
+\usepackage[T1]{fontenc}
+
+
+\def \Datum{Date of Experiment: 
+June 9, 2022}

@@ -1,0 +1,14 @@
+{
+    "window.zoomLevel": 2,
+    "editor.wordWrap": "on",
+    "vim.vimrc.path": "$HOME/.vimrc",
+    "vim.vimrc.enable": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.inlineSuggest.enabled": true,
+    "security.workspace.trust.startupPrompt": "never",
+    "security.workspace.trust.enabled": false,
+    "markdown-preview-enhanced.pandocArguments": [
+    ],
+    "markdown-preview-enhanced.mathRenderingOption": "katex",
+    "markdown-preview-enhanced.breakOnSingleNewLine": false,
+}

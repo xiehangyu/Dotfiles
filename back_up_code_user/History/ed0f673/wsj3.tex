@@ -1,0 +1,1064 @@
+\documentclass[aps,prl,twocolumn,nofootinbib,superscriptaddress,longbibliography]{revtex4-1}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{feynmf}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{xfrac}
+\usepackage[colorlinks,citecolor=blue]{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{longtable,booktabs}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{subfigure}
+\usepackage{dsfont}
+\usepackage{booktabs}
+\usepackage{amsbsy}
+\usepackage{dcolumn}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{esint}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsbsy}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{extarrows}
+\usepackage{datetime}
+\usepackage{comment}
+\usepackage[super]{nth}
+\hypersetup{
+	colorlinks=magenta,
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=magenta,
+}
+\def\Z{\mathbb{Z}}
+\newcommand{\red}[1]{{\textcolor{red}{#1}}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{statement}{Statement}
+\newcommand{\mb}{\mathbb}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\wt}{\widetilde}
+\newcommand{\mc}{\mathcal}
+\newcommand{\bra}{\langle}
+\newcommand{\ket}{\rangle}
+\newcommand{\ep}{\epsilon}
+\newcommand{\tf}{\textbf}
+
+\begin{document}
+\title{Yang-Lee Singularity in BCS Superconductivity}
+\author{Hongchao Li}
+\thanks{These two authors contributed equally to this work.}
+\affiliation{Department of Physics, University of Tokyo, 7-3-1 Hongo, Tokyo 113-0033,
+	Japan}
+\email{lhc@cat.phys.s.u-tokyo.ac.jp}
+
+\author{Xie-Hang Yu}
+\thanks{These two authors contributed equally to this work.}
+\affiliation{Max-Planck-Institut für Quantenoptik, Hans-Kopfermann-Straße 1, D-85748 Garching, Germany}
+\affiliation{Munich Center for Quantum Science and Technology, Schellingstraße
+4, 80799 München, Germany}
+\email{xiehang.yu@mpq.mpg.de}
+
+\author{Masaya Nakagawa}
+\affiliation{Department of Physics, University of Tokyo, 7-3-1 Hongo, Tokyo 113-0033,
+	Japan}
+\email{nakagawa@cat.phys.s.u-tokyo.ac.jp}
+
+\author{Masahito Ueda}
+\affiliation{Department of Physics, University of Tokyo, 7-3-1 Hongo, Tokyo 113-0033,
+	Japan}
+\affiliation{RIKEN Center for Emergent Matter Science (CEMS), Wako, Saitama 351-0198,
+	Japan}
+\affiliation{Institute for Physics of Intelligence, University of Tokyo, 7-3-1
+	Hongo, Tokyo 113-0033, Japan}
+\email{ueda@cat.phys.s.u-tokyo.ac.jp}
+
+\date{\today}
+\begin{abstract}
+	We investigate the Yang-Lee singularity in BCS superconductivity, and find that the zeros of the partition function accumulate on the boundary of a quantum phase transition, which is accompanied by nonunitary quantum critical phenomena. By applying the renormalization-group analysis, we show that Yang-Lee zeros distribute on a semicircle in the complex plane of interaction strength for general marginally interacting systems. %and test the validity of mean-field results.
+	\end{abstract}
+	\maketitle
+	\emph{Introduction}.---Yang-Lee zeros \cite{PhysRev.87.404,PhysRev.87.410} are the zero points of the partition function and provide key properties of phase transitions, such as critical exponents	\cite{Fisher1965,Fisher:1978vn}. Yang and Lee showed \cite{PhysRev.87.404,PhysRev.87.410} that zeros of the partition function of the classical ferromagnetic Ising model distribute on a unit circle in the complex
+	plane of fugacity under an imaginary magnetic field \cite{Simon:1973tr,Newman:1974wi,Lieb:1981vb,Kortman:1971tw}.
+	The thermal phase transition between the paramagnetic and ferromagnetic
+	phases occurs when the distribution of zeros touches the positive real axis. The Yang-Lee zeros are also related to singularities in thermodynamic quantities accompanied by anomalous scaling laws \cite{Fisher:1978vn,Kurtze:1979wb,10.1143/PTP.69.14,Cardy:1985ub,Cardy:1989uo,Zamolodchikov:1991tl}.
+	This type of critical phenomena is collectively known as the Yang-Lee singularity, which is also investigated
+	in quantum models \cite{Gehlen_1991,Sumaryada:2007uu,PhysRevB.53.7704,Matsumoto2020,PhysRevResearch.3.033206,PhysRevB.106.054402,PhysRevE.96.032116}.
+	%Note that this criticality arises only when the Hamiltonian is extended to be non-Hermitian, since the partition function cannot vanish in the Hermitian systems.
+	
+	The Bardeen-Cooper-Schrieffer (BCS) model of superconductivity \cite{Bardeen:1957tx} has played a pivotal role in a wide range of many-body fermionic systems. %, since an arbitrarily weak attractive interaction can lead to pairing of fermions \cite{Shankar1994,Sachdev:2011uj,Polchinski1992,Coleman:2015vz}.	Recently, this superfluidity phase transition has been generalized	to a non-Hermitian case \cite{Yamamoto2019}. 
+	At absolute zero, there is a quantum phase transition between the superconducting and normal phases. At the transition, an essential singularity arises which leads to non-analyticity in thermodynamic quantities, such as the superconducting gap \cite{Bardeen:1957tx}: $\Delta\propto\text{exp}(-\frac{1}{\rho U})$, where $\rho$ is the density of states and $U$ is the strength of attarctive interaction (see below). A question of fundamental importance in statistical physics is how to understand the superconducting phase transition in terms of Yang-Lee zeros.
+	
+	In this Letter, we develop a theory of Yang-Lee zeros and Yang-Lee singularity
+	in BCS superconductivity. On the basis of a non-Hermitian BCS model \cite{Yamamoto2019}, we demonstrate
+	that the Yang-Lee zeros distribute on the critical line of the quantum phase transition on the complex plane of the interaction strength. %In particular, we find that the existence of Yang-Lee zeros is closely related to singularity of compressibility on the phase boundary. 
+	In contrast to a previous study \cite{Sumaryada:2007uu} on Fisher zeros in pairing fields at complex temperature, we extend the interaction strength to a complex regime at absolute zero.
+	
+	Furthermore, we find that the BCS model exhibits nonunitary quantum critical phenomena on the complex plane of the interaction strength which are induced by the square-root-like excitation spectrum near the exceptional points. We observe that the critical phenomena take place near the phase boundary where Yang-Lee zeros distribute and determine the critical exponents to construct the Yang-Lee universality class of BCS superconductivity. By defining a critical exponent from $\chi\propto(\Delta E)^{\phi}$ where $\chi$ is the order of Yang-Lee zeros and $\Delta E$ is the condensation energy \cite{Coleman:2015vz}, we show that the condensation energy on the real axis can be found from the order of Yang-Lee zeros on the upper half of the complex plane. 
+	 
+	To illustrate the universality of nonunitary critical phenomena and the distribution of Yang-Lee zeros, we develop a %two-loop perturbative 
+	renormalization-group (RG) theory for general complex intearction strength.  %perturbative
+	In particular, we show that the Yang-Lee zeros  take place on a semicircle in the complex plane, in sharp contrast to the original Lee-Yang circle theorem \cite{PhysRev.87.404,PhysRev.87.410}. Our RG theory also %consider the RG equation for the non-Hermitian BCS model and
+	confirms the validity of mean-field results for the non-Hermitian BCS model. %Besides, we find the critical line of RG flow represents the phase boundary between the dissipative Fermi liquid phase and the superconducting phase. %Moreover, RG flow shows reversion in the normal phase of \cite{Yamamoto2019}, which suggests a universality in non-Hermitian physics with interactions.
+	%the RG flow also suggests a universality of Yang-Lee singularity and phase transition in non-Hermitian physics with interactions.
+
+
+	\emph{Yang-Lee Singularity in Superconductivity}.---To analyze the Yang-Lee singularity in BCS superconductivity, we consider a three-dimensional non-Hermitian BCS model \cite{Yamamoto2019}\footnote{Note that in our definition, $U_{R}>0\:(<0)$ represents attractive (repulsive) interaction.} 
+	\begin{equation}
+	H=\sum_{\boldsymbol{k}\sigma}\xi_{\boldsymbol{k}}c_{\boldsymbol{k}\sigma}^{\dagger}c_{\boldsymbol{k}\sigma}-\frac{U}{N}\sum_{\bm{k},\bm{k}'}{}^{'}c_{\bm{k}\uparrow}^{\dagger}c_{\bm{-k}\downarrow}^{\dagger}c_{\bm{-k}'\downarrow}c_{\bm{k}'\uparrow},\label{eq:non-Hermitian}
+	\end{equation}
+	where $\xi_{\boldsymbol{k}}=\epsilon_{\bm{k}}-\mu$ is the single-particle energy measured from the chemical potential $\mu$, $\sigma=\uparrow,\downarrow$ denotes the spin index and $U=U_R+iU_I$ is the complex-valued interaction  strength. The creation and annihilation operators of an electron with momentum $\bm{k}$ and spin $\sigma$ are denoted as $c_{\bm{k}\sigma}^\dag$ and $c_{\bm{k}\sigma}$, respectively. The prime in $\sum_{\bm{k}}^{'}$ indicates that the sum over $\bm{k}$ is restricted to  $|\xi_{\boldsymbol{k}}|<\omega_D$ where $\omega_D$ is the energy cutoff and $N$ is the the number of momenta within this cutoff. We focus on the superconducting quantum phase transition at absolute zero, and use the complex interaction strength to find Yang-Lee zeros. In Ref. \cite{Yamamoto2019}, a mean-field theory of the non-Hermitian BCS model (\ref{eq:non-Hermitian}) is developed. %to study the phase diagram of a dissipative superconductor.
+	By applying the mean-field theory, the BCS Hamiltonian is given by $H_{\mathrm{MF}}=\sum_{\boldsymbol{k}\sigma}\xi_{\boldsymbol{k}}c_{\boldsymbol{k}\sigma}^{\dagger}c_{\boldsymbol{k}\sigma}+\sum_{\bm{k}}^{'}[\bar{\Delta}_0c_{-\bm{k}\downarrow}c_{\bm{k}\uparrow}+\Delta_0 c_{\bm{k}\uparrow}^{\dagger}c_{-\bm{k}\downarrow}^{\dagger}]+\frac{N}{U}\bar{\Delta}_0\Delta_0$, where the superconducting gaps are $\Delta_{0}=-\frac{U}{N}\sum_{\boldsymbol{k}L}^{'}\langle c_{-\boldsymbol{k}\downarrow}c_{\boldsymbol{k}\uparrow}\rangle_{\mathrm{R}}$ and $\bar{\Delta}_{0}=-\frac{U}{N}\sum_{\boldsymbol{k}L}^{'}\langle c_{\boldsymbol{k}\uparrow}^{\dagger}c_{-\boldsymbol{k}\downarrow}^{\dagger}\rangle_{\mathrm{R}}$. Here ${}_L\langle A\rangle_{R}:={}_L\langle \text{BCS}|A|\text{BCS}\rangle_R$, and $|\text{BCS}\rangle_{R}$ and $|\text{BCS}\rangle_{L}$ are the right and left ground states of the Hamiltonian $H_{\mathrm{MF}}$ given by \cite{Yamamoto2019}
+	\begin{align}
+		|\text{BCS}\rangle_{R}&=\prod_{\bm{k}}(u_{\bm{k}}+v_{\bm{k}}c_{\boldsymbol{k}\uparrow}^{\dagger}c_{-\boldsymbol{k}\downarrow}^{\dagger})|0\rangle,\\
+		|\text{BCS}\rangle_{L}&=\prod_{\bm{k}}(u^{*}_{\bm{k}}+\bar{v}^{*}_{\bm{k}}c_{\boldsymbol{k}\uparrow}^{\dagger}c_{-\boldsymbol{k}\downarrow}^{\dagger})|0\rangle,
+	\end{align}
+	where $|0\rangle$ is the vacuum for electrons and $u_{\bm{k}},v_{\bm{k}}$ and $\bar{v}_{\bm{k}}$ are complex coefficients subject to the normalization condition $u_{\bm{k}}^2+v_{\bm{k}}\bar{v}_{\bm{k}}=1$. These coefficients can be determined in a standard manner and given in Supplemental Material \cite{SupplementaryMaterial}. Since the right and left ground states are not the same, $\Delta_0\neq \bar{\Delta}_{0}^*$ and $\bar{v}_{\bm{k}}\neq v_{\bm{k}}^*$ in general. Here we choose a gauge such that $\Delta_0=\bar{\Delta}_0$ and the Bogoliubov energy spectrum $E_{\bm{k}}$ is then given by \cite{Yamamoto2019}
+	\begin{equation}
+		E_{\bm{k}}=\sqrt{\xi_{\bm{k}}^2+\Delta_{\bm{k}}^2}\,,
+	\end{equation} 
+where $\Delta_{\bm{k}}=\Delta_0\theta(\omega_D-|\xi_{\bm{k}}|)$ with $\theta(x)$ being the Heaviside step function. It is worthwhile to note that $\Delta_0$ is complex in general, so is the energy $E_{\bm{k}}$. In the following, we assume that the density of states $\rho_{0}$ in the energy shell is a constant. The gap $\Delta_0$ is then given by 
+	\begin{equation}
+		\Delta_0 =
+		\frac{\omega_D}{\text{sinh} \left( \frac{1}{\rho_0 U}\right)}.\label{eq:gap}
+	\end{equation}
+	The phase boundary of the model is determined by the condition $\text{Re}\Delta_0=0$ \cite{Yamamoto2019}. The phase boundary is given by
+	\begin{equation}
+	(\rho_{0}\pi U_{R})^{2}+(\rho_{0}\pi U_I-1)^{2}=1,\;U_{R}>0,\label{eq:phase_transition}
+	\end{equation}
+	 which coincides with the exceptional points where $H_{\mathrm{MF}}$ is not diagonalizable \cite{Yamamoto2019}. The partition function is given by
+	\begin{equation}
+	Z=\prod_{\bm{k}}(1+e^{-\beta E_{\bm{k}}}),\label{eq:analytical_expression_partition}
+	\end{equation}
+	whose absolute value is shown in Fig. \ref{Phase_transition_line}. 
+	The Yang-Lee
+	zeros of our system are given by the zero points of Eq. (\ref{eq:analytical_expression_partition}) %which are determined by the conditions
+	where $\mathrm{Re}(E_{\bm{k}})=0$
+	and $\mathrm{Im}(\beta E_{\bm{k}})=(2n+1)\pi,n\in\mathbb{Z}$. This condition is satisfied in the thermodynamic limit if $\mathrm{Re}\Delta_0=0$, which agrees with the condition for a quantum phase transition. Hence, at absolute zero, Yang-Lee zeros distribute on the phase boundary (\ref{eq:phase_transition}). As shown below, thermodynamic quantities and correlation functions exhibit critical behavior on the phase boundary. We call these critical phenomena collectively as Yang-Lee singularity. 
+	
+	Here we investigate the quantum phase transition in BCS superconductivity in contrast to the original Yang-Lee theory \cite{PhysRev.87.404,PhysRev.87.410} on classical models. In the present case the phase boundary touches the real axis at the phase transition between superconducting and normal phases. However, each point on the phase boundary stands for an individual phase transition, which is in sharp contrast with the/ Yang-Lee edge singularity at the edge of the distribution of Yang-Lee zeros \cite{Fisher:1978vn}. We can see that criticality shows up at each point on the phase boundary not only at the edge on the real axis.
+	%While the Yang-Lee quantum criticality has been discussed in quantum Ising models on the basis of the quantum-classical correspondence \cite{Gehlen_1991,Matsumoto2020}, no classical counterpart is known for the non-Hermitian BCS model studied here. We also note that while the gap in the quantum Ising model is proportional to the distance from the transition point, the gap in Eq. (\ref{eq:gap}) in the present case cannot be expanded in a Taylor series of interaction strength $U$.
+	
+	\begin{figure}
+	\includegraphics[width=1\columnwidth]{./figs/fig_1_b}
+	
+	\caption{Absolute value of the partition function $Z$ of the three-dimensional  BCS model as a function of the real and imaginary parts of the interaction strength $U=U_{R}+iU_{I}$ in the zero-temperature limit. The boundary along which the partition function vanishes is indeed given by the critical line (\ref{eq:phase_transition}). In the shaded region inside the phase boundary, the value of the partition function is not shown due to the breakdown of the mean-field approximation \cite{Yamamoto2019}.} 
+	
+	\label{Phase_transition_line}
+	\end{figure}
+	
+	\emph{Correlation Function and Critical Exponents}.---We examine the critical behavior of physical quantities to determine the critical exponents and the universality class of the Yang-Lee singularity. We first consider the correlation function
+	
+	\begin{align}
+	C(\bm{x})&={}_{L}\langle c_{\sigma}^{\dagger}(\bm{x})c_{\sigma}(0)\rangle_{R}\nonumber\\
+	&:=_{L}\langle\text{BCS}|c_{\sigma}^{\dagger}(\bm{x})c_{\sigma}(0)|\text{BCS}\rangle_{R}.
+	\end{align}
+ We calculate the correlation function by considerting its Fourier transformation, which can be written as
+ \begin{equation}
+ 	C (\bm{x}) \simeq -\frac{1}{N}\sum_{\bm{k}}^{}{'} \frac{\xi_{\bm{k}}}{2 E_{\bm{k}}} e^{i\bm{k} \cdot \bm{x}}.\label{eq:correlation_Fourier}
+ \end{equation}
+  Here we restrict the sum over $\bm{k}$ to the energy shell since we are concerned with the long-range behaviour of the correlation function. We expand $\xi_{\bm{k}}$ near the Fermi surface as $\xi_{{\bm{k}}}=v_F(k-k_F)$, where $v_F$ is the Fermi velocity, $k_F$ is the Fermi momentum and $k=|\bm{k}|$. On the phase boundary (\ref{eq:phase_transition}), this correlation function (\ref{eq:correlation_Fourier}) shows a power-law decay as
+	\begin{equation}
+	\lim_{x\rightarrow\infty}C (\bm{x})\simeq\frac{A(l)}{l^{3/2}}+i\frac{B(l)}{l^{3/2}}\propto x^{-3/2},\label{correlation}
+	\end{equation}
+	where $x=|\bm{x}|$, $l:=\frac{\text{Im}\Delta_{0}}{v_{F}}x$ is a dimensionless length scale and $A(l)$ and $B(l)$ are real functions  that oscillate with $l$ without decay (see Supplemental Material \cite{SupplementaryMaterial} for details). The anomalous power of $\frac{3}{2}$ is to be contrast with the power of 2 for the normal-metal phase \cite{Sachdev:2011uj} and attributed to the exceptional points of the system.  When the gap closes at the exceptional points, the dispersion relation near the Fermi surface is given by
+	
+	\begin{equation}
+	E_{\bm{k}}\simeq\sqrt{v_{F}^{2}k^{2}-(\text{Im}\Delta_{0})^{2}}.
+	\end{equation}
+	Near the exceptional points $k_E:=\frac{\text{Im}\Delta_{0}}{v_{F}}$,
+	the dispersion relation reduces to $E_{\bm{k}}\sim\sqrt{k-k_{E}}$,
+	which makes a sharp contrast with the Hermitian counterpart having a
+	linear excitation spectrum near a gapless point. It is this square-root
+	excitation spectrum that induces the
+	anomalous decay of the correlation function on the phase boundary. From the correlation function (\ref{correlation}), we find the anomalous dimension $\eta=1/2$ from $C(\bm{x})\propto x^{D-2+\eta}$ on the phase boundary where $D$ is the dimension of the system \cite{Sachdev:2011uj}.
+	
+	The correlation function decays exponentially near the phase boundary. If we
+	shift $U$ by an infinitesimal amount $\delta U$ along the real axis from the phase boundary, the correlation function can also be calculated from Eq. (\ref{eq:correlation_Fourier}), giving
+	
+	\begin{equation}
+	\lim_{x\rightarrow\infty}C(\bm{x})\propto(A(l)+iB(l))\frac{\text{exp}(-\frac{l}{\xi})}{l^{3/2}}\label{eq:exponential_decay},
+	\end{equation}
+	where the correlation length $\xi\propto(\rho_{0}\delta U)^{-1}$ diverges on the phase boundary, and hence we obtain the critical exponent $\nu=1$ from $\xi\propto(\delta U)^{-\nu}$ \cite{Sachdev:2011uj} (see Supplemental Material \cite{SupplementaryMaterial} for the derivation). 
+	Near the phase boundary, the dynamical critical exponent $z$ is defined as
+	\begin{equation}
+		\text{Re}\Delta_0\propto\xi^{-z}.
+	\end{equation}
+	From the expression of $\Delta_0$ in Eq.(\ref{eq:gap}), we find that $\text{Re}\Delta_0\propto\xi^{-1}\propto\delta U$. Therefore, we have $z=1$. 
+	
+	We note that the correlation length in the Hermitian case takes the form of
+	
+	\begin{equation}
+	\xi\propto\text{exp}(\frac{1}{\rho_{0}\delta U}).
+	\end{equation}
+	This behavior is quite different from that of the quantum phase transition in the non-Hermitian
+	case since $\xi$ then cannot be expanded as a power series of $\rho_{0}\delta U$,
+	which indicates that the exceptional points lead to a completely
+	different universality class in the non-Hermitian system.
+	
+	We define a new critical exponent that relates the condensation energy to the order $\chi$ of Yang-Lee zeros,
+	which is defined as the number of $n\in\mathbb{Z}$ satisfying the relation
+	$\mathrm{Im}(\beta E_{\bm{k}})=(2n+1)\pi$ under the zero-temperature limit $\beta\to\infty$:
+	\begin{equation}
+	\chi/\beta\simeq\frac{\text{Im}(\Delta_{0})}{\pi}=\frac{\omega_{D}}{\pi\text{cosh}(\frac{U_{R}}{\rho_{0}|U|^{2}})}.
+	\end{equation}
+	 %Here we use $\Delta E$ to represent the condensation energy.
+	  On the phase boundary, the condensation energy $\Delta E$ takes the form of
+	 \begin{align}
+	 \Delta E&=  \frac{N\Delta_0^2}{U}
+	 - N \int_{- \omega_D}^{\omega_D} d \xi_{\bm{k}} \rho_0 \left( \sqrt{\xi_{\bm{k}}^2 +
+	 	\Delta_0^2} - | \xi_{\bm{k}} | \right)\nonumber\\
+	 &=N \rho_0 \omega_D^2 \left[ 1 - \frac{1}{2} \frac{\text{sinh} \left(\frac{2 U_R}{\rho_0 | U |^2} \right)}{\text{cosh}^2 \left( \frac{U_R}{\rho_0| U |^2} \right)} \right].
+	 \end{align}
+	 Near $U=0$, $\chi$ is related to $\Delta E$ as
+	\begin{equation}
+	\chi/\beta\propto(\Delta E)^{1/2}.
+	\label{eq:chivalue}
+	\end{equation}
+	 It follows from Eq. (\ref{eq:chivalue}) that the critical exponent $\phi$ defined from $\chi/\beta\propto(\Delta E)^{\phi}$ is given by $1/2$. We note that the power-law behavior of the condensation energy is characterized by the order $\chi$ rather than the density of Yang-Lee zeros used in Ref. \cite{Fisher:1978vn}. Since the phase boundary is tangent to the real axis, we can approximately use the condensation energy on the phase boundary near $U=0$ to represent the condensation energy on the positive real axis close to the origin. Therefore, with Eq. (\ref{eq:chivalue}), we can relate the order of Yang-Lee zeros $\chi$ on the complex plane to the value of condensation energy on the real axis. 
+	
+	Next, we consider the pair correlation function
+	\begin{align}
+	&\rho_{2}(\bm{r}_{1}\sigma_{1},\bm{r}_{2}\sigma_{2};\bm{r'_{1}}\sigma'_{1},\bm{r'}_{2}\sigma'_{2})\nonumber\\
+	&={}_{L}\langle c_{\sigma_{1}}^{\dagger}(\bm{r}_{1})c_{\sigma_{2}}^{\dagger}(\bm{r}_{2})c_{\sigma'_{2}}(\bm{r'}_{2})c_{\sigma'_{1}}(\bm{r'}_{1})\rangle_{R},
+	\end{align}
+	where $(\bm{r}_{1}\sigma_{1},\bm{r}_{2}\sigma_{2})$ and $(\bm{r'_{1}}\sigma'_{1},\bm{r'}_{2}\sigma'_{2})$ are the positions and spins of electrons that form the Cooper pairs. By setting
+	$\bm{r}_{1}=\bm{r}_{2}=\bm{R}$ and $\bm{r'_{1}}=\bm{r'}=0$ and taking
+	the limit $|\bm{R}|\rightarrow\infty$, we find that the pair correlation function
+	$\rho_2$ converges to a nonzero value on the phase boundary as
+	
+	\begin{equation}
+	\lim_{R\rightarrow\infty}\rho_{2}(\bm{R}\uparrow,\bm{R}\downarrow;0\downarrow,0\uparrow)=-\frac{(\text{Im}\Delta_{0})^{2}}{U^{2}}\neq0.\label{eq:pairing}
+	\end{equation}
+	This non-vanishing pair correlation function is characteritic of nonunitary critical phenomena, where the correlation function of the order parameter may diverge at long distance \cite{Fisher:1978vn}. We can also use the expression (\ref{eq:pairing}) to define the critical exponent $\delta$ as
+	\begin{equation}
+		\lim_{R\rightarrow\infty}\rho_{2}(\bm{R}\uparrow,\bm{R}\downarrow;0\downarrow,0\uparrow)\propto |\bm{R}|^{-\delta}.
+	\end{equation}
+	We have $\delta=0$ here, which is also unique to the nonunitary critical phenomena.
+	
+	The compressibility also shows critical behavior at the Yang-Lee singularity. By analyzing the compressibility $\kappa=\frac{\partial^2 F}{\partial \mu^2}$ near the phase boundary where $F=-(1/\beta)\log Z$ is the free energy of the Bogoliubov quasiparticles, we have 
+	\begin{equation}
+		 \kappa=- N\int_{- \omega_D}^{\omega_D} \rho_0 d\xi_{\bm{k}} \frac{\Delta_0^2}{(\xi_{\bm{k}}^2 + \Delta_0^2)^{3/ 2}}.
+	\end{equation}
+	On the phase boundary (\ref{eq:phase_transition}), the compressibility $\kappa$ diverges. Therefore, we define another critical exponent $\zeta$ near the phase boundary as
+	\begin{equation}
+		\kappa\propto(\delta U)^{-\zeta}\,,
+	\end{equation}
+	with $\zeta=1/2$ in this system. This critical behaviour also arises from the square-root-like dispersion relation near the exceptional points. %This divergence in compressibility has a physical interpretation. % be also spectrum. In the momentum space, $\text{Re}E_{\bm{k}}=0$ for momenta $\bm{k}$ with $k\in[-k_E,k_E]$ where $\bm{k}$ is the momentum relative to the Fermi surface. Hence, the energy of the system will not increase if we add electrons to the system which leads to the divergence of compressibility. 
+%	For electrons with $k\in[-k_E,k_E]$, the real part of their energy vanishes as $\mathrm{Re}E_{\bm{k}}=0$. Thus, adding additional electrons to the system does not increase the energy which leads to the divergence of compressibility. 
+	In fact, the critical exponents $\eta$ and $\zeta$ coincide for a general fractional-power dispersion relation $(k-k_E)^{1/n}$, which includes the case of higher-order exceptional points \cite{SupplementaryMaterial}.
+
+	\emph{Renormalization Group Analysis}.--- %To examine the generality and universality of the nonunitary critical phenomena discussed above, we consider a general canonical RG equation for a marginal complex interaction:
+	%In order to show the Yang-Lee zeros distribution on the semicircle (\ref{eq:phase_transition})  is general and universal in non-Hermitian phase transition, we 
+	The celebrated Lee-Yang circle theorem \cite{PhysRev.87.410} states that the Yang-Lee zeros of the classical Ising model distribute on a unit circle in the complex plane. Here we show that the observed semicircular distribution (\ref{eq:phase_transition}) of the Yang-Lee zeros of the BCS model is generic and universal. To see this, we consider a general canonical RG equation for a marginal complex interaction: 
+	\begin{equation}
+		\frac{dV}{dt}=aV^{2}+bV^{3},\label{eq:RG_Flow_equation}
+	\end{equation}
+	where $V=V_R+iV_I\in\mathbb{C}$ is a dimensionless coupling strength which can be taken as $V=\rho_0U$ in the present case, and $dt=-\frac{d\Xi}{\Xi}$ is the relative width of the high-energy shell which is to be integrated out in the Wilsonian RG with $\Xi$ being the energy cutoff. There are two fixed point in Eq. (\ref{eq:RG_Flow_equation}). One is $V=0$, which is trivial, and the other one is $V=-\frac{a}{b}$, which is nontrivial. According to the stability of the nontrivial fixed point, we can classify the RG-flow diagrams into two types. %There are two types of RG-flow diagrams.
+	One case with $b>0$ corresponds to an unstable nontrivial fixed point in the Hermitian case and does not exhibit critical phenomena. The other case with $b<0$ corresponds to a stable nontrivial fixed point in the Hermitian case and is the only case involving the critical line. The RG-flow diagrams for these cases are shown in the Supplemental Material \cite{SupplementaryMaterial}. We emphasize that the present BCS model belongs to the $b<0$ case. By applying Wilsonnian RG analysis of fermionic field theory \cite{Shankar1994}, the RG equation of the BCS model up to two-loop order including the self-energy correction is written as \cite{SupplementaryMaterial}
+	\begin{equation}
+		\frac{dV}{dt}=V^{2}-\frac{1}{2}V^{3}.\label{eq:rg_equation}
+	\end{equation} 
+	%where $V=\rho_0U$ is a dimensionless parameter.
+	 From Eq. (\ref{eq:rg_equation}), we find $a=1$ and $b=-1/2$ in the canonical equation (\ref{eq:RG_Flow_equation}). A similar RG equation has been obtained for the non-Hermitian Kondo model \cite{Nakagawa2018}. %with RG equation $\frac{dV}{dt}=-V^{2}-\frac{1}{2}V^{3}$ also belongs to the $b<0$ case. 
+	 Note that the sign of the parameter $a$ does not influence the physics of RG flows since we can reverse it by a transformation $V\to-V$. For a system with $b<0$, there exists a critical line which separates the trivial and nontrivial fixed points. Every point on the critical line flows towards the fixed point $(V_R, V_I) = (-\frac{a}{3b}, \infty)$. %indicating the criticality and phase transition on the critical line.
+	 After integrating Eq. (\ref{eq:RG_Flow_equation}) and taking the imaginary part of both sides of it, we obtain the critical line as
+	\begin{equation}
+		\frac{b\pi}{|a|}+\frac{V_I}{V_R^2+V_I^2}=\frac{b}{a}\arctan{\frac{V_I}{V_R}}+\frac{b}{a}\arctan{(-\frac{b V_I}{a+b V_R})}.
+		\label{critical_line_exact}
+	\end{equation}
+	Near the origin, Eq. (\ref{critical_line_exact}) can be expaneded as
+	\begin{equation}
+		\frac{V_I}{V_R^2+V_I^2}+\frac{b\pi}{|a|}=0.
+		\label{critical_line}
+	\end{equation}
+	This critical line (\ref{critical_line_exact}, \ref{critical_line}) is located at the right half plane $V_R>0$ if $a>0$ and the left half plane $V_R<0$ if $a<0$. Note that the critical line (\ref{critical_line}) forms a semicircle for all $a\neq0$ and $b<0$. For the BCS model, Eq. (\ref{critical_line}) reduces to $-\frac{U_I}{\rho_0(U_R^2+U_I^2)}+\frac{\pi}{2}=0$, which agrees with the mean-field phase boundary in Eq. (\ref{eq:phase_transition}) where the Yang-Lee zeros distribute. This RG result confirms the validity of the mean-field results. %Hence, we find the Yang-Lee zero distribution indicates the criticality in the systems, which can only occur on the critical line in the RG flow separating the superconducting
+	%and non-superconducting phases. %which confirms the mean-field analysis.
+	
+	
+	This analysis of general marginally interacting systems with $a \neq 0$ and $b < 0$ implies that the criticality associated with the Yang-Lee zeros, if exists, can only take place on the semicircle (\ref{critical_line}) within the perturbative RG framework. %This is because Yang-Lee zeros are accompanied with criticality which only takes place on the critical line. %Thus, the Yang-Lee zeros for general marginal interacting systems with $a \neq 0$ and $b < 0$ distribute on Eq. (\ref{critical_line}) which is a semicircle.
+	This semicircle distribution makes a sharp contrast with the Lee-Yang circle theorem \cite{PhysRev.87.410} where the zeros distribute on the unit circle. The semicircle structure arises from the marginal nature of the coupling that induces different RG-flow behaviours between the left half plane $V_R<0$ and the right half plane $V_R>0$. 
+	
+	
+	%In the non-Hermitian BCS model, we find the critical line near the origin in Eq. (\ref{critical_line}) is given by $-\frac{U_I}{\rho_0(U_R^2+U_I^2)}+\frac{\pi}{2}=0$, which agrees with the mean-field phase boundary in Eq. (\ref{eq:phase_transition}) where Yang-Lee zeros distribute. %The points with Yang-Lee zeros distributed flow to the fixed point $(V_R,V_I)=(\frac{2}{3},\infty)$. 
+	%Hence, through the RG analysis we find the Yang-Lee zero distribution indicates the criticality in the systems. For the initial coupling strength $U_{R}>0\:(<0)$, the points on real axis will flow to a (non)trivial fixed point $U_R=\frac{2}{\rho_{0}}\:(U_R=0)$, consistent with the standard (Hermitian) BCS theory \cite{Shankar1994}.
+	%Hence, the critical line in the BCS model indicates the phase transition between superconducting
+	%and non-superconducting phases, which confirms the mean-field analysis.%is similar to the RG flow in the non-Hermitian Kondo problem \cite{Nakagawa2018}.
+	
+	%For general marginally interacting model with RG equation (\ref{eq:RG_Flow_equation}), since criticality only takes place on the critical line in the RG flow, we show that Yang-Lee zeros distribute on Eq. (\ref{critical_line}) which is a semicircle for all $a\neq0$ and $b<0$. This is different from Yang-Lee circle theorem \cite{PhysRev.87.410} where the zeros distribute on the unit circle. The semicircle structure arises from the different RG-flow behaviours between the half plane $V_R<0$ and the half plane $V_R>0$. 
+	
+	This semicircular distribution of Yang-Lee zeros may universally be found in various systems with %CDW instability and complex interaction. This is due to similar RG behaviour of interaction strength between CDW instability and BCS instability 
+	 Fermi-surface instabilities to e.g., charge-density wave (CDW) or anisotropic superconducting pairing, since those instabilities are described by similar RG behavior with marginal couplings \cite{Shankar1994}. In fact, the system with CDW instability can be described by a mean-field analysis similar to the BCS theory \cite{Gersch2005,PhysRevB.103.045142,PhysRevB.72.195106}. %We also expect to find the semicircle distribution in systems with anisotropic BCS interaction.
+	%In the shaded region of Fig. \ref{Phase_transition_line} , the interaction strength flows towards the trivial fixed point $U=0$ under the RG. The shaded region is referred to the ^^ ^^ normal phase'' in Ref. \cite{Yamamoto2019}. However, we note that the RG flow in this region is highly non-monotonic and shows circular behavior as shown in Refs. \cite{SupplementaryMaterial,Nakagawa2018}. Since the interaction strength in this region flows to the repulsive interaction regime in the RG flow, this phase may be called ^^ ^^ dissipative Fermi-liquid phase''. The energy scale at which the renormalized interaction strength becomes repulsive is given by \cite{SupplementaryMaterial,Nakagawa2018}
+	%\begin{equation}
+	%T_{\text{recur}}\sim\text{exp}\left(-\frac{U_{R}}{\rho_{0}(U_{R}^{2}+U_{I}^{2})}\right)\left(\frac{|\rho_{0}U|}{|2-\rho_{0}U|}\right)^{\frac{1}{2}},
+	%\end{equation}
+	%which is a genuinely non-Hermitian phenomenon unseen in the Hermitian case. In the yellow region of Fig. \ref{Phase_transition_line} all the points flow to a given fixed point $U=\frac{2}{\rho_{0}}$ in the end, indicating they all flow to the fixed point corresponding to the Hermitian BCS superconducting phase. 
+	
+	% the interaction strength with $V_R>0$ and $V_R<0$ have different RG-flow behaviour.
+	 % Hence, the RG equation (\ref{eq:RG_Flow_equation}) can define universality classes up to two-loop level for all marginal interaction. All the models with the RG equation (\ref{eq:RG_Flow_equation}) of $b<0$ can show a similar critical line. In addition, it also merits further study to find a physical system that corresponds to the case $b>0$.	
+	
+	\emph{Conclusion}.---In this Letter, we have investigated the
+	Yang-Lee singularity in BCS superconductivity
+	and found that the Yang-Lee zeros distribute on the phase boundary in the complex plane of the interaction strength. We have also explored the Yang-Lee critical behaviour and obtained critical exponents %including an anomalous dimension $\eta$. We have performed the RG analysis and shown that Yang-Lee zeros correspond to critical phenomena. To generalize the mean-field results, 
+	We have performed RG analysis of an arbitrary system with marginal intearaction and shown that Yang-Lee zeros distribute on a semicircle.
+	
+	The Yang-Lee singularity introduced in this Letter is not only an interesting mathematical property but also experimentally realizable. In fact, the non-Hermitian BCS model can be realized in open quantum systems \cite{Yamamoto2019,PhysRevA.103.013724}. The complex-valued interaction strength describes the effect of two-body loss in ultracold atoms. For example, inelastic two-body losses can be induced by utilizing a Feshbach resonance \cite{PhysRevLett.115.265301,PhysRevLett.115.265302,Zhang2015} or photoassociation \cite{doi:10.1126/sciadv.1701513,https://doi.org/10.48550/arxiv.2205.13162}. %This illustrates that the Yang-Lee singularity introduced here is not only an interesting mathematical property but also experimentally realizable. 
+	
+	While we have focused on the quantum phase transition, it is worthwhile to investigate how the Yang-Lee singularity is connected to a superconducting phase transition at finite temperature. We also believe that Yang-Lee singularity can emerge in other non-Hermitian many-body systems such as the non-Hermitian Bose-Hubbard model \cite{PhysRevA.94.053615}.
+	
+	We are grateful to Yuto Ashida, Kazuaki Takasan, Norifumi Matsumoto,
+	Kohei Kawabata, Xin Chen and Xuanzhao Gao for fruitful discussion.
+	H. L. is supported by Forefront Physics and Mathematics Program to
+	Drive Transformation (FoPM), a World-leading Innovative Graduate Study
+	(WINGS) Program, the University of Tokyo. X. Y. is supported by the Munich Quantum Valley, which is supported by the Bavarian state government with funds from the Hightech Agenda Bayern Plus. M.N. is supported by JSPS
+	KAKENHI Grant No. JP20K14383. M.U. is supported by JSPS KAKENHI Grant
+	No. JP22H01152. 
+	
+    \bibliographystyle{utphys}
+
+    \bibliographystyle{apsrev4-2}
+    \addcontentsline{toc}{section}{\refname}%\nocite{*}
+    \bibliography{MyCollection}
+
+\clearpage{}
+
+\onecolumngrid
+\renewcommand{\thefigure}{S\arabic{figure}}
+\setcounter{figure}{0} 
+\renewcommand{\thepage}{S\arabic{page}}
+\setcounter{page}{1} 
+\renewcommand{\theequation}{S.\arabic{equation}}
+\setcounter{equation}{0} 
+%\renewcommand{\thesection}{S.\Roman{section}} 
+\setcounter{section}{0}
+
+\begin{center}
+\textbf{\textsc{\LARGE{}Supplementary Information}}{\LARGE\par}
+\par\end{center}
+
+\tableofcontents{}
+\section{Yang-Lee Zeros on the Phase Boundary}
+We begin from considering the three-dimensional non-Hermitian BCS Hamiltonian
+\begin{equation}
+	H=\sum_{\boldsymbol{k}\sigma}\xi_{\boldsymbol{k}}c_{\boldsymbol{k}\sigma}^{\dagger}c_{\boldsymbol{k}\sigma}-\frac{U}{N}\sum_{\bm{k},\bm{k}'}{}^{'}c_{\bm{k}\uparrow}^{\dagger}c_{\bm{-k}\downarrow}^{\dagger}c_{\bm{-k}'\downarrow}c_{\bm{k}'\uparrow}, \label{eq:non-Hermitian}
+	\end{equation}
+where $U=U_R+iU_I$ and the prime in $\sum_{\bm{k}}^{'}$ indicates that the sum over $\bm{k}$ restricted to  $|\xi_{\boldsymbol{k}}|<\omega_D$ with $\omega_D$ being the curoff energy. The mean-field Hamiltonian is given by 
+\begin{equation}
+H_{\mathrm{MF}}=\sum_{\boldsymbol{k}\sigma}\xi_{\boldsymbol{k}}c_{\boldsymbol{k}\sigma}^{\dagger}c_{\boldsymbol{k}\sigma}+\sum_{\bm{k}}{}^{'}[\bar{\Delta}_0c_{-\bm{k}\downarrow}c_{\bm{k}\uparrow}+\Delta_0 c_{\bm{k}\uparrow}^{\dagger}c_{-\bm{k}\downarrow}^{\dagger}]+\frac{N}{U}\bar{\Delta}_{0}\Delta_{0},
+\end{equation}
+ where $\Delta_{0}=-\frac{U}{N}\sum_{\boldsymbol{k}L}\langle c_{-\boldsymbol{k}\downarrow}c_{\boldsymbol{k}\uparrow}\rangle_{\mathrm{R}}$ and $\bar{\Delta}_0=-\frac{U}{N}\sum_{\boldsymbol{k}L}\langle c^{\dagger}_{\boldsymbol{k}\uparrow}c^{\dagger}_{-\boldsymbol{k}\downarrow}\rangle_{\mathrm{R}}$ represent the superconducting gap. The right and left ground states of the mean-filed Hamiltonian $H_{\mathrm{MF}}$ are given by \cite{Yamamoto2019}
+\begin{align}
+	|\text{BCS}\rangle_{R}&=\prod_{\bm{k}}(u_{\bm{k}}+v_{\bm{k}}c_{\boldsymbol{k}\uparrow}^{\dagger}c_{-\boldsymbol{k}\downarrow}^{\dagger})|0\rangle,\\
+	|\text{BCS}\rangle_{L}&=\prod_{\bm{k}}(u^{*}_{\bm{k}}+\bar{v}^{*}_{\bm{k}}c_{\boldsymbol{k}\uparrow}^{\dagger}c_{-\boldsymbol{k}\downarrow}^{\dagger})|0\rangle,
+\end{align}
+where the parameters $u_{\bm{k}},v_{\bm{k}}$ and $\bar{v}_{\bm{k}}$ are complex coefficients and take the specific form of
+\begin{equation}
+	u_{\bm{k}}=\sqrt{\frac{E_{\bm{k}}+\xi_{\bm{k}}}{2E_{\bm{k}}}},\quad v_{\bm{k}}=-\sqrt{\frac{E_{\bm{k}}-\xi_{\bm{k}}}{2E_{\bm{k}}}}\sqrt{\frac{\Delta_0}{\bar{\Delta}_0}},\quad
+	\bar{v}_{\bm{k}}=-\sqrt{\frac{E_{\bm{k}}-\xi_{\bm{k}}}{2E_{\bm{k}}}}\sqrt{\frac{\bar{\Delta}_0}{\Delta_0}}.
+\end{equation}
+%where $E_{\bm{k}}=\sqrt{\xi_{\bm{k}}^2+\Delta_0^2}$.
+Here $E_{\bm{k}}=\sqrt{\xi_{\bm{k}}^2+\Delta_{\bm{k}}^2}$ is the dispersion relation of Bogoliubov quasiparticles where $\Delta_{\bm{k}}=\Delta_0\theta(\omega_D-|\xi_{\bm{k}}|)$ with $\theta(x)$ being the Heaviside step function. Note that $\bar{\Delta}_0\neq\Delta_0^*$. In the following we take a gauge  \cite{Yamamoto2019} in which $\Delta_0=\bar{\Delta}_0\in\mathbb{C}$.
+
+The gap equation at absolute zero reads as \cite{Yamamoto2019}
+\begin{equation}
+  \frac{N}{U}=\sum_{\bm{k}}{}^{'}\frac{1}{2\sqrt{\xi_{\bm{k}}^2+\Delta_0^2}}.
+\end{equation}
+Provided that the density of states is constant and given by $\rho_0$, the above equation can be simplified as
+\begin{equation}
+  \frac{\sqrt{\omega_D^2 + \Delta_0^2} + \omega_D}{\Delta_0} =
+  e^{\frac{1}{\rho_0 U}}\,.
+\end{equation}
+The solution to the gap equation is given by $\Delta_0 =
+\frac{\omega_D}{\text{sinh} \left( \frac{1}{\rho_0 U} \right)}$. To be specific,
+\begin{eqnarray}
+  \Delta_0 & = & \frac{2 \omega_D}{\text{exp} \left[ \frac{1}{\rho_0 | U |^2}
+  \left( U_R - i U_I \right) \right] - \text{exp} \left[ -
+  \frac{1}{\rho_0 | U |^2} \left( U_R - iU_I \right) \right]}
+  \nonumber\\
+  & = & \frac{\omega_D}{\text{sinh} \left( \frac{U_R}{\rho_0 | U |^2} \right)
+  \cos \left( \frac{U_I}{\rho_0 | U |^2} \right) - i \text{cosh}
+  \left( \frac{U_R}{\rho_0 | U |^2} \right) \sin \left( \frac{U_I}{\rho_0 | U |^2} \right)}, 
+  \label{Delta_0}
+\end{eqnarray}
+and its real part is given by
+\begin{equation}
+  \text{Re} [\Delta_0] = \omega_D \frac{\text{sinh} \left( \frac{U_R}{\rho_0 |
+  U |^2} \right) \cos \left( \frac{U_I}{ \rho_0 | U |^2}
+  \right)}{\left( \text{sinh} \left( \frac{U_R}{\rho_0 | U |^2} \right)
+  \cos \left( \frac{U_I}{ \rho_0 | U |^2} \right) \right)^2 + \left(
+  \text{cosh} \left( \frac{U_R}{\rho_0 | U |^2} \right) \sin \left(
+  \frac{U_I}{ \rho_0 | U |^2} \right) \right)^2}\,.
+    \label{RDelta_0}
+\end{equation}
+At the quantum phase transition point, the real part of the gap vanishes, which gives $\cos \left( \frac{U_I}{ \rho_0 | U |^2} \right) = 0$, or equivalently, $\frac{U_I}{ \rho_0 | U |^2} = \frac{\pi}{2}$. This determines the condition for the phase boundary \cite{Yamamoto2019}
+\begin{equation}
+  (\rho_0 \pi U_R)^2 + (\rho_0 \pi U_I- 1)^2 = 1
+  \label{phase_transition}\,.
+\end{equation}
+This condition restricts the imaginary part of the gap $\Delta_0$ as
+\begin{eqnarray}
+  \text{Im} [\Delta_0] & = & \omega_D \frac{\text{cosh} \left(
+  \frac{U_R}{\rho_0 | U |^2} \right) \sin \left( \frac{U_I}{ \rho_0
+  | U |^2} \right)}{\left( \text{sinh} \left( \frac{U_R}{\rho_0 | U |^2}
+  \right) \cos \left( \frac{U_I}{ \rho_0 | U |^2} \right) \right)^2
+  + \left( \text{cosh} \left( \frac{U_R}{\rho_0 | U |^2} \right) \sin
+  \left( \frac{U_I}{ \rho_0 | U |^2} \right) \right)^2} \nonumber\\
+  & = & \frac{\omega_D}{\text{cosh} \left( \frac{U_R}{\rho_0 | U |^2}
+  \right)}\,.
+  \label{IDelta_0}
+\end{eqnarray}
+
+The phase transition is related to the existence of Yang-Lee zeros on the phase boundary. The partition function of Bogoliubov quasi-particles at finite temperature $1/\beta$ and finite-size system is
+\begin{equation}
+  Z = \prod_{\bm{k}} (1 + e^{-\beta E_{\bm{k}}})\,.
+\end{equation}
+ Since we only consider the case with a large $\beta$, we directly substitute Eq. (\ref{Delta_0}) into the dispersion relation. For the points not on the phase boundary, we have $\text{Re}
+ [E_{\bm{k}}] > 0$, which indicates that the
+ partition function cannot vanish. However, on the critical line (\ref{phase_transition}), the gap $\Delta_0$ becomes purely imaginary and therefore Yang-Lee zeros can emerge. The partition function on the phase boundary can be decomposed as
+\begin{equation}
+  Z = \prod_{\bm{k},|\xi_{\bm{k}}|<\text{Im}\Delta_0} \left( 1 + e^{- i \beta \sqrt{\left( \text{Im}\Delta_0 \right)^2 - \xi_{\bm{k}}^2}} \right)\times \prod_{\bm{k},|\xi_{\bm{k}}|>\text{Im}\Delta_0}\left( 1 + e^{- \beta \sqrt{\xi_{\bm{k}}^2 +\Delta_{\bm{k}}^2 }} \right).
+\end{equation}
+The first product vanishes for the momentum $\bm{k}$ that satisfies the condition
+\begin{equation}
+  \beta \sqrt{\left( \text{Im} \Delta_0 \right)^2 - \xi_{\bm{k}}^2} = (2n + 1) \pi,
+\end{equation}
+where $n$ is an arbitrary integer. This condition is equivalent to
+\begin{equation}
+ |\xi_{\bm{k}}| = \sqrt{\left( \text{Im} \Delta_0
+  \right)^2 - \left( \frac{2 n + 1}{\beta} \pi \right)^2}.
+  \label{condition}
+\end{equation}
+ Further, we take the thermodynamic limit. Since $\text{Im}\Delta_0<\omega_D$, we can always find the momentum $\bm{k}$ in the energy shell satisfyting the condition (\ref{condition}) for an arbitrarily large $\beta$. Hence, Yang-Lee zeros distribute on the phase boundary (\ref{phase_transition}). 
+
+\section{Correlation Functions on the Phase Boundary}\label{SectionOn}
+
+In this section, we calculate the correlation functions on the phase boundary to elucidate the critical behavior at the Yang-Lee singularity. Here we firstly consider the momentum distribution of the particles
+\begin{equation}
+  {}_L\langle c_{\bm{k} \sigma}^{\dagger} c_{\bm{k} \sigma} \rangle_R = {}_L \left\langle
+  \text{BCS} \right| c_{\bm{k} \sigma}^{\dagger} c_{\bm{k} \sigma} \left| \text{BCS}\right\rangle_R \,.
+\end{equation}
+Using the expression of the BCS states, we obtain
+\begin{equation}
+  {}_L\langle c_{\bm{k} \uparrow}^{\dagger} c_{\bm{k} \uparrow} \rangle_R = {}_L\langle c_{\bm{k}\downarrow}^{\dagger} c_{\bm{k} \downarrow} \rangle_R = v_{\bm{k}}^2 = \frac{1}{2} -
+  \frac{\xi_{\bm{k}}}{2 E_{\bm{k}}} = \frac{1}{2} - \frac{\xi_{\bm{k}}}{2 \sqrt{\xi_{\bm{k}}^2 +
+  \Delta_{\bm{k}}^2}}\,.
+\end{equation}
+Similarly, we have 
+\begin{equation}
+  {}_L\langle c_{\bm{k} \uparrow}^{\dagger} c_{\bm{k} \downarrow} \rangle_R = {}_L\langle c_{\bm{k}\downarrow}^{\dagger} c_{\bm{k} \uparrow} \rangle_R = 0\,.
+\end{equation}
+Then we perform the Fourier transformation to 
+\begin{equation}
+  C (\bm{x}-\bm{x}') := {}_L\langle c_{\sigma}^{\dagger} (\bm{x}) c_{\sigma} (\bm{x}') \rangle_R = \int \frac{d^3 \bm{k}}{(2 \pi)^3} \left(\frac{1}{2} - \frac{\xi_{\bm{k}}}{2 \sqrt{\xi_{\bm{k}}^2 + \Delta_{\bm{k}}^2}} \right)e^{i\bm{k} \cdot (\bm{x}-\bm{x}')}\,.
+\label{eq:define_CF}
+\end{equation}
+ In the following context we drop the first term on the right-hand side of Eq. (\ref{eq:define_CF}) since it is proportional to the delta function $\delta(\bm{x})$. Here, we consider to replace the integral with $\int ' \frac{d^3 \bm{k}}{(2 \pi)^3}$ for the momentum in the energy shell with $|\xi_{\bm{k}}|<\omega_D$ since we are only concerned with the long-range behaviour of the correlation function. 
+In the following, we will replace $\bm{x}-\bm{x}'$
+with $\bm{x}$ for convenience. Then the correlation
+function is given by
+\begin{equation}
+  C (\bm{x}) = -\int ' \frac{d^3 \bm{k}}{(2 \pi)^3} \frac{\xi_{\bm{k}}}{2 \sqrt{\xi_{\bm{k}}^2
+  + \Delta_0^2}} e^{i\bm{k} \cdot \bm{x}},
+\end{equation}
+ To extract the long-range behaviour of the correlation function, we expand the energy spectrum around the Fermi surface as $\xi_{\bm{k}} \simeq v_F (k - k_F)$, where $v_F$ and $k_F$ are the Fermi velocity and the Fermi momentum, respectively. Then the integration can be simplified as
+\begin{equation}
+  C(\bm{x})\simeq-\int ' \frac{\rho_0}{2} d \xi_{\bm{k}} \sin \theta d \theta \frac{\xi_{\bm{k}}}{2
+  \sqrt{\xi_{\bm{k}}^2 + \Delta_0^2}} e^{i \frac{\xi_{\bm{k}}}{v_F} x \cos \theta}
+  e^{i k_F x \cos \theta}\,,
+\end{equation}
+where $x=|\bm{x}|$ and $\rho_0$ is the density of states at the Fermi surface. With the
+integration over $\theta$, we have
+\begin{align}
+  C(\bm{x})&\simeq-\frac{1}{2} \int_{- \omega_D}^{\omega_D} \rho_0 d \xi_{\bm{k}} \frac{\xi_{\bm{k}}
+  \sin \left( \left( \frac{\xi_{\bm{k}}}{v_F} + k_F \right) x \right)}{\left(
+  \frac{\xi_{\bm{k}}}{v_F} + k_F \right) x \sqrt{\xi_{\bm{k}}^2 + \Delta_0^2}}\nonumber\\
+  & =  -\rho_0 v_F \int_0^{\omega_D} d \xi_{\bm{k}} \frac{\xi_{\bm{k}}}{x \sqrt{\xi_{\bm{k}}^2 +
+	\Delta_0^2}} \left[ (- \xi_{\bm{k}}) \frac{\sin (k_F x) \cos \left(
+	\frac{\xi_{\bm{k}}}{v_F} x \right)}{(v_F k_F)^2 - \xi_{\bm{k}}^2} + v_F k_F
+	\frac{\cos (k_F x) \sin \left( \frac{\xi_{\bm{k}}}{v_F} x \right)}{(v_F
+	k_F)^2 - \xi_{\bm{k}}^2} \right] \nonumber\\
+	& \simeq  -\rho_0 v_F \int_0^{\omega_D} d \xi_{\bm{k}} \frac{\xi_{\bm{k}}}{x \sqrt{\xi_{\bm{k}}^2
+	+ \Delta_0^2}} v_F k_F \frac{\cos (k_F x) \sin \left(
+	\frac{\xi_{\bm{k}}}{v_F} x \right)}{(v_F k_F)^2 - \xi_{\bm{k}}^2}\nonumber\\
+	& \simeq -\rho_0 \frac{\cos
+		(k_F x)}{k_Fx} \int_0^{\omega_D} d \xi_{\bm{k}} \frac{\xi_{\bm{k}}\sin \left( \frac{\xi_{\bm{k}}}{v_F}
+		x \right)}{ \sqrt{\xi_{\bm{k}}^2 +(\text{Re}\Delta_0)^2- (\text{Im}\Delta_0)^2+2i\text{Re}\Delta_0\text{Im}\Delta_0}}\,.
+		\label{correlation}
+\end{align}
+Since we expand the energy around the Fermi surface, we assume the condition $\omega_D\ll \mu=v_F k_F$ and neglect the first term in the bracket in the second equality of (\ref{correlation}). Here we also replace $(v_F k_F)^2 - \xi_{\bm{k}}^2$ with $(v_F k_F)^2$ due to this approximation. By defining
+\begin{equation}
+	k:=\frac{\omega_D}{\text{Im}\Delta_0}=\text{cosh}(\frac{U_R}{\rho_0|U|^2}),a:=\frac{\text{Re}\Delta_0}{\text{Im}\Delta_0},%=\frac{\pi U_R}{|U|^2}\text{tanh}(\frac{U_R}{\rho_0|U|^2})\delta U_R\,,
+	\label{ka}
+\end{equation} 
+we rewrite the integral as
+\begin{equation}
+	C(\bm{x})\simeq-\rho_0 \frac{\text{Im}\Delta_0\cos(k_F x)}{k_Fx} \int_0^{k} dt \frac{t\sin ( \frac{\text{Im}\Delta_0x}{v_F}
+		t )}{ \sqrt{t^2 +a^2- 1+2ia}}\,,
+    \label{eq:Cx_near_boundary}
+\end{equation}
+where we change the integration variable from $\xi_{\bm{k}}$ to $t=\frac{\xi_{\bm{k}}}{\text{Im}\Delta_0} $. Here we separate the correlation function into the real and imaginary parts as 
+\begin{equation}
+	C(\bm{x})\simeq-\rho_0 \frac{\cos(k_F x)}{k_Fx}(F_1(\bm{x})+iF_2(\bm{x})),
+\end{equation}
+where
+\begin{equation}
+	F_1(\bm{x})=\text{Im}\Delta_0\text{Re}\left[\int_0^{k} dt \frac{t\sin ( \frac{\text{Im}\Delta_0x}{v_F}
+	t )}{ \sqrt{t^2 +a^2- 1+2ia}}\right],F_2(\bm{x})=\text{Im}\Delta_0\text{Im}\left[\int_0^{k} dt \frac{t\sin ( \frac{\text{Im}\Delta_0x}{v_F}
+	t )}{ \sqrt{t^2 +a^2- 1+2ia}}\right]\label{F_1F_2}.
+\end{equation}
+ Since this integral is dominated by the region where $t\simeq\pm\sqrt{1-a^2}$, changing the upper bound of the integral will not influence the long-range behaviour of the correlation function. Hence, we set $k\to\infty$ here for convenience. We will illustrate this point in the following numerical simulation with a finite upper bound.
+ When we consider the correlation function on the phase boundary, we have $a=0$. Hence, the function $F_1(x)$ in the real part of the correlation function takes the form of
+\begin{equation}
+	F_1(\bm{x})=\text{Im}\Delta_0\text{Re}\left[\int_0^{k} dt \frac{t\sin ( \frac{\text{Im}\Delta_0x}{v_F}
+	t )}{ \sqrt{t^2 - 1}}\right]\simeq\text{Im}\Delta_0\int_1^{\infty} dt \frac{t\sin ( \frac{\text{Im}\Delta_0x}{v_F}
+	t )}{ \sqrt{t^2 - 1}}.
+	\label{definition_of_F1}
+\end{equation}
+To calculate this function, we introduce another function $G_1(x)$ as
+\begin{equation}
+	G_1 (x) := \text{Im}
+		\Delta_0\int_1^{\infty} dt \frac{\cos ( \frac{\text{Im}\Delta_0x}{v_F}
+		t )}{ \sqrt{t^2 - 1}}=-\text{Im}\Delta_0\frac{\pi}{2} N_0 \left( \frac{\text{Im} \Delta_0}{v_F} x \right),
+\end{equation}
+where $N_0$ is the 0-th order Bessel function of the second kind. The relationship between these two functions is 
+\begin{equation}
+	F_1 (x) \simeq - \frac{v_F}{\text{Im}\Delta_0} G_1' (x)\,.
+\end{equation}
+%The function $G_1(x)$ is given by
+%\begin{equation}
+%	G_1(x)=\text{Im}
+%	\Delta_0\int_1^{\infty} dt \frac{\cos ( \frac{\text{Im}\Delta_0x}{v_F}
+%	t )}{ \sqrt{t^2 - 1}} = -\text{Im}
+%	\Delta_0
+%	\frac{\pi}{2} N_0 \left( \frac{\text{Im} \Delta_0}{v_F} x \right)\,.
+%\end{equation}
+Therefore, the real part of the correlation function is
+\begin{equation}
+	\mathrm{Re}[C(\bm{x})]\simeq\frac{\pi}{2} \rho_0v_F \frac{\cos (k_F x)}{k_Fx} N_0' \left( \frac{\text{Im}
+		\Delta_0}{v_F} x \right)\,.
+\end{equation}
+When we take the limit $x \rightarrow \infty$, we have
+\begin{equation}
+	\lim_{x \rightarrow \infty} N_0' (x) = \sqrt{\frac{2}{\pi}} \cos \left( x -
+	\frac{\pi}{4} \right) \frac{1}{x^{1 / 2}} - \sqrt{\frac{2}{\pi}} \frac{1}{2}
+	\sin \left( x - \frac{\pi}{4} \right) \frac{1}{x^{3 / 2}} \simeq 
+	\sqrt{\frac{2}{\pi}} \cos \left( x - \frac{\pi}{4} \right) \frac{1}{x^{1 /
+			2}}\,.
+	\label{Realexact}
+\end{equation}
+Thus, the real part of the correlation function has the long-range behaviour as
+\begin{equation}
+	\lim_{x \rightarrow \infty} \left[  \frac{\pi}{2} \rho_0 v_F \frac{\cos (k_F x)}{k_Fx}
+	N_0' \left( \frac{\text{Im} \Delta_0}{v_F} x \right) \right] \sim \frac{1}{x^{3 / 2}}.
+\end{equation}
+Then we turn to consider the function $F_2(x)$ as the imaginary part of the correlation function. On the phase boundary, we can rewrite it as
+\begin{equation}
+	F_2(\bm{x})=\text{Im}\Delta_0\text{Im}\left[\int_0^{k} dt \frac{t\sin ( \frac{\text{Im}\Delta_0x}{v_F}
+	t )}{ \sqrt{t^2 - 1}}\right]=-\text{Im}\Delta_0\int_0^{1} dt \frac{t\sin ( \frac{\text{Im}\Delta_0x}{v_F}
+	t )}{ \sqrt{t^2 - 1}}
+	\label{definition_of_F2}
+\end{equation}
+Similarly, we can also define another function $G_2(x)$ as
+\begin{equation}
+	G_2(x)=-\text{Im}\Delta_0\int_0^{1} dt \frac{\cos ( \frac{\text{Im}\Delta_0x}{v_F}
+	t )}{ \sqrt{t^2 - 1}}=\frac{\pi}{2} J_0 \left( \frac{\text{Im}\Delta_0}{v_F} x \right),
+\end{equation}
+where $J_0$ is the 0-th order Bessel function of the first kind. The relationship between these two functions is also given by
+\begin{equation}
+	F_2 (x) = - v_F G_2' (x). %G_2 (x) = \frac{\pi}{2} J_0 \left( \frac{\text{Im}
+		%\Delta_0}{v_F} x \right)\,.
+\end{equation}
+Then the imaginary part of the correlation function is equivalent to
+\begin{equation}
+	\mathrm{Im}[C(\bm{x})]\simeq\frac{\pi}{2} \rho_0 v_F\frac{\cos (k_F x)}{k_Fx} J_0' \left( \frac{\text{Im}
+		\Delta_0}{v_F} x \right)\,.
+\end{equation}
+Thus we have a similar long-range behaviour for the imaginary part of the correlation function as
+\begin{equation}
+	\lim_{x \rightarrow \infty} \left[  \frac{\pi}{2} \rho_0 v_F \frac{\cos (k_F x)}{k_Fx}
+	J_0' \left( \frac{\text{Im} \Delta_0}{v_F} x \right) \right] \sim \frac{1}{x^{3 / 2}}\,.
+	\label{Imexact}
+\end{equation}
+To summarize, the correlation function takes the form of
+\begin{align}
+  \lim_{x\rightarrow\infty}{}_L \left\langle\text{BCS} \right| c_{\sigma}^{\dagger}(\bm{x}) c_{\sigma}(\bm{x}) \left| \text{BCS}
+  \right\rangle_R&\simeq \lim_{x\rightarrow\infty}\frac{\pi}{2} \rho_0 v_F \frac{\cos (k_F x)}{k_Fx}( N_0' ( \frac{\text{Im}\Delta_0}{v_F} x )+iJ_0'( \frac{\text{Im}\Delta_0}{v_F} x ))\nonumber\\
+  &=:(A(l)+iB(l))x^{-3/2}\,,
+  \label{correlation_decay}
+\end{align}
+where
+\begin{align}
+    A(l)&=\sqrt{\frac{\pi}{2}}\rho_0 \frac{\sqrt{\text{Im}\Delta_0 v_F}}{k_F} \cos (k_F \frac{v_F}{\text{Im}\Delta_0}l)\cos(l-\frac{\pi}{4})\,,\nonumber\\
+    B(l)&=\sqrt{\frac{\pi}{2}}\rho_0 \frac{\sqrt{\text{Im}\Delta_0 v_F}}{k_F} \cos (k_F \frac{v_F}{\text{Im}\Delta_0}l)\sin(l-\frac{\pi}{4})\,,
+\end{align}
+and $l= \frac{\text{Im}\Delta_0}{v_F} x$. The anomalous dimension is defined by $C(\bm{x})\propto x^{-D+2-\eta}$ \cite{Sachdev:2011uj}, where $D$ is the spatial dimension of the system. From Eq. (\ref{correlation_decay}), we can see that the correlation length diverges on the phase boundary and that the anomalous dimension is given by $\eta=1/2$. In addition, we present the numerical plot of the integrals $F_1$ and $F_2$ on the phase boundary in Fig. \ref{fig2} with detailed fitting parameters shown in Table. \ref{fitting_table_2}. In the numerical calculation we take a finite upper bound $k$ given in Eq. (\ref{ka}). These two functions are related to the correlation function as $C(x)=\rho_0 \frac{\cos (k_F x)}{k_Fx}(F_1(x)+iF_2(x))$. %In the following we also call $(F_1(x)+iF_2(x))$ as reduced correlation function.
+The fitting results indicate that $F_1(l)$ is propotional to $\sin(l+\frac{\pi}{4})l^{-0.5}$ and $F_2(l)$ is proportional to $\sin(l+\frac{3\pi}{4})l^{-0.5}$. Those results are consistent with our analytical result in Eq. (\ref{correlation_decay}) and indicate that the correlation length diverges on the phase boundary.
+
+\section{Correlation Function Near the Phase Transition}
+
+To calculate the critical exponent of correlation length, we consider the correlation functions near the phase boundary.  The real part of the gap $\Delta_0$ is given by
+\begin{equation}
+  \text{Re} [\Delta_0] = \omega_D \frac{\text{sinh} \left( \frac{U_R}{\rho_0 |
+  U |^2} \right) \cos \left( \frac{U_I}{ \rho_0 | U |^2}
+  \right)}{\left( \text{sinh} \left( \frac{U_R}{\rho_0 | U |^2} \right)
+  \cos \left( \frac{U_I}{ \rho_0 | U |^2} \right) \right)^2 + \left(
+  \text{cosh} \left( \frac{U_R}{\rho_0 | U |^2} \right) \sin \left(
+  \frac{U_I}{ \rho_0 | U |^2} \right) \right)^2}\,.\label{Real_gap}
+\end{equation}
+For convenience, we here consider the shift of the interaction strength by $\delta U_R\in\mathbb{R}$ from a point $U$ on the phase boundary. It can be replaced by an arbitrary amount $\delta U$ along any direction. Up to the first order of $\delta U_R$, we have $\cos \left(
+\frac{U_I}{ \rho_0 | U |^2} \right) = \cos \left( \frac{\pi}{2}-\frac{\pi U_R\delta U_R}{|U|^2} \right)=\sin \left(\frac{\pi U_R\delta U_R}{|U|^2} \right) \simeq \frac{\pi U_R\delta U_R}{|U|^2}$. Then the real part is shown to be proportional to $\delta U_R$:
+\begin{equation}
+  \text{Re} \Delta_0 \simeq \frac{\pi\omega_D U_R}{| U |^2} \frac{\text{sinh}
+  \left( \frac{U_R}{\rho_0 | U |^2} \right)}{\text{cosh}^2 \left(
+  \frac{U_R}{\rho_0 | U |^2} \right)} \delta U_R \propto \delta U_R\,.
+  \label{define_UR_deviation}
+\end{equation}
+The imaginary part of the gap remains the same as in Eq. (\ref{IDelta_0}) up to the same order of $\delta U_R$: $\text{Im} \Delta_0 =
+\frac{\omega_D}{\text{cosh($\frac{U_R}{\rho_0 | U |^2}$)}}$ and   
+\begin{equation}
+ a=\frac{\pi U_R}{|U|^2}\text{tanh}(\frac{U_R}{\rho_0|U|^2})\delta U_R
+ \label{detailed_expression_a}
+\end{equation}
+from Eq. (\ref{ka}). Then we turn to the correlation function near the phase boundary.
+
+\begin{figure}
+	\centering \includegraphics[width=0.6\columnwidth]{figs/fitting_k_2_509_on_the_boundary_total}
+	\caption{(a) Real part $F_1(l)$ and (b) imaginary part $F_2(l)$ of the correlation funtion on the phase boundary which are defined in Eqs. (\ref{definition_of_F1}) and (\ref{definition_of_F2}). Here $(\rho_{0}U_{R},\rho_{0}U_{I})=(\frac{1}{\pi},\frac{1}{\pi})$ and $l=\frac{\text{Im}\Delta_0}{v_F}x$. The fitting parameters are shown in Table \ref{fitting_table_2}.}
+	\label{fig2}
+\end{figure}
+
+\begin{table}
+	\begin{tabular}{|c|c|}
+		\hline 
+		\multicolumn{2}{|c|}{$F_{1}(l)$}\tabularnewline
+		\hline
+		\hline 
+		Fitting Function & $F_1(l)=\frac{a_{1}\sin(l+a_{2})}{l^{a_{3}}}$\tabularnewline
+		\hline 
+		$a_{1}$ & $1.172(0.966,1.379)$\tabularnewline
+		\hline 
+		$a_{2}$ & $1.031(1.027,1.035)$\tabularnewline
+		\hline 
+		$a_{3}$ & $0.5192(0.4930,0.5455)$\tabularnewline
+		\hline 
+		$R^{2}$ & $0.9984$\tabularnewline
+		\hline 
+	\end{tabular}%
+	\begin{tabular}{|c|c|}
+		\hline 
+		\multicolumn{2}{|c|}{$F_{2}(l)$}\tabularnewline
+		\hline 
+		\hline
+		Fitting Function & $F_{2}(l)=\frac{a_{1}\sin(l+a_{2})}{l^{a_{3}}}$\tabularnewline
+		\hline 
+		$a_{1}$ & $-1.199(-1.190,-1.209)$\tabularnewline
+		\hline 
+		$a_{2}$ & $-0.7884(-0.7883,-0.7884)$\tabularnewline
+		\hline 
+		$a_{3}$ & $0.4924(0.4912,0.4936)$\tabularnewline
+		\hline 
+		$R^{2}$ & $0.9999$\tabularnewline
+		\hline 
+	\end{tabular}
+	
+	\caption{The left and right tables show fitting parameters for $F_1(l)$ and $F_2(l)$ on the boundary, respectively. Here $(\rho_{0}U_{R},\rho_{0}U_{I})=(\frac{1}{\pi},\frac{1}{\pi})$. The values in the parentheses show the range of error bars. The parameter $R^2$ represents the confidence of the fitting, which is defined as the ratio of the sum of squares of the regression (SSR) and the total sum of squares (SST).}
+	
+	\label{fitting_table_2}
+\end{table}
+\begin{figure}[t]
+	\centering \includegraphics[width=0.6\columnwidth]{figs/fitting_a_4_526_1E-4_total}
+	\caption{(a) Real part $F_1(l)$ and (b) imaginary part $F_2(l)$ of the correlation function near the boundary (see Eq. (\ref{F_1F_2})). These two figures are near the phase boundary with $(\rho_{0}U_{R},\rho_{0}U_{I})=(\frac{1}{\pi},\frac{1}{\pi})$ with $\rho_{0}\delta U_{R}=1\times10^{-4}\ll1$ and $l=\frac{\text{Im}\Delta_0x}{v_F}.$ The fitting parameters are shown in Table \ref{Fitting_table_1}.}
+	\label{fig1}
+\end{figure}
+\begin{table}
+	\begin{tabular}{|c|c|}
+		\hline 
+		\multicolumn{2}{|c|}{$F_{1}(l)$}\tabularnewline		
+		\hline
+		\hline 
+		Fitting Function & $F_1(l)=a_{1}\sin(a_{2}l-a_{3})e^{-\frac{l}{\xi_{r}}}$\tabularnewline
+		\hline 
+		$a_{1}$ & $0.1287(0.1153,0.1420)$\tabularnewline
+		\hline 
+		$a_{2}$ & $1(0.9996,1)$\tabularnewline
+		\hline 
+		$a_{3}$ & $-0.7843(-0.6798,-0.8887)$\tabularnewline
+		\hline 
+		$\xi_{r}$ & $420.9(349.6,492.3)$\tabularnewline
+		\hline 
+		$R^{2}$ & $0.9962$\tabularnewline
+		\hline 
+	\end{tabular}%
+	\begin{tabular}{|c|c|}
+		\hline 
+		\multicolumn{2}{|c|}{$F_{2}(l)$}\tabularnewline
+		\hline
+		\hline 
+		Fitting Function & $F_2(l)=a_{1}\sin(a_{2}l-a_{3})e^{-\frac{l}{\xi_i}}$\tabularnewline
+		\hline 
+		$a_{1}$ & $-0.1292(-0.1285,-0.1299)$\tabularnewline
+		\hline 
+		$a_{2}$ & $1(1,1)$\tabularnewline
+		\hline 
+		$a_{3}$ & $0.7810(0.7756,0.7864)$\tabularnewline
+		\hline 
+		$\xi_{i}$ & $417.6(414,421.3)$\tabularnewline
+		\hline 
+		$R^{2}$ & $0.9937$\tabularnewline
+		\hline 
+	\end{tabular}
+	
+	\caption{The left and right tables show fitting parameters for $F_1(l)$ and $F_2(l)$ near the boundary, respectively. Here $(\rho_{0}U_{R},\rho_{0}U_{I})=(\frac{1}{\pi},\frac{1}{\pi})$ with $\rho_{0}\delta U_{R}=1\times10^{-4}\ll1$. The values in the parentheses are the corresponding error bars. The parameter $R^2$ represents the confidence of the fitting, which is defined as the ratio of the sum of squares of the regression (SSR) and the total sum of squares (SST).}
+	\label{Fitting_table_1}
+\end{table}
+The long-range behavior of the correlation functions is governed by the properties of the integral in Eq. (\ref{eq:Cx_near_boundary}). In Fig. \ref{fig1}, we numerically plot $F_1$ and $F_2$ with $(\rho_{0}U_{R},\rho_{0}U_{I})=(\frac{1}{\pi},\frac{1}{\pi})$ and $\rho_{0}\delta U_{R}=1\times10^{-4}\ll1$. $F_1$ is fitted by an oscillating exponential decay  which is shown by the blue curve
+in Fig. \ref{fig1}(a): $F_1(l)\propto\sin(l+\frac{\pi}{4})e^{-l/\xi_{r}}$,
+where $\xi_{r}=420.9$. $F_2$ behaves similarly as
+shown by the blue curve in Fig. \ref{fig1}(b): $F_2(l) \propto\sin(x+\frac{3\pi}{4})e^{-x/\xi_{i}}$
+with $\xi_{i}=417.6$. Here $l=\frac{\text{Im}\Delta_0}{v_F}x$ is the same as in the previous section. We can see the behaviours of the real and the
+imaginary parts of the correlation function are very close
+to each other. The detailed fitting parameters are shown in Table \ref{Fitting_table_1}.
+
+
+
+Furthermore, we numerically calculate the dependence of the correlation lengths on the deviation
+$\rho_{0}\delta U_{R}$ from the phase boundary. The correlation lengths of the real part and the imaginary
+part are shown seperately in Fig. \ref{fig3}. We find that both of the correlation lengths are inversely proportional to the deviation from the phase boundary, i.e. $\xi^{-1}\propto a$. To derive the dependence analytically, we consider the integral $\int_0^{\infty}t\frac{\sin(tx)}{\sqrt{t^2+m^2}}$ with $m\in\mathbb{C}$ and take the limit of $k\to\infty$ in Eq. (\ref{F_1F_2}) since this limiting procedure will not change the long-range behavior. We have
+\begin{equation}
+   \int_0^{\infty}\frac{t\sin(tx)}{\sqrt{t^2+m^2}}=-\frac{d}{dx}\int_0^{\infty}\frac{\cos(tx)}{\sqrt{t^2+m^2}}=-K_0'(x)\,,
+\end{equation}
+where $K_{\nu}(x)$ is the $\nu$-th order modified Bessel function of the second kind. By substituting the expression for this special function, we have for $x\rightarrow\infty$
+\begin{equation}
+\int_{0}^{\infty}dt\frac{t\sin(xt)}{\sqrt{t^{2}+m^{2}}}\propto \frac{e^{-mx}}{\sqrt{mx}}= \frac{\text{exp}[-\text{Re}(m)x-i\text{Im}(m)x]}{\sqrt{mx}}\,.
+\end{equation}
+From the definition $C(\bm{x})\propto e^{-x/\xi}$ of the correlation length $\xi$ \cite{Sachdev:2011uj}, we obtain
+\begin{equation}
+    \xi^{-1}\sim\text{Re}(m)\,.
+\end{equation}
+From Eq. (\ref{eq:Cx_near_boundary}), the parameter $m$ is given by $m=a+i$. Hence, the relationship between $\xi$ and $a$ is given by
+\begin{equation}
+  \xi\propto a^{-1},\label{corre_length}
+\end{equation}
+which agrees with our numerical simulatiion results in Fig. \ref{fig3}. From the expression of $a$ in Eq. (\ref{detailed_expression_a}), we can see that the correlation length is inversely proportional to the deviation from the phase boundary $\xi^{-1}\propto\delta U_R$, which indicates the critical exponent $\nu=1$ from the definition $\xi\propto(\delta U)^{-\nu}$ \cite{Sachdev:2011uj}. However, on the real axis of the interaction strength $U$, this analysis fails because $\text{Im}\Delta_0=0$ on the whole real axis. From Eq. (\ref{correlation}),  the correlation function for $U_I=0$ is proportional to
+\begin{figure}
+	\centering \includegraphics[width=0.6\columnwidth]{figs/fitting_correlation_length_total}
+	\caption{Dependence of the correlation lengths $\xi_r$ and $\xi_i$ on $\rho_{0}\delta U_{R}\ll1$. Here we use the function $f(x)=\frac{a}{x}$ to fit the data with
+		$a=0.08815(0.08784,0.08846)$; $0.08985(0.08957,0.09014)$ and $R^{2}=0.9990$;
+		$0.9992$, respectively.}
+	\label{fig3}
+\end{figure}
+\begin{equation}
+    C(\bm{x})\propto\int_0^{\infty}\frac{t\sin(xt)}{\sqrt{t^2+s^2}}\,,
+\end{equation}
+where we redefine $t=\frac{\xi_{\bm{k}}}{v_F}$ and $s=\text{Re}\Delta_0$. On the real axis, the real part of the gap is given by
+\begin{equation}
+    s=\text{Re}\Delta_0=\frac{\omega_D}{\sinh(\frac{1}{\rho_0U_R})}\,.
+\end{equation}
+For $U_R\to0$, we have $s=\omega_D\text{exp}(-\frac{1}{\rho_0U_R})\to0$ and thus the correlation length is given by
+\begin{equation}
+    \xi^{-1}\propto\text{exp}(-\frac{1}{\rho_0 U_R})\,.
+\end{equation}
+We can find that the correlation length cannot be represented by the polynomial form of $\delta U_R$, which indicates that the critical behavior on the real axis is indeed different from that on the upper half complex plane with $U_I\neq0$. As shown in Sec. \ref{RG}, this difference in the critical behavior can be understood from the RG flow.
+
+
+\section{Thermodynamic Quantities on the Phase Boundary}
+
+In this section, we calculate critical exponents associated with non-analyticity of thermodynamic quantities on the phase boundary. The condensation energy of the non-Hermitian BCS model is given by \cite{Yamamoto2019}
+\begin{equation}
+ \Delta E = - \frac{N}{U_R + i U_I} \left( \text{Im} \Delta_0 \right)^2
+  - N \int_{- \omega_D}^{\omega_D} d \xi_{\bm{k}} \rho_0 \left( \sqrt{\xi_{\bm{k}}^2 +
+  \Delta_0^2} - | \xi_{\bm{k}} | \right)\,.\label{free_energy}
+\end{equation}
+Note that here we have subtracted the energy of non-interacting fermions from the energy (\ref{free_energy}). The integration is seperated into two parts. The second term of the integral is given by
+\begin{equation}
+  2 \rho_0 \int_0^{\omega_D} d \xi_{\bm{k}} \xi_{\bm{k}} = \rho_0 \omega_D^2\,.
+\end{equation}
+The first term on the phase boundary is given by
+\[ - 2 \int_0^{\omega_D} d \xi_{\bm{k}} \rho_0 \sqrt{\xi_{\bm{k}}^2 + \Delta_0^2} = - 2
+   \int_0^{\omega_D} d \xi_{\bm{k}} \rho_0 \sqrt{\xi_{\bm{k}}^2 - \left( \text{Im} \Delta_0
+   \right)^2}. \]
+We first focus on the real part of the energy. Since
+\begin{eqnarray}
+  \text{Re}\left[- 2 \int_0^{\omega_D} d \xi_{\bm{k}} \rho_0 \sqrt{\xi_{\bm{k}}^2 - \left( \text{Im}
+  \Delta_0 \right)^2}\right] & = & - 2 \int_{\text{Im} \Delta_0}^{\omega_D}
+  d \xi_{\bm{k}} \rho_0 \sqrt{\xi_{\bm{k}}^2 - \left( \text{Im} \Delta_0 \right)^2}
+  \nonumber\\
+  & = & (- 2 \rho_0) \left( \text{Im} \Delta_0 \right)^2 \left[ \frac{1}{4}
+  \text{sinh} \left( \frac{2 U_R}{\rho_0 | U |^2} \right) - \frac{1}{2}
+  \frac{U_R}{\rho_0 | U |^2} \right]\,,
+\end{eqnarray}
+the real part of the energy is
+\begin{eqnarray}
+  \text{Re} [\Delta E] & = & - N \frac{U_R}{| U |^2} \left( \text{Im} \Delta_0
+  \right)^2 - 2 N \rho_0 \left( \text{Im} \Delta_0 \right)^2 \left[
+  \frac{1}{4} \text{sinh} \left( \frac{2 U_R}{\rho_0 | U |^2} \right) -
+  \frac{1}{2} \frac{U_R}{\rho_0 | U |^2} \right] + N \rho_0 \omega_D^2
+  \nonumber\\
+  & = & N \rho_0 \left[ \omega_D^2 - \frac{1}{2} \left( \text{Im} \Delta_0
+  \right)^2 \text{sinh} \left( \frac{2 U_R}{\rho_0 | U |^2} \right) \right]
+  \nonumber\\
+  & = & N \rho_0 \omega_D^2 \left[ 1 - \frac{1}{2} \frac{\text{sinh} \left(
+  \frac{2 U_R}{\rho_0 | U |^2} \right)}{\text{cosh}^2 \left( \frac{U_R}{\rho_0
+  | U |^2} \right)} \right]\,.
+  \label{free}
+\end{eqnarray}
+
+In a similar manner, we calculate the imaginary part of the condensation energy on the phase boundary as
+\begin{eqnarray}
+  \text{Im} [\Delta E] & = & - \frac{N}{| U |^2} \left( - U_I \right)
+  \left( \text{Im} \Delta_0 \right)^2 - 2 N \rho_0 \int_0^{\text{Im} \Delta_0}
+  d \xi_{\bm{k}} \sqrt{\xi_{\bm{k}}^2 - \text{Im} \Delta_0} \nonumber\\
+  & = & \frac{2U_I N}{2 | U |^2} \left( \text{Im} \Delta_0 \right)^2 - 2 N
+  \rho_0 \left( \text{Im} \Delta_0 \right)^2 \times \frac{\pi}{4} \nonumber\\
+  & = & \frac{N}{2} \rho_0 \left( \text{Im} \Delta_0 \right)^2 \left[
+  \frac{2U_I}{\rho_0 | U |^2} - \pi \right] \nonumber\\
+  & = & 0 \,.
+\end{eqnarray}
+Thus the imaginary part of the condensation energy vanishes on the phase boundary. 
+
+We here relate the order $\chi$ of Yang-Lee zeros with the non-analycity of the condensation energy. According to the definition of the order of the Yang-Lee zeros in the main text, we have
+\begin{equation}
+    \chi\simeq\frac{\beta\omega_D}{\pi\text{cosh}(\frac{U_R}{\rho_0|U|^2})}
+\end{equation}
+at absolute zero. Using Eq. (\ref{free}), we find
+\begin{equation}
+    \Delta E=4N\rho_0\omega_D^2(1-\sqrt{1-4(\frac{\pi\chi}{\beta\omega_D})^2})\,.
+\end{equation}
+Since $\frac{U_R}{\rho_0|U|^2}\rightarrow\infty$ near $U=0$, the expressions for the condensation energy and the order of Yang-Lee zeros can be simplified as
+\begin{equation}
+    \Delta E=N \rho_0 \omega_D^2 e^{-2\frac{U_R}{\rho_0|U|^2}},\chi/\beta=\frac{\omega_D}{\pi}e^{-\frac{U_R}{\rho_0|U|^2}}\,.
+\end{equation}
+Thus, we have
+\begin{equation}
+    \Delta E=\frac{\pi^2N\rho_0}{\beta^2}\chi^2\propto(\chi/\beta)^2\,,
+\end{equation}
+which means that we can read the condensation energy along the real axis from the order of Yang-Lee zeros on the upper half complex plane. From this power-law relation, we define the critical exponent $\phi$ as $\chi/\beta\propto(\Delta E)^{\phi}$ and obtain $\phi=1/2$.
+
+Next, we show that the compressibility exhibits critical behavior near the phase boundary. The compressibility is defined by $\kappa=\frac{\partial^2F}{\partial\mu^2}$ where $\xi_{\bm{k}}=\epsilon_{\bm{k}}-\mu$ and $F=-\frac{1}{\beta}\text{log}Z$ is the free energy of the Bogoliubov quasiparticles. We have
+\begin{equation}
+  \kappa = - \sum_{\bm{k}} \frac{\Delta_{\bm{k}}^2}{(\xi_{\bm{k}}^2 +
+  \Delta_{\bm{k}}^2)^{3 / 2}} = - N\int_{- \omega_D}^{\omega_D} \rho_0 d
+  \xi_{\bm{k}} \frac{\Delta_0^2}{(\xi_{\bm{k}}^2 + \Delta_0^2)^{3
+  / 2}}\,.
+  \label{compressibility}
+\end{equation}
+Firstly, we consider the compressibility at points on the phase boundary. By substituting the gap in Eqs. (\ref{RDelta_0}) and (\ref{IDelta_0}) into the compressibility (\ref{compressibility}), we can rewrite it as
+\begin{equation}
+  \kappa= N\int_{- \omega_D}^{\omega_D} \rho_0 d \xi_{\bm{k}}
+  \frac{(\text{Im} \Delta_0)^2}{(\xi_{\bm{k}}^2 - (\text{Im}
+  \Delta_0)^2)^{3 / 2}}\,.
+\end{equation}
+This integral diverges since $\text{Im} \Delta_0 < \omega_D$ for all the points on the boundary. Hence, the compressibility exhibits singularity at each point on the boundary. This cannot occur in the Hermitian case since the integral in Eq. (\ref{compressibility}) is finite for a real gap $\Delta_0$. Near the phase boundary with an infinitesimal deviation $\delta U_R$, we obtain
+\begin{equation}
+	\kappa\simeq N\int_{- \omega_D}^{\omega_D} \rho_0 d \xi_{\bm{k}}
+  \frac{(\text{Im} \Delta_0)^2}{(\xi_{\bm{k}}^2 - (\text{Im} \Delta_0)^2
+  + 2 i \text{Re} \Delta_0 \text{Im} \Delta_0)^{3 / 2}} = N\int_{- A}^A \rho_0
+  ds \frac{1}{(s^2 - 1 + 2 i \text{Re}
+  \Delta_0 / \text{Im} \Delta_0)^{3 / 2}}\,,
+\end{equation}
+where $A := \cosh \left( \frac{U_R}{\rho_0 | U |^2} \right)$. Since the points near the value $s = 1$ dominantly contribute to the integral, we expand the integral around this point as
+\begin{equation}
+  \int_{0}^{c} \rho_0 d \delta s \frac{1}{(2 \delta
+  s+ 2 i a)^{3 / 2}}=-[\frac{1}{\sqrt{2ia+c}}-\frac{1}{\sqrt{2ia}}],
+\end{equation}
+where $c$ is a positive constant. Under the limit $a\to0$, the integral is propotional to $a^{-1/2}$. Hence, we obtain the critical exponent $\zeta = 1 / 2$, which is defined as $\kappa \sim (\delta U)^{- \zeta}$ near the phase boundary.
+
+We note that the critical exponents $\eta$ and $\zeta$ are not independent. Here we show the relation between $\eta$ and $\zeta$ for the energy spectrum that can be expanded as $(k-k_E)^{1/n}$ around a gapless point $k=k_E$. When $n$ is an integer, such dispersion relation appears near an $n$-th order exceptional point in non-Hermitian systems \cite{kato1995perturbation}. For those energy spectra, the long-range behavior of the correlation function takes the form as
+\begin{equation}
+  C(\bm{x})\propto x^{-2+1/n}\,.
+\end{equation}
+%Under the limitation $x\rightarrow\infty$, we have $J_{-1/2+1/n}(x)\sim\frac{1}{\sqrt{x}}$.
+From the definition of the anomalous dimension, we find $\eta=1-\frac{1}{n}$. Similarly, we find that the critical behavior of the compressibility near the phase boundary is 
+\begin{equation}
+  \kappa\propto\int_{- A}^A \rho_0
+  d \xi_{\bm{k}} \frac{1}{(\xi_{\bm{k}}^2 - 1 + 2 i \text{Re}
+  \Delta_0 / \text{Im} \Delta_0)^{2-\frac{1}{n}}}\propto(\delta U)^{-1+\frac{1}{n}}\,,
+\end{equation}
+which indicates that $\zeta=1-1/n$. Thus, we have
+\begin{equation}
+  \eta=\zeta\,.
+\end{equation}
+
+Finally, we discuss the dynamical critical exponent $z$. From the definition of dynamical critical exponent $z$ in Ref. \cite{Sachdev:2011uj}, we here define it as
+\begin{equation}
+	\text{Re}\Delta_0\propto\xi^{-z}.
+\end{equation}
+By referencing (\ref{Real_gap}) and (\ref{corre_length}), we obtain
+\begin{equation}
+	\text{Re}\Delta_0\propto\xi^{-1}\propto\delta U.
+\end{equation}
+Hence, we have $z=1$.
+
+\section{Pair Correlation Function}
+
+The pair correlation function is defined by
+\begin{equation}
+	\rho_2 (\boldsymbol{r}_1 \sigma_1, \boldsymbol{r}_2 \sigma_2 ; \boldsymbol{r}_1' \sigma_1', \boldsymbol{r}_2' \sigma_2') := {}_L \langle
+	c_{\sigma_1}^{\dagger} (\boldsymbol{r}_1) c_{\sigma_2}^{\dagger} (\boldsymbol{r}_2) c_{\sigma_2'} (\boldsymbol{r}_2') c_{\sigma_1'}(\boldsymbol{r}_1') \rangle_R\,.
+\end{equation}
+Here we set $\boldsymbol{r}_1 =\boldsymbol{r}_2 =\boldsymbol{R}$ and $\boldsymbol{r}_1'=\boldsymbol{r}_2' = 0$ to consider the correlation between two Cooper pairs. Without loss of generality, we assume $\sigma_1 = \sigma_1'=\uparrow, \sigma_2 = \sigma_2'= \downarrow$. With Wick's theorem, we can simplify the pair correlation function as
+\begin{eqnarray}
+	\rho_2 (\boldsymbol{R} \uparrow, \boldsymbol{R} \downarrow ; 0 \uparrow, 0
+	\downarrow) & = & {}_L \langle c_{\uparrow}^{\dagger} (\boldsymbol{R})
+	c_{\downarrow}^{\dagger} (\boldsymbol{R}) c_{\downarrow} (0) c_{\uparrow} (0)
+	\rangle_R \nonumber\\
+	& = & {}_L \langle c_{\uparrow}^{\dagger} (\boldsymbol{R})
+	c_{\downarrow}^{\dagger} (\boldsymbol{R}) \rangle_R {}_L \langle
+	c_{\downarrow} (0) c_{\uparrow} (0) \rangle_R + {}_L \langle
+	c_{\uparrow}^{\dagger} (\boldsymbol{R}) c_{\uparrow} (0) \rangle_R {}_L
+	\langle c_{\downarrow}^{\dagger} (\boldsymbol{R}) c_{\downarrow} (0) \rangle_R\,.
+  \label{R0}
+\end{eqnarray}
+As shown in Eq. (\ref{correlation_decay}), the second term in Eq. (\ref{R0}) decays as $|\bm{R}|^{- 3 / 2}$ on the phase boundary. Thus, in the limit of $|\bm{R}|\to\infty$, the pair correlation function is given by
+\begin{eqnarray}
+	\lim_{|\bm{R}|\to\infty}\rho_2 (\boldsymbol{R} \uparrow, \boldsymbol{R} \downarrow ; 0 \uparrow, 0
+	\downarrow) & = & {}_L \langle c_{\uparrow}^{\dagger} (0)
+	c_{\downarrow}^{\dagger} (0) \rangle_R {}_L \langle c_{\downarrow} (0)
+	c_{\uparrow} (0) \rangle_R \nonumber\\
+	& = & \frac{1}{N^2} \sum_{\boldsymbol{k}_1, \boldsymbol{k}_2} {}_L \langle
+	c_{\boldsymbol{k}_1 \uparrow}^{\dagger} c_{-\boldsymbol{k}_1
+		\downarrow}^{\dagger} \rangle_R {}_L \langle c_{-\boldsymbol{k}_2 \downarrow}
+	c_{\boldsymbol{k}_2 \uparrow}  \rangle_R \nonumber\\
+	& = & \left( \frac{\Delta_0}{U} \right)^2 \,,
+\end{eqnarray}
+where we have used the translational invariance and the definition $\Delta_0 = - \frac{U}{N}
+\sum_{\boldsymbol{k}} {}_L \langle c_{-\boldsymbol{k} \downarrow} c_{\boldsymbol{k}\uparrow}  \rangle_R$. We note that the long-distance limit of the pair correlation function does not vanish on the phase boundary:
+\begin{equation}
+	\lim_{|\bm{R}|\to\infty}\rho_2 (\boldsymbol{R} \uparrow, \boldsymbol{R} \downarrow ; 0 \uparrow, 0
+	\downarrow) = - \frac{(\text{Im} \Delta_0)^2}{U^2} \neq 0\,.
+\end{equation}
+This non-vanishing behavior of the correlation function at the critical point is due to the non-Hermitian nature of the critical phenomenon. In fact, in nonunitary critical phenomena, the correlation function at the critical point can diverge as a function of the distance rather than decay \cite{Fisher:1978vn}.
+
+\section{Renormalization Group Theory of Non-Hermitian BCS Superconductivity}\label{RG}
+
+Here we consider the renormalization-group (RG) flow of the interaction strength to elucidate that the Yang-Lee singularity corresponds to the RG critical line. The one-loop beta function $\beta_1(U)$ is given at the order of $U^2$ by \cite{Shankar1994,Nagaosa}
+\begin{equation}
+  \frac{dV}{dt}=V^{2}=:\beta_1(U)\,,
+  \label{one-loop}
+\end{equation}
+where $dt=-\frac{d\Xi}{\Xi}$ is the relative width of the high-energy
+shell, $\Xi$ is the cutoff of the energy $\xi_{\bm{k}}$ and $V=\rho_0 U$ is the dimensionless interaction strength. Here $t$ is considered as the RG-flow parameter. We take the two-loop correction into account and consider the terms of the order of $U^3$. After the two-loop calculation, we will see that the RG equation reproduces the phase boundary shown in Fig. 1 in the main text.
+
+Up to just one integral over the momenta, the higher-order contribution
+to the beta function comes from the correction for the high-momentum propagator.
+Actually, the self-energy for the high-momentum
+propagator shown in Fig. \ref{feynman_diagram1} is given by
+
+\begin{equation}
+  \Sigma(\bm{k},\Omega)=\int\frac{d\omega}{2\pi}\frac{U}{i\omega-\xi_{\bm{k}}}e^{i\omega0^+}=U\theta(-\xi_{\bm{k}}),
+\end{equation}
+where $\Omega$ is the frequency for the external leg. Here we introduce a factor $e^{i\omega0^+}$ to ensure the convergence \cite{Shankar1994}. Therefore, the propagator is modified as
+
+\begin{equation}
+  G(\bm{k},\Omega)=\frac{1}{i\Omega-\xi_{\bm{k}}}+\frac{U\theta(-\xi_{\bm{k}})}{(i\Omega-\xi_{\bm{k}})^{2}}\,.
+\end{equation}
+By including the self-energy diagram in Fig. \ref{feynman_diagram1}, we can find the corrected contribution from the BCS diagram. After integrating out the energy shell $(-\Xi,-\Xi+d\Xi)$ of $\xi_{\bm{k}}$, we obtain the two-loop correction $\beta_2(U)$ to the beta function as
+\begin{align}
+ \beta_2(U)&= \frac{1}{2}\rho_0\Xi U^{2}\left(\int\frac{d\Omega}{2\pi}\frac{U}{(i\Omega-\Xi)^{2}}\frac{1}{-i\Omega-\Xi}+\int\frac{d\Omega}{2\pi}\frac{1}{i\Omega-\Xi}\frac{U}{(i\Omega+\Xi)^{2}}\right)\\
+ & =-\frac{\rho_0^2U^3}{2}\,,
+ \label{two-loop}
+\end{align}
+where we define $\rho_0=1/(2\Xi)$ since $\frac{1}{N}\sum_{\bm{k}}=1=\int\rho_0d\xi_{\bm{k}}$ is satisfied \cite{Yamamoto2019}. %Since we consider the electrons in the energy shell $(-\Xi,\Xi)$, the number $N$ also represents the number of electrons in this shell. 
+Hence, the RG equation up to two-loop order is written as
+\begin{equation}
+\frac{dV}{dt}=V^{2}-\frac{1}{2}V^{3}\,.\label{eq:RG_Flow_Equ_Total}
+\end{equation}
+The RG flow diagram for Eq. (\ref{eq:RG_Flow_Equ_Total}) is shown in Fig. \ref{RG_Flow_Diagram}(c).
+\begin{figure}
+	\includegraphics[width=0.4\columnwidth]{./figs/Feynman diagram.pdf}
+	\caption{Feynman diagrams for the self-energy correction and the renormalization of the interaction strength. The right diagram is the BCS diagram.}
+	
+	\label{feynman_diagram1}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=1\columnwidth]{./figs/phase_diagram_comparison.pdf}
+	\caption{Canonical RG flow for coupling strength $V$ for general Hermitian and non-Hermitian Hamiltonians with the RG flow equation $\frac{dV}{dt}=aV^2+bV^3$. In the diagram (a) and (c), the parameters are set to be $a=1$ and $b=-1/2$. In the diagram (b) and (d), the parameters are set to be $a=-1$ and $b=1/2$. For $b>0$, there is neither a nontrivial stable fixed point nor a critical line.}
+	
+	\label{RG_Flow_Diagram}
+\end{figure}
+As can be seen from Eq. (\ref{eq:RG_Flow_Equ_Total}), the RG flow has a nontrivial fixed point at $V=2$ and a critical line depicted as the blue curve in Fig. \ref{RG_Flow_Diagram}. This critical line separates the whole space into two phases, with one flowing to the origin and the other flowing to the nontrivial fixed point. The analytical expression for the critical line can be derived as follows \cite{Nakagawa2018}. We rewrite the RG equation (\ref{eq:RG_Flow_Equ_Total}) as
+
+\begin{align}
+		\frac{dV_{R}}{dt} & =V_{R}^{2}-V_{I}^{2}-\frac{1}{2}V_{R}^{3}+\frac{3}{2}V_{R}V_{I}^{2},\\
+		\frac{dV_{I}}{dt} & =2V_{R}V_{I}-\frac{3}{2}V_{I}V_{R}^{2}+\frac{1}{2}V_{I}^{3},
+\end{align}
+ where $V_{R}=\mathrm{Re}(V),V_{I}=\mathrm{Im}(V)$. On the critical line, the interaction parameter flows towards $V_R=\frac{2}{3},V_I=\infty$, which can be derived from the condition $\frac{dV_R}{dt}=0$ with $V_I\to\infty$.  The specific expression of the critical line can be obtained through integration of Eq. (\ref{eq:RG_Flow_Equ_Total}) as
+
+\begin{equation}
+t=-\frac{1}{V^{\mathrm{f}}}+\frac{1}{2}\ln V^{\mathrm{f}}-\frac{1}{2}\ln(2-V^{\mathrm{f}})+\frac{1}{V}-\frac{1}{2}\ln V+\frac{1}{2}\ln(2-V)\label{eq:Relation_between_t_and_U}\,,
+\end{equation}
+where the superscript f denotes the final value of the interaction parameter. Since $V_{I}^{\mathrm{f}}\to\infty$ and $V_{R}^{\mathrm{f}}\to\frac{2}{3}$ on the critical line,
+the imaginary part of Eq. (\ref{eq:Relation_between_t_and_U}) reads as 
+\begin{equation}
+0=\frac{\pi}{2}-\frac{V_{I}}{V_{R}^{2}+V_{I}^{2}}-\frac{1}{2}\arctan\frac{V_{I}}{V_{R}}-\frac{1}{2}\arctan\frac{V_{I}}{2-V_{R}}\,.
+\label{eq:Phase_boundary_by_RG}
+\end{equation}
+This is the equation defining the phase boundary. Around the origin, the expression of this critical line (\ref{eq:Phase_boundary_by_RG}) can be expanded as
+\begin{equation}
+0=-\frac{V_{I}}{V_{R}^{2}+V_{I}^{2}}+\frac{\pi}{2}\,,
+\end{equation}
+which is consistent with the phase boundary (\ref{phase_transition}) obtained from the mean-field theory. The RG result confirms the validity of the mean-field analysis.
+
+By taking $V^{\mathrm{f}}$ to be pure imaginary, we obtain the energy scale $T_{\mathrm{recur}}$ that characterizes the reversion of the RG flow \cite{Nakagawa2018}:
+\begin{equation}
+	 t=\frac{i}{V_{I}^{\mathrm{f}}}+\frac{1}{2}\ln V_{I}^{\mathrm{f}}+i\frac{\pi}{4}-\frac{1}{4}\ln(4+(V_{I}^{\mathrm{f}})^{2})-\frac{i}{2}(2\pi-\arctan\frac{V_{I}^{\mathrm{f}}}{2})+\frac{1}{V}-\frac{1}{2}\ln V+\frac{1}{2}\ln(2-V)\,.
+	\label{Delta t}
+\end{equation}
+If we assume $|V|\ll1$, the above equation (\ref{Delta t}) can be rewritten as
+\begin{align}
+		0 & =\frac{1}{V_{I}^{\mathrm{f}}}+\frac{\pi}{4}+\frac{1}{2}\arctan\frac{V_{I}^{\mathrm{f}}}{2}-\frac{V_{I}}{V_{R}^{2}+V_{I}^{2}}-\frac{1}{2}\arctan\frac{V_{I}}{V_{R}}-\frac{1}{2}\arctan(\frac{V_{I}}{2-V_{R}}),\\
+		e^{-t} & =\sqrt{\frac{\sqrt{4+(V_{I}^{\mathrm{f}})^{2}}}{V_{I}^{\mathrm{f}}}}\exp(-\frac{V_{R}}{V_{R}^{2}+V_{I}^{2}})(\frac{|V|}{|2-V|})^{\frac{1}{2}}.
+\end{align}
+From the second equation, we have the reversion temperature $T_\mathrm{recur}$ at which the RG flow reaches a point $(0,V_I^f)$ on the imaginary axis:
+\begin{equation}
+  T_{\mathrm{recur}}\sim e^{-t}=\sqrt{\frac{\sqrt{4+(V_{I}^{\mathrm{f}})^{2}}}{V_{I}^{\mathrm{f}}}}\exp(-\frac{V_{R}}{V_{R}^{2}+V_{I}^{2}})(\frac{|V|}{|2-V|})^{\frac{1}{2}}\,.
+\end{equation}
+Near the phase boundary in which $V_I^f\gg1$, we can obtain the simplified expression for the reversion temperature as
+\begin{equation}
+  T_{\mathrm{recur}}\sim e^{-t}=\exp(-\frac{V_{R}}{V_{R}^{2}+V_{I}^{2}})(\frac{|V|}{|2-V|})^{\frac{1}{2}}\,.
+\end{equation}
+
+
+Finally, we consider a general canonical RG equation for a marginal interaction $V$ up to the order of $V^3$:
+\begin{equation}
+	\frac{dV}{dt}=aV^2+bV^3.
+	\label{eq:RG_Flow_Equ_Marginal_canonical}
+\end{equation}
+In Fig. \ref{RG_Flow_Diagram}, we show both the Hermitian case and the non-Hermitian case. We find that there are only two types of RG flows for a marginal interaction. The first type with $b<0$ is shown in Fig. \ref{RG_Flow_Diagram}(a,c). In the Hermitian case, it has a nontrivial stable fixed point, whereas in the non-Hermitian case, it has a critical line. The second type with $b>0$ is shown in Fig. \ref{RG_Flow_Diagram}(b,d). In the Hermitian case, it has a non-trivial unstable fixed point, whereas in the non-Hermitian case, it shows no critical line. Hence, we can see  that only the first type of RG flows has a phase boundary and a phase transition.
+
+We can also derive the critical line for the genral canonical RG flow with arbitrary $a$ and $b<0$. Integrating Eq. (\ref{eq:RG_Flow_Equ_Marginal_canonical}) with respect to $t$, we obtain
+\begin{equation}
+	t=-\frac{1}{a V^{\mathrm{f}}}-\frac{b}{a^2}\ln{V^\mathrm{f}}+\frac{b}{a^2}\ln{(a+b V^\mathrm{f})}+\frac{1}{a V}+\frac{b}{a^2}\ln{V}-\frac{b}{a^2}\ln{(a+b V)}.
+\label{eq:general_formula_final}
+\end{equation}
+On the critical line for $V_I\to\infty$ and $V_R\to-\frac{a}{3b}$, the imaginary part of Eq. (\ref{eq:general_formula_final}) reads as 
+\begin{equation}
+	0=-\frac{b\pi}{a|a|}-\frac{1}{a}\frac{V_I}{V_R^2+V_I^2}+\frac{b}{a^2}\arctan{\frac{V_I}{V_R}}+\frac{b}{a^2}\arctan{(-\frac{b V_I}{a+b V_R})}.
+\label{eq:imaginary_part_boundary}
+\end{equation}
+Near the origin, this critical line can be expanded as 
+\begin{equation}
+0=-\frac{V_I}{V_R^2+V_I^2}-\frac{b\pi}{|a|}\,,%\:
+%\begin{cases}
+%	V_R>0, &\mathrm{if}\:a>0;\\
+%	V_R<0, &\mathrm{if}\:a<0,
+%\end{cases}
+\end{equation}
+where $V_R>0$ if $a>0$ and $V_R<0$ if $a<0$, which are both a semicircle.
+
+\end{document}

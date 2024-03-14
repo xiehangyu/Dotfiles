@@ -1,0 +1,54 @@
+\subsection{Experimental setup}
+
+\subsubsection{Sample}
+The sample we measured is a thin film layer contact consisting of niobium as superconductor and aluminium oxide as the separating layer. The thickness of the niobium layer is \SI{100}{nm}, and the thickness of the aluminium oxide is \SI{17.83}{nm}. The thin film is placed on a $\SI{6}{mm} \times \SI{10}{mm}$ silicon substrate which is $\SI{250}{\mu m}$ thick. The junction area is a square with an edge length of $\SI{19.5}{\mu m}$.
+
+\subsubsection{Sample Holder}
+
+\begin{figure}
+
+\centering
+\includegraphics[width=0.8\textwidth]{fig/sampleholder.png}
+
+\caption{Sketch of the sample rod. This figure is taken from the manuscript by Walther Meißner Institut.}
+
+\label{sampleholder}
+\end{figure}
+
+The sample with Josephson contact is located inside a coil, which can be used to generate magnetic field. The coil is fixed at the bottom of the dip stick. The dip stick can be inserted into a liquid helium to cool down to \SI{4.2}{K}, which is sufficient as the critical temperature for niobium is \SI{9.2}{K}. The junction is mounted on a board and connected to pads with aluminium bonds. The board is connected to the connection box of the NIM-frame with wiring inside the dip stick.
+
+\subsubsection{Measurement Equipment}
+For current and voltage measurement, we use a digital source measure unit (SMU) to measure the I-U characteristic of the Josephson contact. We perform a four-point measurement. The SMU is connected to a computer with a standard LAN cable. All the settings can be controlled with LabView program.
+
+For the field dependence measurement, the current source drives a current in the coil, controlling the magnetic field inside the junction. The current is available at I-out, and the current source supplies a monitor voltage signal at Monitor Out-I. 
+
+
+\subsection{Measurement}
+\subsubsection{Cooling}
+
+\begin{itemize}
+
+\item Put on the safety glasses and gloves.
+\item Remove the shutter valve from the He-can, and place the sample rod on the top of the can.
+\item Lower the rod until the table tennis ball in the middle of the tube.
+\item Wait until the ball is below the middle and lower the rod further down until the ball reaches the middle again.
+\item Repeat until you reach the marker on the rod.
+
+\end{itemize}
+
+\subsubsection{Measuring the I-U curve}
+
+\begin{itemize}
+
+\item Set the start and stop point of the current in LabView to \SI{0}{A} and \SI{0.003}{A}. The number of points is set to 500.
+\item Enable the up-down sweep and the four-wire sense.
+\item Press Start Measurement, and save it as the zero-field dependence.
+
+\end{itemize}
+
+
+\subsubsection{Measuring the field dependent critical current}
+Set the voltage from \SI{0}{V} and \SI{0.4}{V} with the step of \SI{0.01}{V}. The voltage of \SI{1}{V} produces a coil current of \SI{100}{mA}. At a coil current of \SI{200}{mA}, the coil produces a field of \SI{7.95}{mT}. Measure I-U characteristic with LabView program. Changing the stop point and the number of points to reduce the measurement time.
+
+\subsubsection{Warming}
+Put on the safety glasses and gloves. Pull the sample rod slowly up to the top and wait until it reached room temperature.

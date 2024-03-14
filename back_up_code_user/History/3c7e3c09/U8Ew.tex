@@ -1,0 +1,177 @@
+\subsection{Four-Point Measure:}
+
+It can eliminate the contact resistance of measurement setup. It is
+used to measure very small resistance, such as in superconductor.
+A pictorial illustration can be found in Fig.\ \ref{two_or_four}
+
+\begin{figure}
+\includegraphics[width=0.8\textwidth]{"../fig/two_or_four.pdf"}
+
+\caption{(a) illustration of the effective circuit for two-point measurement
+and (b) illustration of the effective circuit for four-point measurement.
+The figures are taken from Heikki Laurila's blog, see \protect\href{https://blog.beamex.com/resistance-measurement-2-3-or-4-wire-connection}{https://blog.beamex.com/resistance-measurement-2-3-or-4-wire-connection}. }
+
+\label{two_or_four}
+\end{figure}
+From the figure, we can easily see that the two-point measurement
+will introduce the error of contact resistance because we actually
+measure $R+2R_{W}$. However, for four-point measurement, the voltage
+meter doesn't measure the voltage jump on the top and bottom $R_{W}$,
+thus these two contact resistances will not influence the measure
+result. Besides, since the voltage meter has very high resistance,
+there will be no currents in the two middle $R_{W}$, which means
+their resistances will not cause errors, neither. Therefore, the four-point
+measurement can suppress the contact resistance error $R_{W}$ and
+leads to higher accuracy. 
+
+\subsection{Radiation frequency}
+
+The lowest order harmonic has the equation $fh=2eU$ or 
+\begin{equation}
+f=\frac{2eU}{h},
+\end{equation}
+ which will give the value $U$ as $U=2\times10^{-5}V$.
+
+For the second order harmonic, $f=\frac{4eU}{h}$ and $U=1\times10^{-5}V$.
+
+\subsection{2nd Josephson equation}
+
+For a simple derivation, let's us omit the magnetic vector potential
+$\overrightarrow{A}$ first. In this case, the phase difference $\gamma$
+is just defined as $\gamma=\varphi_{2}-\varphi_{1}$. According to
+Schrodinger equation $i\hbar\partial_{t}\psi_{1,2}=E_{1,2}\psi_{1,2}$
+and $\psi_{1,2}=\exp(i\varphi_{1,2})$, we arrive at
+\begin{equation}
+i\hbar\exp(i\varphi_{1,2})\partial_{t}(i\varphi_{1,2})=E_{1,2}\exp(i\varphi_{1,2}),
+\end{equation}
+or equivalently 
+\begin{equation}
+\partial_{t}\varphi_{1,2}=-\frac{E_{1,2}}{\hbar}.
+\end{equation}
+It is worthy noting that here $E_{1,2}$ denotes the eigenenergies
+of superconductor $1,2$, respectively, which should not be mixed
+up with electric field $\overrightarrow{\bm{E}}$ appearing later.
+Since the electro-magnetic potential $\Phi$ between two superconductors
+are different and each copper pair takes $-2e$ charge, we obtain
+\begin{equation}
+\begin{split}\partial_{t}\gamma= & \partial_{t}\varphi_{2}-\partial_{t}\varphi_{1}\\
+= & -\frac{(E_{2}-E_{1})}{\hbar}\\
+= & \frac{2e}{\hbar}(\Phi_{2}-\Phi_{1})\\
+= & \frac{2e}{\hbar}U.
+\end{split}
+\label{eq:partial_derivation_for_J2}
+\end{equation}
+Hence, 
+\begin{equation}
+\dot{\gamma}-\frac{2e}{\hbar}U=0.
+\end{equation}
+For a complete derivation, we need to consider the magnetic vector
+potential $\overrightarrow{A}$. In this case, $\gamma$ should be
+defined as a gauge-independent way $\gamma=\varphi_{2}-\varphi_{1}+\frac{2e}{\hbar c}\int_{1}^{2}\overrightarrow{A}\cdot d\overrightarrow{s}$.
+From Eq. (\ref{eq:partial_derivation_for_J2}), we obtain
+\begin{equation}
+\begin{split}\partial_{t}\gamma= & \partial_{t}(\varphi_{2}-\varphi_{1})+\frac{2e}{\hbar c}\int_{1}^{2}\dot{\overrightarrow{A}}\cdot d\overrightarrow{s}\\
+= & \frac{2e}{\hbar}(\Phi_{2}-\Phi_{1})+\frac{2e}{\hbar c}\int_{1}^{2}\dot{\overrightarrow{A}}\cdot d\overrightarrow{s}\\
+= & \frac{2e}{\hbar}\int_{1}^{2}(\nabla\Phi+\frac{1}{c}\dot{\overrightarrow{A}})\cdot d\overrightarrow{s}\\
+= & -\frac{2e}{\hbar}\int_{1}^{2}\overrightarrow{\bm{E}}\cdot d\overrightarrow{s},
+\end{split}
+\label{eq:complete_proof_of_J2}
+\end{equation}
+where the electric field $\overrightarrow{\bm{E}}=-(\nabla\Phi+\frac{1}{c}\dot{\overrightarrow{A}})$
+according to the Maxwell's equation. From the electromagnetism class,
+we can define the gauge-independent electric potential $U$ as $U=-\int_{1}^{2}\overrightarrow{\bm{E}}\cdot d\overrightarrow{s}$
+and the relation
+\begin{equation}
+\dot{\gamma}-\frac{2e}{\hbar}U=0
+\end{equation}
+still holds.
+
+\subsection{Josephson effect and pendulum}
+From
+\begin{equation}
+I_{tot}=I_{c}\sin\gamma+\frac{U}{R_{n}}+C\dot{U}
+\end{equation}
+with $U=\frac{\hbar\dot{\gamma}}{2e}$, we have 
+\begin{equation}
+I_{tot}=I_{c}\sin\gamma+\frac{\hbar}{2eR_{n}}\dot{\gamma}+\frac{C\hbar}{2e}\ddot{\gamma}.
+\end{equation}
+We can also write it as 
+\begin{equation}
+\frac{I_{tot}}{I_{c}}=\sin\gamma+\frac{\Phi_{0}}{2\pi R_{n}I_{c}}\dot{\gamma}+\frac{C\Phi_{0}}{2\pi I_{c}}\ddot{\gamma}.
+\end{equation}
+We further introduce $t'=\sqrt{\frac{2\pi I_{c}}{C\Phi_{0}}}t$ to
+make the equation dimensionless:
+\begin{equation}
+\frac{I_{tot}}{I_{c}}=\sin\gamma+\frac{d\gamma}{dt'}\sqrt{\frac{\Phi_{0}}{2\pi R_{n}^{2}CI_{c}}}+\frac{d\gamma}{dt''},
+\end{equation}
+or 
+\begin{equation}
+a_{d}=\sin\gamma+\frac{1}{\beta_{c}^{2}}\frac{d\gamma}{dt'}+\frac{d\gamma}{dt''}.
+\end{equation}
+In classical mechanics, the pendulum has the equation
+\begin{equation}
+ml^{2}\ddot{\theta}+mgl\sin\theta+f\dot{\theta}=L_{d},
+\end{equation}
+where $f$ is the damping moment caused by friction, $L_{d}$ is the
+external driven moment. We can see that 
+\begin{equation}
+\begin{cases}
+\gamma & =\theta;\\
+I_{c} & =mgl;\\
+\frac{\Phi_{0}}{2\pi R_{n}} & =f;\\
+\frac{C\Phi_{0}}{2\pi} & =ml^{2};\\
+I_{tot} & =L_{d}.
+\end{cases}
+\end{equation}
+
+
+\subsection{Gauge invariant}
+
+In the simple case where we omit the magnetic vector potential $\overrightarrow{A}$,
+$\gamma$ is defined as $\gamma=\varphi_{2}-\varphi_{1}$ and $U$
+is defined as $U=\Phi_{2}-\Phi_{1}$, where $\Phi$ is the gauge-dependent
+electric potential. Under a gauge transformation $\varphi\to\varphi-\frac{2e}{\hbar c}\chi$
+and $\Phi\to\Phi-\frac{1}{c}\frac{\partial\chi}{\partial t}$, the
+new $\gamma'$ and $U'$ can be written as
+\begin{equation}
+\gamma'=\varphi_{2}'-\varphi_{1}'=\varphi_{2}-\varphi_{1}-\frac{2e}{\hbar c}\chi_{2}+\frac{2e}{\hbar c}\chi_{1}=\gamma-\frac{2e}{\hbar c}\chi_{2}+\frac{2e}{\hbar c}\chi_{1},
+\end{equation}
+\begin{equation}
+U'=\Phi_{2}'-\Phi_{1}'=\Phi_{2}-\Phi_{1}-\frac{1}{c}\dot{\chi}_{2}+\frac{1}{c}\dot{\chi}_{1}=U-\frac{1}{c}\dot{\chi}_{2}+\frac{1}{c}\dot{\chi}_{1}.
+\end{equation}
+After some calculations, we obtain
+\begin{equation}
+\begin{split}\dot{\gamma}'= & \dot{\gamma}-\frac{2e}{\hbar c}(\dot{\chi}_{2}-\dot{\chi}_{1})\\
+= & \frac{2e}{\hbar}(U-\frac{1}{c}\dot{\chi}_{2}+\frac{1}{c}\dot{\chi}_{1})\\
+= & \frac{2e}{\hbar}U'.
+\end{split}
+\end{equation}
+Therefore, the second Josephson equation still holds. Namely, it is gauge-independent (gauge-invariant). 
+
+For the complete proof, we have to consider the vector potential $\overrightarrow{A}$
+in which case $\gamma$ is defined as $\gamma=\varphi_{2}-\varphi_{1}+\frac{2e}{\hbar c}\int_{1}^{2}\overrightarrow{A}\cdot d\overrightarrow{s}$
+and $U$ is defined as $U=-\int_{1}^{2}\overrightarrow{\bm{E}}\cdot d\overrightarrow{s}$
+according to Eq. (\ref{eq:complete_proof_of_J2}). Now, we can prove
+$\gamma$ and $U$ are both gauge-independent thus the second Josephson
+equation is also gauge-independent. In fact, under the gauge transformation
+$\overrightarrow{A}\to\overrightarrow{A}+\nabla\chi$ and we obtain
+\begin{equation}
+\begin{split}\gamma'= & \varphi_{2}'-\varphi_{1}'+\frac{2e}{\hbar c}\int_{1}^{2}\overrightarrow{A'}\cdot d\overrightarrow{s}\\
+= & \varphi_{2}-\varphi_{1}-\frac{2e}{\hbar c}\chi_{2}+\frac{2e}{\hbar c}\chi_{1}+\frac{2e}{\hbar c}\int_{1}^{2}(\overrightarrow{A}+\nabla\chi)\cdot d\overrightarrow{s}\\
+= & \gamma-\frac{2e}{\hbar c}\chi_{2}+\frac{2e}{\hbar c}\chi_{1}+\frac{2e}{\hbar c}\int_{1}^{2}\nabla\chi\cdot d\overrightarrow{s}\\
+= & \gamma-\frac{2e}{\hbar c}\chi_{2}+\frac{2e}{\hbar c}\chi_{1}+\frac{2e}{\hbar c}\chi_{2}-\frac{2e}{\hbar c}\chi_{1}\\
+= & \gamma.
+\end{split}
+\end{equation}
+On the other hand, 
+\begin{equation}
+\begin{split}\overrightarrow{\bm{E}}'= & -(\nabla\Phi'+\frac{1}{c}\dot{\overrightarrow{A}}')\\
+= & -\left(\nabla(\Phi-\frac{1}{c}\frac{\partial\chi}{\partial t})+\frac{1}{c}\dot{\overrightarrow{A}}+\frac{1}{c}\frac{\partial}{\partial t}\nabla\chi\right)\\
+= & \overrightarrow{\bm{E}}+\frac{1}{c}\nabla\frac{\partial\chi}{\partial t}-\frac{1}{c}\frac{\partial}{\partial t}\nabla\chi\\
+= & \overrightarrow{\bm{E}},
+\end{split}
+\end{equation}
+hence $U=-\int_{1}^{2}\overrightarrow{\bm{E}}\cdot d\overrightarrow{s}$
+is also gauge-independent. Since now, $\gamma$ and $U$ are both
+gauge-independent, the second Josephson equation is automatically
+gauge-independent. 

@@ -1,0 +1,108 @@
+# LyX 2.3.6.1 generated this file. If you want to make your own
+# modifications you should do them from inside LyX and save.
+
+Format 24
+
+
+#
+# MISC SECTION ######################################
+#
+
+\user_name "xiehangyu"
+\user_email ""
+
+#
+# SCREEN & FONTS SECTION ############################
+#
+
+\screen_font_sizes 5 7 8 9 10 12 14.4 17.26 20.74 24.88
+\single_instance false
+
+#
+# COLOR SECTION ###################################
+#
+
+
+#
+# PRINTER SECTION ###################################
+#
+
+
+#
+# TEX SECTION #######################################
+#
+
+
+#
+# FILE SECTION ######################################
+#
+
+
+#
+# PLAIN TEXT EXPORT SECTION ##############################
+#
+
+
+#
+# SPELLCHECKER SECTION ##############################
+#
+
+
+#
+# LANGUAGE SUPPORT SECTION ##########################
+#
+
+\spellchecker hunspell
+\spellcheck_continuously true
+
+#
+# 2nd MISC SUPPORT SECTION ##########################
+#
+
+
+#
+# FORMATS SECTION ##########################
+#
+
+\format "bmp" "bmp" "BMP" "" "eog" "auto" "" "image/x-bmp"
+\format "dia" "dia" "DIA" "" "auto" "auto" "vector,zipped=native" "application/x-dia-diagram"
+\format "excel" "xls" "Excel spreadsheet" "" "" "auto" "document" "application/vnd.ms-excel"
+\format "fen" "fen" "FEN" "" "auto" "auto" "" ""
+\format "fig" "fig" "FIG" "" "auto" "auto" "vector" "application/x-xfig"
+\format "gif" "gif" "GIF" "" "eog" "auto" "" "image/gif"
+\format "gnumeric" "gnumeric" "Gnumeric spreadsheet" "" "" "auto" "document" "application/x-gnumeric"
+\format "agr" "agr" "Grace" "" "auto" "auto" "vector" ""
+\format "html" "html, htm" "HTML" "H" "auto" "" "document,menu=export" "text/html"
+\format "html_table" "html" "HTML Table (for spreadsheets)" "" "" "auto" "document" "text/html"
+\format "jpg" "jpg, jpeg" "JPEG" "" "eog" "auto" "" "image/jpeg"
+\format "xhtml" "xhtml" "LyXHTML" "y" "auto" "" "document,menu=export" "application/xhtml+xml"
+\format "excel2" "xlsx" "MS Excel Office Open XML" "" "" "auto" "document" "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+\format "word" "doc" "MS Word" "W" "auto" "auto" "document,vector,menu=export" "application/msword"
+\format "word2" "docx" "MS Word Office Open XML" "O" "auto" "auto" "document,vector,menu=export" "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+\format "noteedit" "not" "Noteedit" "" "auto" "auto" "vector" ""
+\format "odt2" "odt" "OpenDocument (eLyXer)" "" "auto" "auto" "document,vector,menu=export" "application/vnd.oasis.opendocument.text"
+\format "odt3" "odt" "OpenDocument (Pandoc)" "" "auto" "auto" "document,vector,menu=export" "application/vnd.oasis.opendocument.text"
+\format "odt" "odt" "OpenDocument (tex4ht)" "" "auto" "auto" "document,vector,menu=export" "application/vnd.oasis.opendocument.text"
+\format "odg" "odg, sxd" "OpenDocument drawing" "" "auto" "auto" "vector,zipped=native" "application/vnd.oasis.opendocument.graphics"
+\format "oocalc" "ods" "OpenDocument spreadsheet" "" "" "auto" "document" "application/vnd.oasis.opendocument.spreadsheet"
+\format "pbm" "pbm" "PBM" "" "eog" "auto" "" "image/x-portable-bitmap"
+\format "pgm" "pgm" "PGM" "" "eog" "auto" "" "image/x-portable-graymap"
+\format "png" "png" "PNG" "" "eog" "auto" "" "image/x-png"
+\format "ppm" "ppm" "PPM" "" "eog" "auto" "" "image/x-portable-pixmap"
+\format "rtf" "rtf" "Rich Text Format" "" "auto" "auto" "document,vector,menu=export" "application/rtf"
+\format "svg" "svg" "SVG" "" "auto" "auto" "vector" "image/svg+xml"
+\format "svgz" "svgz" "SVG (compressed)" "" "auto" "auto" "vector,zipped=native" ""
+\format "tgif" "obj, tgo" "Tgif" "" "auto" "auto" "vector" "application/x-tgif"
+\format "tiff" "tif" "TIFF" "" "eog" "auto" "" "image/tiff"
+\format "xbm" "xbm" "XBM" "" "eog" "auto" "" "image/x-xbitmap"
+\format "xpm" "xpm" "XPM" "" "eog" "auto" "" "image/x-xpixmap"
+
+#
+# CONVERTERS SECTION ##########################
+#
+
+
+#
+# COPIERS SECTION ##########################
+#
+

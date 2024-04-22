@@ -557,6 +557,7 @@ iputils
 ipython
 iso-codes
 iw
+jabref-bin
 jack2
 jansson
 jasper

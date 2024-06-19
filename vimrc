@@ -1,4 +1,4 @@
-"curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"curt -fLo ~/.vim/autoload/plug.vim --create-dirs \
 "    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 "set nocompatible              " be iMproved, required
 filetype on                  " required

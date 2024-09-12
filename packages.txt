@@ -34,6 +34,7 @@ base
 base-devel
 bash
 bcprov
+bibtool
 binutils
 bison
 blas

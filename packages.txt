@@ -294,6 +294,7 @@ hicolor-icon-theme
 hidapi
 highway
 hunspell
+hunspell-en_us
 hwdata
 hyphen
 iana-etc
@@ -865,6 +866,9 @@ python-pydantic-core
 python-pygments
 python-pygobject-stubs
 python-pyproject-hooks
+python-pyqt6
+python-pyqt6-sip
+python-pyqt6-webengine
 python-pyserial
 python-pyxdg
 python-requests
@@ -931,6 +935,8 @@ serd
 shaderc
 shadow
 shared-mime-info
+silo-grammarly
+silos
 simple-scan
 slack-debug
 slack-desktop

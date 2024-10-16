@@ -48,6 +48,7 @@ brltty
 brotli
 bubblewrap
 bzip2
+c-ares
 ca-certificates
 ca-certificates-mozilla
 ca-certificates-utils
@@ -530,6 +531,7 @@ libnfs
 libnftnl
 libnghttp2
 libnghttp3
+libngtcp2
 libnice
 libnl
 libnm
@@ -716,7 +718,11 @@ neon
 net-snmp
 nettle
 networkmanager
+node-gyp
+nodejs
+nodejs-nopt
 noto-fonts-emoji-blob
+npm
 npth
 nspr
 nss
@@ -932,6 +938,7 @@ sdl12-compat
 sdl2
 sdl2_ttf
 sed
+semver
 serd
 shaderc
 shadow

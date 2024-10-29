@@ -752,6 +752,7 @@ pacman-mirrorlist
 pahole
 pam
 pambase
+pandoc-bin
 pango
 pangomm
 pangomm-2.48

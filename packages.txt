@@ -1063,6 +1063,7 @@ vte4
 vulkan-headers
 vulkan-icd-loader
 vulkan-intel
+wasistlos-git
 wavpack
 wayland
 wayland-protocols
@@ -1074,7 +1075,6 @@ wechat-universal-bwrap
 wemeet-bin
 wemeet-bin-debug
 wget
-whatsapp-for-linux
 which
 wildmidi
 wireplumber

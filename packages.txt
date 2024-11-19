@@ -1030,6 +1030,7 @@ totem
 totem-pl-parser
 tpm2-tss
 traceroute
+tree
 tslib
 ttf-dejavu
 ttf-liberation

@@ -951,6 +951,7 @@ scour
 sdl12-compat
 sdl2
 sdl2_ttf
+seahorse
 sed
 semver
 serd

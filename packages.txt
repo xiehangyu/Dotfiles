@@ -441,6 +441,7 @@ libdbusmenu-gtk3
 libdc1394
 libdca
 libde265
+libdecor
 libdeflate
 libdisplay-info
 libdmapsharing
@@ -912,6 +913,7 @@ qt5-x11extras
 qt6-base
 qt6-declarative
 qt6-positioning
+qt6-svg
 qt6-translations
 qt6-wayland
 qt6-webchannel

@@ -176,6 +176,7 @@ glslang
 glu
 glycin
 gmp
+gnome-app-list
 gnome-autoar
 gnome-backgrounds
 gnome-bluetooth-3.0
@@ -254,6 +255,7 @@ gst-devtools-libs
 gst-editing-services
 gst-libav
 gst-plugin-gtk
+gst-plugin-gtk4
 gst-plugin-pipewire
 gst-plugins-bad
 gst-plugins-bad-libs
@@ -332,6 +334,7 @@ jbigkit
 jdk-openjdk
 jpegoptim
 js115
+js128
 json-c
 json-glib
 jsoncpp
@@ -358,6 +361,7 @@ lib32-expat
 lib32-gcc-libs
 lib32-glibc
 lib32-icu
+lib32-json-c
 lib32-keyutils
 lib32-krb5
 lib32-libdrm
@@ -386,7 +390,6 @@ lib32-libxxf86vm
 lib32-llvm-libs
 lib32-lm_sensors
 lib32-mesa
-lib32-mesa-vdpau
 lib32-ncurses
 lib32-openssl
 lib32-wayland
@@ -590,6 +593,7 @@ libsoup3
 libsoxr
 libspectre
 libspeechd
+libspelling
 libsrtp
 libssh
 libssh2
@@ -614,7 +618,6 @@ libutempter
 libuv
 libva
 libva-intel-driver
-libva-mesa-driver
 libvdpau
 libverto
 libvisio
@@ -679,6 +682,7 @@ linux-lts-headers
 llvm-libs
 lm_sensors
 lmdb
+localsearch
 loupe
 lsb-release
 lsof
@@ -700,7 +704,6 @@ md4c
 mdadm
 mendeley-reference-manager
 mesa
-mesa-vdpau
 minizip
 mjpegtools
 mkinitcpio
@@ -733,6 +736,7 @@ openal
 opencc
 opencore-amr
 openexr
+openh264
 openjpeg2
 openssh
 openssl
@@ -840,6 +844,7 @@ python-gobject
 python-idna
 python-inflect
 python-installer
+python-jaraco.collections
 python-jaraco.context
 python-jaraco.functools
 python-jaraco.text
@@ -921,6 +926,7 @@ qt6-webengine
 ragel
 raptor
 rav1e
+re2
 readline
 rhash
 rime-bopomofo
@@ -1012,14 +1018,13 @@ texlive-pstricks
 texlive-publishers
 texlive-xetex
 the_silver_searcher
+tinysparql
 tlp
 tomcat10
 totem
 totem-pl-parser
 tpm2-tss
 traceroute
-tracker3
-tracker3-miners
 tslib
 ttf-dejavu
 ttf-liberation
@@ -1055,6 +1060,7 @@ vulkan-icd-loader
 vulkan-intel
 wavpack
 wayland
+wayland-protocols
 webkit2gtk
 webkit2gtk-4.1
 webkitgtk-6.0

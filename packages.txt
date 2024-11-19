@@ -284,12 +284,15 @@ gupnp-dlna
 gupnp-igd
 gvfs
 gvfs-afc
+gvfs-dnssd
 gvfs-goa
 gvfs-google
 gvfs-gphoto2
 gvfs-mtp
 gvfs-nfs
+gvfs-onedrive
 gvfs-smb
+gvfs-wsdd
 gzip
 harfbuzz
 harfbuzz-icu
@@ -713,6 +716,7 @@ mod_dnssd
 mpdecimal
 mpfr
 mpg123
+msgraph
 mtdev
 mutter
 nautilus
@@ -836,6 +840,7 @@ python-coverage
 python-cryptography
 python-cssselect
 python-decorator
+python-defusedxml
 python-distro
 python-executing
 python-fastjsonschema
@@ -1080,6 +1085,7 @@ wps-office
 wps-office-debug
 wqy-microhei
 wqy-zenhei
+wsdd
 x264
 x265
 xbitmaps

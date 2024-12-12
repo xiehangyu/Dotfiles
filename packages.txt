@@ -303,6 +303,7 @@ highway
 hunspell
 hunspell-en_us
 hwdata
+hwloc
 hyphen
 iana-etc
 icu
@@ -464,6 +465,7 @@ libepoxy
 libevdev
 libevent
 libexif
+libfabric
 libfdk-aac
 libffi
 libfontenc
@@ -735,6 +737,7 @@ npth
 nspr
 nss
 ntfs-3g
+numactl
 ocl-icd
 openal
 opencc
@@ -742,11 +745,14 @@ opencore-amr
 openexr
 openh264
 openjpeg2
+openmpi
+openpmix
 openssh
 openssl
 openssl-1.0
 openssl-1.0-debug
 openssl-1.1
+openucx
 opus
 orc
 orca
@@ -814,6 +820,7 @@ potrace
 procps-ng
 protobuf
 protobuf-c
+prrte
 psmisc
 pulse-native-provider
 python

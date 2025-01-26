@@ -818,6 +818,7 @@ popt
 portaudio
 potrace
 procps-ng
+progress
 protobuf
 protobuf-c
 prrte

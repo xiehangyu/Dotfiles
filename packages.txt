@@ -677,6 +677,7 @@ libxxf86vm
 libyaml
 libyuv
 licenses
+light-git
 lilv
 linux-api-headers
 linux-firmware

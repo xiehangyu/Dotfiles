@@ -1,9 +1,11 @@
+7zip
 aalib
 abseil-cpp
 accountsservice
 acl
 adobe-source-code-pro-fonts
 adwaita-cursors
+adwaita-fonts
 adwaita-icon-theme
 adwaita-icon-theme-legacy
 aic94xx-firmware
@@ -103,6 +105,8 @@ eclipse-ecj
 editorconfig-core-c
 efibootmgr
 efivar
+egl-wayland
+eglexternalplatform
 ell
 enchant
 epiphany
@@ -199,6 +203,7 @@ gnome-keyring
 gnome-logs
 gnome-maps
 gnome-menus
+gnome-mimeapps
 gnome-music
 gnome-online-accounts
 gnome-remote-desktop
@@ -220,6 +225,7 @@ gnome-tweaks
 gnome-user-docs
 gnome-user-share
 gnome-weather
+gnulib-l10n
 gnupg
 gnustep-base
 gnutls
@@ -349,11 +355,13 @@ kitemviews
 kmod
 krb5
 kwidgetsaddons
+kwindowsystem
 l-smash
 lame
 lapack
 lcms2
 ldb
+leancrypto
 less
 leveldb
 lib2geom
@@ -396,6 +404,7 @@ lib32-lm_sensors
 lib32-mesa
 lib32-ncurses
 lib32-openssl
+lib32-spirv-tools
 lib32-wayland
 lib32-xz
 lib32-zlib
@@ -457,6 +466,7 @@ libdrm
 libdv
 libdvdnav
 libdvdread
+libebur128
 libedataserverui4
 libedit
 libei
@@ -617,6 +627,7 @@ libtool
 libunibreak
 libunistring
 libunwind
+liburing
 libusb
 libusbmuxd
 libutempter
@@ -761,7 +772,6 @@ os-prober
 osinfo-db
 ostree
 p11-kit
-p7zip
 pacman
 pacman-contrib
 pacman-mirrorlist
@@ -848,6 +858,7 @@ python-conda-package-handling-debug
 python-coverage
 python-cryptography
 python-cssselect
+python-dbus
 python-decorator
 python-defusedxml
 python-distro
@@ -858,6 +869,7 @@ python-gobject
 python-idna
 python-inflect
 python-installer
+python-ipython-pygments-lexers
 python-jaraco.collections
 python-jaraco.context
 python-jaraco.functools
@@ -913,6 +925,7 @@ python-tqdm
 python-traitlets
 python-trove-classifiers
 python-typeguard
+python-typing-inspection
 python-typing_extensions
 python-urllib3
 python-validate-pyproject
@@ -960,8 +973,9 @@ sane
 sbc
 scour
 sdl12-compat
-sdl2
+sdl2-compat
 sdl2_ttf
+sdl3
 seahorse
 sed
 semver
@@ -971,6 +985,7 @@ shadow
 shared-mime-info
 silo-grammarly
 silos
+simdjson
 simple-scan
 slack-debug
 slack-desktop

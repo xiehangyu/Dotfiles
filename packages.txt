@@ -907,6 +907,7 @@ python-setuptools
 python-six
 python-soupsieve
 python-stack-data
+python-tinycss2
 python-tomli
 python-tqdm
 python-traitlets
@@ -916,6 +917,7 @@ python-typing_extensions
 python-urllib3
 python-validate-pyproject
 python-wcwidth
+python-webencodings
 python-wheel
 python-zstandard
 qpdf

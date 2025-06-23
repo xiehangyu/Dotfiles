@@ -101,6 +101,8 @@ double-conversion
 duktape
 dvisvgm
 e2fsprogs
+easyroam-desktop-bin
+easyroam-desktop-bin-debug
 eclipse-ecj
 editorconfig-core-c
 efibootmgr

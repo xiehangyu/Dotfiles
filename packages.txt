@@ -65,6 +65,9 @@ chromaprint
 chrpath
 cifs-utils
 cjson
+clash-geoip
+clash-meta
+clash-verge-rev
 cmake
 colord
 colord-gtk-common

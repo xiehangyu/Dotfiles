@@ -35,6 +35,7 @@ baobab
 base
 base-devel
 bash
+bc
 bcprov
 bibtool
 binutils
@@ -45,6 +46,7 @@ bluez-libs
 bluez-obex
 bluez-utils
 bolt
+boost
 boost-libs
 brightnessctl
 brltty
@@ -68,6 +70,7 @@ cifs-utils
 cjson
 clash-geoip
 clash-verge-rev
+clucene
 cmake
 colord
 colord-gtk-common
@@ -98,6 +101,8 @@ diffpdf
 diffutils
 djvulibre
 dmidecode
+docbook-xml
+docbook-xsl
 dosfstools
 dotconf
 double-conversion
@@ -180,6 +185,8 @@ github-cli
 gjs
 glib-networking
 glib2
+glib2-devel
+glib2-docs
 glibc
 glibmm
 glibmm-2.68
@@ -282,6 +289,7 @@ gstreamer0.10
 gstreamer0.10-base
 gstreamer0.10-base-debug
 gstreamer0.10-debug
+gtk-doc
 gtk-update-icon-cache
 gtk-vnc
 gtk2
@@ -417,6 +425,7 @@ lib32-wayland
 lib32-xz
 lib32-zlib
 lib32-zstd
+libabw
 libadwaita
 libao
 libappindicator-gtk3
@@ -425,6 +434,7 @@ libass
 libassuan
 libasyncns
 libatasmart
+libatomic_ops
 libavc1394
 libavif
 libavtp
@@ -454,6 +464,7 @@ libcdio
 libcdio-paranoia
 libcdr
 libcloudproviders
+libcmis
 libcolord
 libcue
 libcups
@@ -474,20 +485,25 @@ libdrm
 libdv
 libdvdnav
 libdvdread
+libe-book
 libebur128
 libedataserverui4
 libedit
 libei
 libelf
 libepoxy
+libepubgen
+libetonyek
 libevdev
 libevent
 libexif
+libexttextcat
 libfabric
 libfdk-aac
 libffi
 libfontenc
 libfreeaptx
+libfreehand
 libgcrypt
 libgdata
 libgdm
@@ -500,6 +516,7 @@ libgoa
 libgpg-error
 libgphoto2
 libgrss
+libgrss-debug
 libgsf
 libgtop
 libgudev
@@ -525,9 +542,11 @@ libinput
 libinstpatch
 libiptcdata
 libisl
+libixion
 libjpeg-turbo
 libjxl
 libksba
+liblangtag
 liblc3
 libldac
 libldap
@@ -545,7 +564,9 @@ libmnl
 libmodplug
 libmpc
 libmpcdec
+libmspub
 libmtp
+libmwaw
 libmysofa
 libmythes
 libnautilus-extension
@@ -566,13 +587,17 @@ libnma-common
 libnma-gtk4
 libnotify
 libnsl
+libnumbertext
 libnvme
 liboauth
+libodfgen
 libogg
 libomxil-bellagio
 libopenmpt
+liborcus
 libosinfo
 libp11-kit
+libpagemaker
 libpaper
 libpcap
 libpciaccess
@@ -592,8 +617,10 @@ libproxy
 libpsl
 libpulse
 libpwquality
+libqxp
 libraqm
 libraw1394
+libreoffice-fresh
 librest
 librevenge
 librime
@@ -621,6 +648,7 @@ libspelling
 libsrtp
 libssh
 libssh2
+libstaroffice
 libstemmer
 libsynctex
 libsysprof-capture
@@ -632,6 +660,7 @@ libtiff
 libtiff5
 libtiff5-debug
 libtirpc
+libtommath
 libtool
 libunibreak
 libunistring
@@ -659,6 +688,7 @@ libwnck3
 libwpd
 libwpe
 libwpg
+libwps
 libx11
 libxau
 libxaw
@@ -680,6 +710,7 @@ libxkbcommon
 libxkbcommon-x11
 libxkbfile
 libxml2
+libxml2-legacy
 libxmlb
 libxmu
 libxpm
@@ -696,6 +727,7 @@ libxvmc
 libxxf86vm
 libyaml
 libyuv
+libzmf
 licenses
 light-git
 lilv
@@ -720,6 +752,7 @@ lm_sensors
 lmdb
 localsearch
 loupe
+lpsolve
 lsb-release
 lsof
 lua
@@ -755,7 +788,6 @@ msgraph
 mtdev
 mutter
 nautilus
-nautilus-image-converter
 ncurses
 neon
 net-snmp
@@ -805,6 +837,7 @@ pangomm
 pangomm-2.48
 parted
 patch
+patchelf
 pciutils
 pcre
 pcre2
@@ -869,6 +902,7 @@ python-beautifulsoup4
 python-boltons
 python-boto3
 python-botocore
+python-bottle
 python-build
 python-cachecontrol
 python-cairo
@@ -878,8 +912,10 @@ python-chardet
 python-charset-normalizer
 python-click
 python-conda
+python-conda-libmamba-solver
 python-conda-package-handling
 python-conda-package-handling-debug
+python-conda-package-streaming
 python-coverage
 python-cryptography
 python-cssselect
@@ -890,6 +926,7 @@ python-defusedxml
 python-deprecated
 python-distro
 python-docutils
+python-editables
 python-executing
 python-fastjsonschema
 python-filelock
@@ -897,6 +934,8 @@ python-flit
 python-flit-core
 python-frozendict
 python-gobject
+python-hatch-vcs
+python-hatchling
 python-idna
 python-inflect
 python-iniconfig
@@ -922,6 +961,7 @@ python-numpy
 python-ordered-set
 python-packaging
 python-parso
+python-pathspec
 python-pexpect
 python-pikepdf
 python-pillow
@@ -946,6 +986,8 @@ python-pyqt6-sip
 python-pyqt6-webengine
 python-pyserial
 python-pytest
+python-pytest-cov
+python-pytest-mock
 python-pyxdg
 python-requests
 python-ruamel-yaml
@@ -994,9 +1036,11 @@ qt6-webchannel
 qt6-webengine
 ragel
 raptor
+rasqal
 rav1e
 re2
 readline
+redland
 reproc
 rhash
 rime-bopomofo
@@ -1181,6 +1225,7 @@ xf86-video-fbdev
 xf86-video-intel
 xf86-video-vesa
 xkeyboard-config
+xmlsec
 xorg-bdftopcf
 xorg-docs
 xorg-font-util

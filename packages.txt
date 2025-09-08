@@ -42,6 +42,7 @@ bison
 blas
 bluez
 bluez-libs
+bluez-obex
 bluez-utils
 bolt
 boost-libs
@@ -66,7 +67,6 @@ chrpath
 cifs-utils
 cjson
 clash-geoip
-clash-meta
 clash-verge-rev
 cmake
 colord
@@ -246,6 +246,7 @@ googletest-git
 googletest-git-debug
 gperftools
 gpgme
+gpgmepp
 gpm
 graphene
 graphicsmagick
@@ -700,6 +701,16 @@ light-git
 lilv
 linux-api-headers
 linux-firmware
+linux-firmware-amdgpu
+linux-firmware-atheros
+linux-firmware-broadcom
+linux-firmware-cirrus
+linux-firmware-intel
+linux-firmware-mediatek
+linux-firmware-nvidia
+linux-firmware-other
+linux-firmware-radeon
+linux-firmware-realtek
 linux-firmware-whence
 linux-headers
 linux-lts
@@ -730,6 +741,7 @@ mdadm
 mendeley-reference-manager
 mesa
 micromamba
+mihomo
 minizip
 mjpegtools
 mkinitcpio
@@ -875,6 +887,7 @@ python-dateutil
 python-dbus
 python-decorator
 python-defusedxml
+python-deprecated
 python-distro
 python-docutils
 python-executing
@@ -958,6 +971,7 @@ python-validate-pyproject
 python-wcwidth
 python-webencodings
 python-wheel
+python-wrapt
 python-zstandard
 qpdf
 qrencode
@@ -1236,6 +1250,7 @@ zimg
 zip
 zix
 zlib
+zlib-ng
 zoom
 zsh
 zstd

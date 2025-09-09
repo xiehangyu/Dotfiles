@@ -70,6 +70,7 @@ cifs-utils
 cjson
 clash-geoip
 clash-verge-rev
+cli11
 clucene
 cmake
 colord
@@ -774,6 +775,7 @@ mdadm
 mendeley-reference-manager
 mesa
 micromamba
+micromamba-debug
 mihomo
 minizip
 mjpegtools
@@ -788,11 +790,15 @@ msgraph
 mtdev
 mutter
 nautilus
+nautilus-nutstore
+nautilus-nutstore-debug
 ncurses
 neon
 net-snmp
 nettle
 networkmanager
+ninja
+nlohmann-json
 node-gyp
 nodejs
 nodejs-nopt
@@ -889,6 +895,7 @@ protobuf-c
 prrte
 psmisc
 pulse-native-provider
+pybind11
 python
 python-annotated-types
 python-appdirs
@@ -993,6 +1000,7 @@ python-requests
 python-ruamel-yaml
 python-ruamel.yaml.clib
 python-s3transfer
+python-scikit-build
 python-setproctitle
 python-setuptools
 python-setuptools-scm
@@ -1139,6 +1147,7 @@ texlive-publishers
 texlive-xetex
 the_silver_searcher
 tinysparql
+tl-expected
 tlp
 tomcat10
 totem

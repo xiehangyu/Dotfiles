@@ -219,7 +219,6 @@ gnome-keyring
 gnome-logs
 gnome-maps
 gnome-menus
-gnome-mimeapps
 gnome-music
 gnome-online-accounts
 gnome-remote-desktop
@@ -266,7 +265,7 @@ grilo-plugins
 groff
 grub
 gsettings-desktop-schemas
-gsettings-qt
+gsettings-qt5
 gsettings-system-schemas
 gsfonts
 gsl
@@ -364,6 +363,7 @@ jdk-openjdk
 jpegoptim
 js115
 js128
+js140
 json-c
 json-glib
 jsoncpp
@@ -458,6 +458,7 @@ libbs2b
 libbsd
 libbytesize
 libcaca
+libcacard
 libcamera
 libcamera-ipa
 libcanberra
@@ -507,6 +508,7 @@ libffi
 libfontenc
 libfreeaptx
 libfreehand
+libfyaml
 libgcrypt
 libgdata
 libgdm
@@ -875,6 +877,7 @@ perl-try-tiny
 perl-uri
 perl-www-robotrules
 perl-xml-parser
+phodav
 pinentry
 pipewire
 pipewire-audio
@@ -929,6 +932,7 @@ python-conda-package-streaming
 python-coverage
 python-cryptography
 python-cssselect
+python-dasbus
 python-dateutil
 python-dbus
 python-decorator
@@ -1100,6 +1104,8 @@ spdlog
 speech-dispatcher
 speex
 speexdsp
+spice-gtk
+spice-protocol
 spirv-tools
 sqlite
 sratom
@@ -1171,6 +1177,7 @@ upd72020x-fw
 update-grub
 upower
 usbmuxd
+usbredir
 usbutils
 util-linux
 util-linux-libs
@@ -1190,6 +1197,7 @@ vte4
 vulkan-headers
 vulkan-icd-loader
 vulkan-intel
+vulkan-mesa-device-select
 wasistlos-git
 wavpack
 wayland

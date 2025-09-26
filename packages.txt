@@ -223,7 +223,6 @@ gnome-menus
 gnome-music
 gnome-online-accounts
 gnome-remote-desktop
-gnome-screenshot
 gnome-session
 gnome-settings-daemon
 gnome-shell
@@ -1215,6 +1214,7 @@ wget
 which
 wildmidi
 wireplumber
+wl-clipboard
 woff2
 wpa_supplicant
 wpebackend-fdo

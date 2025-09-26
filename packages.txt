@@ -147,6 +147,7 @@ filesystem
 findutils
 firefox
 flac
+flameshot
 flatpak
 flatpak-xdg-utils
 flex
@@ -370,6 +371,7 @@ jsoncpp
 kbd
 kdbusaddons
 keyutils
+kguiaddons
 kitemviews
 kmod
 krb5

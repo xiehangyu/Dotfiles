@@ -49,6 +49,7 @@ bluez-utils
 bolt
 boost
 boost-libs
+botan2
 brightnessctl
 brltty
 brotli
@@ -1155,6 +1156,7 @@ texlive-pstricks
 texlive-publishers
 texlive-xetex
 the_silver_searcher
+thunderbird
 tinysparql
 tl-expected
 tlp

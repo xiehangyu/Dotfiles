@@ -1169,6 +1169,7 @@ tree
 tslib
 ttf-dejavu
 ttf-liberation
+ttf-ms-fonts
 ttf-noto-sans-mono-vf
 twolame
 tzdata
